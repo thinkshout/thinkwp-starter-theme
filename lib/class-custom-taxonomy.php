@@ -1,7 +1,7 @@
 <?php
 
 class Custom_Taxonomy {
-  /**
+	/**
 	 * Register a custom taxonomy
 	 *
 	 * @param string  $name The plaintext name of the taxonomy.
@@ -26,9 +26,9 @@ class Custom_Taxonomy {
 		);
 
 		$this->taxonomy = array(
-      'names'      => $names,
-      'post_types' => $post_types,
-      'args'       => array(
+			'names'      => $names,
+			'post_types' => $post_types,
+			'args'       => array(
 				'hierarchical'      => $hierarchical,
 				'labels'            => $labels,
 				'show_ui'           => $public,
@@ -37,17 +37,17 @@ class Custom_Taxonomy {
 				'query_var'         => true,
 				'rewrite'           => array( 'slug' => $names ),
 			)
-    );
+		);
 	}
 
 	/**
 	 * Register custom taxonomies
 	 */
 	public function add_to_wp() {
-    register_taxonomy(
+		register_taxonomy(
 			$this->taxonomy['names'],
-      $this->taxonomy['post_types'],
-      $this->taxonomy['args'],
+			$this->taxonomy['post_types'],
+			$this->taxonomy['args'],
 		);
 	}
 }
