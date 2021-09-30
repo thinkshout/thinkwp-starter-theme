@@ -1,0 +1,14 @@
+.image-banner {
+  @include bg_image_setup;
+  padding: rem(90) 0 rem(100);
+  img {
+    @include visually-hidden;
+  }
+  &:before {
+    content: "";
+    background-color: transparentize($color-black, 0.5);
+  }
+  &__content {
+    z-index: 1;
+  }
+}

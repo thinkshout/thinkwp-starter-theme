@@ -44,7 +44,7 @@ if ( ! class_exists( 'Timber' ) ) {
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
-Timber::$dirname = array( 'templates', 'views' );
+Timber::$dirname = array( 'views' );
 
 /**
  * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
@@ -60,20 +60,26 @@ Timber::$autoescape = false;
 class StarterSite extends Timber\Site {
 	/** Add timber support. */
 	public function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
-		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
-		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
-		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'after_setup_theme', [ $this, 'thinktimber_content_width' ], 0 );
+		add_action( 'after_setup_theme', [ $this, 'thinktimber_theme_supports' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'thinktimber_scripts' ] );
+		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
+		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
+		add_action( 'init', [ $this, 'register_post_types' ] );
+		add_action( 'init', [ $this, 'register_taxonomies' ] );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
 	public function register_post_types() {
-
+		require_once 'lib/custom-post-types.php';
+		// $projects = new Custom_Post_Type( 'Project', 'Projects', 'dashicons-megaphone', 5, true, [], [ 'title', 'editor', 'author' ] );
+		// $projects->add_to_wp();
 	}
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
-
+		require_once 'lib/custom-taxonomies.php';
+		// $project_type = new Custom_Taxonomy( 'Project Type', 'Project Types', false, true, [ 'project' ] );
+		// $project_type->add_to_wp();
 	}
 
 	/** This is where you add some context
@@ -89,7 +95,7 @@ class StarterSite extends Timber\Site {
 		return $context;
 	}
 
-	public function theme_supports() {
+	public function thinktimber_theme_supports() {
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
@@ -141,6 +147,49 @@ class StarterSite extends Timber\Site {
 		);
 
 		add_theme_support( 'menus' );
+	}
+
+	/**
+	 * Enqueue scripts and styles.
+	 */
+	public function thinktimber_scripts() {
+		$scripts_version = '1.0.0';
+		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$this->scripts_dir/main.css", [], $scripts_version );
+		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/main.min.js", [ 'jquery' ], $scripts_version, true );
+
+		wp_localize_script(
+			'thinktimber-scripts',
+			'thinktimber',
+			array(
+				'themeBase' => get_theme_file_uri(),
+				'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
+			)
+		);
+
+		wp_enqueue_script( 'alpinejs', 'https://unpkg.com/alpinejs@3.4.1/dist/cdn.min.js', [], '3.4.1', false );
+		wp_enqueue_script( 'thinktimber-alpine', get_template_directory_uri() . '/js/alpine.js', [ 'alpinejs' ], $scripts_version, false );
+
+		wp_enqueue_script( 'thinktimber-navigation', get_template_directory_uri() . '/js/navigation.js', [], $scripts_version, true );
+
+		wp_enqueue_script( 'thinktimber-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', [], $scripts_version, true );
+
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
+	}
+
+	/**
+	 * Set the content width in pixels, based on the theme's design and stylesheet.
+	 *
+	 * Priority 0 to make it available to lower priority callbacks.
+	 *
+	 * @global int $content_width
+	 */
+	public function thinktimber_content_width() {
+		// This variable is intended to be overruled from themes.
+		// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+		$GLOBALS['content_width'] = apply_filters( 'thinktimber_content_width', 640 );
 	}
 
 	/** This Would return 'foo bar!'.
