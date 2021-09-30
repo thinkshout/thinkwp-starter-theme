@@ -237,4 +237,4 @@ class thinktimber_Site extends Timber\Site {
 
 }
 
-new thinktimberSite();
+new thinktimber_Site();
