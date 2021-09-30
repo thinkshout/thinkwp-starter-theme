@@ -13,6 +13,7 @@ This is forked from the "_s" for Timber: a dead-simple theme that you can build 
 Please visit the Wiki to get started and for more information:
 
 - [Setup Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Setup)
+- [Development Strategy](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Development-Strategy)
 - [Twig Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/TWIG-In-WordPress)
 - [PHP Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/PHP-Guide)
 - [Sass Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Sass-Guide)
