@@ -12,13 +12,13 @@ This is forked from the "_s" for Timber: a dead-simple theme that you can build 
 ## Getting Started
 Please visit the Wiki to get started and for more information:
 
-[Setup Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Setup)
-[Twig Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/TWIG-In-WordPress)
-[PHP Guide]()
-[Sass Guide]()
-[TailWind Guide]()
+- [Setup Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Setup)
+- [Twig Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/TWIG-In-WordPress)
+- [PHP Guide]()
+- [Sass Guide]()
+- [TailWind Guide]()
 
 ## Other Resources
-[TailWind CSS](https://tailwindcss.com/)
-[Timber](https://timber.github.io/)
-[Alpine.js](https://alpinejs.dev/)
+- [TailWind CSS](https://tailwindcss.com/)
+- [Timber](https://timber.github.io/docs/)
+- [Alpine.js](https://alpinejs.dev/)
