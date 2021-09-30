@@ -1,5 +1,15 @@
 <?php
+/**
+ * Custom Taxonomy class
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * @package WordPress
+ * @subpackage  Timber
+ */
 
+/**
+ * Create a custom taxonomy and expose the register taxonomy function.
+ */
 class Custom_Taxonomy {
 	/**
 	 * Register a custom taxonomy
@@ -36,7 +46,7 @@ class Custom_Taxonomy {
 				'show_admin_column' => $public,
 				'query_var'         => true,
 				'rewrite'           => array( 'slug' => $names ),
-			)
+			),
 		);
 	}
 

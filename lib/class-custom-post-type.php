@@ -1,4 +1,15 @@
 <?php
+/**
+ * Custom Post Type class
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * @package WordPress
+ * @subpackage  Timber
+ */
+
+/**
+ * Create a custom post type and expose the register post type function.
+ */
 class Custom_Post_Type {
 	/**
 	 * Register a custom post type
@@ -11,8 +22,8 @@ class Custom_Post_Type {
 	 * @param array   $taxonomies The WordPress taxonomies this post type uses.
 	 * @param array   $supports The WordPress features this post type uses.
 	 */
-	public function __construct ( $name, $names, $dashicon, $position, $public = true, $taxonomies = [ 'category' ], $supports = [ 'title' ] ) {
-		$type_args = array(
+	public function __construct( $name, $names, $dashicon, $position, $public = true, $taxonomies = [ 'category' ], $supports = [ 'title' ] ) {
+		$type_args       = array(
 			'labels'              => array(
 				'name'                  => $names,
 				'singular_name'         => $name,

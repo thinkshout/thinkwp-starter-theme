@@ -81,15 +81,11 @@ class Theme extends Timber\Site {
 	/** This is where you can register custom post types. */
 	public function register_post_types() {
 		require_once __DIR__ . '/class-custom-post-type.php';
-		// $projects = new Custom_Post_Type( 'Project', 'Projects', 'dashicons-megaphone', 5, true, [], [ 'title', 'editor', 'author' ] );
-		// $projects->add_to_wp();
 	}
 
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
 		require_once __DIR__ . '/class-custom-taxonomies.php';
-		// $project_type = new Custom_Taxonomy( 'Project Type', 'Project Types', false, true, [ 'project' ] );
-		// $project_type->add_to_wp();
 	}
 
 	/** This is where you add some context
