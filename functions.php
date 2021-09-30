@@ -10,25 +10,16 @@
 
 /**
  * If you are installing Timber as a Composer dependency in your theme, you'll need this block
- * to load your dependencies and initialize Timber. If you are using Timber via the WordPress.org
- * plug-in, you can safely delete this block.
- */
-$composer_autoload = __DIR__ . '/vendor/autoload.php';
-if ( file_exists( $composer_autoload ) ) {
-	require_once $composer_autoload;
-	$timber = new Timber\Timber();
-}
-
-/**
- * This ensures that Timber is loaded and available as a PHP class.
+ * to load your dependencies and initialize Timber.This ensures that Timber is loaded and available as a PHP class.
  * If not, it gives an error message to help direct developers on where to activate
  */
-if ( ! class_exists( 'Timber' ) ) {
-
+if ( class_exists( 'Timber\Timber' ) ) {
+	$timber = new Timber\Timber();
+} else {
 	add_action(
 		'admin_notices',
 		function() {
-			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+			echo '<div class="error"><p>Timber not activated. Make sure to install via composer.</p></div>';
 		}
 	);
 
@@ -57,11 +48,15 @@ Timber::$autoescape = false;
  * We're going to configure our theme inside of a subclass of Timber\Site
  * You can move this to its own file and include here via php's include("MySite.php")
  */
-class StarterSite extends Timber\Site {
+class thinktimberSite extends Timber\Site {
 	/** Add timber support. */
 	public function __construct() {
+		// Theme activation and deactivation hooks!
+		register_activation_hook( __FILE__, [ $this, 'thinktimber_activate' ] );
+
+		// Actions, Filters, and Theme Setup!
 		add_action( 'after_setup_theme', [ $this, 'thinktimber_content_width' ], 0 );
-		add_action( 'after_setup_theme', [ $this, 'thinktimber_theme_supports' ] );
+		add_action( 'after_setup_theme', [ $this, 'thinktimber_setup' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'thinktimber_scripts' ] );
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
 		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
@@ -69,15 +64,31 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', [ $this, 'register_taxonomies' ] );
 		parent::__construct();
 	}
+
+	/**
+	 * Theme activation hook
+	 */
+	public function thinktimber_activate() {
+		$style_guide_page = array(
+			'post_title'  => 'Style Guide',
+			'post_status' => 'private',
+			'post_author' => 1,
+			'post_type'   => 'page'
+		);
+		wp_insert_post( $style_guide_page );
+		// Add any additional activation code here
+	}
+
 	/** This is where you can register custom post types. */
 	public function register_post_types() {
-		require_once 'lib/custom-post-types.php';
+		require_once __DIR__ . '/lib/post-types.php';
 		// $projects = new Custom_Post_Type( 'Project', 'Projects', 'dashicons-megaphone', 5, true, [], [ 'title', 'editor', 'author' ] );
 		// $projects->add_to_wp();
 	}
+
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
-		require_once 'lib/custom-taxonomies.php';
+		require_once __DIR__ . '/lib/taxonomies.php';
 		// $project_type = new Custom_Taxonomy( 'Project Type', 'Project Types', false, true, [ 'project' ] );
 		// $project_type->add_to_wp();
 	}
@@ -95,9 +106,21 @@ class StarterSite extends Timber\Site {
 		return $context;
 	}
 
-	public function thinktimber_theme_supports() {
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * runs before the init hook. The init hook is too late for some features, such
+	 * as indicating support for post thumbnails.
+	 */
+	public function thinktimber_setup() {
+		/*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on thinktimber, use a find and replace
+		 * to change 'thinktimber' to the name of your theme in all the template files.
+		 */
+		load_theme_textdomain( 'thinktimber', get_template_directory() . '/languages' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -154,8 +177,9 @@ class StarterSite extends Timber\Site {
 	 */
 	public function thinktimber_scripts() {
 		$scripts_version = '1.0.0';
-		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$this->scripts_dir/main.css", [], $scripts_version );
-		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/main.min.js", [ 'jquery' ], $scripts_version, true );
+		$scripts_dir = 'dist';
+		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$scripts_dir/main.css", [], $scripts_version );
+		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$scripts_dir/main.min.js", [ 'jquery' ], $scripts_version, true );
 
 		wp_localize_script(
 			'thinktimber-scripts',
@@ -213,4 +237,4 @@ class StarterSite extends Timber\Site {
 
 }
 
-new StarterSite();
+new thinktimberSite();

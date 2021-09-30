@@ -10,19 +10,9 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
-		<header class="header" >
-			{% block header %}
-				<div class="wrapper">
-					<h1 class="hdr-logo" role="banner">
-						<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-					</h1>
-					<nav id="nav-main" class="nav-main" role="navigation">
-						{% include "components/menu.twig" with {'items': menu.get_items} %}
-					</nav><!-- #nav -->
-				</div>
-			{% endblock %}
-		</header>
+		{% include 'components/body-scripts.twig' %}
+    <a class="skip-link screen-reader-text" href="{{post.link}}#content">{{ __( 'Skip to content', 'thinkwp' ) }}</a>
+		{% include 'components/header.twig' %}
 
 		<section id="content" role="main" class="content-wrapper">
 			{% if title %}<h1>{{title}}</h1>{% endif %}
@@ -38,11 +28,7 @@
 			{% endif %}
 		</section>
 
-		{% block footer %}
-			<footer id="footer">
-				{% include 'components/footer.twig' %}
-			</footer>
-			{{ function('wp_footer') }}
-		{% endblock %}
+		{% include 'components/footer.twig' %}
+		{% include 'components/footer-scripts.twig' %}
 	</body>
 </html>

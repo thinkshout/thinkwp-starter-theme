@@ -11,13 +11,11 @@
     </div>
     <!-- .site-branding -->
     <div class="spacer"></div>
-    {% embed 'components/menu.twig'
-      with {
-        menu: header_menu
-      }
-    %}
 
-    {% endembed %}
+    <nav id="nav-main" class="nav-main" role="navigation">
+    {% include "components/menu.twig" with {'items': menu.get_items} %}
+    </nav>
+
     <button class="menu-toggle btn reset relative block lg:hidden"
       aria-controls="{{ header_menu.slug }}"
       aria-expanded="false">
