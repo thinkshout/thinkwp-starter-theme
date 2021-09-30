@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Timber starter-theme
  * https://github.com/timber/starter-theme
