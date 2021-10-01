@@ -220,11 +220,28 @@ class Theme extends Timber\Site {
 		return $text;
 	}
 
+	/**
+	 * Console Logging PHP Values
+	 *
+	 * @param multi $value The variables to be logged.
+	 */
+	public function php_console( $value = null ) {
+		// Console Log a mixed var.
+		echo '<script type="text/javascript">console.log(' . wp_json_encode( $value ) . ');</script>';
+	}
+
 	/** This is where you can add your own functions to twig.
 	 *
 	 * @param string $twig get extension.
 	 */
 	public function add_to_twig( $twig ) {
+		// PHP Console.
+		$twig->addFunction(
+			new Timber\Twig_Function(
+				'console',
+				array( $this, 'php_console' )
+			)
+		);
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
 		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
 		return $twig;
