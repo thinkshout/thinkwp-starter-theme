@@ -1,101 +1,15 @@
 /* Global Header Nav styles go here */
 .site-header {
-  padding: rem(14px) rem(20px);
   .main-navigation {
     .menu-toggle {
       padding-top: rem(5px);
     }
     .menu {
-      @apply hidden;
-      .menu-link {
-        padding: rem(15px) 0;
-        @apply block no-underline transition-all cursor-pointer;
-        @include mq(lg) {
-          @apply p-0;
-        }
-      }
-      .menu-item {
-        &.menu-item-has-children {
-          @apply relative;
-          > .menu-link {
-            &:after {
-              content: url("/assets/svg/MenuChevron.svg");
-              width: rem(10px);
-              top: rem(-1px);
-              margin-left: rem(5px);
-              @apply inline-block relative transition-transform rotate-0;
-            }
-          }
-        }
-        .sub-menu {
-          @apply invisible opacity-0 max-h-0 transition-all flex-col min-w-full p-0 z-10;
-          > li {
-            padding: 0;
-            top: 0;
-            transform: none;
-            a {
-              display: block;
-              padding: rem(10) rem(16);
-              white-space: nowrap;
-              text-transform: none;
-              &:after {
-                content: none;
-              }
-              @include hocus {
-                text-decoration: underline;
-              }
-            }
-          }
-          @include mq(lg) {
-            position: absolute;
-          }
-        }
-
-        &.menu-item-has-children:hover,
-        &.menu-item-has-children:focus-within,
-        &.menu-item-has-children > .sub-menu:hover {
-          > .sub-menu {
-            display: flex;
-            visibility: visible;
-            opacity: 1;
-            max-height: rem(1000);
-            padding: rem(10) 0 rem(16);
-          }
-        }
-      }
-      @include mq(lg) {
-        display: inline-block;
-        margin-left: rem(60);
-        .menu-item {
-          position: relative;
-        }
-        .menu-link {
-          padding: rem(25) rem(10);
-          text-decoration: none;
-          transition: color 0.25s ease;
-          position: relative;
-        }
-      }
-      @include mq(1120) {
-        .menu-link {
-          padding: rem(25) rem(12.5);
-        }
-      }
+      @apply hidden lg:inline-block;
     }
     &.toggled {
       #header-menu {
-        display: block;
-        position: fixed;
-        display: block;
-        width: 100vw;
-        left: 0;
-        top: 69px;
-        height: calc(100vh - 69px);
-        padding: 0 rem(25);
-        z-index: 50;
-      }
-      .menu-item {
-        display: block;
+        @apply block;
       }
       .menu-toggle {
         &__sandwich-layer {
@@ -143,8 +57,5 @@
       opacity: 0;
       visibility: hidden;
     }
-  }
-  @include mq(xl) {
-    padding: rem(23) rem(120);
   }
 }

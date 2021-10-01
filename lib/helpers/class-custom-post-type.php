@@ -70,6 +70,6 @@ class Custom_Post_Type {
 	 * Add Custom Post Types
 	 */
 	public function add_to_wp() {
-		register_post_type( $this->type['name'], $this->type['args'] );
+		register_post_type( $this->post_type['name'], $this->post_type['args'] );
 	}
 }
