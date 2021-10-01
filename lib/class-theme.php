@@ -80,12 +80,12 @@ class Theme extends Timber\Site {
 
 	/** This is where you can register custom post types. */
 	public function register_post_types() {
-		require_once __DIR__ . '/class-custom-post-type.php';
+		require_once __DIR__ . '/helpers/class-custom-post-type.php';
 	}
 
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
-		require_once __DIR__ . '/class-custom-taxonomies.php';
+		require_once __DIR__ . '/helpers/class-custom-taxonomies.php';
 	}
 
 	/** This is where you add some context
