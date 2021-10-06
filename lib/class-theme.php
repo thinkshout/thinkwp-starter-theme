@@ -35,7 +35,12 @@ if ( class_exists( 'Timber\Timber' ) ) {
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
-Timber::$dirname = array( 'views' );
+Timber::$dirname = [ 'views' ];
+
+/**
+ * Sets template directory locations inside the theme.
+ */
+Timber::$locations = [ get_template_directory() . '/templates', get_template_directory() ];
 
 /**
  * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?

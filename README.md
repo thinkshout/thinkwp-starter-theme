@@ -25,4 +25,3 @@ External docs for relevant theme technologies:
 - [WordPress](https://wordpress.org)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Timber](https://timber.github.io/docs/)
-- [Alpine.js](https://alpinejs.dev/)
