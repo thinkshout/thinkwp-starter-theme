@@ -81,11 +81,19 @@ class Theme extends Timber\Site {
 	/** This is where you can register custom post types. */
 	public function register_post_types() {
 		require_once __DIR__ . '/helpers/class-custom-post-type.php';
+		$thinktimber_post_types = [];
+		foreach ( $thinktimber_post_types as $thinktimber_post_type ) {
+			$thinktimber_post_type->add_to_wp();
+		}
 	}
 
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
 		require_once __DIR__ . '/helpers/class-custom-taxonomies.php';
+		$thinktimber_taxonomies = [];
+		foreach ( $thinktimber_taxonomies as $thinktimber_taxonomy ) {
+			$thinktimber_taxonomy->add_to_wp();
+		}
 	}
 
 	/** This is where you add some context

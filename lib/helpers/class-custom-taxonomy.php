@@ -18,7 +18,7 @@ class Custom_Taxonomy {
 	 * @param string  $names The plural plaintext name of the taxonomy.
 	 * @param boolean $hierarchical True if this taxonomy can have children.
 	 * @param boolean $public True if this taxonomy is queryable and should appear user in searches.
-	 * @param array   $post_types The post types this taxonomy is registered to.
+	 * @param array   $post_types The sanitize_title output of the post types this taxonomy is registered to.
 	 */
 	public function __construct( $name, $names, $hierarchical = true, $public = true, $post_types = [ 'post' ] ) {
 		$labels = array(
@@ -36,7 +36,7 @@ class Custom_Taxonomy {
 		);
 
 		$this->taxonomy = array(
-			'names'      => $names,
+			'names'      => sanitize_title( $names, $name ),
 			'post_types' => $post_types,
 			'args'       => array(
 				'hierarchical'      => $hierarchical,
@@ -45,7 +45,7 @@ class Custom_Taxonomy {
 				'show_in_rest'      => $public,
 				'show_admin_column' => $public,
 				'query_var'         => true,
-				'rewrite'           => array( 'slug' => $names ),
+				'rewrite'           => array( 'slug' => sanitize_title( $names, $name ) ),
 			),
 		);
 	}

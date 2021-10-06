@@ -14,7 +14,7 @@ class Custom_Post_Type {
 	/**
 	 * Register a custom post type
 	 *
-	 * @param string  $name The plaintext name of the post type.
+	 * @param string  $name The plaintext name of the post type. This will be run through sanitize_title to generate the CPT key.
 	 * @param string  $names The plural plaintext name of the post type.
 	 * @param string  $dashicon The slug of the dashicon you want you use for this post type.
 	 * @param integer $position The numerical position or area in the admin menu that this post type should appear in.
@@ -61,7 +61,7 @@ class Custom_Post_Type {
 			'supports'            => $supports,
 		);
 		$this->post_type = array(
-			'name' => $name,
+			'name' => sanitize_title( $name, $names ),
 			'args' => $type_args,
 		);
 	}
