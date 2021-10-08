@@ -36,12 +36,5 @@
     "tw.dev": "NODE_ENV=development tailwindcss -i ./sass/style.scss -o ./dist/main.css --watch"
   },
   "author": "ThinkShout, Inc",
-  "license": "GPL-3.0",
-  "dependencies": {
-    "aria-autocomplete": "^1.4.0",
-    "copy-to-clipboard": "^3.3.1",
-    "custom-select": "^1.1.15",
-    "penpal": "^5.3.0",
-    "prettier-plugin-twig-melody": "^0.4.6"
-  }
+  "license": "GPL-3.0"
 }
