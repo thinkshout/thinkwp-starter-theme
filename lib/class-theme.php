@@ -59,13 +59,15 @@ class Theme extends Timber\Site {
 		register_activation_hook( __FILE__, [ $this, 'thinktimber_activate' ] );
 
 		// Actions, Filters, and Theme Setup!
+		add_action( 'init', [ $this, 'register_post_types' ] );
+		add_action( 'init', [ $this, 'register_taxonomies' ] );
 		add_action( 'after_setup_theme', [ $this, 'thinktimber_content_width' ], 0 );
 		add_action( 'after_setup_theme', [ $this, 'thinktimber_setup' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'thinktimber_scripts' ] );
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
 		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
-		add_action( 'init', [ $this, 'register_post_types' ] );
-		add_action( 'init', [ $this, 'register_taxonomies' ] );
+		add_filter( 'script_loader_tag', [ $this, 'thinktimber_defer_scripts' ], 10, 2 );
+
 		parent::__construct();
 	}
 
@@ -208,6 +210,24 @@ class Theme extends Timber\Site {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+	}
+
+	/**
+	 * Add defer tag to given script tags
+	 *
+	 * @param string $tag Script tag.
+	 * @param string $handle Script handle.
+	 *
+	 * @return string
+	 */
+	public function thinktimber_defer_scripts( $tag, $handle ) {
+		$deferred_scripts = [ 'alpinejs' ];
+
+		if ( in_array( $handle, $deferred_scripts, true ) ) {
+			return str_replace( ' src', ' defer="defer" src', $tag );
+		}
+
+		return $tag;
 	}
 
 	/**
