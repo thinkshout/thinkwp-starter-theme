@@ -28,7 +28,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "build:dev": "webpack --config webpack.config.js --mode development",
-    "start": "webpack --watch",
+    "start": "npm run tokens && webpack --watch",
     "start:dev": "webpack --watch --mode development",
     "tokens": "style-dictionary build --config style-dictionary.config.json",
     "prettier": "prettier --write sass/**/*.scss js/**/*.js",
