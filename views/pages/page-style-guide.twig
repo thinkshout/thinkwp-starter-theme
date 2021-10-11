@@ -79,8 +79,10 @@
   'btn-search',
 ]
 %}
+{% extends "base.twig" %}
 
-<div class="relative">
+{% block content %}
+<div class="relative" id="page-styleguide">
   {# Menu#}
   <div class="styleguide-nav">
   <div class="py-3xl text-gray-dk">
@@ -191,7 +193,6 @@
       {% for btn in iconBtnLinkStyles %}
         <p class="body-sm inline-block mr-xs">
           {% include('components/icons/icon-' ~ btn ~ '.html.twig') %}
-          {% include('components/icons/icon-{{ btn }}.html.twig') %}
         </p>
       {% endfor %}
     </div>
@@ -521,3 +522,4 @@
   </div>
 </div>
 </div>
+{% endblock %}

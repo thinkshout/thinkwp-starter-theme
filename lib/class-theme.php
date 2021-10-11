@@ -96,7 +96,7 @@ class Theme extends Timber\Site {
 
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
-		require_once __DIR__ . '/helpers/class-custom-taxonomies.php';
+		require_once __DIR__ . '/helpers/class-custom-taxonomy.php';
 		$thinktimber_taxonomies = [];
 		foreach ( $thinktimber_taxonomies as $thinktimber_taxonomy ) {
 			$thinktimber_taxonomy->add_to_wp();
