@@ -5,8 +5,11 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
-/* THEME */
-@import "theme/theme.scss";
+/* Configuration */
+@import "config/*";
+
+/* Primitives */
+@import "primitives/*";
 
 /* PAGES */
 @import "pages/*";
