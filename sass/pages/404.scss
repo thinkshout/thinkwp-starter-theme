@@ -5,7 +5,7 @@
       left: 50%;
       transform: translateX(-50%);
       top: 50%;
-      @apply text-gray-dk opacity-50 absolute z-0;
+      @apply text-gray-dk opacity-semi-invisible absolute z-0;
     }
   }
 }

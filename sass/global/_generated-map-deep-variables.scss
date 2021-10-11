@@ -1,7 +1,7 @@
 
 /**
  * Do not edit directly
- * Generated on Mon, 11 Oct 2021 15:57:58 GMT
+ * Generated on Mon, 11 Oct 2021 16:04:34 GMT
  */
 
 $transition-default: all 300ms ease-in-out !default;
@@ -10,10 +10,10 @@ $color-white: #ffffff !default;
 $color-gray-lt: #ededed !default;
 $color-gray-dk: #444444 !default;
 $grid-gap: 1rem !default;
-$opacity-0: 0 !default;
-$opacity-1: 1 !default;
-$opacity-02: 0.2 !default;
-$opacity-05: 0.5 !default;
+$opacity-invisible: 0 !default;
+$opacity-almost-invisible: 0.2 !default;
+$opacity-semi-invisible: 0.5 !default;
+$opacity-visible: 1 !default;
 $screen-default: 0px !default;
 $screen-sm: 501px !default;
 $screen-md: 769px !default;
@@ -59,10 +59,20 @@ $line-height-taut: 1.1 !default;
 $line-height-tight: 1.2 !default;
 $line-height-snug: 1.3 !default;
 $line-height-normal: 1.5 !default;
-$z-index-0: 0 !default;
-$z-index-1: 1 !default;
-$z-index-2: 2 !default;
-$z-index-3: 3 !default;
+$z-index-deep: -100 !default;
+$z-index-background: -50 !default;
+$z-index-behind: -25 !default;
+$z-index-default: 1 !default;
+$z-index-docked: 10 !default;
+$z-index-sticky: 20 !default;
+$z-index-popup: 30 !default;
+$z-index-dialog: 40 !default;
+$z-index-dropdown: 50 !default;
+$z-index-overlay: 60 !default;
+$z-index-reminder: 70 !default;
+$z-index-modal: 80 !default;
+$z-index-spinner: 90 !default;
+$z-index-toast: 100 !default;
 
 $tokens: (
   'transition': (
@@ -80,10 +90,10 @@ $tokens: (
     'gap': $grid-gap
   ),
   'opacity': (
-    '0': $opacity-0,
-    '1': $opacity-1,
-    '02': $opacity-02,
-    '05': $opacity-05
+    'invisible': $opacity-invisible,
+    'almost-invisible': $opacity-almost-invisible,
+    'semi-invisible': $opacity-semi-invisible,
+    'visible': $opacity-visible
   ),
   'screen': (
     'default': $screen-default,
@@ -144,10 +154,20 @@ $tokens: (
     'snug': $line-height-snug,
     'normal': $line-height-normal
   ),
-  'zIndex': (
-    '0': $z-index-0,
-    '1': $z-index-1,
-    '2': $z-index-2,
-    '3': $z-index-3
+  'z-index': (
+    'deep': $z-index-deep,
+    'background': $z-index-background,
+    'behind': $z-index-behind,
+    'default': $z-index-default,
+    'docked': $z-index-docked,
+    'sticky': $z-index-sticky,
+    'popup': $z-index-popup,
+    'dialog': $z-index-dialog,
+    'dropdown': $z-index-dropdown,
+    'overlay': $z-index-overlay,
+    'reminder': $z-index-reminder,
+    'modal': $z-index-modal,
+    'spinner': $z-index-spinner,
+    'toast': $z-index-toast
   )
 );
