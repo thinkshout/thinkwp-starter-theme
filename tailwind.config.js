@@ -1,4 +1,4 @@
-const tokens = require('./tailwind-tokens.json');
+const tokens = require('./tokens/tailwind-tokens.json');
 
 module.exports = {
   mode: 'jit',

@@ -1,5 +1,5 @@
 {
-  "source": ["tokens/**/*.json"],
+  "source": ["tokens/src/**/*.json"],
   "platforms": {
     "scss": {
       "transformGroup": "scss",
@@ -26,7 +26,7 @@
       "buildPath": "./",
       "files": [
         {
-          "destination": "tailwind-tokens.json",
+          "destination": "tokens/tailwind-tokens.json",
           "format": "json/nested"
         }
       ]
