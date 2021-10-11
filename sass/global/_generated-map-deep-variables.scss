@@ -1,7 +1,7 @@
 
 /**
  * Do not edit directly
- * Generated on Mon, 11 Oct 2021 15:48:31 GMT
+ * Generated on Mon, 11 Oct 2021 15:57:58 GMT
  */
 
 $transition-default: all 300ms ease-in-out !default;
@@ -9,10 +9,11 @@ $color-black: #000000 !default;
 $color-white: #ffffff !default;
 $color-gray-lt: #ededed !default;
 $color-gray-dk: #444444 !default;
-$opacity-invisible: 0 !default;
-$opacity-almost-invisible: 0.2 !default;
-$opacity-semi-invisible: 0.5 !default;
-$opacity-visible: 1 !default;
+$grid-gap: 1rem !default;
+$opacity-0: 0 !default;
+$opacity-1: 1 !default;
+$opacity-02: 0.2 !default;
+$opacity-05: 0.5 !default;
 $screen-default: 0px !default;
 $screen-sm: 501px !default;
 $screen-md: 769px !default;
@@ -22,16 +23,17 @@ $screen-2xl: 2000px !default;
 $screen-site-max-width: 2000px !default;
 $spacer-0: 0 !default;
 $spacer-px: 1px !default;
-$spacer-3xs: 0.25rem !default;
-$spacer-2xs: 0.5rem !default;
-$spacer-xs: 1rem !default;
-$spacer-sm: 1.25rem !default;
-$spacer-md: 2rem !default;
-$spacer-lg: 3rem !default;
-$spacer-xl: 4rem !default;
-$spacer-2xl: 6rem !default;
-$spacer-3xl: 8.125rem !default;
-$spacer-4xl: 10rem !default;
+$spacer-3xs: 0.125rem !default;
+$spacer-2xs: 0.25rem !default;
+$spacer-xs: 0.5rem !default;
+$spacer-sm: 0.75rem !default;
+$spacer-base: 1rem !default;
+$spacer-md: 1.25rem !default;
+$spacer-lg: 1.5rem !default;
+$spacer-xl: 2rem !default;
+$spacer-2xl: 3rem !default;
+$spacer-3xl: 4rem !default;
+$spacer-4xl: 6rem !default;
 $font-weight-book: 300 !default;
 $font-weight-light: 300 !default;
 $font-weight-regular: 400 !default;
@@ -40,20 +42,27 @@ $font-weight-semibold: 600 !default;
 $font-weight-bold: 700 !default;
 $font-family-serif: 'Geller Headline', Times, serif !default;
 $font-family-sans: 'Halyard Text', Helvetica, Arial, sans-serif !default;
-$z-index-deep: -100 !default;
-$z-index-background: -50 !default;
-$z-index-behind: -25 !default;
-$z-index-default: 1 !default;
-$z-index-docked: 10 !default;
-$z-index-sticky: 20 !default;
-$z-index-popup: 30 !default;
-$z-index-dialog: 40 !default;
-$z-index-dropdown: 50 !default;
-$z-index-overlay: 60 !default;
-$z-index-reminder: 70 !default;
-$z-index-modal: 80 !default;
-$z-index-spinner: 90 !default;
-$z-index-toast: 100 !default;
+$font-size-2xs: 0.625rem !default;
+$font-size-xs: 0.75rem !default;
+$font-size-sm: 0.875rem !default;
+$font-size-base: 1rem !default;
+$font-size-md: 1.125rem !default;
+$font-size-lg: 1.25rem !default;
+$font-size-xl: 1.375rem !default;
+$font-size-2xl: 1.4375rem !default;
+$font-size-3xl: 1.875rem !default;
+$font-size-4xl: 2.5rem !default;
+$font-size-5xl: 2.8125rem !default;
+$font-size-6xl: 3.75rem !default;
+$line-height-none: 1 !default;
+$line-height-taut: 1.1 !default;
+$line-height-tight: 1.2 !default;
+$line-height-snug: 1.3 !default;
+$line-height-normal: 1.5 !default;
+$z-index-0: 0 !default;
+$z-index-1: 1 !default;
+$z-index-2: 2 !default;
+$z-index-3: 3 !default;
 
 $tokens: (
   'transition': (
@@ -67,11 +76,14 @@ $tokens: (
       'dk': $color-gray-dk
     )
   ),
+  'grid': (
+    'gap': $grid-gap
+  ),
   'opacity': (
-    'invisible': $opacity-invisible,
-    'almost-invisible': $opacity-almost-invisible,
-    'semi-invisible': $opacity-semi-invisible,
-    'visible': $opacity-visible
+    '0': $opacity-0,
+    '1': $opacity-1,
+    '02': $opacity-02,
+    '05': $opacity-05
   ),
   'screen': (
     'default': $screen-default,
@@ -89,6 +101,7 @@ $tokens: (
     '2xs': $spacer-2xs,
     'xs': $spacer-xs,
     'sm': $spacer-sm,
+    'base': $spacer-base,
     'md': $spacer-md,
     'lg': $spacer-lg,
     'xl': $spacer-xl,
@@ -108,22 +121,33 @@ $tokens: (
     'family': (
       'serif': $font-family-serif,
       'sans': $font-family-sans
+    ),
+    'size': (
+      '2xs': $font-size-2xs,
+      'xs': $font-size-xs,
+      'sm': $font-size-sm,
+      'base': $font-size-base,
+      'md': $font-size-md,
+      'lg': $font-size-lg,
+      'xl': $font-size-xl,
+      '2xl': $font-size-2xl,
+      '3xl': $font-size-3xl,
+      '4xl': $font-size-4xl,
+      '5xl': $font-size-5xl,
+      '6xl': $font-size-6xl
     )
   ),
-  'z-index': (
-    'deep': $z-index-deep,
-    'background': $z-index-background,
-    'behind': $z-index-behind,
-    'default': $z-index-default,
-    'docked': $z-index-docked,
-    'sticky': $z-index-sticky,
-    'popup': $z-index-popup,
-    'dialog': $z-index-dialog,
-    'dropdown': $z-index-dropdown,
-    'overlay': $z-index-overlay,
-    'reminder': $z-index-reminder,
-    'modal': $z-index-modal,
-    'spinner': $z-index-spinner,
-    'toast': $z-index-toast
+  'lineHeight': (
+    'none': $line-height-none,
+    'taut': $line-height-taut,
+    'tight': $line-height-tight,
+    'snug': $line-height-snug,
+    'normal': $line-height-normal
+  ),
+  'zIndex': (
+    '0': $z-index-0,
+    '1': $z-index-1,
+    '2': $z-index-2,
+    '3': $z-index-3
   )
 );
