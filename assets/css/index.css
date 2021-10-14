@@ -1,0 +1,21 @@
+/* Global Dictionary */
+@import "global/_generated-variables.css";
+
+/* Configuration */
+@import "config/tailwind.css";
+@import "config/base.css";
+@import "config/utilities.css";
+
+/* Primitives */
+@import "theme/buttons-links.css";
+@import "theme/design-elements.css";
+@import "theme/typography.css";
+
+/* PAGES */
+@import "pages/home.css";
+@import "pages/404.css";
+@import "pages/styleguide.css";
+
+/* COMPONENTS */
+@import "components/header.css";
+@import "components/footer.css";

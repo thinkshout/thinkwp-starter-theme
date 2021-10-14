@@ -188,8 +188,8 @@ class Theme extends Timber\Site {
 	public function thinktimber_scripts() {
 		$scripts_version = '1.0.0';
 		$scripts_dir = 'dist';
-		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$scripts_dir/main.css", [], $scripts_version );
-		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$scripts_dir/main.min.js", [ 'jquery' ], $scripts_version, true );
+		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$scripts_dir/theme.css", [], $scripts_version );
+		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$scripts_dir/theme.js", [ 'jquery' ], $scripts_version, true );
 
 		wp_localize_script(
 			'thinktimber-scripts',
@@ -201,11 +201,11 @@ class Theme extends Timber\Site {
 		);
 
 		wp_enqueue_script( 'alpinejs', 'https://unpkg.com/alpinejs@3.4.1/dist/cdn.min.js', [], '3.4.1', false );
-		wp_enqueue_script( 'thinktimber-alpine', get_template_directory_uri() . '/js/alpine.js', [ 'alpinejs' ], $scripts_version, false );
+		wp_enqueue_script( 'thinktimber-alpine', get_template_directory_uri() . '/assets/js/alpine.js', [ 'alpinejs' ], $scripts_version, false );
 
-		wp_enqueue_script( 'thinktimber-navigation', get_template_directory_uri() . '/js/navigation.js', [], $scripts_version, true );
+		wp_enqueue_script( 'thinktimber-navigation', get_template_directory_uri() . '/assets/js/navigation.js', [], $scripts_version, true );
 
-		wp_enqueue_script( 'thinktimber-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', [], $scripts_version, true );
+		wp_enqueue_script( 'thinktimber-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', [], $scripts_version, true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
