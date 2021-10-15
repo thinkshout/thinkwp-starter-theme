@@ -10,10 +10,15 @@ In `assets` you'll find `css/`, `js/`, and `static/` is where you can keep your 
 `views/` contains all of your Twig templates. These pretty much correspond 1 to 1 with the PHP files that respond to the WordPress template hierarchy. At the end of each PHP template, you'll notice a `Timber::render()` function whose first parameter is the Twig file where that data [or `$context`] will be used. Just an FYI.
 
 ## Installation
+Getting started you will need to install theme dependencies with [nvm](https://github.com/nvm-sh/nvm#installing-and-updating), [npm](https://docs.npmjs.com/), and [composer](https://getcomposer.org/).
 
-- Run `npm install` to install dependencies.
-
-Install will check the node version against the `.nvmrc` file, install all dependencies, and populate a prod build.
+1. Navigate to the theme directory in your project folder.
+2. Run `composer require timber/timber` to install Timber in the site, if prompted use the existing `composer.json` file in the project root directory. For more information on using Twig in WordPress see our [wiki article](https://github.com/thinkshout/thinkwp-starter-theme/wiki/TWIG-In-WordPress)
+3. If using custom Gutenberg blocks with ACF run `composer require palmiak/timber-acf-wp-blocks` and add the following line to the constructor of the theme class in [class-theme.php](https://github.com/thinkshout/thinkwp-starter-theme/blob/main/lib/class-theme.php).
+```php
+new Timber_Acf_Wp_Blocks(); // Register blocks in views/blocks with ACF.
+```
+4. Run `npm install` to install dependencies. Install will check the node version against the `.nvmrc` file, install all dependencies, and populate an initial set of token definitions.
 
 ## Theme Development
 
