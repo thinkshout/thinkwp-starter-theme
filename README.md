@@ -40,10 +40,10 @@ Additionally, there are a number of scripts to aid in theme development (assume 
 Please visit [the Wiki](https://github.com/thinkshout/thinkwp-starter-theme/wiki) to get started and for more information:
 
 - [Setup Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Setup)
-- [Development Strategy](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Development-Strategy)
+- [Where Do I Find](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Where-Do-I-Find)
 - [Twig Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/TWIG-In-WordPress)
 - [PHP Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/PHP-Guide)
-- [Sass Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Sass-Guide)
+- [CSS Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/CSS-Guide)
 - [Tailwind Guide](https://github.com/thinkshout/thinkwp-starter-theme/wiki/Tailwind-Guide)
 
 ## Other Resources
