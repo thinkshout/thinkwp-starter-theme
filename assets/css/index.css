@@ -1,5 +1,5 @@
 /* Global Dictionary */
-@import "global/_generated-variables.css";
+@import "base/_generated-variables.css";
 
 /* Tailwind Setup */
 /**
@@ -14,24 +14,24 @@
  */
 @tailwind components;
 
-/* Configuration */
 @layer {
-  @import "config/base.css";
-  @import "config/utilities.css";
+  /* Base Definitions */
+  @import "base/base.css";
+  @import "base/utilities.css";
 
   /* Primitives */
-  @import "theme/buttons-links.css";
-  @import "theme/design-elements.css";
-  @import "theme/typography.css";
+  @import "common/buttons-links.css";
+  @import "common/design-elements.css";
+  @import "common/typography.css";
+
+  /* COMPONENTS */
+  @import "components/header.css";
+  @import "components/footer.css";
 
   /* PAGES */
   @import "pages/home.css";
   @import "pages/404.css";
   @import "pages/styleguide.css";
-
-  /* COMPONENTS */
-  @import "components/header.css";
-  @import "components/footer.css";
 }
 
 /* Tailwind Wrap-up */
