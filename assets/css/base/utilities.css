@@ -56,3 +56,9 @@
 .m-card {
   @apply mx-md my-md;
 }
+
+.bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
