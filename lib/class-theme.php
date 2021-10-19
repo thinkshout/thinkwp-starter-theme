@@ -109,8 +109,8 @@ class Theme extends Timber\Site {
 	 */
 	public function add_to_context( $context ) {
 		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
+		$context['stuff'] = 'I am a value set in your lib/class-theme.php file';
+		$context['notes'] = 'These values are available every time you call Timber::context();';
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		return $context;
