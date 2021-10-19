@@ -140,13 +140,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"1jmDS":[function(require,module,exports) {
+})({"gmLA8":[function(require,module,exports) {
 "use strict";
 var HMR_HOST = null;
 var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "8f27ae1a4601d577";
-module.bundle.HMR_BUNDLE_ID = "f50cb59ef7462401";
+module.bundle.HMR_BUNDLE_ID = "6b8cfba39be18bb2";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
     if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
@@ -458,7 +458,7 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"bP0Un":[function(require,module,exports) {
+},{}],"7vOzy":[function(require,module,exports) {
 // Import CSS;
 var _indexCss = require("./css/index.css");
 // Import JS;
@@ -531,6 +531,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["1jmDS","bP0Un"], "bP0Un", "parcelRequireaf93")
+},{}]},["gmLA8","7vOzy"], "7vOzy", "parcelRequireaf93")
 
-//# sourceMappingURL=theme.js.map
+//# sourceMappingURL=motif.js.map

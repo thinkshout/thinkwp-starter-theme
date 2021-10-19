@@ -188,8 +188,8 @@ class Theme extends Timber\Site {
 	public function thinktimber_scripts() {
 		$scripts_version = '1.0.0';
 		$scripts_dir = 'dist';
-		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$scripts_dir/theme.css", [], $scripts_version );
-		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$scripts_dir/theme.js", [ 'jquery' ], $scripts_version, true );
+		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$scripts_dir/motif.css", [], $scripts_version );
+		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$scripts_dir/motif.js", [ 'jquery' ], $scripts_version, true );
 
 		wp_localize_script(
 			'thinktimber-scripts',
