@@ -1,4 +1,5 @@
 // IMPORTS GO HERE
+import siteAlpine from './alpine.js';
 import accessibleMenu from "./components/accessible-menu";
 (($) => {
   $(document).ready(() => {
