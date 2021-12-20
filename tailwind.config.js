@@ -6,7 +6,7 @@ module.exports = {
   mode: 'jit',
   darkMode: 'media', // or 'media' or 'class'
   prefix: '',
-  purge: [
+  content: [
     './views/**/*.{html,twig}',
     './js/**/*.js',
   ],
