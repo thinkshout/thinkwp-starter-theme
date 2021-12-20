@@ -3,8 +3,6 @@ const tokens = require('./tokens/tailwind-tokens.json');
 const { NODE_ENV = 'production' } = process.env;
 
 module.exports = {
-  mode: 'jit',
-  darkMode: 'media', // or 'media' or 'class'
   prefix: '',
   content: [
     './views/**/*.{html,twig}',
