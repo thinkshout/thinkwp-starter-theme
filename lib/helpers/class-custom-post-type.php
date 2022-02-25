@@ -57,7 +57,7 @@ class Custom_Post_Type {
 			'menu_position'       => $position,
 			'menu_icon'           => $dashicon,
 			'taxonomies'          => $taxonomies,
-			'rewrite'             => array( 'slug' => strtolower( $names ) ),
+			'rewrite'             => array( 'slug' => sanitize_title( $names, $name ) ),
 			'supports'            => $supports,
 		);
 		$this->post_type = array(
