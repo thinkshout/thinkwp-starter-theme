@@ -1,0 +1,124 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": {
+      "custom": false,
+      "defaultPalette": false,
+      "palette": [
+        {
+          "slug": "black",
+          "color": "#000000",
+          "name": "Black"
+        },
+        {
+          "slug": "white",
+          "color": "#ffffff",
+          "name": "White"
+        },
+        {
+          "slug": "gray-lt",
+          "color": "#ededed",
+          "name": "Gray Lt"
+        },
+        {
+          "slug": "gray-dk",
+          "color": "#444444",
+          "name": "Gray Dk"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Geller Headline', Times, serif",
+          "name": "Serif",
+          "slug": "serif"
+        },
+        {
+          "fontFamily": "'Halyard Text', Helvetica, Arial, sans-serif",
+          "name": "Sans",
+          "slug": "sans"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "2xs",
+          "size": "0.625rem",
+          "name": "2xs"
+        },
+        {
+          "slug": "xs",
+          "size": "0.75rem",
+          "name": "xs"
+        },
+        {
+          "slug": "sm",
+          "size": "0.875rem",
+          "name": "sm"
+        },
+        {
+          "slug": "base",
+          "size": "1rem",
+          "name": "base"
+        },
+        {
+          "slug": "md",
+          "size": "1.125rem",
+          "name": "md"
+        },
+        {
+          "slug": "lg",
+          "size": "1.25rem",
+          "name": "lg"
+        },
+        {
+          "slug": "xl",
+          "size": "1.375rem",
+          "name": "xl"
+        },
+        {
+          "slug": "2xl",
+          "size": "1.4375rem",
+          "name": "2xl"
+        },
+        {
+          "slug": "3xl",
+          "size": "1.875rem",
+          "name": "3xl"
+        },
+        {
+          "slug": "4xl",
+          "size": "2.5rem",
+          "name": "4xl"
+        },
+        {
+          "slug": "5xl",
+          "size": "2.8125rem",
+          "name": "5xl"
+        },
+        {
+          "slug": "6xl",
+          "size": "3.75rem",
+          "name": "6xl"
+        }
+      ]
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "vh",
+        "vw"
+      ]
+    },
+    "layout": {
+      "contentSize": "840px",
+      "wideSize": "1100px"
+    },
+    "blocks": {}
+  }
+}

@@ -25,7 +25,7 @@
 a.link-chevron,
 .link-back,
 a.link-back {
-  @apply text-black no-underline focus:underline hover:underline;
+  @apply text-black no-underline hover:underline focus:underline;
 
   :focus,
   :hover {
@@ -80,10 +80,10 @@ a.btn-outline,
   border-radius: 30px;
   line-height: var(--line-height-none);
   border: 1px solid var(--color-black);
-  @apply no-underline py-xs px-sm text-black;
+  @apply py-xs px-sm text-black no-underline;
   &:hover,
   &:focus {
-    @apply transition-all text-white bg-black;
+    @apply bg-black text-white transition-all;
   }
 }
 
@@ -108,7 +108,7 @@ a.btn-solid {
   border: 1px solid;
   border-radius: 30px;
   text-decoration: none;
-  @apply bg-black no-underline px-sm py-xs text-white transition-all;
+  @apply bg-black px-sm py-xs text-white no-underline transition-all;
 
   :focus,
   :hover {
@@ -125,7 +125,7 @@ a.btn-solid {
 
 .btn-social-links {
   & ul li {
-    @apply inline-block mx-xs my-0;
+    @apply mx-xs my-0 inline-block;
     & a {
       @apply border-b-0;
     }
@@ -154,5 +154,5 @@ a.link-style {
 .btn-search {
   /* @TODO DS Override. */
   border-radius: 30px;
-  @apply bg-gray-lt pt-xs px-xs pb-2xs transition-all focus:bg-gray-dk hover:bg-gray-dk;
+  @apply bg-gray-lt px-xs pt-xs pb-2xs transition-all hover:bg-gray-dk focus:bg-gray-dk;
 }
