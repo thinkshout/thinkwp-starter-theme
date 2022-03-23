@@ -1,3 +1,4 @@
+/* Ordering based on this article re: using imports w/ tailwind https://medium.com/@arulpraba/using-tailwind-css-utilities-in-custom-css-files-acf811089055 */
 /* Tailwind Setup */
 @import "base/tailwind-base.css";
 
