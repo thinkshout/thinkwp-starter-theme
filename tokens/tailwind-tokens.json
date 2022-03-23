@@ -6,8 +6,8 @@
     "black": "#000000",
     "white": "#ffffff",
     "gray": {
-      "lt": "#ededed",
-      "dk": "#444444"
+      "200": "#ededed",
+      "800": "#444444"
     }
   },
   "grid": {

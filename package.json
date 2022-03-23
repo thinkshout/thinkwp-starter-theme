@@ -17,6 +17,7 @@
     "postcss-import": "^14.0.2",
     "postcss-loader": "^4.0.0",
     "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^7.4.3",
     "prettier": "^2.4.1",
     "prettier-plugin-tailwindcss": "^0.1.8",
     "prettier-plugin-twig-melody": "^0.4.6",
