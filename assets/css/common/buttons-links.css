@@ -95,7 +95,7 @@ a.btn-tag {
   line-height: var(--line-height-snug);
   padding: var(--spacer-2xs) var(--spacer-base);
   text-decoration: none;
-  @apply bg-gray-200 uppercase no-underline;
+  @apply bg-gray-400 uppercase no-underline;
 
   @media (--bp-md) {
     font-size: var(--btn-font-size-sm);
@@ -154,5 +154,5 @@ a.link-style {
 .btn-search {
   /* @TODO DS Override. */
   border-radius: 30px;
-  @apply bg-gray-200 hover:bg-gray-800 focus:bg-gray-800 px-xs pt-xs pb-2xs transition-all;
+  @apply bg-gray-400 px-xs pt-xs pb-2xs transition-all hover:bg-gray-800 focus:bg-gray-800;
 }

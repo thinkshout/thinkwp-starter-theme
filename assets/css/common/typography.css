@@ -4,14 +4,14 @@
 }
 
 .h1 {
-  @apply font-bold text-5xl leading-10 md:text-6xl;
+  @apply text-5xl font-bold leading-10 md:text-6xl;
   a {
     @apply hover:underline focus:underline;
   }
 }
 
 .h2 {
-  @apply text-gray-800 font-semibold text-3xl leading-10 md:text-4xl;
+  @apply text-3xl font-semibold leading-10 text-grey-800 md:text-4xl;
   a,
   a & {
     @apply hover:underline focus:underline;
@@ -19,7 +19,7 @@
 }
 
 .h3 {
-  @apply font-semibold text-md leading-10 md:text-2xl;
+  @apply text-md font-semibold leading-10 md:text-2xl;
   a,
   a & {
     @apply hover:underline focus:underline;

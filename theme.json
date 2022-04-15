@@ -17,14 +17,22 @@
           "name": "White"
         },
         {
-          "slug": "gray-lt",
+          "slug": "grey-400",
           "color": "#ededed",
-          "name": "Gray Lt"
+          "name": "Grey 400"
         },
         {
-          "slug": "gray-dk",
+          "slug": "grey-800",
           "color": "#444444",
-          "name": "Gray Dk"
+          "name": "Grey 800"
+        },
+        {
+          "slug": "gray-400",
+          "name": "Gray 400"
+        },
+        {
+          "slug": "gray-800",
+          "name": "Gray 800"
         }
       ]
     },

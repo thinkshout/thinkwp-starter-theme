@@ -5,7 +5,7 @@
       left: 50%;
       transform: translateX(-50%);
       top: 50%;
-      @apply text-gray-800 absolute opacity-semi-invisible;
+      @apply opacity-50 absolute text-grey-800;
     }
   }
 }

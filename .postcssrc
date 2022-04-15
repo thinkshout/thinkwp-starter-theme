@@ -3,12 +3,6 @@
     "postcss-import": {},
     "tailwindcss": {},
     "postcss-nested": {},
-    "postcss-preset-env": {
-      "stage": 1,
-      "features": {
-        "focus-within-pseudo-class": false
-      }
-    },
     "cssnano": {}
   }
 }
