@@ -48,33 +48,37 @@ module.exports = {
         }
       });
       // Parse Font Family Tokens
-      Object.keys(font.family).forEach(familyName => {
-        const { name, value, original } = font.family[familyName];
-        const family = {
-          fontFamily: value,
-          name: name.replace('FontFamily', ''),
-          slug: familyName
-        };
-        theme.settings.typography.fontFamilies.push(family);
-        if ( original.wpBlocks ) {
-          for (const wpBlock of original.wpBlocks) {
-            theme.settings.blocks[wpBlock] = {
-              typography: {
-                fontFamilies: [family]
-              }
-            };
+      if ( font.family ) {
+        Object.keys(font.family).forEach(familyName => {
+          const { name, value, original } = font.family[familyName];
+          const family = {
+            fontFamily: value,
+            name: name.replace('FontFamily', ''),
+            slug: familyName
+          };
+          theme.settings.typography.fontFamilies.push(family);
+          if ( original.wpBlocks ) {
+            for (const wpBlock of original.wpBlocks) {
+              theme.settings.blocks[wpBlock] = {
+                typography: {
+                  fontFamilies: [family]
+                }
+              };
+            }
           }
-        }
-      });
-      // Parse Font Size Tokens
-      Object.keys(font.size).forEach(sizeName => {
-        const { value } = font.size[sizeName];
-        theme.settings.typography.fontSizes.push({
-          slug: sizeName,
-          size: value,
-          name: sizeName
         });
-      });
+      }
+      // Parse Font Size Tokens
+      if ( font.size ) {
+        Object.keys(font.size).forEach(sizeName => {
+          const { value } = font.size[sizeName];
+          theme.settings.typography.fontSizes.push({
+            slug: sizeName,
+            size: value,
+            name: sizeName
+          });
+        });
+      }
       return JSON.stringify(theme, null, 2);
     }
   },
