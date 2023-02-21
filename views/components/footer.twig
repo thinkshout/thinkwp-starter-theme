@@ -8,7 +8,7 @@
         <div class="spacer lg:hidden"></div>
         <nav class="footer-nav-copy inline-block mt-0">
           {% include 'components/menu.twig' with {
-            menu: footer_copy
+            'items': menu.get_items
           } %}
         </nav>
       </div>
