@@ -69,6 +69,8 @@ class Theme extends Timber\Site {
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
 		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
 		add_filter( 'script_loader_tag', [ $this, 'thinktimber_defer_scripts' ], 10, 2 );
+		add_filter( 'acf/settings/save_json', [ $this, 'my_acf_json_save_point' ] );
+		add_filter( 'acf/settings/load_json', [ $this, 'my_acf_json_load_point' ] );
 
 		parent::__construct();
 	}
@@ -252,6 +254,18 @@ class Theme extends Timber\Site {
 		}
 
 		return $tag;
+	}
+
+	function my_acf_json_save_point( $path ) {
+		$path = get_stylesheet_directory() . '/acf-json';
+
+		return $path;
+	}
+
+	function my_acf_json_load_point( $paths ) {
+		$paths[] = get_stylesheet_directory() . '/acf-json';
+
+		return $paths;
 	}
 
 	/**
