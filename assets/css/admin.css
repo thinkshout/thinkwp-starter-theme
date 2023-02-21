@@ -1,56 +1,15 @@
-/* Editor Styles */
-/* Tailwind Setup */
-/**
-* This injects Tailwind's base styles and any base styles registered by
-* plugins.
-*/
-@tailwind base;
 
-/**
-* This injects Tailwind's component classes and any component classes
-* registered by plugins.
-*/
-@tailwind components;
+/* Import all tailwind css. */
+@import "index.css";
 
-@layer {
-  .editor-styles-wrapper {
-    p,
-    ol,
-    ul,
-    dl,
-    blockquote,
-    pre,
-    table,
-    figure,
-    hr {
-      /* @apply font-text; */
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      /* @apply font-display; */
-    }
-    /* Editor Components */
-    @import "common/buttons-links.css";
-    @import "common/typography.css";
-  }
+/* Add any wp-admin specific overrides here! */
+.edit-post-visual-editor__post-title-wrapper h1 {
+  font-size: revert;
+  font-weight: revert;
+  margin: revert;
 }
 
-/* Tailwind Wrap-up */
-/**
-* This injects Tailwind's utility classes and any utility classes registered
-* by plugins.
-*/
-@tailwind utilities;
-
-/**
-* Use this directive to control where Tailwind injects the responsive
-* variations of each utility.
-*
-* If omitted, Tailwind will append these classes to the very end of
-* your stylesheet by default.
-*/
-@tailwind screens;
+.acf-field select,
+.acf-field textarea {
+  border: 1px solid #8c8f94;
+}

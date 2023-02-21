@@ -17,6 +17,7 @@ body {
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-normal);
   font-style: normal;
+  width: 100%;
   max-width: var(--screen-site-max-width);
   min-height: 100vh;
   background-color: var(--color-white);
