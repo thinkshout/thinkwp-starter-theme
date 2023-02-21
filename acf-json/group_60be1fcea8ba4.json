@@ -19,7 +19,7 @@
             "sub_fields": [
                 {
                     "key": "field_60be20f18b5e8",
-                    "label": "Hero TItle",
+                    "label": "Hero Title",
                     "name": "hero_title",
                     "type": "text",
                     "instructions": "The displayed title of the page. Overrides the post\/page title.",
@@ -77,20 +77,6 @@
                 "operator": "==",
                 "value": "page"
             }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "event"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "project"
-            }
         ]
     ],
     "menu_order": 0,
@@ -101,5 +87,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627669093
+    "modified": 1627669094
 }
