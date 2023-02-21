@@ -22,8 +22,8 @@ module.exports = {
             units: [ "px", "em", "rem", "vh", "vw" ]
           },
           layout: {
-            contentSize: "840px",
-            wideSize: "1100px"
+            contentSize: "1442px",
+            wideSize: "2000px"
           },
           blocks: {}
         }
