@@ -64,7 +64,8 @@ class Theme extends Timber\Site {
 		add_action( 'after_setup_theme', [ $this, 'thinktimber_content_width' ], 0 );
 		add_action( 'after_setup_theme', [ $this, 'thinktimber_setup' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'thinktimber_scripts' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'thinktimber_admin_styles' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'thinktimber_admin_scripts' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'thinktimber_block_editor_scripts' ] );
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
 		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
 		add_filter( 'script_loader_tag', [ $this, 'thinktimber_defer_scripts' ], 10, 2 );
@@ -216,10 +217,22 @@ class Theme extends Timber\Site {
 	/**
 	 * Enqueue admin scripts and styles.
 	 */
-	public function thinktimber_admin_styles() {
+	public function thinktimber_admin_scripts() {
+		$scripts_version = '1.0.0';
+
 		// Fonts.
-		wp_enqueue_style( 'thinktimber-fonts', 'https://use.typekit.net/kitId.css', [], $this->scripts_version );
-		wp_enqueue_script( 'thinktimber-font-awesome', 'https://kit.fontawesome.com/3d318b83b5.js', [], $this->scripts_version, false );
+		wp_enqueue_style( 'thinktimber-fonts', 'https://use.typekit.net/kitId.css', [], $scripts_version );
+		wp_enqueue_script( 'thinktimber-font-awesome', 'https://kit.fontawesome.com/3d318b83b5.js', [], $scripts_version, false );
+	}
+
+	/**
+	 * Enqueue block editor scripts and styles.
+	 */
+	public function thinktimber_block_editor_scripts() {
+		$scripts_version = '1.0.0';
+
+		// Scripts.
+		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/dist/motif-admin.js", [ 'wp-edit-post' ], $scripts_version, true );
 	}
 
 	/**
