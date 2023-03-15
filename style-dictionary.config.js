@@ -103,6 +103,16 @@ module.exports = {
         }
       ]
     },
+    js: {
+      transformGroup: "js",
+      buildPath: "assets/",
+      files: [
+        {
+          destination: "js/components/_tokens.js",
+          format: "javascript/module",
+        }
+      ]
+    },
     tailwind: {
       transformGroup: "js",
       buildPath: "./",
