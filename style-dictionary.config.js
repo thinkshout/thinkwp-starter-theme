@@ -2,7 +2,7 @@ module.exports = {
   source: ["tokens/src/**/*.json"],
   format: {
     wordpressTheme: ({dictionary, platform}) => {
-      const { color, font } = dictionary.tokens;
+      const { color, font, screen } = dictionary.tokens;
       const theme = {
         $schema: "https://schemas.wp.org/trunk/theme.json",
         version: 2,
@@ -22,8 +22,8 @@ module.exports = {
             units: [ "px", "em", "rem", "vh", "vw" ]
           },
           layout: {
-            contentSize: "840px",
-            wideSize: "1100px"
+            contentSize: "1442px",
+            wideSize: "2000px"
           },
           blocks: {}
         }
@@ -78,6 +78,13 @@ module.exports = {
             name: sizeName
           });
         });
+      }
+      // Set Layout Settings
+      if ( screen.siteMaxWidth ) {
+        theme.settings.layout.wideSize = screen.siteMaxWidth.value;
+      }
+      if ( screen.xl ) {
+        theme.settings.layout.contentSize = screen.xl.value;
       }
       return JSON.stringify(theme, null, 2);
     }
