@@ -3,3 +3,4 @@ wp-content
 composer.lock
 node_modules
 .parcel-cache
+dist/
