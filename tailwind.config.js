@@ -1,6 +1,6 @@
-const tokens = require('./tokens/tailwind-tokens.json');
-
-const { NODE_ENV = 'production' } = process.env;
+const tokens     = require( './tokens/tailwind-tokens.json' );
+const typography = require( './tokens/tailwind-typography.json' );
+const plugin     = require( 'tailwindcss/plugin' );
 
 module.exports = {
   prefix: '',
@@ -27,5 +27,29 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+		plugin(
+			function ({ addComponents, theme }) {
+				addComponents({
+					'.h1-lede': typography.style[".h1-lede"],
+					'.h1': typography.style[".h1"],
+					'.h2': typography.style[".h2"],
+					'.h3': typography.style[".h3"],
+					'.h4': typography.style[".h4"],
+					'.h5': typography.style[".h5"],
+					'.body-lg-bold': typography.style[".body-lg-bold"],
+					'.body-lg': typography.style[".body-lg"],
+					'.body-md': typography.style[".body-md"],
+					'.body': typography.style[".body"],
+					'.body-base': typography.style[".body"],
+					'.body-sm': typography.style[".body-sm"],
+					'.btn-back': typography.style[".btn-back"],
+					'.utility-md': typography.style[".utility-md"],
+					'.utility': typography.style[".utility"],
+					'.text-nav--main': typography.style[".text-nav--main"],
+					'.text-label': typography.style[".text-label"],
+				})
+			}
+		)
+  ],
 }
