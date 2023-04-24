@@ -1,0 +1,20 @@
+# A sample build theme task for use in a CircleCI config.yml file (NOTE: replace THEME_DIRECTORY with the name of your theme directory)
+build_theme:
+    <<: *defaults
+    docker: 
+      - image: cimg/node:18.15.0
+    steps:
+      - checkout
+
+      - run:
+          name: Install Theme Dependencies
+          command: cd web/wp-content/themes/custom/THEME_DIRECTORY && npm i
+      
+      - run:
+          name: Build Theme
+          command: cd web/wp-content/themes/custom/THEME_DIRECTORY && npm run build
+      
+      - persist_to_workspace:
+          root: .
+          paths:
+            - web
