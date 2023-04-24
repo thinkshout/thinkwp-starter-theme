@@ -28,6 +28,7 @@ JavaScript as well as Tailwind in JIT mode.
 Additionally, there are a number of scripts to aid in theme development (assume `npm run` prefix):
 
 - `build` to compile css, js, and print css for production.
+- `clear-cache` deletes the .parcel-cache directory, is useful for troubleshooting build errors.
 - `format`: Formats assets, tokens, and SVG files.
 - `lint`: to check styling errors in js/css files. Ran automatically if you commit while inside the theme directory.
 - `print.bundle` Bundle the print stylesheet for production.

@@ -40,9 +40,6 @@
   },
   "author": "ThinkShout, Inc",
   "license": "GPL-3.0",
-  "dependencies": {
-    "alpinejs": "^3.9.2"
-  },
   "@parcel/transformer-css": {
     "drafts": {
       "customMedia": true
