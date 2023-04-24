@@ -21,7 +21,7 @@ module.exports = {
     screens: tokens.screen,
     spacing: tokens.spacer,
     transitionDuration: tokens.duration,
-    zIndex: tokens.zIndex,
+    zIndex: tokens.z,
     extend: {},
   },
   variants: {
@@ -31,23 +31,14 @@ module.exports = {
 		plugin(
 			function ({ addComponents, theme }) {
 				addComponents({
-					'.h1-lede': typography.style[".h1-lede"],
-					'.h1': typography.style[".h1"],
-					'.h2': typography.style[".h2"],
-					'.h3': typography.style[".h3"],
-					'.h4': typography.style[".h4"],
-					'.h5': typography.style[".h5"],
-					'.body-lg-bold': typography.style[".body-lg-bold"],
-					'.body-lg': typography.style[".body-lg"],
-					'.body-md': typography.style[".body-md"],
-					'.body': typography.style[".body"],
-					'.body-base': typography.style[".body"],
-					'.body-sm': typography.style[".body-sm"],
-					'.btn-back': typography.style[".btn-back"],
-					'.utility-md': typography.style[".utility-md"],
-					'.utility': typography.style[".utility"],
-					'.text-nav--main': typography.style[".text-nav--main"],
-					'.text-label': typography.style[".text-label"],
+					// Auto generate typography classes from keys in tailwind-typography.json
+          // Loops through each key in the typography.style object and creates a new object with the key as the class name and the value as the styles
+          ...Object.keys(typography.style).map((key) => {
+            return {
+              [`${key}`]: typography.style[key],
+            }
+          // Reduce the mapped array of objects into a single object
+          }).reduce((typographyStyles, newTypographyStyleObject) => ({ ...typographyStyles, ...newTypographyStyleObject }), {}),
 				})
 			}
 		)
