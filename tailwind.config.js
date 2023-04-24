@@ -1,6 +1,6 @@
-const tokens = require('./tokens/tailwind-tokens.json');
-
-const { NODE_ENV = 'production' } = process.env;
+const tokens     = require( './tokens/tailwind-tokens.json' );
+const typography = require( './tokens/tailwind-typography.json' );
+const plugin     = require( 'tailwindcss/plugin' );
 
 module.exports = {
   prefix: '',
@@ -21,11 +21,26 @@ module.exports = {
     screens: tokens.screen,
     spacing: tokens.spacer,
     transitionDuration: tokens.duration,
-    zIndex: tokens.zIndex,
+    zIndex: tokens.z,
     extend: {},
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+		plugin(
+			function ({ addComponents, theme }) {
+				addComponents({
+					// Auto generate typography classes from keys in tailwind-typography.json
+          // Loops through each key in the typography.style object and creates a new object with the key as the class name and the value as the styles
+          ...Object.keys(typography.style).map((key) => {
+            return {
+              [`${key}`]: typography.style[key],
+            }
+          // Reduce the mapped array of objects into a single object
+          }).reduce((typographyStyles, newTypographyStyleObject) => ({ ...typographyStyles, ...newTypographyStyleObject }), {}),
+				})
+			}
+		)
+  ],
 }
