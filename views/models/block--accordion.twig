@@ -1,0 +1,26 @@
+{#
+  Accordion Block
+  Relevant JS: /assets/js/components/accordion.js
+  Relevant CSS: /assets/css/components/accordion.css
+#}
+
+{% set accordion = accordion|default([]) %}
+
+<div class="block--accordion accordion ts-my-block-sm ts-friendly">
+  <div class="wysiwyg-container">
+    {% for accordion_section in accordion %}
+      <div class="accordion__section wysiwyg-content border-t border-t-gray-200 py-sm">
+        <button class="accordion__section__toggle w-full flex items-center justify-between ts-hocus-underline">
+          <h3 class="accordion__section__title inline-block h4 text-left">{{ accordion_section.title }}</h3>
+          <div class="accordion__section__icon">
+            <span class="icon-layer"></span>
+            <span class="icon-layer"></span>
+          </div>
+        </button>
+        <div class="accordion__section__content mce-content-body">
+          {{ accordion_section.content }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
