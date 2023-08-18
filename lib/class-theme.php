@@ -68,7 +68,7 @@ class Theme extends Timber\Site {
 	/** Add timber support. */
 	public function __construct() {
 		// Theme activation and deactivation hooks!
-		register_activation_hook( __FILE__, [ $this, 'thinktimber_activate' ] );
+		add_action( 'after_switch_theme', [ 'thinktimber_activate' ] );
 
 		// Actions, Filters, and Theme Setup!
 		add_action( 'init', [ $this, 'register_post_types' ] );
@@ -87,6 +87,7 @@ class Theme extends Timber\Site {
 		// Set scripts version to theme version set in style.css.
 		$this->scripts_version = wp_get_theme()->get( 'Version' );
 
+		// That's it, construct the parent Timber\Site object.
 		parent::__construct();
 	}
 
@@ -94,13 +95,19 @@ class Theme extends Timber\Site {
 	 * Theme activation hook
 	 */
 	public function thinktimber_activate() {
+		// Create a style guide page if it doesn't exist.
 		$style_guide_page = array(
 			'post_title'  => 'Style Guide',
 			'post_status' => 'private',
 			'post_author' => 1,
 			'post_type'   => 'page'
 		);
-		wp_insert_post( $style_guide_page );
+		// Check if the page exists.
+		$style_guide_page_check = get_page_by_title( $style_guide_page['post_title'] );
+		// If the page doesn't exist, create it.
+		if ( ! $style_guide_page_check ) {
+			wp_insert_post( $style_guide_page );
+		}
 		// Add any additional activation code here.
 	}
 
