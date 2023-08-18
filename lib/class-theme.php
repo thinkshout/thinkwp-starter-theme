@@ -65,6 +65,13 @@ class Theme extends Timber\Site {
 	 * @var string $this->scripts_dir The directory of the scripts to be used.
 	 */
 	protected $scripts_dir = 'dist';
+	/**
+	 * Theme menus.
+	 * 
+	 * @var array $this->menus The menus to be registered.
+	 */
+	protected $thinktimber_menus = [];
+
 	/** Add timber support. */
 	public function __construct() {
 		// Theme activation and deactivation hooks!
@@ -73,19 +80,39 @@ class Theme extends Timber\Site {
 		// Actions, Filters, and Theme Setup!
 		add_action( 'init', [ $this, 'register_post_types' ] );
 		add_action( 'init', [ $this, 'register_taxonomies' ] );
-		add_action( 'after_setup_theme', [ $this, 'thinktimber_content_width' ], 0 );
 		add_action( 'after_setup_theme', [ $this, 'thinktimber_setup' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'thinktimber_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'thinktimber_admin_scripts' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'thinktimber_block_editor_scripts' ] );
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
 		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
-		add_filter( 'script_loader_tag', [ $this, 'thinktimber_defer_scripts' ], 10, 2 );
-		add_filter( 'acf/settings/save_json', [ $this, 'my_acf_json_save_point' ] );
-		add_filter( 'acf/settings/load_json', [ $this, 'my_acf_json_load_point' ] );
+		add_filter( 'acf/settings/save_json', [ $this, 'thinktimber_acf_json_save_point' ] );
+		add_filter( 'acf/settings/load_json', [ $this, 'thinktimber_acf_json_load_point' ] );
 
 		// Set scripts version to theme version set in style.css.
 		$this->scripts_version = wp_get_theme()->get( 'Version' );
+
+		// Theme menus.
+		$this->thinktimber_menus = [
+			[
+				'location'    => 'header_primary_navigation',
+				'description' => 'Header Primary Navigation',
+			],
+			[
+				'location'    => 'footer_primary_navigation',
+				'description' => 'Footer Primary Navigation',
+			],
+			[
+				'location'    => 'footer_secondary_navigation',
+				'description' => 'Footer Secondary Navigation',
+			],
+		];
+
+		// If the Timber ACF Blocks library is installed, load it. https://github.com/palmiak/timber-acf-wp-blocks
+		if ( class_exists( 'Timber_Acf_Wp_Blocks' ) ) {
+			// Register blocks in views/blocks with ACF.
+			new Timber_Acf_Wp_Blocks();
+		}
 
 		// That's it, construct the parent Timber\Site object.
 		parent::__construct();
@@ -137,8 +164,17 @@ class Theme extends Timber\Site {
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your lib/class-theme.php file';
 		$context['notes'] = 'These values are available every time you call Timber::context();';
-		$context['menu']  = new Timber\Menu();
-		$context['site']  = $this;
+
+		// Add menus to context.
+		$context['menus'] = [];
+		foreach ( $this->thinktimber_menus as $thinktimber_menu ) {
+			$context['menus'][ $thinktimber_menu['location'] ] = new Timber\Menu( sanitize_title( $thinktimber_menu['description'] ) );
+		}
+
+		// Add site to context.
+		$context['site'] = $this;
+
+		// Return context.
 		return $context;
 	}
 
@@ -150,6 +186,27 @@ class Theme extends Timber\Site {
 	 * as indicating support for post thumbnails.
 	 */
 	public function thinktimber_setup() {
+		/*
+		 * Enable features from Soil when plugin is activated.
+		 * @see https://roots.io/plugins/soil/
+		 */
+		add_theme_support( 'soil', [
+			'clean-up',
+			'nav-walker',
+			'nice-search',
+			'jquery-cdn',
+			'relative-urls',
+		] );
+		
+		/*
+		 * Register navigation menus.
+		 */
+		register_nav_menus( array_map( function( $nav_menu ) {
+			return [
+				$nav_menu['location'] => __( $nav_menu['description'], 'thinktimber' )
+			];
+		}, $this->thinktimber_menus ) );
+		
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -208,7 +265,7 @@ class Theme extends Timber\Site {
 		add_theme_support( 'menus' );
 
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'dist/motif-admin.css' );
+		add_editor_style( "$this->scripts_dir/motif-admin.css" );
 	}
 
 	/**
@@ -241,8 +298,6 @@ class Theme extends Timber\Site {
 	 */
 	public function thinktimber_admin_scripts() {
 		// Fonts.
-		wp_enqueue_style( 'thinktimber-fonts', 'https://use.typekit.net/kitId.css', [], $this->scripts_version );
-		wp_enqueue_script( 'thinktimber-font-awesome', 'https://kit.fontawesome.com/3d318b83b5.js', [], $this->scripts_version, false );
 	}
 
 	/**
@@ -250,51 +305,19 @@ class Theme extends Timber\Site {
 	 */
 	public function thinktimber_block_editor_scripts() {
 		// Scripts.
-		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/dist/motif-admin.js", [ 'wp-edit-post' ], $scripts_version, true );
+		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif-admin.js", [ 'wp-edit-post' ], $this->scripts_version, true );
 	}
 
-	/**
-	 * Add defer tag to given script tags
-	 *
-	 * @param string $tag Script tag.
-	 * @param string $handle Script handle.
-	 *
-	 * @return string
-	 */
-	public function thinktimber_defer_scripts( $tag, $handle ) {
-		$deferred_scripts = [ 'alpinejs' ];
-
-		if ( in_array( $handle, $deferred_scripts, true ) ) {
-			return str_replace( ' src', ' defer="defer" src', $tag );
-		}
-
-		return $tag;
-	}
-
-	function my_acf_json_save_point( $path ) {
+	function thinktimber_acf_json_save_point( $path ) {
 		$path = get_stylesheet_directory() . '/acf-json';
 
 		return $path;
 	}
 
-	function my_acf_json_load_point( $paths ) {
+	function thinktimber_acf_json_load_point( $paths ) {
 		$paths[] = get_stylesheet_directory() . '/acf-json';
 
 		return $paths;
-	}
-
-	/**
-	 * Set the content width in pixels, based on the theme's design and stylesheet.
-	 *
-	 * Priority 0 to make it available to lower priority callbacks.
-	 *
-	 * @global int $content_width
-	 */
-	public function thinktimber_content_width() {
-		// This variable is intended to be overruled from themes.
-		// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-		$GLOBALS['content_width'] = apply_filters( 'thinktimber_content_width', 640 );
 	}
 
 	/** This Would return 'foo bar!'.
