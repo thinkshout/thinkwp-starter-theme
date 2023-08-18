@@ -75,7 +75,7 @@ class Theme extends Timber\Site {
 	/** Add timber support. */
 	public function __construct() {
 		// Theme activation and deactivation hooks!
-		add_action( 'after_switch_theme', [ 'thinktimber_activate' ] );
+		add_action( 'after_switch_theme', [ $this, 'thinktimber_activate' ] );
 
 		// Actions, Filters, and Theme Setup!
 		add_action( 'init', [ $this, 'register_post_types' ] );
