@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 15 Mar 2023 14:42:13 GMT
+ * Generated on Tue, 19 Sep 2023 23:34:35 GMT
  */
 
 module.exports = {
@@ -58,68 +58,414 @@ module.exports = {
         "white"
       ]
     },
-    "grey": {
-      "400": {
-        "value": "#ededed",
+    "neutral": {
+      "50": {
+        "value": "#fafafa",
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#ededed"
+          "value": "#FAFAFA"
         },
-        "name": "ColorGrey400",
+        "name": "ColorNeutral50",
         "attributes": {
           "category": "color",
-          "type": "grey",
+          "type": "neutral",
+          "item": "50"
+        },
+        "path": [
+          "color",
+          "neutral",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#f5f5f5",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#F5F5F5"
+        },
+        "name": "ColorNeutral100",
+        "attributes": {
+          "category": "color",
+          "type": "neutral",
+          "item": "100"
+        },
+        "path": [
+          "color",
+          "neutral",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#eeeeee",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#EEEEEE"
+        },
+        "name": "ColorNeutral200",
+        "attributes": {
+          "category": "color",
+          "type": "neutral",
+          "item": "200"
+        },
+        "path": [
+          "color",
+          "neutral",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#e0e0e0",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#E0E0E0"
+        },
+        "name": "ColorNeutral300",
+        "attributes": {
+          "category": "color",
+          "type": "neutral",
+          "item": "300"
+        },
+        "path": [
+          "color",
+          "neutral",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#bdbdbd",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#BDBDBD"
+        },
+        "name": "ColorNeutral400",
+        "attributes": {
+          "category": "color",
+          "type": "neutral",
           "item": "400"
         },
         "path": [
           "color",
-          "grey",
+          "neutral",
           "400"
         ]
       },
-      "800": {
-        "value": "#444444",
+      "500": {
+        "value": "#9e9e9e",
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#444"
+          "value": "#9E9E9E"
         },
-        "name": "ColorGrey800",
+        "name": "ColorNeutral500",
         "attributes": {
           "category": "color",
-          "type": "grey",
+          "type": "neutral",
+          "item": "500"
+        },
+        "path": [
+          "color",
+          "neutral",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#757575",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#757575"
+        },
+        "name": "ColorNeutral600",
+        "attributes": {
+          "category": "color",
+          "type": "neutral",
+          "item": "600"
+        },
+        "path": [
+          "color",
+          "neutral",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#616161",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#616161"
+        },
+        "name": "ColorNeutral700",
+        "attributes": {
+          "category": "color",
+          "type": "neutral",
+          "item": "700"
+        },
+        "path": [
+          "color",
+          "neutral",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#424242",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#424242"
+        },
+        "name": "ColorNeutral800",
+        "attributes": {
+          "category": "color",
+          "type": "neutral",
           "item": "800"
         },
         "path": [
           "color",
-          "grey",
+          "neutral",
           "800"
+        ]
+      },
+      "900": {
+        "value": "#212121",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#212121"
+        },
+        "name": "ColorNeutral900",
+        "attributes": {
+          "category": "color",
+          "type": "neutral",
+          "item": "900"
+        },
+        "path": [
+          "color",
+          "neutral",
+          "900"
         ]
       }
     },
-    "gray": {
-      "400": "#ededed",
-      "800": "#444444"
+    "primary": {
+      "100": {
+        "value": "#ebe6fd",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#EBE6FD"
+        },
+        "name": "ColorPrimary100",
+        "attributes": {
+          "category": "color",
+          "type": "primary",
+          "item": "100"
+        },
+        "path": [
+          "color",
+          "primary",
+          "100"
+        ]
+      },
+      "300": {
+        "value": "#8a66f0",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8A66F0"
+        },
+        "name": "ColorPrimary300",
+        "attributes": {
+          "category": "color",
+          "type": "primary",
+          "item": "300"
+        },
+        "path": [
+          "color",
+          "primary",
+          "300"
+        ]
+      },
+      "500": {
+        "value": "#3c00e7",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#3C00E7"
+        },
+        "name": "ColorPrimary500",
+        "attributes": {
+          "category": "color",
+          "type": "primary",
+          "item": "500"
+        },
+        "path": [
+          "color",
+          "primary",
+          "500"
+        ]
+      },
+      "700": {
+        "value": "#1e0073",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#1E0073"
+        },
+        "name": "ColorPrimary700",
+        "attributes": {
+          "category": "color",
+          "type": "primary",
+          "item": "700"
+        },
+        "path": [
+          "color",
+          "primary",
+          "700"
+        ]
+      },
+      "900": {
+        "value": "#0c002e",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0C002E"
+        },
+        "name": "ColorPrimary900",
+        "attributes": {
+          "category": "color",
+          "type": "primary",
+          "item": "900"
+        },
+        "path": [
+          "color",
+          "primary",
+          "900"
+        ]
+      }
+    },
+    "secondary": {
+      "100": {
+        "value": "#fff4cc",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#FFF4CC"
+        },
+        "name": "ColorSecondary100",
+        "attributes": {
+          "category": "color",
+          "type": "secondary",
+          "item": "100"
+        },
+        "path": [
+          "color",
+          "secondary",
+          "100"
+        ]
+      },
+      "300": {
+        "value": "#ffe380",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#FFE380"
+        },
+        "name": "ColorSecondary300",
+        "attributes": {
+          "category": "color",
+          "type": "secondary",
+          "item": "300"
+        },
+        "path": [
+          "color",
+          "secondary",
+          "300"
+        ]
+      },
+      "500": {
+        "value": "#ffc700",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#FFC700"
+        },
+        "name": "ColorSecondary500",
+        "attributes": {
+          "category": "color",
+          "type": "secondary",
+          "item": "500"
+        },
+        "path": [
+          "color",
+          "secondary",
+          "500"
+        ]
+      },
+      "700": {
+        "value": "#b36100",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#B36100"
+        },
+        "name": "ColorSecondary700",
+        "attributes": {
+          "category": "color",
+          "type": "secondary",
+          "item": "700"
+        },
+        "path": [
+          "color",
+          "secondary",
+          "700"
+        ]
+      },
+      "900": {
+        "value": "#330800",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#330800"
+        },
+        "name": "ColorSecondary900",
+        "attributes": {
+          "category": "color",
+          "type": "secondary",
+          "item": "900"
+        },
+        "path": [
+          "color",
+          "secondary",
+          "900"
+        ]
+      }
     }
   },
   "grid": {
     "gap": {
-      "value": "1rem",
-      "filePath": "tokens/src/grid.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": "{spacer.base.value}"
-      },
-      "name": "GridGap",
-      "attributes": {
-        "category": "grid",
-        "type": "gap"
-      },
-      "path": [
-        "grid",
-        "gap"
-      ]
+      "base": {
+        "value": "1rem",
+        "filePath": "tokens/src/grid.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "{spacer.base.value}"
+        },
+        "name": "GridGapBase",
+        "attributes": {
+          "category": "grid",
+          "type": "gap",
+          "item": "base"
+        },
+        "path": [
+          "grid",
+          "gap",
+          "base"
+        ]
+      }
     }
   },
   "screen": {

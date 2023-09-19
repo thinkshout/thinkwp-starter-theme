@@ -1,0 +1,76 @@
+{# Color: All colors in the palette
+ *
+#}
+
+{%
+  set row1 = [
+  'black',
+  'white',
+]
+%}
+
+{%
+  set row2 = [
+  'neutral-900',
+  'neutral-800',
+  'neutral-700',
+  'neutral-600',
+  'neutral-500',
+  'neutral-400',
+  'neutral-300',
+  'neutral-200',
+  'neutral-100',
+  'neutral-50'
+]
+%}
+{%
+  set row3 = [
+  'primary-900',
+  'primary-700',
+  'primary-500',
+  'primary-300',
+  'primary-100',
+]
+%}
+{%
+  set row4 = [
+  'secondary-900',
+  'secondary-700',
+  'secondary-500',
+  'secondary-300',
+  'secondary-100',
+]
+%}
+
+{% set color_rows = [
+  row1,
+  row2,
+  row3,
+  row4
+] %}
+
+<span class="
+bg-primary-100 bg-primary-300 bg-primary-500 bg-primary-700 bg-primary-900 bg-secondary-100 bg-secondary-300
+bg-secondary-500 bg-secondary-700 bg-secondary-900
+bg-black bg-white bg-neutral-900 bg-neutral-800 bg-neutral-700 bg-neutral-600 bg-neutral-500 bg-neutral-300
+bg-neutral-200
+bg-neutral-100
+md:gap-base"></span>
+
+{# Add components/blocks here... #}
+<section class="py-base">
+  <div class="xl:container">
+    <h2 class="h3">Color</h2>
+    {% for color_row in color_rows %}
+      <div class="grid grid-cols-5 gap-base mt-md">
+        {% for color1 in color_row %}
+          <div class="col-span-1">
+            <div class="bg-{{ color1 }} text-high-contrast body-bold text-sm p-sm shadow rounded-lg w-full h-3xl
+            mb-sm"></div>
+            <label class="body-sm">{{ color1 }}</label>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
