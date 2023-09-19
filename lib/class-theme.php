@@ -236,12 +236,19 @@ class Theme extends Timber\Site {
 	 * @return array
 	 */
 	function allowed_block_types( $allowed_block_types, $block_editor_context ) {
-		// Make sure we allow our ACF blocks.
-		// $acf_block_types = acf_get_store( 'block-types' );
-		// $acf_block_types = array_keys($acf_block_types->get_data());
-		// $allowed_block_types = array_merge( $allowed_block_types, $acf_block_types );
+		// If we're not on a post, return the default allowed block types.
+		if ( empty( $block_editor_context->post ) ) {
+			return $allowed_block_types;
+		}
 
-		return $allowed_block_types;
+		require_once __DIR__ . '/helpers/allowed-blocks.php';
+
+		// Make sure we allow our ACF blocks.
+		$acf_block_types = acf_get_store( 'block-types' );
+		$acf_block_types = array_keys($acf_block_types->get_data());
+		$allowed_block_types = array_merge( $thinkwp_allowed_blocks, $acf_block_types );
+
+		return $thinkwp_allowed_blocks;
 	}
 
 	/**
