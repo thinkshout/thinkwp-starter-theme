@@ -201,11 +201,11 @@ class Theme extends Timber\Site {
 		/*
 		 * Register navigation menus.
 		 */
-		register_nav_menus( array_map( function( $nav_menu ) {
-			return [
-				$nav_menu['location'] => __( $nav_menu['description'], 'thinktimber' )
-			];
-		}, $this->thinktimber_menus ) );
+		$thinktimber_nav_menus = array();
+		foreach ( $this->thinktimber_menus as $nav_menu ) {
+			$thinktimber_nav_menus[ $nav_menu['location'] ] = __( $nav_menu['description'], 'thinktimber' );
+		}
+		register_nav_menus( $thinktimber_nav_menus );
 		
 		/*
 		 * Make theme available for translation.
