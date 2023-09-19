@@ -78,16 +78,33 @@ class Theme extends Timber\Site {
 		add_action( 'after_switch_theme', [ $this, 'thinktimber_activate' ] );
 
 		// Actions, Filters, and Theme Setup!
+		// Actions.
 		add_action( 'init', [ $this, 'register_post_types' ] );
 		add_action( 'init', [ $this, 'register_taxonomies' ] );
 		add_action( 'after_setup_theme', [ $this, 'thinktimber_setup' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'thinktimber_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'thinktimber_admin_scripts' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'thinktimber_block_editor_scripts' ] );
+		add_action( 'admin_init', array( $this, 'thinktimber_disable_comments' ) );
+		add_action( 'admin_init', array( $this, 'remove_content_editor' ) );
+		add_action( 'admin_menu', array( $this, 'thinktimber_remove_comments_page' ) );
+
+		// Filters.
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
 		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
 		add_filter( 'acf/settings/save_json', [ $this, 'thinktimber_acf_json_save_point' ] );
 		add_filter( 'acf/settings/load_json', [ $this, 'thinktimber_acf_json_load_point' ] );
+		add_filter( 'render_block', array( $this, 'thinktimber_wrap_gutenberg_blocks' ), 10, 2 );
+		add_filter( 'use_block_editor_for_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
+		add_filter( 'gutenberg_can_edit_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
+		add_filter( 'block_categories_all', [ $this, 'block_categories_all' ] );
+		add_filter( 'allowed_block_types_all', [ $this, 'allowed_block_types' ], 10, 2 );
+		// Disable Comments and Ping Backs.
+		add_filter( 'comments_open', '__return_false', 20, 2 );
+		add_filter( 'pings_open', '__return_false', 20, 2 );
+		add_filter( 'comments_array', '__return_empty_array', 10, 2 );
+		// XML-RPC Disabler.
+		add_filter( 'xmlrpc_enabled', '__return_false' );
 
 		// Set scripts version to theme version set in style.css.
 		$this->scripts_version = wp_get_theme()->get( 'Version' );
@@ -154,6 +171,96 @@ class Theme extends Timber\Site {
 		foreach ( $thinktimber_taxonomies as $thinktimber_taxonomy ) {
 			$thinktimber_taxonomy->add_to_wp();
 		}
+	}
+
+	/**
+	 * Get post loaded in editor
+	 */
+	protected function get_admin_post() {
+		// @codingStandardsIgnoreStart
+		if ( ! ( is_admin() && ! empty( $_GET['post'] ) ) ) {
+			return null;
+		}
+		return $_GET['post'];
+		// @codingStandardsIgnoreEnd
+	}
+
+	/**
+	 * Remove Gutenberg Editor from front page and any other pages that shouldn't have it.
+	 *
+	 * @param boolean $can_edit true or false user can edit.
+	 */
+	public function check_post_can_gutenberg( $can_edit ) {
+		$post_id = $this->get_admin_post();
+		if ( is_null( $post_id ) ) {
+			return $can_edit;
+		}
+		$post_can_gutenberg = true;
+		if ( get_option( 'page_on_front' ) === $post_id  ) {
+			$post_can_gutenberg = false;
+		}
+		return $post_can_gutenberg;
+	}
+
+	/**
+	 * Remove Content Editor from front page
+	 */
+	public function remove_content_editor() {
+		$post_id = $this->get_admin_post();
+		if ( is_null( $post_id ) ) {
+			return;
+		}
+		if ( get_option( 'page_on_front' ) === $post_id  ) {
+			remove_post_type_support( 'page', 'editor' );
+		}
+	}
+
+	/**
+	 * Add custom blocks category to Gutenberg.
+	 */
+	function block_categories_all( $categories ) {
+		$categories[] = array(
+			'slug'  => 'thinktimber',
+			'title' => 'ThinkShout'
+		);
+
+		return $categories;
+	}
+
+	/**
+	 * Filter allowed gutenberg blocks.
+	 * 
+	 * @param array $allowed_block_types
+	 * @param WP_Block_Editor_Context $block_editor_context
+	 *
+	 * @return array
+	 */
+	function allowed_block_types( $allowed_block_types, $block_editor_context ) {
+		// Make sure we allow our ACF blocks.
+		// $acf_block_types = acf_get_store( 'block-types' );
+		// $acf_block_types = array_keys($acf_block_types->get_data());
+		// $allowed_block_types = array_merge( $allowed_block_types, $acf_block_types );
+
+		return $allowed_block_types;
+	}
+
+	/**
+	 * Add wrapping div to all core gutenberg blocks.
+	 *
+	 * @param string $block_content The block content about to be appended.
+	 * @param array  $block The block being rendered.
+	 *
+	 * @return string The block content with a wrapping div.
+	 */
+	public function thinktimber_wrap_gutenberg_blocks( $block_content, $block ) {
+		// Target core/* and core-embed/* blocks.
+		if ( preg_match( '~^core/|core-embed/~', $block['blockName'] ) && 'core/button' !== $block['blockName'] && 'core/shortcode' !== $block['blockName'] ) {
+			$block_content = sprintf( '<div class="ts-block site-container"><div class="container-content">%s</div></div>', $block_content );
+		}
+		if ( 'core/shortcode' === $block['blockName'] ) {
+			$block_content = sprintf( '<div class="ts-block site-container">%s</div>', $block_content );
+		}
+		return $block_content;
 	}
 
 	/** This is where you add some context
