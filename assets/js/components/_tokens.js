@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 20 Sep 2023 00:09:48 GMT
+ * Generated on Wed, 20 Sep 2023 00:17:51 GMT
  */
 
 module.exports = {
@@ -492,6 +492,126 @@ module.exports = {
           "color",
           "secondary",
           "900"
+        ]
+      }
+    },
+    "error": {
+      "100": {
+        "value": "#fceaed",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#FCEAED"
+        },
+        "name": "ColorError100",
+        "attributes": {
+          "category": "color",
+          "type": "error",
+          "item": "100"
+        },
+        "path": [
+          "color",
+          "error",
+          "100"
+        ]
+      },
+      "500": {
+        "value": "#df2a4a",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#DF2A4A"
+        },
+        "name": "ColorError500",
+        "attributes": {
+          "category": "color",
+          "type": "error",
+          "item": "500"
+        },
+        "path": [
+          "color",
+          "error",
+          "500"
+        ]
+      }
+    },
+    "warning": {
+      "100": {
+        "value": "#fef4e5",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#FEF4E5"
+        },
+        "name": "ColorWarning100",
+        "attributes": {
+          "category": "color",
+          "type": "warning",
+          "item": "100"
+        },
+        "path": [
+          "color",
+          "warning",
+          "100"
+        ]
+      },
+      "500": {
+        "value": "#f29100",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#F29100"
+        },
+        "name": "ColorWarning500",
+        "attributes": {
+          "category": "color",
+          "type": "warning",
+          "item": "500"
+        },
+        "path": [
+          "color",
+          "warning",
+          "500"
+        ]
+      }
+    },
+    "success": {
+      "100": {
+        "value": "#e7f3ee",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#E7F3EE"
+        },
+        "name": "ColorSuccess100",
+        "attributes": {
+          "category": "color",
+          "type": "success",
+          "item": "100"
+        },
+        "path": [
+          "color",
+          "success",
+          "100"
+        ]
+      },
+      "500": {
+        "value": "#0f8a56",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0F8A56"
+        },
+        "name": "ColorSuccess500",
+        "attributes": {
+          "category": "color",
+          "type": "success",
+          "item": "500"
+        },
+        "path": [
+          "color",
+          "success",
+          "500"
         ]
       }
     }

@@ -41,12 +41,23 @@
   'secondary-100',
 ]
 %}
+{%
+  set row5 = [
+  'error-100',
+  'error-500',
+  'warning-100',
+  'warning-500',
+  'success-100',
+  'success-500',
+]
+%}
 
 {% set color_rows = [
   row1,
   row2,
   row3,
-  row4
+  row4,
+  row5
 ] %}
 
 <span class="
@@ -54,7 +65,7 @@ bg-primary-100 bg-primary-300 bg-primary-500 bg-primary-700 bg-primary-900 bg-se
 bg-secondary-500 bg-secondary-700 bg-secondary-900
 bg-black bg-white bg-neutral-900 bg-neutral-800 bg-neutral-700 bg-neutral-600 bg-neutral-500 bg-neutral-300
 bg-neutral-200
-bg-neutral-100
+bg-neutral-100 bg-error-500 bg-error-100 bg-warning-500 bg-warning-100 bg-success-100 bg-success-500
 md:gap-base"></span>
 
 {# Add components/blocks here... #}
@@ -62,7 +73,7 @@ md:gap-base"></span>
   <div class="xl:container">
     <h2 class="h3">Color</h2>
     {% for color_row in color_rows %}
-      <div class="grid grid-cols-5 gap-base mt-md">
+      <div class="grid grid-cols-5 gap-base mb-3xl">
         {% for color1 in color_row %}
           <div class="col-span-1">
             <div class="bg-{{ color1 }} text-high-contrast body-bold text-sm p-sm shadow rounded-lg w-full h-3xl
