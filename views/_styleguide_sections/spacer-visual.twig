@@ -1,0 +1,74 @@
+{# Spacer Visual
+ * Bars indicate spacer sizes.
+#}
+
+
+<h2 class="h3 mt-md mb-xs">Spacing</h2>
+<p class="body-xs mt-zero">tokens/src/spacer.tokens.json</p>
+<p class="body-sm mt-sm"><em>.ts-py-block</em> and <em>.ts-py-block-sm</em> classes define block-level spacing.</p>
+<p class="body-xs mt-zero">See assets/css/base/utilities.css for definitions.</p>
+<p class="body-xs">All of the margin, padding and height classes use generated from these base values. The are also
+  available as css and tailwind variables.</p>
+<p class="utility-sm my-md">--spacer-[size]</p>
+<span class="h-4xl h-xl h-lg h-md h-2xs h-3xs h-px hidden"></span>
+
+{% set spacing_values = [
+  {
+    "name":"4xl",
+    "rem":"6"
+  },
+  {
+    "name":"3xl",
+    "rem":"4"
+  },
+  {
+    "name":"2xl",
+    "rem":"3"
+  },
+  {
+    "name":"xl",
+    "rem":"2"
+  },
+  {
+    "name":"lg",
+    "rem":"1.5"
+  },
+  {
+    "name":"md",
+    "rem":"1.25"
+  },
+  {
+    "name":"base",
+    "rem":"1"
+  },
+  {
+    "name":"sm",
+    "rem":".75"
+  },
+  {
+    "name":"xs",
+    "rem":".5"
+  },
+  {
+    "name":"2xs",
+    "rem":".25"
+  },
+  {
+    "name":"3xs",
+    "rem":".125"
+  },
+  {
+    "name":"px",
+    "rem":".0625"
+  },
+] %}
+<span class="hidden h-base h-sm h-md h-xs h-2xl"></span>
+
+{% for value in spacing_values %}
+  <div>
+    <div class="bg-neutral-900 inline-block h-{{ value.name }} w-1/4"></div>
+    <p class="utility-sm inline-block ml-base w-md"><strong>{{ value.name }}</strong></p>
+    <p class="body-sm inline-block ml-base w-2xl">{{ value.rem }} rem</p>
+    <p class="body-sm inline-block ml-base">({{ value.rem * 16 }} px)</p>
+  </div>
+{% endfor %}
