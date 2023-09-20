@@ -1,11 +1,11 @@
 {
     "key": "group_60be1fcea8ba4",
-    "title": "Hero Section",
+    "title": "Banner",
     "fields": [
         {
             "key": "field_60be1fee8b5e6",
-            "label": "Hero",
-            "name": "hero",
+            "label": "Banner Content",
+            "name": "banner",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -19,9 +19,63 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_650b2c1a8b8de",
+                    "label": "Banner Style",
+                    "name": "banner_style",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "left": "Text on Left",
+                        "right": "Text on Right",
+                        "center": "Text in the Center",
+                        "floating": "Text floating over Image",
+                        "inset": "Inset in Page Container"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_60be204b8b5e7",
+                    "label": "Banner Image",
+                    "name": "banner_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Display this image atop of the page. Overrides the featured image if set.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "large"
+                },
+                {
                     "key": "field_60be20f18b5e8",
-                    "label": "Hero Title",
-                    "name": "hero_title",
+                    "label": "Banner Title",
+                    "name": "banner_title",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "The displayed title of the page. Overrides the post\/page title.",
@@ -33,18 +87,18 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "append": ""
                 },
                 {
-                    "key": "field_60be204b8b5e7",
-                    "label": "Hero Image",
-                    "name": "hero_image",
+                    "key": "field_650b2dab84e17",
+                    "label": "Banner Eyebrow",
+                    "name": "banner_eyebrow",
                     "aria-label": "",
-                    "type": "image",
-                    "instructions": "Display this image atop of the page. Overrides the featured image on a post if set.",
+                    "type": "text",
+                    "instructions": "Appears above the main title of the banner and is usually only a few words",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -52,16 +106,63 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
-                    "preview_size": "large",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_650b2dd884e18",
+                    "label": "Banner Description",
+                    "name": "banner_description",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "Appears below the title of the banner and is usually only a few lines long possibly containing a link.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0
+                },
+                {
+                    "key": "field_650b2ce48b8df",
+                    "label": "Banner Primary CTA",
+                    "name": "banner_primary_cta",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_650b2cf38b8e0",
+                    "label": "Banner Secondary CTA",
+                    "name": "banner_secondary_cta",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
                 }
             ]
         }
@@ -96,5 +197,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695228133
+    "modified": 1695231538
 }
