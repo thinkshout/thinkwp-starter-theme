@@ -186,6 +186,22 @@ class Theme extends Timber\Site {
 	}
 
 	/**
+	 * Check if we're editing the style guide page.
+	 */
+	protected function is_style_guide_page() {
+		$post_id = $this->get_admin_post();
+		if ( is_null( $post_id ) ) {
+			return false;
+		}
+		$style_guide_page = get_page_by_title( 'Style Guide' );
+		$style_guide_page_id = strval( $style_guide_page->ID );
+		if ( $style_guide_page_id === $post_id ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Remove Gutenberg Editor from front page and any other pages that shouldn't have it.
 	 *
 	 * @param boolean $can_edit true or false user can edit.
@@ -196,7 +212,7 @@ class Theme extends Timber\Site {
 			return $can_edit;
 		}
 		$post_can_gutenberg = true;
-		if ( get_option( 'page_on_front' ) === $post_id  ) {
+		if ( get_option( 'page_on_front' ) === $post_id || $this->is_style_guide_page()  ) {
 			$post_can_gutenberg = false;
 		}
 		return $post_can_gutenberg;
@@ -210,7 +226,7 @@ class Theme extends Timber\Site {
 		if ( is_null( $post_id ) ) {
 			return;
 		}
-		if ( get_option( 'page_on_front' ) === $post_id  ) {
+		if ( get_option( 'page_on_front' ) === $post_id || $this->is_style_guide_page() ) {
 			remove_post_type_support( 'page', 'editor' );
 		}
 	}
