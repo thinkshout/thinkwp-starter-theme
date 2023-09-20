@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 20 Sep 2023 01:34:18 GMT
+ * Generated on Wed, 20 Sep 2023 02:51:43 GMT
  */
 
 module.exports = {
@@ -1114,13 +1114,13 @@ module.exports = {
         ]
       },
       "sans": {
-        "value": "'Halyard Text', Helvetica, Arial, sans-serif",
+        "value": "'Inter', sans-serif",
         "type": "font",
         "description": "The primary sans-serif font for body content, etc.",
         "filePath": "tokens/src/typography.tokens.json",
         "isSource": true,
         "original": {
-          "value": "'Halyard Text', Helvetica, Arial, sans-serif",
+          "value": "'Inter', sans-serif",
           "type": "font",
           "description": "The primary sans-serif font for body content, etc."
         },

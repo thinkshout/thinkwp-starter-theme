@@ -33,7 +33,7 @@
         "description": "The primary serif font for headings."
       },
       "sans": {
-        "value": "'Halyard Text', Helvetica, Arial, sans-serif",
+        "value": "'Inter', sans-serif",
         "type": "font",
         "description": "The primary sans-serif font for body content, etc."
       }
