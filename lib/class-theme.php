@@ -97,7 +97,6 @@ class Theme extends Timber\Site {
 		add_filter( 'render_block', array( $this, 'thinktimber_wrap_gutenberg_blocks' ), 10, 2 );
 		add_filter( 'use_block_editor_for_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
 		add_filter( 'gutenberg_can_edit_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
-		add_filter( 'block_categories_all', [ $this, 'block_categories_all' ] );
 		add_filter( 'allowed_block_types_all', [ $this, 'allowed_block_types' ], 10, 2 );
 		// Disable Comments and Ping Backs.
 		add_filter( 'comments_open', '__return_false', 20, 2 );
@@ -232,18 +231,6 @@ class Theme extends Timber\Site {
 	}
 
 	/**
-	 * Add custom blocks category to Gutenberg.
-	 */
-	function block_categories_all( $categories ) {
-		$categories[] = array(
-			'slug'  => 'thinktimber',
-			'title' => 'ThinkShout'
-		);
-
-		return $categories;
-	}
-
-	/**
 	 * Filter allowed gutenberg blocks.
 	 * 
 	 * @param array $allowed_block_types
@@ -264,7 +251,7 @@ class Theme extends Timber\Site {
 		$acf_block_types = array_keys($acf_block_types->get_data());
 		$allowed_block_types = array_merge( $thinkwp_allowed_blocks, $acf_block_types );
 
-		return $thinkwp_allowed_blocks;
+		return $allowed_block_types;
 	}
 
 	/**
