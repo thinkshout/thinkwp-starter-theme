@@ -1,0 +1,31 @@
+{# Color: Background
+ *
+ * bg colors have logic written in colors.css to change the text color based on the bg.
+#}
+
+
+{%
+  set bgColors = [
+  'ts-bg-black',
+  'ts-bg-white',
+  'ts-bg-neutral-500',
+  'ts-bg-neutral-100'
+]
+%}
+
+<span class="bg-black bg-white bg-neutral-100 bg-neutral-500"></span>
+
+<section class="py-base">
+  <div class="xl:container">
+    <h2 class="h5">Background colors</h2>
+    <div class="grid grid-cols-4 gap-base mt-md">
+      {% for color in bgColors %}
+        <div class="col-span-1">
+          <div class="{{ color }} text-high-contrast body-bold text-sm p-sm shadow rounded-lg w-full h-3xl mb-sm">
+          </div>
+          <label class="body-sm">.{{ color }}</label>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

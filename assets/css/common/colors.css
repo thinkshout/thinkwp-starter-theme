@@ -1,0 +1,33 @@
+/* Dynamic color values */
+
+.ts-text-low-contrast {
+	color: var(--color-low-contrast);
+}
+.ts-text-md-contrast {
+	color: var(--color-md-contrast);
+}
+.ts-text-high-contrast {
+	color: var(--color-high-contrast);
+}
+
+.ts-bg-black {
+	@apply bg-black;
+	--color-high-contrast: var(--color-white);
+	--color-md-contrast: var(--color-neutral-300);
+	--color-low-contrast: var(--color-neutral-500);
+}
+
+.ts-bg-white {
+	@apply bg-white;
+}
+
+.ts-bg-neutral-100 {
+	@apply bg-neutral-100;
+}
+
+.ts-bg-neutral-500 {
+	@apply bg-neutral-500;
+	--color-high-contrast: var(--color-white);
+	--color-md-contrast: var(--color-neutral-50);
+	--color-low-contrast: var(--color-neutral-200);
+}

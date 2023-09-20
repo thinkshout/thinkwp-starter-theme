@@ -11,6 +11,7 @@
 
 /* Primitives */
 @import "common/buttons-links.css";
+@import "common/colors.css";
 @import "common/design-elements.css";
 @import "common/typography.css";
 @import "common/hocus.css";

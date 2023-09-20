@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 19 Sep 2023 23:34:35 GMT
+ * Generated on Wed, 20 Sep 2023 00:09:48 GMT
  */
 
 module.exports = {
@@ -24,6 +24,57 @@ module.exports = {
     }
   },
   "color": {
+    "low-contrast": {
+      "value": "#9e9e9e",
+      "filePath": "tokens/src/color.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "{color.neutral.500.value}"
+      },
+      "name": "ColorLowContrast",
+      "attributes": {
+        "category": "color",
+        "type": "low-contrast"
+      },
+      "path": [
+        "color",
+        "low-contrast"
+      ]
+    },
+    "md-contrast": {
+      "value": "#616161",
+      "filePath": "tokens/src/color.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "{color.neutral.700.value}"
+      },
+      "name": "ColorMdContrast",
+      "attributes": {
+        "category": "color",
+        "type": "md-contrast"
+      },
+      "path": [
+        "color",
+        "md-contrast"
+      ]
+    },
+    "high-contrast": {
+      "value": "#212121",
+      "filePath": "tokens/src/color.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "{color.neutral.900.value}"
+      },
+      "name": "ColorHighContrast",
+      "attributes": {
+        "category": "color",
+        "type": "high-contrast"
+      },
+      "path": [
+        "color",
+        "high-contrast"
+      ]
+    },
     "black": {
       "value": "#000000",
       "filePath": "tokens/src/color.tokens.json",

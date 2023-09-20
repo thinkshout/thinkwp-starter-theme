@@ -1,5 +1,8 @@
 {
   "color": {
+    "low-contrast": { "value": "{color.neutral.500.value}" },
+    "md-contrast": {"value": "{color.neutral.700.value}"},
+    "high-contrast": {"value": "{color.neutral.900.value}"},
     "black": { "value": "#000000" },
     "white": { "value": "#FFFFFF" },
     "neutral": {

@@ -1,0 +1,39 @@
+{# Text colors and Weights
+ *
+ * Dynamic text colors that change depending on bg color
+#}
+{%
+  set textColors = [
+  'high-contrast',
+  'md-contrast',
+  'low-contrast',
+]
+%}
+
+{%
+  set bgColors = [
+  'black',
+  'white',
+  'neutral-100',
+  'neutral-500'
+]
+%}
+{#Pre-renders Tailwind classes so they work before they're in use.#}
+<span class="hidden ts-bg-neutral-500 ts-text-md-contrast"></span>
+
+<h3 class="h5 mb-md" id="fontmodifiers">Dynamic color palettes</h3>
+<h3 class="body-sm">Text colors change based on the bg color class</h3>
+<p class="body-sm mt-zero">tokens/src/color.tokens.json</p>
+<p class="body-sm mt-zero">css/common/colors.css</p>
+<p class="utility-xs text-high-contrast mt-sm mb-md">In twig: .ts-text-high-contrast in CSS: var
+  (--color-high-contrast) </p>
+{% for bgcolor in bgColors %}
+  <h3 class="body-sm mt-md">{{ bgcolor }}</h3>
+  <div class="grid grid-cols-4 gap-base">
+  {% for color in textColors %}
+    <div class="ts-bg-{{ bgcolor }} col-span-1 inline-block">
+      <p class="ts-text-{{ color }} font-bold utility p-base">{{ color }}</p>
+    </div>
+  {% endfor %}
+  </div>
+{% endfor %}
