@@ -6,17 +6,13 @@
 @custom-media --reduce-motion (prefers-reduced-motion: reduce);
 
 html {
-  background-color: var(--color-gray-lt);
+  background-color: var(--color-neutral-05);
 }
 
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-weight-light);
-  line-height: var(--line-height-normal);
-  font-style: normal;
   width: 100%;
   max-width: var(--screen-site-max-width);
   min-height: 100vh;
@@ -41,7 +37,7 @@ fieldset {
 
 input {
   font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
+  line-height: var(--lh-12);
   font-weight: var(--font-weight-book);
 }
 
