@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 20 Sep 2023 00:17:51 GMT
+ * Generated on Wed, 20 Sep 2023 01:34:18 GMT
  */
 
 module.exports = {
@@ -612,29 +612,6 @@ module.exports = {
           "color",
           "success",
           "500"
-        ]
-      }
-    }
-  },
-  "grid": {
-    "gap": {
-      "base": {
-        "value": "1rem",
-        "filePath": "tokens/src/grid.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "{spacer.base.value}"
-        },
-        "name": "GridGapBase",
-        "attributes": {
-          "category": "grid",
-          "type": "gap",
-          "item": "base"
-        },
-        "path": [
-          "grid",
-          "gap",
-          "base"
         ]
       }
     }

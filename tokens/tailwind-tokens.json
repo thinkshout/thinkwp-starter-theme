@@ -47,11 +47,6 @@
       "500": "#0f8a56"
     }
   },
-  "grid": {
-    "gap": {
-      "base": "1rem"
-    }
-  },
   "screen": {
     "default": "375px",
     "sm": "501px",
