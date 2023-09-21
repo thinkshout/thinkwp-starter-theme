@@ -14,28 +14,40 @@
 
 {% set spacing_values = [
   {
-    "name":"4xl",
+    "name":"7xl",
+    "rem":"7.5"
+  },
+  {
+    "name":"6xl",
     "rem":"6"
   },
   {
-    "name":"3xl",
+    "name":"5xl",
+    "rem":"4.5"
+  },
+  {
+    "name":"4xl",
     "rem":"4"
   },
   {
-    "name":"2xl",
+    "name":"3xl",
     "rem":"3"
   },
   {
+    "name":"2xl",
+    "rem":"2.5"
+  },
+  {
     "name":"xl",
-    "rem":"2"
+    "rem":"2.25"
   },
   {
     "name":"lg",
-    "rem":"1.5"
+    "rem":"2"
   },
   {
     "name":"md",
-    "rem":"1.25"
+    "rem":"1.5"
   },
   {
     "name":"base",
@@ -57,18 +69,14 @@
     "name":"3xs",
     "rem":".125"
   },
-  {
-    "name":"px",
-    "rem":".0625"
-  },
 ] %}
-<span class="hidden h-base h-sm h-md h-xs h-2xl"></span>
+<span class="hidden h-base h-sm h-md h-xs h-2xl h-5xl h-6xl h-7xl"></span>
 
 {% for value in spacing_values %}
   <div>
     <div class="bg-neutral-900 inline-block h-{{ value.name }} w-1/4"></div>
-    <p class="utility-sm inline-block ml-base w-md"><strong>{{ value.name }}</strong></p>
-    <p class="body-sm inline-block ml-base w-2xl">{{ value.rem }} rem</p>
+    <p class="utility-sm inline-block ml-base w-lg"><strong>{{ value.name }}</strong></p>
+    <p class="body-sm inline-block ml-base w-4xl">{{ value.rem }} rem</p>
     <p class="body-sm inline-block ml-base">({{ value.rem * 16 }} px)</p>
   </div>
 {% endfor %}

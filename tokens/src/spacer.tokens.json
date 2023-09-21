@@ -2,16 +2,21 @@
   "spacer": {
     "0": { "value": "0" },
     "px": { "value": "1px" },
-    "3xs": { "value": "0.125rem" },
+    "3xs": { "value": ".125px" },
     "2xs": { "value": "0.25rem" },
     "xs": { "value": "0.5rem" },
     "sm": { "value": "0.75rem" },
     "base": { "value": "1rem" },
-    "md": { "value": "1.25rem" },
-    "lg": { "value": "1.5rem" },
-    "xl": { "value": "2rem" },
-    "2xl": { "value": "3rem" },
-    "3xl": { "value": "4rem" },
-    "4xl": { "value": "6rem" }
+    "md": { "value": "1.5rem" },
+    "lg": { "value": "2rem" },
+    "xl": { "value": "2.25rem" },
+    "2xl": { "value": "2.5rem" },
+    "3xl": { "value": "3rem" },
+    "4xl": { "value": "4rem" },
+    "5xl": { "value": "4.5rem" },
+    "6xl": { "value": "6rem" },
+    "7xl": { "value": "7.5rem" },
+    "block-sm": { "value": "{spacer.xl.value}" },
+    "block": { "value": "{spacer.3xl.value}" }
   }
 }

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 20 Sep 2023 02:51:43 GMT
+ * Generated on Thu, 21 Sep 2023 02:17:53 GMT
  */
 
 module.exports = {
@@ -773,11 +773,11 @@ module.exports = {
       ]
     },
     "3xs": {
-      "value": "0.125rem",
+      "value": ".125px",
       "filePath": "tokens/src/spacer.tokens.json",
       "isSource": true,
       "original": {
-        "value": "0.125rem"
+        "value": ".125px"
       },
       "name": "Spacer3xs",
       "attributes": {
@@ -858,11 +858,11 @@ module.exports = {
       ]
     },
     "md": {
-      "value": "1.25rem",
+      "value": "1.5rem",
       "filePath": "tokens/src/spacer.tokens.json",
       "isSource": true,
       "original": {
-        "value": "1.25rem"
+        "value": "1.5rem"
       },
       "name": "SpacerMd",
       "attributes": {
@@ -875,11 +875,11 @@ module.exports = {
       ]
     },
     "lg": {
-      "value": "1.5rem",
+      "value": "2rem",
       "filePath": "tokens/src/spacer.tokens.json",
       "isSource": true,
       "original": {
-        "value": "1.5rem"
+        "value": "2rem"
       },
       "name": "SpacerLg",
       "attributes": {
@@ -892,11 +892,11 @@ module.exports = {
       ]
     },
     "xl": {
-      "value": "2rem",
+      "value": "2.25rem",
       "filePath": "tokens/src/spacer.tokens.json",
       "isSource": true,
       "original": {
-        "value": "2rem"
+        "value": "2.25rem"
       },
       "name": "SpacerXl",
       "attributes": {
@@ -909,11 +909,11 @@ module.exports = {
       ]
     },
     "2xl": {
-      "value": "3rem",
+      "value": "2.5rem",
       "filePath": "tokens/src/spacer.tokens.json",
       "isSource": true,
       "original": {
-        "value": "3rem"
+        "value": "2.5rem"
       },
       "name": "Spacer2xl",
       "attributes": {
@@ -926,11 +926,11 @@ module.exports = {
       ]
     },
     "3xl": {
-      "value": "4rem",
+      "value": "3rem",
       "filePath": "tokens/src/spacer.tokens.json",
       "isSource": true,
       "original": {
-        "value": "4rem"
+        "value": "3rem"
       },
       "name": "Spacer3xl",
       "attributes": {
@@ -943,11 +943,11 @@ module.exports = {
       ]
     },
     "4xl": {
-      "value": "6rem",
+      "value": "4rem",
       "filePath": "tokens/src/spacer.tokens.json",
       "isSource": true,
       "original": {
-        "value": "6rem"
+        "value": "4rem"
       },
       "name": "Spacer4xl",
       "attributes": {
@@ -957,6 +957,91 @@ module.exports = {
       "path": [
         "spacer",
         "4xl"
+      ]
+    },
+    "5xl": {
+      "value": "4.5rem",
+      "filePath": "tokens/src/spacer.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "4.5rem"
+      },
+      "name": "Spacer5xl",
+      "attributes": {
+        "category": "spacer",
+        "type": "5xl"
+      },
+      "path": [
+        "spacer",
+        "5xl"
+      ]
+    },
+    "6xl": {
+      "value": "6rem",
+      "filePath": "tokens/src/spacer.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "6rem"
+      },
+      "name": "Spacer6xl",
+      "attributes": {
+        "category": "spacer",
+        "type": "6xl"
+      },
+      "path": [
+        "spacer",
+        "6xl"
+      ]
+    },
+    "7xl": {
+      "value": "7.5rem",
+      "filePath": "tokens/src/spacer.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "7.5rem"
+      },
+      "name": "Spacer7xl",
+      "attributes": {
+        "category": "spacer",
+        "type": "7xl"
+      },
+      "path": [
+        "spacer",
+        "7xl"
+      ]
+    },
+    "block-sm": {
+      "value": "2.25rem",
+      "filePath": "tokens/src/spacer.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "{spacer.xl.value}"
+      },
+      "name": "SpacerBlockSm",
+      "attributes": {
+        "category": "spacer",
+        "type": "block-sm"
+      },
+      "path": [
+        "spacer",
+        "block-sm"
+      ]
+    },
+    "block": {
+      "value": "3rem",
+      "filePath": "tokens/src/spacer.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "{spacer.3xl.value}"
+      },
+      "name": "SpacerBlock",
+      "attributes": {
+        "category": "spacer",
+        "type": "block"
+      },
+      "path": [
+        "spacer",
+        "block"
       ]
     }
   },
