@@ -1,0 +1,19 @@
+{# Button Underline
+* Text with underline
+*
+* Available Color values include: text-highlight.
+*
+* To use this button style, use an include statement and pass in values:
+*   {% include 'btns/btn-underline.html.twig' with {link: {title: 'learn more', url: '/'}, color:'text-highlight'} %}
+#}
+
+{% set link = link | default({title: '', url: '', target: ''}) %}
+{% set btn_class = 'btn-underline' %}
+{% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
+
+{% set color = color %}
+{% set color_classes = color == "yellow" ? "text-yellow-500 hover:text-black focus:text-black" : "" %}
+
+<a href="{{ link.url }}" target="{{ link.target }}" class="{{ link_classes }} {{ color_classes }}">
+  {{ link.title }}
+</a>

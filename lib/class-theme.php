@@ -389,7 +389,7 @@ class Theme extends Timber\Site {
 	 * Enqueue scripts and styles.
 	 */
 	public function thinktimber_scripts() {
-		wp_enqueue_style( 'thinktimber-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap', [], $this->scripts_version );
+//		wp_enqueue_style( 'thinktimber-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap', [], $this->scripts_version );
 		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$this->scripts_dir/motif.css", [], $this->scripts_version );
 		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif.js", [ 'jquery' ], $this->scripts_version, true );
 

@@ -1,183 +1,106 @@
-{# Button and Link Styles #}
+{# Button and Link Styles#}
 
-{#{% set btnLinkStyles = [#}
-{#  'btn-solid',#}
-{#  'btn-outline',#}
-{#  'btn-underline'#}
-{#] %}#}
+{% set btnLinkStyles = [
+  'btn-solid',
+  'btn-outline',
+  'btn-underline'
+] %}
 
-{#{% set iconBtnLinkStyles = [#}
+{% set sizes = [
+  'lg',
+  'md',
+  'sm'
+] %}
 
-{#] %}#}
+{% set colors = [
+  'primary',
+  'dk',
+  'lt',
+  'white'
+] %}
 
-{#{% set link_url = '/' %}#}
+{% set svgs = {
+    "before": "download",
+    "after": "arrow-right",
+    "none": "",
+  }
+%}
 
-{#<span class="py-xs py-2xs px-sm px-md "></span>#}
-{#<h2 class="h3">Buttons and links</h2>#}
-{#<p class="body-lg mt-zero">css/common/_buttons-links.css</p>#}
-{#<p class="body-lg mt-zero">views/btns</p>#}
-{#<p class="body-lg gray mt-sm mb-md">Buttons and links with icons are reusable components found in twig#}
-{#  "views/btns"</p>#}
-{#<hr class="mt-sm mb-sm">#}
-{# Button styles #}
-{#<p class="utility-xs">All button and links use an included template. <br/>#}
-{#  <em>See views/btns/[btn name] for templates and docs</em></p>#}
-{# Loops through btn templates #}
-{#{% for btn in btnLinkStyles %}#}
-{#<div class="my-sm">#}
-{#  <div class="inline-block">#}
-{#    {% include 'btns/'~ btn ~ '.twig' with {#}
-{#      link: {title: btn, url: link_url}#}
-{#    } %}#}
-{#  </div>#}
-{#</div>#}
-{#{% endfor %}#}
+{% set iconBtnLinkStyles = [
 
+] %}
 
-{# BTN-UNDERLINE VARIATIONS #}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block ts-bg-black p-xs">#}
-{#    #}{# BTN-SOLID: color 'black', size default #}
-{#    {% include 'btns/btn-underline.twig' with {#}
-{#      link: {title: "btn-underline, color: 'yellow'", url: link_url},#}
-{#      color: 'yellow'#}
-{#    } %}#}
-{#  </div>#}
-{#</div>#}
-{# BTN-SOLID VARIATIONS #}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block">#}
-{#    #}{# BTN-SOLID: color 'black', size default #}
-{#    {% include 'btns/btn-solid.twig' with {#}
-{#      link: {title: "btn-solid, color: 'black'", url: link_url},#}
-{#      color: 'black'#}
-{#    } %}#}
-{#  </div>#}
-{#</div>#}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block">#}
-{#    #}{# BTN-SOLID: color 'gray-200', size default #}
-{#    {% include 'btns/btn-solid.twig' with {#}
-{#      link: {title: "btn-solid, color: 'gray-200'", url: link_url},#}
-{#      color: 'gray-200'#}
-{#    } %}#}
-{#  </div>#}
-{#</div>#}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block">#}
+{% set link_url = '/' %}
 
-{#    #}{# BTN-SOLID: color 'gray-200', size 'md' #}
-{#    {% include 'btns/btn-solid.twig' with {#}
-{#      link: {title: "btn-solid, color:'gray-200', size:'md'", url: link_url},#}
-{#      color: 'gray-200',#}
-{#      size: 'md',#}
-{#    } %}#}
+<span class="py-xs py-2xs px-sm px-md "></span>
+<h2 class="h3">Buttons and links</h2>
+<p class="body-lg mt-zero">css/common/_buttons-links.css</p>
+<p class="body-lg mt-zero">views/btns</p>
+<p class="body-lg gray mt-sm mb-md">Buttons and links with icons are reusable components found in twig
+  "views/btns"</p>
+<hr class="mt-sm mb-sm">
+ Button styles
+<p class="utility-xs">All button and links use an included template. <br/>
+  <em>See views/btns/[btn name] for templates and docs</em></p>
+ Loops through btn templates
+{% for btn in btnLinkStyles %}
+  {% for color in colors %}
+    <div class="my-lg">
+      {% for size in sizes %}
+        <div class="my-sm">
+          {% for key, svg in svgs %}
+            <div class="inline-block">
+              {% include 'btns/'~ btn ~ '.twig' with {
+                link: {title: btn ~ " " ~ color ~ " " ~ size, url: link_url},
+                size: "btn-solid--" ~ size,
+                color: "btn-solid--" ~ color,
+                svg_position: key,
+                link_svg_name: svg
+              } %}
+            </div>
+            <span class="mr-sm">
+              {% if key == 'none' %}
+                {% include 'btns/'~ btn ~ '.twig' with {
+                  link: {url: link_url},
+                  size: "btn-solid--" ~ size,
+                  color: "btn-solid--" ~ color,
+                  link_svg_name: "arrow-right"
+                } %}
+              {% endif %}
+            </span>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+{% endfor %}
 
-{#  </div>#}
-{#</div>#}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block">#}
-{#    #}{# BTN-SOLID: color 'Yellow-500', size 'md' #}
-{#    {% include 'btns/btn-solid.twig' with {#}
-{#      link: {title: "btn-solid, size: 'md'", url: link_url},#}
-{#      size: 'md',#}
-{#    } %}#}
-{#  </div>#}
-{#</div>#}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block">#}
-{#    #}{# BTN-SOLID: size 'sm' #}
-{#    {% include 'btns/btn-solid.twig' with {#}
-{#      link: {title: "btn-solid, size:'sm'", url: link_url},#}
-{#      size: 'sm',#}
-{#    } %}#}
-{#  </div>#}
-{#</div>#}
+<div class="my-lg">
+  <div class="inline-block">
+    {% include 'btns/btn-solid.twig' with {
+      link: {title: "", url: link_url},
+      size: size,
+      color: color,
+      link_svg_name: 'arrow-right'
+    } %}
+  </div>
+  <div class="inline-block">
+    {% include 'btns/btn-solid.twig' with {
+      link: {title: "btn-solid with icon after", url: link_url},
+      size: size,
+      color: color,
+      link_svg_name: 'arrow-right',
+      svg_position: 'after'
+    } %}
+  </div>
+  <div class="inline-block">
+    {% include 'btns/btn-solid.twig' with {
+      link: {title: "btn-solid with icon before", url: link_url},
+      size: size,
+      color: color,
+      link_svg_name: 'download',
+      svg_position: 'before'
+    } %}
+  </div>
+</div>
 
-{# BTN-OUTLINE--SM, offsite #}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block">#}
-{#    {% include 'btns/btn-outline--sm.twig' with {#}
-{#      link: {#}
-{#        title: "btn-outline--sm",#}
-{#        url: link_url,#}
-{#      }#}
-{#    } %}#}
-{#  </div>#}
-{#</div>#}
-
-{# BTN-OUTLINE--SM, white, downlaod icon #}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block ts-bg-black p-xs">#}
-{#    {% include 'btns/btn-outline--sm.twig' with {#}
-{#      link: {#}
-{#        title: "btn-outline--sm",#}
-{#        url: link_url,#}
-{#      },#}
-{#      color: 'white',#}
-{#      link_svg_name: 'download',#}
-{#    } %}#}
-{#  </div>#}
-{#  <p class="body-xs">Variation details: color: 'white', link_svg_name:'download'</p>#}
-{#</div>#}
-{# BTN-OUTLINE--SM, white, arrow 45 degrees icon #}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block ts-bg-black p-xs">#}
-{#    {% include 'btns/btn-outline--sm.twig' with {#}
-{#      link: {#}
-{#        title: "btn-outline--sm",#}
-{#        url: link_url,#}
-{#      },#}
-{#      color: 'white',#}
-{#      link_svg_name: 'arrow-45degrees',#}
-{#    } %}#}
-{#  </div>#}
-{#  <p class="body-xs">Variation details: color: 'white', link_svg_name:'arrow-45degrees'</p>#}
-{#</div>#}
-
-{#<div class="mb-sm">#}
-{#  <div class="inline-block">#}
-{#    #}{# BTN-ROUND: arrow left #}
-{#    {% include "btns/btn-round-arrow.twig" with {#}
-{#      btn_classes: 'rotate-180',#}
-{#      link_content: 'scroll to the left',#}
-{#    } %}#}
-{#    #}{# BTN-ROUND: arrow right #}
-{#    {% set btn_classes = 'ts-bg-black ts-svg-fill-highlight' %}#}
-{#    {% include "btns/btn-round-arrow.twig" %}#}
-{#  </div>#}
-{#</div>#}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block ts-bg-black">#}
-{#    #}{# BTN-ARROW:  #}
-{#    {% include 'btns/btn-arrow.twig' with {#}
-{#      link_text: 'btn-arrow',#}
-{#      link_url: null,#}
-{#    } %}#}
-{#  </div>#}
-{#</div>#}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block">#}
-{#    #}{# BTN-TAG: Events #}
-{#    {% include 'btns/btn-tag.twig' with {#}
-{#      svg_name: 'events',#}
-{#      type: 'btn-tag, events',#}
-{#    } %}#}
-{#    #}{# BTN-TAG: Press releases #}
-{#    {% include 'btns/btn-tag.twig' with {#}
-{#      svg_name: 'press releases',#}
-{#      type: 'btn-tag, press releases',#}
-{#    } %}#}
-{#    #}{# BTN-TAG: Campaigns #}
-{#    {% include 'btns/btn-tag.twig' with {#}
-{#      svg_name: 'campaigns',#}
-{#      type: 'btn-tag, campaigns',#}
-{#    } %}#}
-{#  </div>#}
-{#</div>#}
-{#<div class="mb-sm">#}
-{#  <div class="inline-block">#}
-{#    #}{# BTN-DRAWER:  #}
-{#    {% include 'btns/btn-drawer.twig' %}#}
-{#  </div>#}
-{#</div>#}

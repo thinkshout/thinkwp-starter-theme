@@ -1,0 +1,53 @@
+{# Outline button
+ * An outlined pill button.
+
+  * COLOR OPTIONS (text and outline)
+  *   - black (default)
+  *   - white
+
+  * ICON OPTION
+  *   - link_svg_name: 'download' (pass in svg name)
+  *   - svg_position: 'before' (default) or 'after'
+
+  HOW TO USE:
+  {% include 'btns/btn-outline.twig' with {
+      link: {title: 'learn more', url: '/'},
+      color: 'white'
+    }
+  %}
+#}
+
+{# Primary values #}
+{% set link = link %}
+
+{# btn classes, colorway, svg name #}
+{% set btn_class = 'btn-outline' %}
+{% set link_svg_name = link_svg_name %}
+
+{# Sets color classes and hover/focus for variants #}
+{% if color == 'white' %}
+  {% set text_and_hocus = "
+    btn-icon-white
+    bg-transparent
+    border-white
+    text-white
+    hover:text-yellow-500
+    focus:text-yellow-500
+    hover:bg-transparent
+    focus:bg-transparent
+    hover:border-yellow-500
+    focus:border-yellow-500
+  " %}
+{% endif %}
+
+{# Adds icon classes if needed #}
+{% if link_svg_name %}
+  {% set link_svg_classes = ' h-auto inline-block mr-3xs relative top-[3px] w-[14px] ' %}
+{% endif %}
+
+{# Combines classes, adds them to the btn template #}
+{% set btn_class = 'btn-outline ' ~ text_and_hocus ~ padding %}
+{# Final set of classes, including any passed in #}
+{% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
+
+{% extends 'btns/btn-base.twig' %}
