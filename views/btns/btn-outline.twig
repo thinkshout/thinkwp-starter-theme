@@ -1,6 +1,9 @@
 {# Outline button
  * An outlined pill button.
 
+  * Button OPTIONS (text and outline)
+  *   - size: 'sm', 'md' or 'lg
+
   * COLOR OPTIONS (text and outline)
   *   - black (default)
   *   - white
@@ -24,29 +27,13 @@
 {% set btn_class = 'btn-outline' %}
 {% set link_svg_name = link_svg_name %}
 
-{# Sets color classes and hover/focus for variants #}
-{% if color == 'white' %}
-  {% set text_and_hocus = "
-    btn-icon-white
-    bg-transparent
-    border-white
-    text-white
-    hover:text-yellow-500
-    focus:text-yellow-500
-    hover:bg-transparent
-    focus:bg-transparent
-    hover:border-yellow-500
-    focus:border-yellow-500
-  " %}
-{% endif %}
-
 {# Adds icon classes if needed #}
 {% if link_svg_name %}
   {% set link_svg_classes = ' h-auto inline-block mr-3xs relative top-[3px] w-[14px] ' %}
 {% endif %}
 
 {# Combines classes, adds them to the btn template #}
-{% set btn_class = 'btn-outline ' ~ text_and_hocus ~ padding %}
+{% set btn_class = 'btn-outline ' ~ size ~ " " ~ color %}
 {# Final set of classes, including any passed in #}
 {% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
 
