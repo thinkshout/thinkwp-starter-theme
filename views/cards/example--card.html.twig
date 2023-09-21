@@ -1,0 +1,33 @@
+{# Example card #}
+
+{% set author = "Rachel Schaeffer" %}
+{% set blog_date = "20 Jan 2022" %}
+{% set eyebrow = "Card eyebrow" %}
+{% set title = "Card " ~ size %}
+{% set btn_tag_text = "Single Day Ride" %}
+{% set text = "Card text" %}
+{% set btn_search_listing_tag_text = "48 mi • Brisk (16-18mph)" %}
+{% set type = "Multi Day Century" %}
+{% set news_type = "Spotlights" %}
+{% set registration_status = "Registration Now Open!" %}
+{% set date_time = "Wed. Jan 25, 2023 • 7:00am" %}
+{% set small_text = date_time %}
+{% set elevation = "4,300 ft-7,100 ft" %}
+{% set distance = "50 mi-100 mi" %}
+{% set location = "Seattle" %}
+{% set link_title = "Primary" %}
+{% set link_url = "/" %}
+{% set link_title_2 = "Secondary" %}
+{% set link_url_2 = "/" %}
+{% set size = size ?? "lg" %}
+{% set number_of_cards = number_of_cards %}
+{% set number_of_columns = number_of_columns ?? "3" %}
+{% set image %}
+  <img src="/wp-content/themes/custom/thinkwp-starter-theme/assets/images/default-light.png" alt="Placeholder image">
+{% endset %}
+
+<div class="ts-grid-col-{{ number_of_columns }} my-block">
+  {% for i in 1..number_of_cards %}
+    {% include "/cards/card-" ~ size ~ ".html.twig" %}
+  {% endfor %}
+</div>

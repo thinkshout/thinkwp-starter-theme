@@ -1,0 +1,31 @@
+{# Card xl
+ * Seen in 2-up Cards.
+ *
+ * Variables:
+ * - image
+ * - title
+ * - text
+ * - link
+ * - style
+#}
+
+<div class="card-xl mb-sm md:mb-0 relative">
+  
+  <div class="ts-rounded-img relative">
+    {{ image }}
+  </div>
+  <div class="pt-sm md:pt-base">
+    <div>
+      <h3 class="ts-text-high-contrast h3 mb-xs">{{ title }}</h3>
+      <div class="card-xl__text wysiwyg-wrapper mb-xs">{{ text }}</div>
+    </div>
+    {% if link_url %}
+      <div>
+{#        {% include "btns/btn-solid.html.twig" with {#}
+{#          link: { title: link_title, url: link_url },#}
+{#          size: 'lg'#}
+{#        } %}#}
+      </div>
+    {% endif %}
+  </div>
+</div>

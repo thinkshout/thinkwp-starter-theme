@@ -1,0 +1,25 @@
+{# Card md
+ *
+ * Seen on Wayfinding Card.
+ * Variables:
+ * - image
+ * - title
+ * - link
+ * - link_url
+#}
+
+<div class="card-md rounded-[10px] relative ts-bg-white ts-hocus-scale">
+  <div class="ts-rounded-img card-md__image">
+    {{ image }}
+  </div>
+  {% include "@ts_cascade/_includes/card-overlay-link.html.twig" with { link_url: link_url } %}
+  {% if title %}
+    <h3 class="card-header--hocus mt-xs">
+{#      {% include "@ts_cascade/btns/btn-arrow.html.twig" with {#}
+{#        link_text: title,#}
+{#        size: 'md',#}
+{#        link: link_url#}
+{#      } %}#}
+    </h3>
+  {% endif %}
+</div>

@@ -1,0 +1,35 @@
+{# Card lg -- news
+ * Seen in News content type in Content List paragraph and search results.
+ *
+ * Variables:
+ * - type
+ * - image
+ * - title
+ * - text
+ * - link
+ * - style
+ * - link_url
+#}
+
+<div class="card-lg-news mb-sm md:mb-0 relative border-[1px] border-gray-200 rounded-xl ts-bg-white">
+  <div class="ts-rounded-img-2">
+    {{ image }}
+  </div>
+  <div class="py-xs md:py-base px-sm">
+    <div class="text-green-600 font-bold utility-xs mb-2xs">{{ news_type }}</div>
+    <div>
+      {# Card overlay link needs to be immediately followed by the .card-title for hover/focus styles #}
+      {% include "/components/card-overlay-link.html.twig" with { link_url: link_url } %}
+      <a href="{{ link_url }}" class="ts-text-md-contrast card-title hover:text-blue-600 focus:text-blue-600">
+        <h3 class="h3 mb-2xs">
+          {{ title }}
+        </h3>
+      </a>
+      <div class="body-sm mb-sm ts-text-low-contrast">{{ text }}</div>
+    </div>
+    <div>
+      <div class="utility-xs font-bold ts-text-md-contrast">{{ author }}</div>
+      <div class="utility-xs ts-text-low-contrast">{{ news_date }}</div>
+    </div>
+  </div>
+</div>

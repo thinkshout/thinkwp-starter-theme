@@ -1,0 +1,49 @@
+<article{{ attributes.addClass('card-3xl', 'flex', 'items-center', 'gap-base', 'ts-my-block-sm') }}>
+
+  {# Image #}
+  {% if image %}
+    <div class="card-3xl__image w-[150px] h-[150px] shrink-0 rounded-xl overflow-hidden">
+      {{ image }}
+    </div>
+  {% endif %}
+
+  {# Text #}
+  <div>
+    {# Tag #}
+    {% if tag %}
+      <div class="mb-2xs">
+{#        {% include '../btns/btn-tag.html.twig' with {#}
+{#          color_way: 'blue',#}
+{#          text: tag,#}
+{#        } %}#}
+      </div>
+    {% endif %}
+
+    {# Title #}
+    {% if title %}
+      <h2 class="h2 text-green-700">
+        {% if url %}
+          <a href="{{ url }}" class="duration-default transition-colors hover:text-blue-600 focus:text-blue-600">
+        {% endif %}
+        {{ title }}
+        {% if url %}
+          </a>
+        {% endif %}
+      </h2>
+    {% endif %}
+
+    {# Summary #}
+    {% if summary %}
+      <div class="wysiwyg-wrapper -my-sm text-gray-600">
+        {{ summary }}
+      </div>
+    {% endif %}
+
+    {# Sub text #}
+    {% if sub_text %}
+      <div class="utility-2xs text-gray-600 {{ summary == '' ? 'mt-2xs'}}">
+        {{ sub_text }}
+      </div>
+    {% endif %}
+  </div>
+</article>
