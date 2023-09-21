@@ -20,8 +20,8 @@
             "sub_fields": [
                 {
                     "key": "field_650c524434917",
-                    "label": "Block Alignment",
-                    "name": "block_alignment",
+                    "label": "Block Presentation",
+                    "name": "block_presentation",
                     "aria-label": "",
                     "type": "select",
                     "instructions": "",
@@ -127,8 +127,8 @@
                     },
                     "default_value": "",
                     "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
+                    "toolbar": "basic",
+                    "media_upload": 0,
                     "delay": 0
                 },
                 {
@@ -184,5 +184,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695306376
+    "modified": 1695317472
 }
