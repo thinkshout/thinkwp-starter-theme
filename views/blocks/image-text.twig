@@ -1,0 +1,12 @@
+{#
+  Title: Image + Text
+  Description: A block that displays an image along side a text block with title and possible CTAs.
+  Category: theme
+  Icon: align-pull-right
+  SupportsAlign: false
+  Example: {}
+#}
+
+{% include 'models/block--image-text.twig' with {
+  image_text: fields.image_text,
+} %}
