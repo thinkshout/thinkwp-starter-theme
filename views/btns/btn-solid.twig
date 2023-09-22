@@ -26,13 +26,13 @@
 
 {# Primary values #}
 {% set link = link %}
-{% set size = size ?: 'btn-md' %}
+{% set size = size ?: 'md' %}
 {% set color = color ?: 'btn-primary' %}
 {% set add_classes = add_classes %}
 {% set link_svg_name = link_svg_name %}
 
 {# btn classes, colorway, svg name #}
-{% set btn_class = 'btn-solid ' ~ size ~ " " ~ color %}
+{% set btn_class = "btn-solid btn--" ~ size ~ " " ~ color %}
 {# Final set of classes #}
 {% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
 

@@ -58,7 +58,7 @@ btn-solid--white"></span>
             <div class="inline-block">
               {% include 'btns/' ~ btn ~ '.twig' with {
                 link: {title: btn ~ " " ~ size, url: link_url},
-                size: "btn--" ~ size,
+                size: size,
                 svg_position: key,
                 link_svg_name: svg
               } %}
@@ -66,7 +66,7 @@ btn-solid--white"></span>
                 {% if key == 'none' %}
                   {% include 'btns/' ~ btn ~ '.twig' with {
                     link: {url: link_url},
-                    size: "btn--" ~ size,
+                    size: size,
                     link_svg_name: "arrow-right"
                   } %}
                 {% endif %}

@@ -29,7 +29,7 @@
 {% endif %}
 
 {# Combines classes, adds them to the btn template #}
-{% set btn_class = 'btn-outline ' ~ size %}
+{% set btn_class = 'btn-outline btn--' ~ size %}
 {# Final set of classes, including any passed in #}
 {% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
 
