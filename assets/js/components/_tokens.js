@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 22 Sep 2023 01:50:58 GMT
+ * Generated on Fri, 22 Sep 2023 02:56:08 GMT
  */
 
 module.exports = {
@@ -307,7 +307,7 @@ module.exports = {
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#EBE6FD"
+          "value": "{color.purple.100.value}"
         },
         "name": "ColorPrimary100",
         "attributes": {
@@ -326,7 +326,7 @@ module.exports = {
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#8A66F0"
+          "value": "{color.purple.300.value}"
         },
         "name": "ColorPrimary300",
         "attributes": {
@@ -345,7 +345,7 @@ module.exports = {
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#3C00E7"
+          "value": "{color.purple.500.value}"
         },
         "name": "ColorPrimary500",
         "attributes": {
@@ -364,7 +364,7 @@ module.exports = {
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#1E0073"
+          "value": "{color.purple.700.value}"
         },
         "name": "ColorPrimary700",
         "attributes": {
@@ -383,7 +383,7 @@ module.exports = {
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#0C002E"
+          "value": "{color.purple.900.value}"
         },
         "name": "ColorPrimary900",
         "attributes": {
@@ -404,7 +404,7 @@ module.exports = {
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#FFF4CC"
+          "value": "{color.yellow.100.value}"
         },
         "name": "ColorSecondary100",
         "attributes": {
@@ -423,7 +423,7 @@ module.exports = {
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#FFE380"
+          "value": "{color.yellow.300.value}"
         },
         "name": "ColorSecondary300",
         "attributes": {
@@ -442,7 +442,7 @@ module.exports = {
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#FFC700"
+          "value": "{color.yellow.500.value}"
         },
         "name": "ColorSecondary500",
         "attributes": {
@@ -461,7 +461,7 @@ module.exports = {
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#B36100"
+          "value": "{color.yellow.700.value}"
         },
         "name": "ColorSecondary700",
         "attributes": {
@@ -476,11 +476,11 @@ module.exports = {
         ]
       },
       "900": {
-        "value": "#330800",
+        "value": "#0c002e",
         "filePath": "tokens/src/color.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#330800"
+          "value": "{color.purple.900.value}"
         },
         "name": "ColorSecondary900",
         "attributes": {
@@ -491,6 +491,200 @@ module.exports = {
         "path": [
           "color",
           "secondary",
+          "900"
+        ]
+      }
+    },
+    "purple": {
+      "100": {
+        "value": "#ebe6fd",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#EBE6FD"
+        },
+        "name": "ColorPurple100",
+        "attributes": {
+          "category": "color",
+          "type": "purple",
+          "item": "100"
+        },
+        "path": [
+          "color",
+          "purple",
+          "100"
+        ]
+      },
+      "300": {
+        "value": "#8a66f0",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8A66F0"
+        },
+        "name": "ColorPurple300",
+        "attributes": {
+          "category": "color",
+          "type": "purple",
+          "item": "300"
+        },
+        "path": [
+          "color",
+          "purple",
+          "300"
+        ]
+      },
+      "500": {
+        "value": "#3c00e7",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#3C00E7"
+        },
+        "name": "ColorPurple500",
+        "attributes": {
+          "category": "color",
+          "type": "purple",
+          "item": "500"
+        },
+        "path": [
+          "color",
+          "purple",
+          "500"
+        ]
+      },
+      "700": {
+        "value": "#1e0073",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#1E0073"
+        },
+        "name": "ColorPurple700",
+        "attributes": {
+          "category": "color",
+          "type": "purple",
+          "item": "700"
+        },
+        "path": [
+          "color",
+          "purple",
+          "700"
+        ]
+      },
+      "900": {
+        "value": "#0c002e",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0C002E"
+        },
+        "name": "ColorPurple900",
+        "attributes": {
+          "category": "color",
+          "type": "purple",
+          "item": "900"
+        },
+        "path": [
+          "color",
+          "purple",
+          "900"
+        ]
+      }
+    },
+    "yellow": {
+      "100": {
+        "value": "#fff4cc",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#FFF4CC"
+        },
+        "name": "ColorYellow100",
+        "attributes": {
+          "category": "color",
+          "type": "yellow",
+          "item": "100"
+        },
+        "path": [
+          "color",
+          "yellow",
+          "100"
+        ]
+      },
+      "300": {
+        "value": "#ffe380",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#FFE380"
+        },
+        "name": "ColorYellow300",
+        "attributes": {
+          "category": "color",
+          "type": "yellow",
+          "item": "300"
+        },
+        "path": [
+          "color",
+          "yellow",
+          "300"
+        ]
+      },
+      "500": {
+        "value": "#ffc700",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#FFC700"
+        },
+        "name": "ColorYellow500",
+        "attributes": {
+          "category": "color",
+          "type": "yellow",
+          "item": "500"
+        },
+        "path": [
+          "color",
+          "yellow",
+          "500"
+        ]
+      },
+      "700": {
+        "value": "#b36100",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#B36100"
+        },
+        "name": "ColorYellow700",
+        "attributes": {
+          "category": "color",
+          "type": "yellow",
+          "item": "700"
+        },
+        "path": [
+          "color",
+          "yellow",
+          "700"
+        ]
+      },
+      "900": {
+        "value": "#330800",
+        "filePath": "tokens/src/color.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#330800"
+        },
+        "name": "ColorYellow900",
+        "attributes": {
+          "category": "color",
+          "type": "yellow",
+          "item": "900"
+        },
+        "path": [
+          "color",
+          "yellow",
           "900"
         ]
       }

@@ -128,8 +128,58 @@
         },
         {
           "slug": "secondary-900",
-          "color": "#330800",
+          "color": "#0c002e",
           "name": "Secondary 900"
+        },
+        {
+          "slug": "purple-100",
+          "color": "#ebe6fd",
+          "name": "Purple 100"
+        },
+        {
+          "slug": "purple-300",
+          "color": "#8a66f0",
+          "name": "Purple 300"
+        },
+        {
+          "slug": "purple-500",
+          "color": "#3c00e7",
+          "name": "Purple 500"
+        },
+        {
+          "slug": "purple-700",
+          "color": "#1e0073",
+          "name": "Purple 700"
+        },
+        {
+          "slug": "purple-900",
+          "color": "#0c002e",
+          "name": "Purple 900"
+        },
+        {
+          "slug": "yellow-100",
+          "color": "#fff4cc",
+          "name": "Yellow 100"
+        },
+        {
+          "slug": "yellow-300",
+          "color": "#ffe380",
+          "name": "Yellow 300"
+        },
+        {
+          "slug": "yellow-500",
+          "color": "#ffc700",
+          "name": "Yellow 500"
+        },
+        {
+          "slug": "yellow-700",
+          "color": "#b36100",
+          "name": "Yellow 700"
+        },
+        {
+          "slug": "yellow-900",
+          "color": "#330800",
+          "name": "Yellow 900"
         },
         {
           "slug": "error-100",
