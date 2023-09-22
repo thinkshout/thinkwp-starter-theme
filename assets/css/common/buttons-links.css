@@ -1,1 +1,7 @@
-
+/* Card hover/focus style */
+.card-overlay-link:hover + .card-title-hocus,
+.card-title-hocus:focus {
+	text-decoration: underline;
+	text-underline-offset: var(--spacer-2xs);
+	transition: all var(--transition-default);
+}
