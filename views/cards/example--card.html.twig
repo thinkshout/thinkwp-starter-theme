@@ -23,7 +23,7 @@
   {% for i in 1..number_of_cards %}
     {% embed "/cards/card-" ~ size ~ ".html.twig" %}
       {% block card_image %}
-      <img class="{{image_classes}}" src="https://placehold.co/600x338" alt="Placeholder image">
+      <img class="{{image_classes}}" src="{{site.theme.uri}}/assets/images/default-dark.png" alt="Placeholder image">
       {% endblock %}
     {% endembed %}
   {% endfor %}
