@@ -1,0 +1,18 @@
+
+{% include 'models/block--cta.twig' with {
+  cta_block: {
+    title: 'CTA Block',
+    description: 'This is a CTA block',
+    block_colorway: 'page',
+    block_presentation: 'full-columns',
+    primary_cta: {
+      title: 'Primary CTA',
+      url: '#',
+      target: '_blank',
+    },
+    secondary_cta: {
+      title: 'Secondary CTA',
+      url: '#',
+    },
+  },
+} %}
