@@ -1,13 +1,13 @@
 .accordion {
   &__section {
     &__content {
-      @apply mt-0 max-h-0 overflow-hidden pr-xl opacity-invisible;
+      @apply mt-0 max-h-0 overflow-hidden pr-xl opacity-0;
       transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out,
         margin-top 0.3s ease-in-out;
     }
     &--open {
       .accordion__section__content {
-        @apply mt-sm max-h-[10000px] opacity-visible;
+        @apply mt-sm max-h-[10000px] opacity-100;
       }
       .accordion__section__icon {
         .icon-layer {
