@@ -1,0 +1,61 @@
+{# Card lg
+ * A starter card template.
+ *
+ * Variables:
+ * - tag
+ * - image
+ * - title
+ * - text_small
+ * - text
+ * - link_url
+#}
+
+<div class="card-lg mb-sm md:mb-0 relative ts-bg-brand-1">
+  {# Image #}
+  {% if image %}
+    <div class="">
+      {{ image }}
+    </div>
+  {% endif %}
+
+  {# Text Wrapper #}
+  <div class="p-base md:p-2xl">
+
+    {# Tag #}
+    {% if btn_tag_text %}
+      <div class="mb-sm">
+        {% include "btns/btn-tag.twig" with {
+          text: btn_tag_text
+        } %}
+      </div>
+    {% endif %}
+
+      {# Card overlay link: needs to be immediately followed by the .card-title for hover/focus styles #}
+      {% include "/components/card-overlay-link.html.twig" with { link_url: link_url } %}
+
+      {# Title #}
+      {% if title %}
+        <a href="{{ link_url }}" class="ts-text-md-contrast card-title">
+          <h3 class="h3 mb-sm">
+            {{ title }}
+          </h3>
+        </a>
+      {% endif %}
+
+      {# Text Small #}
+      {% if text_small %}
+        <div class="body-xs mb-lg ts-text-md-contrast">
+          <span class="ts-text-low-contrast">By </span>
+          {{ author }}
+          <span class="ts-text-low-contrast">on</span>
+          <span>{{ date }}</span>
+        </div>
+      {% endif %}
+
+      {# Text #}
+      {% if text %}
+        <div class="body-sm ts-text-md-contrast">{{ text }}</div>
+      {% endif %}
+
+  </div> {# end Text Wrapper #}
+</div>
