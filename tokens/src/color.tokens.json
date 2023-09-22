@@ -18,13 +18,27 @@
       "900": { "value": "#212121" }
     },
     "primary": {
+      "100": { "value": "{color.purple.100.value}" },
+      "300": { "value": "{color.purple.300.value}" },
+      "500": { "value": "{color.purple.500.value}" },
+      "700": { "value": "{color.purple.700.value}" },
+      "900": { "value": "{color.purple.800.value}" }
+    },
+    "secondary": {
+      "100": { "value": "{color.yellow.100.value}" },
+      "300": { "value": "{color.yellow.300.value}" },
+      "500": { "value": "{color.yellow.500.value}" },
+      "700": { "value": "{color.yellow.700.value}" },
+      "900": { "value": "{color.yellow.800.value}" }
+    },
+    "purple": {
       "100": { "value": "#EBE6FD" },
       "300": { "value": "#8A66F0" },
       "500": { "value": "#3C00E7" },
       "700": { "value": "#1E0073" },
       "900": { "value": "#0C002E" }
     },
-    "secondary": {
+    "yellow": {
       "100": { "value": "#FFF4CC" },
       "300": { "value": "#FFE380" },
       "500": { "value": "#FFC700" },
