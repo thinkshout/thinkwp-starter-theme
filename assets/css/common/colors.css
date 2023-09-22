@@ -9,6 +9,9 @@
 .ts-text-high-contrast {
 	color: var(--color-high-contrast);
 }
+.ts-svg-high-contrast svg path {
+	fill: var(--color-high-contrast);
+}
 
 /* DARK COLORWAY */
 .ts-bg-dk {
