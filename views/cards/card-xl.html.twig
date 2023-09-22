@@ -3,7 +3,7 @@
  * Seen on Poster paragraph.
  *
  * Variables:
- * - image
+ * - has_image
  * - eyebrow
  * - title
  * - text
@@ -17,10 +17,13 @@
     <div class="ts-grid-col-2">
 
       {# Image #}
-      <div class="mb-base md:mb-0">
-        {# Image field display should be set to 16:9 responsive image style #}
-        {{ image }}
-      </div>
+      {% if has_image %}
+        <div class="mb-base md:mb-0">
+          {# Image field display should be set to 16:9 responsive image style #}
+          {% block card_image %}
+          {% endblock %}
+        </div>
+      {% endif %}
 
       {# Text Wrapper #}
       <div class="flex flex-col justify-center md:max-w-[600px]">

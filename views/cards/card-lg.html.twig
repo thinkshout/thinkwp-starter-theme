@@ -3,7 +3,7 @@
  *
  * Variables:
  * - tag
- * - image
+ * - has_image
  * - title
  * - text_small
  * - text
@@ -12,9 +12,10 @@
 
 <div class="card-lg mb-sm md:mb-0 relative ts-bg-brand-1">
   {# Image #}
-  {% if image %}
+  {% if has_image %}
     <div class="">
-      {{ image }}
+      {% block card_image %}
+      {% endblock %}
     </div>
   {% endif %}
 
