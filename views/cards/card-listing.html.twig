@@ -1,0 +1,56 @@
+{# Card Search Listing
+ *
+ * Seen on Search Listing.
+ * Variables:
+ * - image
+ * - btn_tag_text
+ * - title
+ * - text
+ * - text_small
+ * - link_url
+ * - link
+#}
+
+
+<div class="card-listing rounded-[10px] relative ts-bg-lt ts-hocus-scale py-md">
+
+  {# Image #}
+  {% if image %}
+    <div class="inline-block mr-sm w-7xl">
+      {{ image }}
+    </div>
+  {% endif %}
+
+  {# Text wrapper #}
+  <div class="inline-block">
+
+    {# Tag #}
+    {% if btn_tag_text %}
+      <div class="mb-2xs">
+        {% include "btns/btn-tag.twig" with {
+          text: btn_tag_text
+        } %}
+      </div>
+    {% endif %}
+
+    {# Full Card Link #}
+    {% include "components/card-overlay-link.html.twig" with { link_url: link_url } %}
+
+    {# Title #}
+    <h3 class="h3 mb-2xs ts-text-high-contrast">{{ title }}</h3>
+
+    {# Text #}
+    {% if text %}
+      <p class="body-sm mb-2xs ts-text-high-contrast">{{ text }}</p>
+    {% endif %}
+
+    {# Small Text #}
+    {% if text_small %}
+      <div class="ts-text-md-contrast body-xs">
+        {{ text_small }}
+      </div>
+    {% endif %}
+
+  </div> {# End text wrapper #}
+
+</div>
