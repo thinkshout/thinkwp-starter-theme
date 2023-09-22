@@ -22,7 +22,7 @@ class Custom_Post_Type {
 	 * @param array   $taxonomies The WordPress taxonomies this post type uses.
 	 * @param array   $supports The WordPress features this post type uses.
 	 */
-	public function __construct( $name, $names, $dashicon, $position, $public = true, $taxonomies = [ 'category' ], $supports = [ 'title' ] ) {
+	public function __construct( $name, $names, $dashicon, $position, $public = true, $taxonomies = array( 'category' ), $supports = array( 'title' ) ) {
 		$type_args       = array(
 			'labels'              => array(
 				'name'                  => $names,

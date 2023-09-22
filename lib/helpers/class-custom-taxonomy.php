@@ -20,7 +20,7 @@ class Custom_Taxonomy {
 	 * @param boolean $public True if this taxonomy is queryable and should appear user in searches.
 	 * @param array   $post_types The sanitize_title output of the post types this taxonomy is registered to.
 	 */
-	public function __construct( $name, $names, $hierarchical = true, $public = true, $post_types = [ 'post' ] ) {
+	public function __construct( $name, $names, $hierarchical = true, $public = true, $post_types = array( 'post' ) ) {
 		$labels = array(
 			'name'              => $names,
 			'singular_name'     => $name,
