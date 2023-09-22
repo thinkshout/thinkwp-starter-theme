@@ -1,20 +1,14 @@
 {# Example card #}
 
-{% set author = "Rachel Schaeffer" %}
-{% set blog_date = "20 Jan 2022" %}
+{% set author = "Person Name" %}
+{% set date = "20 Jan 2022" %}
 {% set eyebrow = "Card eyebrow" %}
 {% set title = "Card " ~ size %}
-{% set btn_tag_text = "Single Day Ride" %}
-{% set text = "Card text" %}
-{% set btn_search_listing_tag_text = "48 mi • Brisk (16-18mph)" %}
+{% set btn_tag_text = "Tag" %}
+{% set text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat, ipsum ac auctor ornare, nunc ligula scelerisque eros. Lorem ipsum dolor sit amet." %}
 {% set type = "Multi Day Century" %}
-{% set news_type = "Spotlights" %}
-{% set registration_status = "Registration Now Open!" %}
-{% set date_time = "Wed. Jan 25, 2023 • 7:00am" %}
-{% set small_text = date_time %}
-{% set elevation = "4,300 ft-7,100 ft" %}
-{% set distance = "50 mi-100 mi" %}
-{% set location = "Seattle" %}
+{% set author = "Jane Smith" %}
+{% set text_small = "Optional small text" %}
 {% set link_title = "Primary" %}
 {% set link_url = "/" %}
 {% set link_title_2 = "Secondary" %}
@@ -23,7 +17,7 @@
 {% set number_of_cards = number_of_cards %}
 {% set number_of_columns = number_of_columns ?? "3" %}
 {% set image %}
-  <img src="/wp-content/themes/custom/thinkwp-starter-theme/assets/images/default-light.png" alt="Placeholder image">
+  <img src="/wp-content/themes/custom/thinkwp-starter-theme/assets/images/default-dark.png" alt="Placeholder image">
 {% endset %}
 
 <div class="ts-grid-col-{{ number_of_columns }} my-block">
