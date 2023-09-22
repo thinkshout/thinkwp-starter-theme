@@ -518,8 +518,12 @@
           <p class="{{ block_description_classes }}">Accordions organize content into "hidden" sections. Good for content with questions-and-answers or longer sections where you want to have only headings visible on page load and encourage users to expand content to see more details.
           </p>
         </div>
-        {# Accordion block #}
-        {% include "/blocks/accordion-example.twig" %}
+        {# Header link #}
+        <div class="xl:container p-site my-block">
+          {% include "/blocks/header-link-example.twig" %}
+          {# Accordion block #}
+          {% include "/blocks/accordion-example.twig" %}
+        </div>
       </div>
 
 {#      #}{# Image + Text #}
