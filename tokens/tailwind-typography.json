@@ -66,6 +66,14 @@
       "font-size": ".875rem; /* 14px */;",
       "font-weight": "var(--font-weight-regular);",
       "line-height": "var(--lh-15);"
+    },
+    ".tag": {
+      "fontFamily": "var(--font-family-sans);",
+      "fontSize": ".75rem /* 12px */;",
+      "fontWeight": "var(--font-weight-bold);",
+      "lineHeight": "var(--lh-130);",
+      "letterspacing": "5%;",
+      "text-transform": "uppercase;"
     }
   }
 }
