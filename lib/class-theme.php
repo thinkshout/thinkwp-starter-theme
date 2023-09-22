@@ -124,7 +124,7 @@ class Theme extends Timber\Site {
 			),
 		);
 
-		// If the Timber ACF Blocks library is installed, load it. https://github.com/palmiak/timber-acf-wp-blocks
+		// If the Timber ACF Blocks library is installed, load it. https://github.com/palmiak/timber-acf-wp-blocks .
 		if ( class_exists( 'Timber_Acf_Wp_Blocks' ) ) {
 			// Register blocks in views/blocks with ACF.
 			new Timber_Acf_Wp_Blocks();
@@ -233,12 +233,12 @@ class Theme extends Timber\Site {
 	/**
 	 * Filter allowed gutenberg blocks.
 	 *
-	 * @param array                   $allowed_block_types
-	 * @param WP_Block_Editor_Context $block_editor_context
+	 * @param array                   $allowed_block_types Allowed block types.
+	 * @param WP_Block_Editor_Context $block_editor_context The block editor context.
 	 *
 	 * @return array
 	 */
-	function allowed_block_types( $allowed_block_types, $block_editor_context ) {
+	public function allowed_block_types( $allowed_block_types, $block_editor_context ) {
 		// If we're not on a post, return the default allowed block types.
 		if ( empty( $block_editor_context->post ) ) {
 			return $allowed_block_types;
@@ -308,7 +308,7 @@ class Theme extends Timber\Site {
 		 */
 		$thinktimber_nav_menus = array();
 		foreach ( $this->thinktimber_menus as $nav_menu ) {
-			$thinktimber_nav_menus[ $nav_menu['location'] ] = __( $nav_menu['description'], 'thinktimber' );
+			$thinktimber_nav_menus[ $nav_menu['location'] ] = sanitize_title( $nav_menu['description'] );
 		}
 		register_nav_menus( $thinktimber_nav_menus );
 
@@ -377,7 +377,7 @@ class Theme extends Timber\Site {
 	 * Enqueue scripts and styles.
 	 */
 	public function thinktimber_scripts() {
-		// wp_enqueue_style( 'thinktimber-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap', [], $this->scripts_version );
+		wp_enqueue_style( 'thinktimber-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap', array(), $this->scripts_version );
 		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$this->scripts_dir/motif.css", array(), $this->scripts_version );
 		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif.js", array( 'jquery' ), $this->scripts_version, true );
 
@@ -414,13 +414,27 @@ class Theme extends Timber\Site {
 		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif-admin.js", array( 'wp-edit-post' ), $this->scripts_version, true );
 	}
 
-	function thinktimber_acf_json_save_point( $path ) {
+	/**
+	 * Modify ACF JSON save point.
+	 *
+	 * @param string $path The path to the ACF JSON save point.
+	 *
+	 * @return string The path to the ACF JSON save point.
+	 */
+	public function thinktimber_acf_json_save_point( $path ) {
 		$path = get_stylesheet_directory() . '/acf-json';
 
 		return $path;
 	}
 
-	function thinktimber_acf_json_load_point( $paths ) {
+	/**
+	 * Modify ACF JSON load point.
+	 *
+	 * @param array $paths The paths to the ACF JSON load points.
+	 *
+	 * @return array The paths to the ACF JSON load points.
+	 */
+	public function thinktimber_acf_json_load_point( $paths ) {
 		$paths[] = get_stylesheet_directory() . '/acf-json';
 
 		return $paths;

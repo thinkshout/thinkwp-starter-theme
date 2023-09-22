@@ -1,4 +1,11 @@
 <?php
+/**
+ * Allowed Gutenberg blocks
+ *
+ * @link https://developer.wordpress.org/block-editor/reference-guides/filters/block-filters/
+ * @package WordPress
+ * @subpackage  Timber
+ */
 
 $thinkwp_allowed_blocks = array(
 	'core/block',
