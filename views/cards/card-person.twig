@@ -1,16 +1,20 @@
 {# Card Person
  *
  * Variables:
- * - image
+ * - has_image
  * - title
  * - link
  * - link_url
 #}
 
 <div class="card-person relative ts-bg-white ts-hocus-scale">
-  <div class="">
-    {{ image }}
-  </div>
+  {# Image #}
+  {% if has_image %}
+    <div class="">
+      {% block card_image %}
+      {% endblock %}
+    </div>
+  {% endif %}
 
   {# Text Wrapper #}
   <div class="py-base">

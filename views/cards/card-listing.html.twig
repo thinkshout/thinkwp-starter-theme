@@ -2,7 +2,7 @@
  *
  * Seen on Search Listing.
  * Variables:
- * - image
+ * - has_image
  * - btn_tag_text
  * - title
  * - text
@@ -15,9 +15,10 @@
 <div class="card-listing flex rounded-[10px] relative ts-bg-lt ts-hocus-scale py-md">
 
   {# Image #}
-  {% if image %}
+  {% if has_image %}
     <div class="inline-block mr-sm max-w-4xl">
-      {{ image }}
+      {% block card_image %}
+      {% endblock %}
     </div>
   {% endif %}
 

@@ -16,12 +16,15 @@
 {% set size = size ?? "lg" %}
 {% set number_of_cards = number_of_cards %}
 {% set number_of_columns = number_of_columns ?? "3" %}
-{% set image %}
-  <img src="/wp-content/themes/custom/thinkwp-starter-theme/assets/images/default-dark.png" alt="Placeholder image">
-{% endset %}
+{% set image_classes = 'w-full aspect-video' %}
+{% set has_image = true %}
 
 <div class="ts-grid-col-{{ number_of_columns }} my-block">
   {% for i in 1..number_of_cards %}
-    {% include "/cards/card-" ~ size ~ ".html.twig" %}
+    {% embed "/cards/card-" ~ size ~ ".html.twig" %}
+      {% block card_image %}
+      <img class="{{image_classes}}" src="{{site.theme.uri}}/assets/images/default-dark.png" alt="Placeholder image">
+      {% endblock %}
+    {% endembed %}
   {% endfor %}
 </div>
