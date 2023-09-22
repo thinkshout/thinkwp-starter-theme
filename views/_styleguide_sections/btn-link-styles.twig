@@ -1,7 +1,9 @@
 {# Button and Link Styles#}
 
 {% set btnLinkStyles = [
-  'btn-outline'
+  'btn-solid',
+  'btn-outline',
+  'btn-underline'
 ] %}
 
 {% set sizes = [
@@ -10,18 +12,13 @@
   'sm'
 ] %}
 
-{% set colors = [
-  'primary',
-  'dk',
-  'lt',
-  'white'
-] %}
-
-{% set bgColors = [
-  'ts-bg-black',
-  'ts-bg-neutral-500',
-  'ts-bg-white'
-] %}
+{% set bgColors = {
+  "Dark Colorway": 'ts-bg-dk',
+  "Light Colorway": 'ts-bg-lt',
+  "Brand Colorway 1": 'ts-bg-brand-1',
+  "Brand Colorway 2": 'ts-bg-brand-2'
+}
+%}
 
 {% set svgs = {
     "before": "download",
@@ -49,63 +46,32 @@ btn-solid--white"></span>
  Button styles
 <p class="utility-xs">All button and links use an included template. <br/>
   <em>See views/btns/[btn name] for templates and docs</em></p>
-{# Loops through btn templates#}
-{% for color in colors %}
-  <div class="my-lg">
-    {% for size in sizes %}
-      <div class="my-sm">
-        {% for key, svg in svgs %}
-          <div class="inline-block">
-            {% include 'btns/btn-solid.twig' with {
-              link: {title: "btn-solid" ~ " " ~ color ~ " " ~ size, url: link_url},
-              size: "btn--" ~ size,
-              color: "btn-solid--" ~ color,
-              svg_position: key,
-              link_svg_name: svg
-            } %}
-          </div>
-          <span class="mr-sm">
-            {% if key == 'none' %}
-              {% include 'btns/btn-solid.twig' with {
-                link: {url: link_url},
-                size: "btn--" ~ size,
-                color: "btn-solid--" ~ color,
-                link_svg_name: "arrow-right"
-              } %}
-            {% endif %}
-          </span>
-        {% endfor %}
-      </div>
-    {% endfor %}
-  </div>
-{% endfor %}
 
-{# Outline buttons #}
-{% for btn in btnLinkStyles %}
-  {% for bgColor in bgColors %}
-    <div class="my-lg">
+{# Loops through buttons, prints them on all backgrounds at all sizes #}
+{% for key, bgColor in bgColors %}
+  <h3 class="h5 mt-base">{{ key }}</h3>
+  {% for btn in btnLinkStyles %}
+    <div class="py-base {{ bgColor }}">
       {% for size in sizes %}
-        <div class="my-sm">
+        <div class="block  py-xs px-md">
           {% for key, svg in svgs %}
-            <div class="inline-block {{ bgColor }} p-md">
+            <div class="inline-block">
               {% include 'btns/' ~ btn ~ '.twig' with {
-                link: {title: btn ~ " " ~ color ~ " " ~ size, url: link_url},
+                link: {title: btn ~ " " ~ size, url: link_url},
                 size: "btn--" ~ size,
-                color: "btn-outline--" ~ color,
                 svg_position: key,
                 link_svg_name: svg
               } %}
-            </div>
-            <span class="mr-sm">
+              <span class="mr-sm">
                 {% if key == 'none' %}
                   {% include 'btns/' ~ btn ~ '.twig' with {
                     link: {url: link_url},
                     size: "btn--" ~ size,
-                    color: "btn-outline--" ~ color,
                     link_svg_name: "arrow-right"
                   } %}
                 {% endif %}
               </span>
+            </div>
           {% endfor %}
         </div>
       {% endfor %}

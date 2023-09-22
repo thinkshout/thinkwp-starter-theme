@@ -4,10 +4,6 @@
   * Button OPTIONS (text and outline)
   *   - size: 'sm', 'md' or 'lg
 
-  * COLOR OPTIONS (text and outline)
-  *   - black (default)
-  *   - white
-
   * ICON OPTION
   *   - link_svg_name: 'download' (pass in svg name)
   *   - svg_position: 'before' (default) or 'after'
@@ -15,7 +11,7 @@
   HOW TO USE:
   {% include 'btns/btn-outline.twig' with {
       link: {title: 'learn more', url: '/'},
-      color: 'white'
+      size: 'sm'
     }
   %}
 #}
@@ -27,13 +23,13 @@
 {% set btn_class = 'btn-outline' %}
 {% set link_svg_name = link_svg_name %}
 
-{# Adds icon classes if needed #}
+{# Adds icon classes if needed#}
 {% if link_svg_name %}
   {% set link_svg_classes = ' h-auto inline-block mr-3xs relative top-[3px] w-[14px] ' %}
 {% endif %}
 
 {# Combines classes, adds them to the btn template #}
-{% set btn_class = 'btn-outline ' ~ size ~ " " ~ color %}
+{% set btn_class = 'btn-outline ' ~ size %}
 {# Final set of classes, including any passed in #}
 {% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
 

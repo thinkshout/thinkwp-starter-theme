@@ -1,19 +1,37 @@
 {# Button Underline
-* Text with underline
-*
-* Available Color values include: text-highlight.
-*
-* To use this button style, use an include statement and pass in values:
-*   {% include 'btns/btn-underline.html.twig' with {link: {title: 'learn more', url: '/'}, color:'text-highlight'} %}
+ * An underlined text button.
+
+  * Button OPTIONS (text and outline)
+  *   - size: 'sm', 'md' or 'lg
+
+  * ICON OPTION
+  *   - link_svg_name: 'download' (just an example, pass in svg name, confirm icon is in assets/images/svgs)
+  *   - svg_position: 'before' (default) or 'after'
+
+  HOW TO USE:
+  {% include 'btns/btn-outline.twig' with {
+      link: {title: 'learn more', url: '/'},
+      size: 'sm'
+    }
+  %}
 #}
 
-{% set link = link | default({title: '', url: '', target: ''}) %}
+{# Primary values #}
+{% set link = link %}
+
+{# btn classes, svg name #}
 {% set btn_class = 'btn-underline' %}
+{% set link_svg_name = link_svg_name %}
+
+{# Adds icon classes if needed#}
+{% if link_svg_name %}
+  {% set link_svg_classes = ' h-auto inline-block mr-3xs relative top-[3px] w-[14px] ' %}
+{% endif %}
+
+{# Combines classes, adds them to the btn template #}
+{% set btn_class = 'btn-underline ' ~ size %}
+{# Final set of classes, including any passed in #}
 {% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
 
-{% set color = color %}
-{% set color_classes = color == "yellow" ? "text-yellow-500 hover:text-black focus:text-black" : "" %}
+{% extends 'btns/btn-base.twig' %}
 
-<a href="{{ link.url }}" target="{{ link.target }}" class="{{ link_classes }} {{ color_classes }}">
-  {{ link.title }}
-</a>
