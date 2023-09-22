@@ -304,18 +304,6 @@ class Theme extends Timber\Site {
 	 */
 	public function thinktimber_setup() {
 		/*
-		 * Enable features from Soil when plugin is activated.
-		 * @see https://roots.io/plugins/soil/
-		 */
-		add_theme_support( 'soil', [
-			'clean-up',
-			'nav-walker',
-			'nice-search',
-			'jquery-cdn',
-			'relative-urls',
-		] );
-		
-		/*
 		 * Register navigation menus.
 		 */
 		$thinktimber_nav_menus = array();
