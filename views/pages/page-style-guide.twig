@@ -154,23 +154,41 @@
             number_of_columns: '1',
             number_of_cards: 3
           } %}
+          {# 2 col, Example Card Md #}
+          {% include ("/cards/example--card.html.twig") with {
+            size: 'md',
+            number_of_columns: '6',
+            number_of_cards: 6
+          } %}
+          {# 3 col, Example Card Md #}
+          {% include ("/cards/example--card.html.twig") with {
+            size: 'md',
+            number_of_columns: '3',
+            number_of_cards: 3
+          } %}
           {# 2 col, Example Card Lg #}
           {% include ("/cards/example--card.html.twig") with {
             size: 'lg',
             number_of_columns: '2',
             number_of_cards: 2
           } %}
-          {# 2 col, 2xl cards #}
+          {# 2 col, Example Card Lg #}
           {% include ("/cards/example--card.html.twig") with {
-            size: '2xl',
-            number_of_columns: '1',
-            number_of_cards: 1
+            size: 'lg',
+            number_of_columns: '3',
+            number_of_cards: 3
           } %}
-          {# 1 col, xl cards #}
+          {# 2 col, Example Card Lg #}
+          {% include ("/cards/example--card.html.twig") with {
+            size: 'lg',
+            number_of_columns: '4',
+            number_of_cards: 4
+          } %}
+          {# 2 col, Example Card 2xl #}
           {% include ("/cards/example--card.html.twig") with {
             size: 'xl',
-            number_of_columns: '2',
-            number_of_cards: 2
+            number_of_columns: '1',
+            number_of_cards: 1
           } %}
         </div>
       </div>

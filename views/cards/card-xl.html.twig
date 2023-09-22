@@ -1,31 +1,85 @@
-{# Card xl
- * Seen in 2-up Cards.
+{# Card 2XL
+ *
+ * Seen on Poster paragraph.
  *
  * Variables:
  * - image
+ * - eyebrow
  * - title
  * - text
  * - link
- * - style
+ * - link2
 #}
 
-<div class="card-xl mb-sm md:mb-0 relative">
-  
-  <div class="ts-rounded-img relative">
-    {{ image }}
-  </div>
-  <div class="pt-sm md:pt-base">
-    <div>
-      <h3 class="ts-text-high-contrast h3 mb-xs">{{ title }}</h3>
-      <div class="card-xl__text wysiwyg-wrapper mb-xs">{{ text }}</div>
-    </div>
-    {% if link_url %}
-      <div>
-{#        {% include "btns/btn-solid.html.twig" with {#}
-{#          link: { title: link_title, url: link_url },#}
-{#          size: 'lg'#}
-{#        } %}#}
+
+{% if title or text and image %}
+  <div class="card-2xl my-block ts-bg-brand-1 relative">
+    <div class="ts-grid-col-2">
+
+      {# Image #}
+      <div class="mb-base md:mb-0">
+        {# Image field display should be set to 16:9 responsive image style #}
+        {{ image }}
       </div>
-    {% endif %}
+
+      {# Text Wrapper #}
+      <div class="flex flex-col justify-center md:max-w-[600px]">
+        <div>
+
+          {# Text Wrapper #}
+          <div class="p-base md:p-2xl">
+
+            {# Tag #}
+            {% if btn_tag_text %}
+              <div class="mb-sm">
+                {% include "btns/btn-tag.twig" with {
+                  text: btn_tag_text
+                } %}
+              </div>
+            {% endif %}
+
+            {# Card overlay link: needs to be immediately followed by the .card-title for hover/focus styles #}
+            {% include "/components/card-overlay-link.html.twig" with { link_url: link_url } %}
+
+            {# Title #}
+            {% if title %}
+              <a href="{{ link_url }}" class="ts-text-md-contrast card-title-hocus">
+                <h3 class="h3 mb-sm">
+                  {{ title }}
+                </h3>
+              </a>
+            {% endif %}
+
+            {# Text Small #}
+            {% if text_small %}
+              <div class="body-xs mb-lg ts-text-md-contrast">
+                <span class="ts-text-low-contrast">By </span>
+                {{ author }}
+                <span class="ts-text-low-contrast">on</span>
+                <span>{{ date }}</span>
+              </div>
+            {% endif %}
+
+            {# Text #}
+            {% if text %}
+              <div class="body-sm mb-lg ts-text-md-contrast">{{ text }}</div>
+            {% endif %}
+
+            {# Buttons #}
+            {% if link_url %}
+              <div>
+                {% include 'btns/btn-solid.twig' with {
+                  link: { title: link_title, url: link_url },
+                  size: 'lg',
+                } %}
+              </div>
+            {% endif %}
+
+          </div> {# end Text Wrapper #}
+
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+{% endif %}
+

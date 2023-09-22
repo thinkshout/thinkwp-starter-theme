@@ -12,11 +12,11 @@
 #}
 
 
-<div class="card-listing rounded-[10px] relative ts-bg-lt ts-hocus-scale py-md">
+<div class="card-listing flex rounded-[10px] relative ts-bg-lt ts-hocus-scale py-md">
 
   {# Image #}
   {% if image %}
-    <div class="inline-block mr-sm w-7xl">
+    <div class="inline-block mr-sm max-w-4xl">
       {{ image }}
     </div>
   {% endif %}
@@ -37,7 +37,7 @@
     {% include "components/card-overlay-link.html.twig" with { link_url: link_url } %}
 
     {# Title #}
-    <h3 class="h3 mb-2xs ts-text-high-contrast">{{ title }}</h3>
+    <a href="{{ link_url }}" class="card-title-hocus"><h3 class="h3 mb-2xs ts-text-high-contrast">{{ title }}</h3></a>
 
     {# Text #}
     {% if text %}

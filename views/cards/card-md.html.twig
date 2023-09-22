@@ -9,17 +9,27 @@
 #}
 
 <div class="card-md rounded-[10px] relative ts-bg-white ts-hocus-scale">
-  <div class="ts-rounded-img card-md__image">
+  <div class="">
     {{ image }}
   </div>
-  {% include "@ts_cascade/_includes/card-overlay-link.html.twig" with { link_url: link_url } %}
-  {% if title %}
-    <h3 class="card-header--hocus mt-xs">
-{#      {% include "@ts_cascade/btns/btn-arrow.html.twig" with {#}
-{#        link_text: title,#}
-{#        size: 'md',#}
-{#        link: link_url#}
-{#      } %}#}
-    </h3>
-  {% endif %}
+
+  {# Text Wrapper #}
+  <div class="py-base">
+
+    {# Title #}
+    {% include "components/card-overlay-link.html.twig" with { link_url: link_url } %}
+    {% if title %}
+      <a href="{{ link_url }}" class="ts-text-md-contrast card-title-hocus">
+        <h3 class="h3 mb-sm">
+          {{ title }}
+        </h3>
+      </a>
+    {% endif %}
+
+    {# Text #}
+    {% if text %}
+      <div class="body-sm ts-text-md-contrast">{{ text }}</div>
+    {% endif %}
+
+  </div> {# end Text Wrapper #}
 </div>
