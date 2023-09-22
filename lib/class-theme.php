@@ -448,6 +448,21 @@ class Theme extends Timber\Site {
 	}
 
 	/**
+	 * Get posts by an array of IDs.
+	 *
+	 * @param array $post_ids The post IDs to get.
+	 *
+	 * @return array The timber posts.
+	 */
+	public function get_posts_by_ids( $post_ids = [] ) {
+		$posts = [];
+		foreach ( $post_ids as $post_id ) {
+			$posts[] = new Timber\Post( $post_id );
+		}
+		return $posts;
+	}
+
+	/**
 	 * Console Logging PHP Values
 	 *
 	 * @param multi $value The variables to be logged.
@@ -467,6 +482,13 @@ class Theme extends Timber\Site {
 			new Timber\Twig_Function(
 				'console',
 				array( $this, 'php_console' )
+			)
+		);
+		// Get Posts by IDs.
+		$twig->addFunction(
+			new Timber\Twig_Function(
+				'get_posts_by_ids',
+				array( $this, 'get_posts_by_ids' )
 			)
 		);
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
