@@ -2,11 +2,6 @@
  * A color pill button.
  * Variations styled below.
   DEFAULT STYLES SET IN: tailwind-btns.json.
-
- * COLOR OPTIONS:
- *    - yellow-500 (default)
- *    - black
- *    - gray-200
  *
  * SIZE OPTIONS:
  *    - lg (default)
@@ -19,7 +14,6 @@
   {% include 'btns/btn-solid.twig' with {
       link: {title: 'learn more', url: '/'}
       size: 'md',
-      color: 'grey-200'
     }
   %}
 #}
@@ -27,12 +21,11 @@
 {# Primary values #}
 {% set link = link %}
 {% set size = size ?: 'md' %}
-{% set color = color ?: 'btn-primary' %}
 {% set add_classes = add_classes %}
 {% set link_svg_name = link_svg_name %}
 
 {# btn classes, colorway, svg name #}
-{% set btn_class = "btn-solid btn--" ~ size ~ " " ~ color %}
+{% set btn_class = "btn-solid btn--" ~ size %}
 {# Final set of classes #}
 {% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
 
