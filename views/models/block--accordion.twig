@@ -11,14 +11,14 @@
     {% for accordion_section in accordion %}
       <div class="accordion__section wysiwyg-content py-sm">
         <button class="accordion__section__toggle w-full flex items-center justify-between ts-hocus-underline p-md">
-          <h3 class="accordion__section__title inline-block h4 text-left text-neutral-800">{{ accordion_section
-            .title
-            }}</h3>
+          <h3 class="accordion__section__title inline-block h4 text-left text-neutral-800">
+            {{ accordion_section.title }}
+          </h3>
           <div class="accordion__section__icon">
             <span class="icon-layer ts-svg-high-contrast block h-md w-lg">
-             {% include 'components/svg-icon-embed.twig' with {
-               'svg_name': "chevron-right",
-             } only %}
+              {% include 'components/svg-icon-embed.twig' with {
+                'svg_name': "chevron-right",
+              } only %}
             </span>
             <span class="icon-layer"></span>
           </div>
