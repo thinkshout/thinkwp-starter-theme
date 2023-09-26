@@ -1,9 +1,10 @@
 {% if items %}
-	<ul>
+	<ul class="{{ menu_wrapper_classes }}">
+	{% set menu_wrapper_classes = '' %}
 	{% for item in items %}
 		<li class="{{ item.classes | join(' ') }}">
 			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
-			{% include "components/menu.twig" with {'items': item.children} %}
+			{% include "components/menu.twig" with { 'items': item.children } %}
 		</li>
 	{% endfor %}
 	</ul>
