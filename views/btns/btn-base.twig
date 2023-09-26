@@ -22,6 +22,7 @@
 {% set link_svg_name = link_svg_name %}
 {% set svg_position = svg_position ?? 'before' %}
 {% set ariaLabel = link_aria_label ? 'aria-label="' ~ link_aria_label ~ '"' %}
+{% set text_margin = link_svg_name and svg_position|trim == 'before' ? 'ml-2xs' : link_svg_name ? "mr-2xs" %}
 
 {# anchor or button -- checks to see if link.url is set #}
 {% if link.url is not empty %}
@@ -44,7 +45,7 @@
       {# Content #}
       {% block content %}
         {% if link.title %}
-        <span class="{{ text_class }} {% if svg_position|trim == 'before' %} ml-2xs {% else %} mr-2xs{% endif %}">
+        <span class="{{ text_class }} {{ text_margin }}">
           {{ link.title }}</span>
         {% endif %}
       {% endblock %}
