@@ -526,16 +526,15 @@
         </div>
       </div>
 
-{#      #}{# Image + Text #}
-{#      <div class="py-block-sm" id="image-text">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Image + text</h2>#}
-{#          <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through (as opposed to the Flexible Image + Text with no button).#}
-{#          </p>#}
-{#        </div>#}
-{#        #}{# Image and Text block #}
-{#        {% include "/blocks/image-and-text-example.twig" %}#}
-{#      </div>#}
+      {# Image + text #}
+      <div class="py-block-sm" id="image-text">
+        <div class="p-site xl:container">
+          <h2 class="{{ block_title_classes }}">Image + text</h2>
+          <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through (as opposed to the Flexible Image + Text with no button).
+          </p>
+        </div>
+        {% include "/blocks/image-text/image-text-example.twig" %}
+      </div>
 
 {#      #}{# Image #}
 {#      <div class="py-block-sm" id="image">#}

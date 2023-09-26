@@ -1,0 +1,18 @@
+{#
+  Title: Image + Text
+  Description: A block that displays an image along side a text block with title and possible CTAs.
+  Category: theme
+  Icon: align-pull-right
+  SupportsAlign: false
+  Example: {}
+#}
+
+{% include 'blocks/image-text/image-text.html.twig' with {
+  eyebrow: fields.image_text.eyebrow_text,
+  title: fields.image_text.title,
+  text: fields.image_text.description,
+  primary_btn: fields.image_text.primary_cta,
+  secondary_btn: fields.image_text.secondary_cta,
+  presentation: fields.image_text.block_presentation,
+  image: fields.image_text.image ? Image(fields.image_text.image),
+} %}

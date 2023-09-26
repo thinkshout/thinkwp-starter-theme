@@ -1,0 +1,20 @@
+{% include 'blocks/image-text/image-text.html.twig' with {
+  image_text: {
+    block_alignment: 'inset-left',
+    image: {
+      sizes: {
+        large: ''
+      },
+      path: '/assets/images/default-dark.png',
+      alt: 'Placeholder image',
+      width: 400,
+      height: 400,
+    },
+    title: 'Lorem ipsum dolor sit amet',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id
+    elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.',
+    eyebrow: 'Eyebrow text',
+    primary_btn: { title: 'Primary CTA', url: '/' },
+    secondary_btn: { title: 'Secondary CTA', url: '/' },
+  },
+} %}
