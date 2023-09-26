@@ -8,7 +8,7 @@
             "name": "primary_cta",
             "aria-label": "",
             "type": "link",
-            "instructions": "",
+            "instructions": "Displays on the right side of the menu.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -24,7 +24,7 @@
             "name": "secondary_cta",
             "aria-label": "",
             "type": "link",
-            "instructions": "",
+            "instructions": "Displays to the left of the Primary CTA on the right hand side of the menu.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -53,5 +53,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695750682
+    "modified": 1695750995
 }

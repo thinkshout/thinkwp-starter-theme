@@ -20,8 +20,8 @@
             "sub_fields": [
                 {
                     "key": "field_650ce0a5a4b41",
-                    "label": "Grid Presentation",
-                    "name": "grid_presentation",
+                    "label": "Colorway",
+                    "name": "colorway",
                     "aria-label": "",
                     "type": "select",
                     "instructions": "",
@@ -33,10 +33,8 @@
                         "id": ""
                     },
                     "choices": {
-                        "one-column": "Single Column (List)",
-                        "two-column": "Two Columns",
-                        "three-column": "Three Columns",
-                        "carousel": "Carousel"
+                        "brand": "Brand",
+                        "page": "Page Background"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -177,5 +175,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695344095
+    "modified": 1695754408
 }

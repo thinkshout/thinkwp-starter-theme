@@ -1,3 +1,7 @@
+{% set header_menu = menus.header_primary_navigation %}
+{% set primary_cta = header_menu.get_field('primary_cta') %}
+{% set secondary_cta = header_menu.get_field('secondary_cta') %}
+
 <header id="masthead" class="site-header z-50 relative">
   <div id="site-navigation" class="main-navigation flex flex-row justify-between items-center py-md xl:container">
     <div class="site-branding site-title relative opacity-100 visible">
@@ -17,8 +21,11 @@
     </div>
     <!-- .site-branding -->
 
-    <nav id="nav-main" class="nav-main" role="navigation">
-      {% include "components/menu.twig" with { 'items': menus.header_primary_navigation.get_items, menu_wrapper_classes: 'flex flex-row items-center gap-x-lg' } %}
+    <nav id="nav-main" class="nav-main flex flex-row" role="navigation">
+      {% include "components/menu.twig" with { 'items': header_menu.get_items, menu_wrapper_classes: 'flex flex-row items-center gap-x-lg' } %}
+      <div class="nav-main__cta flex flex-row gap-x-lg ml-lg">
+      </div>
+      <div class="nav-main__search"></div>
     </nav>
 
     <button class="menu-toggle btn reset relative block lg:hidden"
