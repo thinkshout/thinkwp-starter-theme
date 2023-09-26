@@ -1,0 +1,17 @@
+{# Primary + secondary buttons
+* Appear stacked on mobile, side by side on desktop
+#}
+
+{% set primary_classes = secondary_btn ? "mb-xs md:mb-0 md:mr-xs" %}
+
+{% if primary_btn %}
+  {% include 'btns/btn-solid.twig' with {
+    link: primary_btn,
+    add_classes: primary_classes
+  } %}
+{% endif %}
+{% if secondary_btn %}
+  {% include 'btns/btn-outline.twig' with {
+    link: secondary_btn
+  } %}
+{% endif %}
