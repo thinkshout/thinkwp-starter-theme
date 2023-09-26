@@ -533,7 +533,21 @@
           <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through (as opposed to the Flexible Image + Text with no button).
           </p>
         </div>
-        {% include "/blocks/image-text/image-text-example.twig" %}
+        {% include "/blocks/image-text/image-text-example.twig" with {
+          text: "Inset-left, two buttons"
+        } %}
+        {% include "/blocks/image-text/image-text-example.twig" with {
+          presentation: "inset-right",
+          text: "Inset-right, two buttons"
+        } %}
+        {% include "/blocks/image-text/image-text-example.twig" with {
+          presentation: "full-right",
+          text: "Full-right",
+        } %}
+        {% include "/blocks/image-text/image-text-example.twig" with {
+          presentation: "full-left",
+          text: "Full-left.",
+        } %}
       </div>
 
 {#      #}{# Image #}

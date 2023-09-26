@@ -17,8 +17,8 @@
  * - image
 #}
 
-{% set image_align_classes = "right" in presentation|split('-') ? 'order-2' : '' %}
-{% set padding = "inset" in presentation|split('-') ? "md:py-6xl my-block-sm ts-friendly" : "py-block-sm
+{% set image_align_classes = "left" in presentation|split('-') ? 'order-2' : '' %}
+{% set padding = "inset" in presentation|split('-') ? "md:my-6xl ts-friendly" : "my-block-sm
 ts-lovey"
 %}
 
@@ -29,7 +29,7 @@ ts-lovey"
     <div class="{{ image_align_classes }} mb-xs md:mb-0">
       {% include 'components/image.twig' with {
         image: image,
-        classes: 'object-cover max-h-[300px] md:max-h-[inherit] w-full',
+        classes: 'aspect-square object-cover max-h-[300px] md:max-h-[inherit] w-full',
         caption_style: "below",
         bg_figcaption: "ts-bg-lt",
         figcaption_classes: 'ts-text-low-contrast p-2xs lg:px-0 lg:pb-0'
