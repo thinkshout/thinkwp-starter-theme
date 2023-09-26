@@ -5,3 +5,71 @@
 		@apply body-base;
 	}
 }
+h1.wp-block-heading {
+	@apply h1 text-high-contrast;
+}
+h2.wp-block-heading {
+	@apply h2 text-high-contrast;
+}
+h3.wp-block-heading {
+	@apply h3 text-high-contrast;
+}
+h4.wp-block-heading {
+	@apply h4 text-high-contrast;
+}
+h5.wp-block-heading {
+	@apply h5 text-high-contrast;
+}
+.ts-block p {
+	@apply body-base text-high-contrast mb-md;
+}
+
+
+.wp-block-heading {
+	&.h2,
+	&.h3,
+	&.h4,
+	&.h5,
+	&.h6 {
+		@apply mb-xs;
+ }
+}
+
+/*p:not(.body-xl) + h2,*/
+/*p:not(.body-xl) + h3 {*/
+/*	@apply mt-sm md:mt-lg;*/
+/*}*/
+/*p:not(.body-xl) + h4,*/
+/*p:not(.body-xl) + h5 {*/
+/*	@apply mt-sm md:mt-md;*/
+/*}*/
+/*ul:not([class^="tribe-events"], [class^="select2"]) {*/
+/*	@apply body-base list-none;*/
+/*li {*/
+/*	@apply pl-md md:pl-lg;*/
+/*&:before {*/
+/*	 content: "";*/
+/*	 top: 15px;*/
+/*	 @apply absolute left-0 inline-block h-px w-sm bg-md-contrast md:w-md;*/
+/* }*/
+/*}*/
+/*}*/
+/*ol,*/
+/*ul {*/
+/*	margin-bottom: 1.25rem;*/
+/*li {*/
+/*	@apply relative my-sm;*/
+/*}*/
+/*}*/
+/*ol {*/
+/*	@apply body-base list-decimal pl-md;*/
+/*	counter-reset: steps;*/
+/*li {*/
+/*	counter-increment: steps;*/
+/*	@apply body-base-bold list-outside pl-sm pb-sm text-gray-700;*/
+/*&::before {*/
+/*	 content: counter(steps);*/
+/*	 @apply utility-md absolute left-0 top-0 -ml-lg inline-flex h-lg w-lg items-center justify-center rounded-full bg-black text-3xl text-yellow-500;*/
+/* }*/
+/*}*/
+/*}*/
