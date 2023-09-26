@@ -64,7 +64,7 @@
                     },
                     "choices": {
                         "page": "Page Background",
-                        "primary": "Brand Primary"
+                        "brand": "Brand"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -207,5 +207,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695317205
+    "modified": 1695698352
 }

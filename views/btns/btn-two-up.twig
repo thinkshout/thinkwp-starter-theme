@@ -2,16 +2,17 @@
 * Appear stacked on mobile, side by side on desktop
 #}
 
-{% set primary_classes = secondary_btn ? "mb-xs md:mb-0 md:mr-xs" %}
+{% set primary_classes = secondary_btn ? "mb-xs md:mb-0 md:mr-xs " %}
 
 {% if primary_btn %}
   {% include 'btns/btn-solid.twig' with {
     link: primary_btn,
-    add_classes: primary_classes
+    add_classes: primary_classes ~ "block md:inline-block text-center"
   } %}
 {% endif %}
 {% if secondary_btn %}
   {% include 'btns/btn-outline.twig' with {
-    link: secondary_btn
+    link: secondary_btn,
+    add_classes: "block md:inline-block text-center"
   } %}
 {% endif %}

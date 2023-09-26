@@ -1,0 +1,17 @@
+{# Call to action (CTA) example #}
+
+{% include 'blocks/cta/cta.html.twig' with {
+  title: 'CTA Block',
+  text: text ?: 'This is a CTA block',
+  colorway: colorway ?: 'page',
+  block_presentation: block_presentation ?: 'full-columns',
+  primary_btn: {
+    title: 'Primary CTA',
+    url: '#',
+    target: '_blank',
+  },
+  secondary_btn: {
+    title: 'Secondary CTA',
+    url: '#',
+  },
+} %}

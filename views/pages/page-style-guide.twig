@@ -61,7 +61,8 @@
             <li><a href="/style-guide#blocks--global" class="{{ nav_classes }}">Blocks (global)</a></li>
             <ul>
               <li><a href="/style-guide#accordion" class="{{ subnav_classes }}">Accordion</a></li>
-{#              <li><a href="/style-guide#image-text" class="{{ subnav_classes }}">Image + Text</a></li>#}
+              <li><a href="/style-guide#image-text" class="{{ subnav_classes }}">Image + Text</a></li>
+              <li><a href="/style-guide#cta" class="{{ subnav_classes }}">Call to Action (CTA)</a></li>
 {#              <li><a href="/style-guide#image" class="{{ subnav_classes }}">Image</a></li>#}
 {#              <li><a href="/style-guide#flexible-image-text" class="{{ subnav_classes }}">Flexible Image + Text</a></li>#}
 {#              <li><a href="/style-guide#campaign--callout-text" class="{{ subnav_classes }}">Callout + Text*</a></li>#}
@@ -547,6 +548,37 @@
         {% include "/blocks/image-text/image-text-example.twig" with {
           presentation: "full-left",
           text: "Full-left.",
+        } %}
+      </div>
+
+      {# Call to Action (CTA) #}
+      <div class="py-block-sm" id="block--cta">
+        <div class="p-site xl:container">
+          <h2 class="{{ block_title_classes }}">Call to Action (CTA)</h2>
+          <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through (as opposed to the Flexible Image + Text with no button).
+          </p>
+        </div>
+        {% include "/blocks/cta/cta-example.twig" with {
+          text: "Brand colorway, full bleed color, wide layout",
+          colorway: "brand"
+        } %}
+        {% include "/blocks/cta/cta-example.twig" with {
+          text: "Page colorway, full bleed color, wide layout"
+        } %}
+        {% include "/blocks/cta/cta-example.twig" with {
+          text: "Brand colorway, full bleed color, stacked layout",
+          block_presentation: "full-stacked",
+          colorway: "brand"
+        } %}
+        {% include "/blocks/cta/cta-example.twig" with {
+          text: "Brand colorway, inset color, stacked layout",
+          block_presentation: "inset-stacked",
+          colorway: "brand"
+        } %}
+        {% include "/blocks/cta/cta-example.twig" with {
+          text: "Brand colorway, inset color, wide layout",
+          block_presentation: "inset-wide",
+          colorway: "brand"
         } %}
       </div>
 

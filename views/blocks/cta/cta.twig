@@ -1,0 +1,17 @@
+{#
+  Title: CTA
+  Description: A block that displays a cta banner that can be styled in a few variations.
+  Category: theme
+  Icon: align-wide
+  SupportsAlign: false
+  Example: {}
+#}
+
+{% set title = fields.cta_block.title %}
+{% set text = fields.cta_block.description %}
+{% set primary_btn = fields.cta_block.primary_cta %}
+{% set secondary_btn = fields.cta_block.secondary_cta %}
+{% set colorway = fields.cta_block.block_colorway %}
+{% set block_presentation = fields.cta_block.block_presentation %}
+
+{% include 'blocks/cta/cta.html.twig' %}
