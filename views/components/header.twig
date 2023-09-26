@@ -1,19 +1,24 @@
 <header id="masthead" class="site-header z-50 relative">
-  <nav id="site-navigation" class="main-navigation flex flex-row">
+  <div id="site-navigation" class="main-navigation flex flex-row justify-between items-center py-md xl:container">
     <div class="site-branding site-title relative opacity-100 visible">
-      <a href="{{ function('home_url', '/') }}" rel="home" class="absolute w-full">
-        <img src="{{ site_logo }}" alt="Site Logo" />
+      <a href="{{ site.home_url }}" rel="home" class="w-full">
+        {% if site_logo %}
+        <img src="{{ site_logo.src('medium') }}" alt="Site Logo" />
         <span class="screen-reader-text">{{ site.name }}</span>
+        {% else %}
+        <h1 class="site-title h1">
+          {{ site.name }}
+        </h1>
         <span class="screen-reader-text site-description">
           {{ site.description }}
         </span>
+        {% endif %}
       </a>
     </div>
     <!-- .site-branding -->
-    <div class="spacer"></div>
 
     <nav id="nav-main" class="nav-main" role="navigation">
-    {% include "components/menu.twig" with {'items': menu.get_items} %}
+      {% include "components/menu.twig" with { 'items': menus.header_primary_navigation.get_items, menu_wrapper_classes: 'flex flex-row items-center gap-x-lg' } %}
     </nav>
 
     <button class="menu-toggle btn reset relative block lg:hidden"
@@ -26,6 +31,6 @@
         Toggle {{ header_menu.name }}
       </span>
     </button>
-  </nav>
+  </div>
   <!-- #site-navigation -->
 </header>

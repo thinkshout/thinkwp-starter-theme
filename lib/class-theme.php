@@ -291,6 +291,12 @@ class Theme extends Timber\Site {
 		// Add site to context.
 		$context['site'] = $this;
 
+		// Add site logo to context if it exists.
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		if ( $custom_logo_id ) {
+			$context['site_logo'] = new Timber\Image( $custom_logo_id );
+		}
+
 		// Return context.
 		return $context;
 	}
@@ -308,7 +314,7 @@ class Theme extends Timber\Site {
 		 */
 		$thinktimber_nav_menus = array();
 		foreach ( $this->thinktimber_menus as $nav_menu ) {
-			$thinktimber_nav_menus[ $nav_menu['location'] ] = sanitize_title( $nav_menu['description'] );
+			$thinktimber_nav_menus[ $nav_menu['location'] ] = $nav_menu['description'];
 		}
 		register_nav_menus( $thinktimber_nav_menus );
 
@@ -334,6 +340,13 @@ class Theme extends Timber\Site {
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+
+		/**
+		 * Enable support for Custom Logo.
+		 * 
+		 * @link https://developer.wordpress.org/themes/functionality/custom-logo/
+		 */
+		add_theme_support( 'custom-logo' );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
