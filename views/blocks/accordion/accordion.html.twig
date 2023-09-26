@@ -10,12 +10,15 @@
   <div class="wysiwyg-container divide-y divide-neutral-300">
     {% for accordion_section in accordion %}
       <div class="accordion__section wysiwyg-content py-sm">
-        <button class="accordion__section__toggle w-full flex items-center justify-between ts-hocus-underline p-md">
-          <h3 class="accordion__section__title inline-block h4 text-left text-neutral-800">{{ accordion_section
+        <button class="accordion__section__toggle hover:text-primary-500 focus:text-primary-500 text-neutral-800 w-full
+        flex items-center justify-between
+        p-md">
+          <h3 class="accordion__section__title inline-block h4 text-left">{{
+            accordion_section
             .title
             }}</h3>
           <div class="accordion__section__icon">
-            <span class="icon-layer ts-svg-high-contrast block h-md w-lg">
+            <span class="icon-layer ts-svg-high-contrast block h-md w-sm">
              {% include 'components/svg-icon-embed.twig' with {
                'svg_name': "chevron-right",
              } only %}
@@ -23,7 +26,7 @@
             <span class="icon-layer"></span>
           </div>
         </button>
-        <div class="accordion__section__content mce-content-body body-base text-neutral-800 px-md pb-md">
+        <div class="accordion__section__content mce-content-body body-base text-neutral-800 px-md">
           {{ accordion_section.content }}
         </div>
       </div>

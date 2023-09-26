@@ -1,6 +1,6 @@
 // IMPORTS GO HERE
 import accessibleMenu from "./components/accessible-menu";
-import accordions from "./components/accordion";
+import accordions from "../../views/blocks/accordion/accordion";
 
 (($) => {
   $(document).ready(() => {

@@ -5,14 +5,25 @@
       transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out,
         margin-top 0.3s ease-in-out;
     }
+		.accordion__section__icon {
+			.icon-layer {
+				&:first-child {
+					 @apply rotate-0;
+					 transition: transform .3s ease-in-out;
+				 }
+			}
+		}
     &--open {
       .accordion__section__content {
-        @apply mt-sm max-h-[10000px] opacity-100;
+        @apply mt-sm mb-md max-h-[10000px] opacity-100;
       }
       .accordion__section__icon {
         .icon-layer {
           &:first-child {
-            @apply rotate-0;
+            @apply rotate-90;
+						path {
+							@apply fill-primary-500;
+						}
           }
         }
       }
