@@ -1,0 +1,28 @@
+{#
+  Card Grid Block
+#}
+
+{% set card_grid = card_grid|default({}) %}
+{% set grid_posts = get_posts_by_ids( card_grid.grid_cards ) %}
+
+{% set title = title %}
+{% set more_btn_text = more_btn_text %}
+{% set more_btn_url = more_btn_url %}
+{% set card_view_mode = card_view_mode ?: 'card-md' %}
+{% set card_margin = card_margin ?? '' %}
+
+<div class="list--grid">
+  <div class="xl:container p-site">
+    {% include "blocks/header-link.twig" with { title: title, more_btn_text: more_btn_text,
+      more_btn_url: more_btn_url } %}
+    <div class="ts-grid-col-3 gap-sm">
+      {% for card in cards %}
+        {% include 'cards/' ~ card_view_mode ~ '.html.twig' with {
+          title: card.title,
+          link_url: card.link.url,
+          card_margin: card_margin
+        } %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

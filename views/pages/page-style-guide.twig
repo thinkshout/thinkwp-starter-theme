@@ -582,6 +582,24 @@
         } %}
       </div>
 
+      {# Card Grid #}
+      <div class="py-block-sm" id="card-grid">
+        <div class="p-site xl:container">
+          <h2 class="{{ block_title_classes }}">Card Grid</h2>
+          <p class="{{ block_description_classes }}">Cards can be 2 or 3 columns wide. Used as a wayfinding tool to
+            encourage movement to another part of the site or piece of content. Block cards can contain an image, title, teaser
+            text, and button. Good for highlighting nested content within sections or related content. Recommended teaser text below 50 words.</p>
+        </div>
+        <div class="p-site xl:container my-block">
+          {% include "/blocks/header-link-example.twig" %}
+          {% include ("/cards/example--card.html.twig") with {
+            size: 'md',
+            number_of_columns: '4',
+            number_of_cards: 4
+          } %}
+        </div>
+      </div>
+
 {#      #}{# Image #}
 {#      <div class="py-block-sm" id="image">#}
 {#        <div class="p-site xl:container">#}
@@ -632,20 +650,7 @@
 {#        {% include "/blocks/two-column-text-example.twig" %}#}
 {#      </div>#}
 
-{#      #}{# Card Grid #}
-{#      <div class="py-block-sm" id="card-grid">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Card Grid</h2>#}
-{#          <p class="{{ block_description_classes }}">Cards can be 2 or 3 columns wide. Used as a wayfinding tool to#}
-{#            encourage movement to another part of the site or piece of content. Block cards can contain an image, title, teaser#}
-{#            text, and button. Good for highlighting nested content within sections or related content. Recommended teaser text below 50 words.</p>#}
-{#        </div>#}
-{#        #}{# Card Grid block #}
-{#        {% include "/blocks/two-up-cards-example.twig" %}#}
-{#        #}{# Card Grid block - 3 columns #}
-{#        {% include "/blocks/two-up-cards-example.twig" with { columns: 3, title: 'Lorem Ipsum', more_btn_text: "Learn#}
-{#      more", more_btn_url: "/" } %}#}
-{#      </div>#}
+
 
 {#      #}{# Research Cards #}
 {#      <div class="py-block-sm" id="research-cards">#}

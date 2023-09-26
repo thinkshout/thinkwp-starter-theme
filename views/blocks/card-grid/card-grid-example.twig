@@ -1,0 +1,23 @@
+
+
+{% set cards = [
+  {
+    image: Image(59760),
+    title: 'Sample card one',
+    text: 'Lorem ipsum.',
+    link: { title: 'Explore Campaign', url: '/' },
+  },
+  {
+    image: Image(59760),
+    title: 'Sample card two',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placera ipsum ac auctor ornare, nunc ligula
+     scelerisque eros.',
+    link: { title: 'Donate', url: '/' },
+  }
+] %}
+
+{% include 'blocks/card-grid/card-grid.html.twig' with {
+  columns: columns ?: 2,
+  cards: cards
+} %}
+
