@@ -11,11 +11,7 @@
 /* element to stretch the full width of the site.*/
 /* Mobile Padding .*/
 .p-site {
-	@apply px-sm md:px-base lg:mx-auto;
-	@media (min-width: 1376px) {
-		padding-left: 0;
-		padding-right: 0;
-	}
+	@apply px-sm md:px-base lg:px-md;
 }
 
 /* Components */
