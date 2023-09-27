@@ -2,16 +2,18 @@
 
 <nav id="nav-main" class="nav-main nav-main--desktop hidden md:flex flex-row" role="navigation">
   {# Top level nav #}
-  {% include "components/menu--header.twig" with { 'items': header_menu.get_items } %}
+  {% include "components/nav/menu--header.twig" with { 'items': header_menu.get_items } %}
   <div class="nav-main__cta flex flex-row gap-x-lg ml-lg">
   </div>
-  <div class="nav-main__search flex gap-xs items-center">
+  <div class="nav-main__search flex gap-sm items-center">
+    <div class="flex flex-row-reverse gap-sm">
     {# CTAs #}
     {% include "btns/btn-two-up.twig" with {
       primary_btn: { title: 'Donate', url: '/' },
       secondary_btn: { title: 'Secondary CTA', url: '/' },
       size: 'md'
     } %}
+    </div>
 
     {# Search #}
     {% include "btns/btn-icon.twig" with {
