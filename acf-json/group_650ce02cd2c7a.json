@@ -19,30 +19,26 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_650ce0a5a4b41",
-                    "label": "Colorway",
-                    "name": "colorway",
+                    "key": "field_65137e5de0bed",
+                    "label": "Grid Colorway",
+                    "name": "grid_colorway",
                     "aria-label": "",
-                    "type": "select",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "brand": "Brand",
-                        "page": "Page Background"
-                    },
-                    "default_value": false,
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": ""
+                    "clone": [
+                        "group_65137c7cb010c"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 },
                 {
                     "key": "field_650ce1d8a4b42",
@@ -54,7 +50,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -71,11 +67,11 @@
                     "placeholder": ""
                 },
                 {
-                    "key": "field_650ce057a4b3f",
-                    "label": "Grid Title",
-                    "name": "grid_title",
+                    "key": "field_65137e33e0bec",
+                    "label": "Grid Section Title",
+                    "name": "grid_section_title",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -84,31 +80,13 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_650ce069a4b40",
-                    "label": "Grid Description",
-                    "name": "grid_description",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 0
+                    "clone": [
+                        "group_651379242e4f5"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 },
                 {
                     "key": "field_650ce362a4b43",
@@ -175,5 +153,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695754408
+    "modified": 1695776388
 }

@@ -1,6 +1,6 @@
 {
     "key": "group_60be1fcea8ba4",
-    "title": "Banner",
+    "title": "Model - Banner",
     "fields": [
         {
             "key": "field_60be1fee8b5e6",
@@ -20,8 +20,8 @@
             "sub_fields": [
                 {
                     "key": "field_650b2c1a8b8de",
-                    "label": "Banner Style",
-                    "name": "banner_style",
+                    "label": "Banner Presentation",
+                    "name": "block_presentation",
                     "aria-label": "",
                     "type": "select",
                     "instructions": "",
@@ -36,8 +36,7 @@
                         "left": "Text on Left",
                         "right": "Text on Right",
                         "center": "Text in the Center",
-                        "floating": "Text floating over Image",
-                        "inset": "Inset in Page Container"
+                        "floating": "Text floating over Image"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -50,7 +49,7 @@
                 {
                     "key": "field_60be204b8b5e7",
                     "label": "Banner Image",
-                    "name": "banner_image",
+                    "name": "image",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "Display this image atop of the page. Overrides the featured image if set.",
@@ -73,71 +72,11 @@
                     "preview_size": "large"
                 },
                 {
-                    "key": "field_60be20f18b5e8",
-                    "label": "Banner Title",
-                    "name": "banner_title",
+                    "key": "field_65137b4beef68",
+                    "label": "Banner",
+                    "name": "block_title",
                     "aria-label": "",
-                    "type": "text",
-                    "instructions": "The displayed title of the page. Overrides the post\/page title.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_650b2dab84e17",
-                    "label": "Banner Eyebrow",
-                    "name": "banner_eyebrow",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Appears above the main title of the banner and is usually only a few words",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_650b2dd884e18",
-                    "label": "Banner Description",
-                    "name": "banner_description",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "Appears below the title of the banner and is usually only a few lines long possibly containing a link.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 0
-                },
-                {
-                    "key": "field_650b2ce48b8df",
-                    "label": "Banner Primary CTA",
-                    "name": "banner_primary_cta",
-                    "aria-label": "",
-                    "type": "link",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -146,41 +85,19 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
-                },
-                {
-                    "key": "field_650b2cf38b8e0",
-                    "label": "Banner Secondary CTA",
-                    "name": "banner_secondary_cta",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
+                    "clone": [
+                        "group_651379242e4f5"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 1,
+                    "prefix_name": 0
                 }
             ]
         }
     ],
     "location": [
         [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
-            },
             {
                 "param": "page",
                 "operator": "!=",
@@ -194,8 +111,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695231538
+    "modified": 1695776188
 }

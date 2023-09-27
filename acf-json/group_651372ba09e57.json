@@ -1,13 +1,13 @@
 {
-    "key": "group_650b21068013b",
-    "title": "Style Guide Page - Message",
+    "key": "group_651372ba09e57",
+    "title": "Block - Banner",
     "fields": [
         {
-            "key": "field_650b2106958a7",
-            "label": "Page is Style Guide",
-            "name": "",
+            "key": "field_651372bae7eca",
+            "label": "Banner",
+            "name": "banner",
             "aria-label": "",
-            "type": "message",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,17 +16,21 @@
                 "class": "",
                 "id": ""
             },
-            "message": "You are currently editing the site Style Guide. You will not be able to add content as this page is purely meant to be a collection of available components on the site.",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "clone": [
+                "group_60be1fcea8ba4"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
         [
             {
-                "param": "page",
+                "param": "block",
                 "operator": "==",
-                "value": "9"
+                "value": "acf\/banner"
             }
         ]
     ],
@@ -39,5 +43,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695776877
+    "modified": 1695774852
 }
