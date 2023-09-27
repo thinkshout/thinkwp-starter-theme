@@ -1,0 +1,20 @@
+{# Section title -- text fields
+ *
+ * Fields
+ * - eyebrow
+ * - header
+ * - text
+#}
+
+{# Eyebrow #}
+{% if eyebrow %}
+  <p class="h5 ts-text-high-contrast mb-xs">{{ eyebrow }}</p>
+{% endif %}
+
+{# Header #}
+<div class="h2 ts-text-high-contrast mb-xs">{{ header }}</div>
+
+{# text #}
+{% if text %}
+  <div class="body-lg ts-text-md-contrast">{{ text }}</div>
+{% endif %}

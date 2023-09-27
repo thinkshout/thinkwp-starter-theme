@@ -1,0 +1,34 @@
+{# Section Title
+ * A section at the beginning of a block to introduce it, with optional links.
+ *
+ * Fields:
+ * - eyebrow
+ * - header
+ * - text
+ * - primary_btn
+ * - secondary_btn
+ *
+ * Style:
+ * - center
+ * - left
+ * - right
+ * - side-by-side (default)
+ *
+ * Colorway is defined by the parent block, and shouldn't be set on this component.
+#}
+
+{% if header %}
+  {% if style == "center" %}
+    {% include "blocks/section-title/section-title--align-center.twig" %}
+  {% elseif style == "left" %}
+    {% include "blocks/section-title/section-title--align-side.twig" with {
+      alignment: "left"
+    } %}
+  {% elseif style == "right" %}
+      {% include "blocks/section-title/section-title--align-side.twig" with {
+        alignment: "right"
+      } %}
+  {% else %}
+    {% include "blocks/section-title/section-title--side-by-side.twig" %}
+  {% endif %}
+{% endif %}

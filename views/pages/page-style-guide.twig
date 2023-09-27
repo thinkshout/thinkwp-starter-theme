@@ -8,6 +8,8 @@
   {% set block_description_classes = "body-sm max-w-[900px] mb-sm" %}
   {% set limited_message = "*Available on limited pages." %}
 
+
+  <span class="hidden justify-end justify-start"></span>
   <div class="relative" id="page-style-guide">
     {# Menu#}
     <div class="styleguide-nav ts-bg-white">
@@ -30,6 +32,7 @@
               <li><a href="/style-guide#linkstyles" class="{{ subnav_classes }}">Buttons & links</a></li>
               <li><a href="/style-guide#forms" class="{{ subnav_classes }}">Inputs</a></li>
               <li><a href="/style-guide#cards" class="{{ subnav_classes }}">Cards</a></li>
+              <li><a href="/style-guide#section-title" class="{{ subnav_classes }}">Section title</a></li>
             </ul>
             <li><a href="/style-guide#heroes" class="{{ nav_classes }}">Heroes</a></li>
             <ul>
@@ -191,6 +194,46 @@
             number_of_columns: '1',
             number_of_cards: 1
           } %}
+        </div>
+      </div>
+
+      <hr class="{{ hr_classes }}">
+
+      <div class="mt-0 mb-block" id="cards">
+        <div class="p-site xl:container">
+          <h2 class="{{ block_title_classes }}">Section title</h2>
+          <p class="{{ block_description_classes }}">Used across different block types. Option: center,
+            left, right, side-by-side (default)
+          </p>
+          <div class="p-site xl:container my-block ts-bg-lt">
+            {% include ("blocks/section-title/section-title--example.twig") with {
+              style: 'center'
+            } %}
+          </div>
+          <div class="p-site xl:container my-block ts-bg-lt">
+            {% include "/blocks/section-title/section-title--example.twig" with {
+              text: "Align side-by-side (default)"
+            } %}
+          </div>
+          <div class="p-site xl:container py-block ts-bg-dk">
+            {% include "/blocks/section-title/section-title--example.twig" with {
+              style: "left",
+              text: "Align left"
+            } %}
+          </div>
+          <div class="p-site xl:container py-block ts-bg-brand-2">
+            {% include "/blocks/section-title/section-title--example.twig" with {
+              style: "right",
+              text: "Align right"
+            } %}
+          </div>
+          <div class="p-site xl:container py-block ts-bg-brand-1">
+            {% include "/blocks/section-title/section-title--example.twig" with {
+              style: "left",
+              text: "Align left"
+            } %}
+          </div>
+
         </div>
       </div>
 
@@ -521,7 +564,9 @@
         </div>
         {# Header link #}
         <div class="xl:container p-site my-block">
-          {% include "/blocks/header-link-example.twig" %}
+          {% include "/blocks/section-title/section-title--example.twig" with {
+            colorway: "ts-bg-lt"
+          }%}
           {# Accordion block #}
           {% include "/blocks/accordion/accordion-example.twig" %}
         </div>
@@ -580,24 +625,6 @@
           block_presentation: "inset-wide",
           colorway: "brand"
         } %}
-      </div>
-
-      {# Card Grid #}
-      <div class="py-block-sm" id="card-grid">
-        <div class="p-site xl:container">
-          <h2 class="{{ block_title_classes }}">Card Grid</h2>
-          <p class="{{ block_description_classes }}">Cards can be 2 or 3 columns wide. Used as a wayfinding tool to
-            encourage movement to another part of the site or piece of content. Block cards can contain an image, title, teaser
-            text, and button. Good for highlighting nested content within sections or related content. Recommended teaser text below 50 words.</p>
-        </div>
-        <div class="p-site xl:container my-block">
-          {% include "/blocks/header-link-example.twig" %}
-          {% include ("/cards/example--card.html.twig") with {
-            size: 'md',
-            number_of_columns: '4',
-            number_of_cards: 4
-          } %}
-        </div>
       </div>
 
 {#      #}{# Image #}
