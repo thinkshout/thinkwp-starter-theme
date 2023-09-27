@@ -21,11 +21,6 @@
 	--color-md-contrast: var(--color-neutral-300);
 	--color-low-contrast: var(--color-neutral-500);
 
-	/* Btn icon */
-	--color-btn-icon--svg: var(--color-white);
-	--color-btn-icon--svg--hover: var(--color-white);
-	--color-btn-icon--svg--focus: var(--color-white);
-
 	/* Btn Outline on Dark Colorway */
 	--color-btn-outline--text: var(--color-white);
 	--color-btn-outline--text--hover: var(--color-white);
@@ -45,32 +40,25 @@
 	--color-btn-solid--text--hover: var(--color-white);
 	--color-btn-solid--text--focus: var(--color-white);
 	--color-btn-solid--bg: var(--color-primary-500);
-	--color-btn-solid--bg--hover: var(--color-primary-900);
-	--color-btn-solid--bg--focus: var(--color-primary-900);
+	--color-btn-solid--bg--hover: var(--color-primary-300);
+	--color-btn-solid--bg--focus: var(--color-primary-300);
 	--color-btn-solid--svg: var(--color-white);
 	--color-btn-solid--svg--hover: var(--color-white);
 	--color-btn-solid--svg--focus: var(--color-white);
 
 	/* Btn Underline on Dark Colorway */
-	--color-btn-underline--text: var(--color-neutral-200);
-	--color-btn-underline--text--hover: var(--color-neutral-400);
-	--color-btn-underline--text--focus: var(--color-neutral-400);
-	--color-btn-underline--svg: var(--color-neutral-200);
-	--color-btn-underline--svg--hover: var(--color-neutral-200);
-	--color-btn-underline--svg--focus: var(--color-neutral-200);
+	--color-btn-underline--text: var(--color-primary-100);
+	--color-btn-underline--text--hover: var(--color-primary-300);
+	--color-btn-underline--text--focus: var(--color-primary-300);
+	--color-btn-underline--svg: var(--color-primary-100);
+	--color-btn-underline--svg--hover: var(--color-primary-300);
+	--color-btn-underline--svg--focus: var(--color-primary-300);
 }
 
 /* LIGHT COLORWAY */
 .ts-bg-lt {
 	@apply bg-white;
 	/* Text colors on Brand Colorway 2 */
-
-
-	/* Btn icon on Light Colorway */
-	--color-btn-icon--bg: var(--color-neutral-50);
-	--color-btn-icon--svg: var(--color-neutral-900);
-	--color-btn-icon--svg--hover: var(--color-purple-500);
-	--color-btn-icon--svg--focus: var(--color-purple-500);
 
 	/* Btn Outline on Light Colorway */
 	--color-btn-outline--text: var(--color-neutral-900);
@@ -80,7 +68,7 @@
 	--color-btn-outline--border--hover: var(--color-neutral-900);
 	--color-btn-outline--border--focus: var(--color-neutral-900);
 	--color-btn-outline--bg: transparent;
-	--color-btn-outline--bg--hover: var(--color-neutral-50);
+	--color-btn-outline--bg--hover: var(--color-neutral-200);
 	--color-btn-outline--bg--focus: var(--color-neutral-200);
 	--color-btn-outline--svg: var(--color-neutral-900);
 	--color-btn-outline--svg--hover: var(--color-neutral-900);
@@ -91,49 +79,57 @@
 	--color-btn-solid--text--hover: var(--color-white);
 	--color-btn-solid--text--focus: var(--color-white);
 	--color-btn-solid--bg: var(--color-primary-500);
-	--color-btn-solid--bg--hover: var(--color-primary-900);
-	--color-btn-solid--bg--focus: var(--color-primary-900);
+	--color-btn-solid--bg--hover: var(--color-primary-700);
+	--color-btn-solid--bg--focus: var(--color-primary-700);
 	--color-btn-solid--svg: var(--color-white);
 	--color-btn-solid--svg--hover: var(--color-white);
 	--color-btn-solid--svg--focus: var(--color-white);
 
 	/* Btn Underline on Light Colorway */
 	--color-btn-underline--text: var(--color-primary-500);
-	--color-btn-underline--text--hover: var(--color-neutral-900);
-	--color-btn-underline--text--focus: var(--color-neutral-900);
+	--color-btn-underline--text--hover: var(--color-primary-700);
+	--color-btn-underline--text--focus: var(--color-primary-700);
 	--color-btn-underline--svg: var(--color-primary-500);
-	--color-btn-underline--svg--hover: var(--color-neutral-900);
-	--color-btn-underline--svg--focus: var(--color-neutral-900);
+	--color-btn-underline--svg--hover: var(--color-primary-700);
+	--color-btn-underline--svg--focus: var(--color-primary-700);
 }
 
 /* BRAND COLORWAY 1 */
 .ts-bg-brand-1 {
 	@apply bg-neutral-100;
 
-	/* Btn icon on Light Colorway */
-	--color-btn-icon--bg: var(--color-neutral-300);
-	--color-btn-icon--svg: var(--color-neutral-900);
-	--color-btn-icon--svg--hover: var(--color-purple-500);
-	--color-btn-icon--svg--focus: var(--color-purple-500);
-
 	/* Btn Solid on Brand Colorway 1 */
 	--color-btn-solid--text: var(--color-white);
 	--color-btn-solid--text--hover: var(--color-white);
 	--color-btn-solid--text--focus: var(--color-white);
-	--color-btn-solid--bg: var(--color-neutral-900);
-	--color-btn-solid--bg--hover: var(--color-neutral-800);
-	--color-btn-solid--bg--focus: var(--color-neutral-800);
-	--color-btn-solid--svg: var(--color-neutral-100);
-	--color-btn-solid--svg--hover: var(--color-neutral-100);
-	--color-btn-solid--svg--focus: var(--color-neutral-100);
+	--color-btn-solid--bg: var(--color-primary-500);
+	--color-btn-solid--bg--hover: var(--color-primary-700);
+	--color-btn-solid--bg--focus: var(--color-primary-700);
+	--color-btn-solid--svg: var(--color-white);
+	--color-btn-solid--svg--hover: var(--color-white);
+	--color-btn-solid--svg--focus: var(--color-white);
 
 	/* Btn Underline on Brand Colorway 1 */
 	--color-btn-underline--text: var(--color-primary-500);
-	--color-btn-underline--text--hover: var(--color-neutral-900);
-	--color-btn-underline--text--focus: var(--color-neutral-900);
+	--color-btn-underline--text--hover: var(--color-primary-700);
+	--color-btn-underline--text--focus: var(--color-primary-700);
 	--color-btn-underline--svg: var(--color-primary-500);
-	--color-btn-underline--svg--hover: var(--color-neutral-900);
-	--color-btn-underline--svg--focus: var(--color-neutral-900);
+	--color-btn-underline--svg--hover: var(--color-primary-700);
+	--color-btn-underline--svg--focus: var(--color-primary-700);
+
+	/* Btn Outline on Brand Colorway 1 */
+	--color-btn-outline--text: var(--color-neutral-900);
+	--color-btn-outline--text--hover: var(--color-neutral-900);
+	--color-btn-outline--text--focus: var(--color-neutral-900);
+	--color-btn-outline--border: var(--color-neutral-300);
+	--color-btn-outline--border--hover: var(--color-neutral-900);
+	--color-btn-outline--border--focus: var(--color-neutral-900);
+	--color-btn-outline--bg: transparent;
+	--color-btn-outline--bg--hover: var(--color-neutral-200);
+	--color-btn-outline--bg--focus: var(--color-neutral-200);
+	--color-btn-outline--svg: var(--color-neutral-900);
+	--color-btn-outline--svg--hover: var(--color-neutral-900);
+	--color-btn-outline--svg--focus: var(--color-neutral-900);
 }
 
 /* BRAND COLORWAY 2 */
@@ -144,36 +140,38 @@
 	--color-md-contrast: var(--color-neutral-50);
 	--color-low-contrast: var(--color-neutral-200);
 
-	/* Btn icon on Light Colorway */
-	--color-btn-icon--bg: var(--color-purple-500);
-	--color-btn-icon--svg: var(--color-white);
-	--color-btn-icon--svg--hover: var(--color-purple-300);
-	--color-btn-icon--svg--focus: var(--color-purple-300);
-
 	/* Btn Outline on Brand Colorway 2 */
-	--color-btn-outline--text: var(--color-white);
-	--color-btn-outline--text--hover: var(--color-white);
-	--color-btn-outline--text--focus: var(--color-white);
-	--color-btn-outline--border: var(--color-white);
-	--color-btn-outline--border--hover: var(--color-white);
-	--color-btn-outline--border--focus: var(--color-white);
+	--color-btn-outline--text: var(--color-neutral-900);
+	--color-btn-outline--text--hover: var(--color-neutral-900);
+	--color-btn-outline--text--focus: var(--color-neutral-900);
+	--color-btn-outline--border: var(--color-neutral-300);
+	--color-btn-outline--border--hover: var(--color-neutral-900);
+	--color-btn-outline--border--focus: var(--color-neutral-900);
 	--color-btn-outline--bg: transparent;
-	--color-btn-outline--bg--hover: var(--color-neutral-700);
-	--color-btn-outline--bg--focus: var(--color-neutral-700);
-	--color-btn-outline--svg: var(--color-white);
-	--color-btn-outline--svg--hover: var(--color-white);
-	--color-btn-outline--svg--focus: var(--color-white);
+	--color-btn-outline--bg--hover: var(--color-neutral-200);
+	--color-btn-outline--bg--focus: var(--color-neutral-200);
+	--color-btn-outline--svg: var(--color-neutral-900);
+	--color-btn-outline--svg--hover: var(--color-neutral-900);
+	--color-btn-outline--svg--focus: var(--color-neutral-900);
 
 	/* Btn Solid on Brand Colorway 2 */
-	--color-btn-solid--text: var(--color-neutral-900);
-	--color-btn-solid--text--hover: var(--color-neutral-900);
-	--color-btn-solid--text--focus: var(--color-neutral-900);
-	--color-btn-solid--bg: var(--color-neutral-100);
-	--color-btn-solid--bg--hover: var(--color-neutral-200);
-	--color-btn-solid--bg--focus: var(--color-neutral-300);
-	--color-btn-solid--svg: var(--color-neutral-900);
-	--color-btn-solid--svg--hover: var(--color-neutral-900);
-	--color-btn-solid--svg--focus: var(--color-neutral-900);
+	--color-btn-solid--text: var(--color-white);
+	--color-btn-solid--text--hover: var(--color-white);
+	--color-btn-solid--text--focus: var(--color-white);
+	--color-btn-solid--bg: var(--color-primary-500);
+	--color-btn-solid--bg--hover: var(--color-primary-700);
+	--color-btn-solid--bg--focus: var(--color-primary-700);
+	--color-btn-solid--svg: var(--color-white);
+	--color-btn-solid--svg--hover: var(--color-white);
+	--color-btn-solid--svg--focus: var(--color-white);
+
+	/* Btn Underline on Brand Colorway 2 */
+	--color-btn-underline--text: var(--color-primary-500);
+	--color-btn-underline--text--hover: var(--color-primary-700);
+	--color-btn-underline--text--focus: var(--color-primary-700);
+	--color-btn-underline--svg: var(--color-primary-500);
+	--color-btn-underline--svg--hover: var(--color-primary-700);
+	--color-btn-underline--svg--focus: var(--color-primary-700);
 }
 
 

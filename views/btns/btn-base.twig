@@ -44,15 +44,17 @@
 
       {# Content #}
       {% block content %}
-        {% if link.title %}
-        <span class="{{ text_class }} {{ text_margin }}">
+        {% if link.title and icon_only == false %}
+          <span class="{{ text_class }} {{ text_margin }}">
           {{ link.title }}</span>
+        {% elseif icon_only == true %}
+          <span class="sr-only">{{ link.title }}</span>
         {% endif %}
       {% endblock %}
 
       {# SVG #}
       {% block svg_after %}
-        {% if link_svg_name is not empty and svg_position == 'after' %}
+        {% if link_svg_name is not empty and svg_position == 'after' and icon_only == false %}
           <span class="btn-svg {{ link_svg_classes }}">
             {% include 'components/svg-icon-embed.twig' with {
               'svg_name': link_svg_name,

@@ -16,10 +16,11 @@
     </div>
 
     {# Search #}
-    {% include "btns/btn-icon.twig" with {
+    {% include "btns/btn-outline.twig" with {
       link: {title: 'search', url: '/search'},
       link_svg_name: "search",
-      size: "md"
+      size: "md",
+      icon_only: true
     } %}
 
   </div>

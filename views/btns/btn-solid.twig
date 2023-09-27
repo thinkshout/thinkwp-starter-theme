@@ -8,6 +8,9 @@
  *    - md
  *    - sm
  *    - xs
+ *
+ * Icon only -- adds screen reader text
+ * - icon_only (boolean)
 
   HOW TO USE:
   Gray btn-solid md:
@@ -23,6 +26,7 @@
 {% set size = size ?: 'lg' %}
 {% set add_classes = add_classes %}
 {% set link_svg_name = link_svg_name %}
+{% set icon_only = icon_only ?? false %}
 
 {# btn classes, colorway, svg name #}
 {% set btn_class = "btn-solid btn--" ~ size %}

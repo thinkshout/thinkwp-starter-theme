@@ -25,11 +25,12 @@ overflow-x-hidden w-full z-[50]" role="navigation">
   <div class="nav-main--search--mobile block text-center mt-base">
 
     {# Search #}
-    {% include "btns/btn-icon.twig" with {
+    {% include "btns/btn-outline.twig" with {
       link: {title: 'search', url: '/search'},
       link_svg_name: "search",
       size: "md",
-      add_classes: "block"
+      add_classes: "block",
+      icon_only: true
     } %}
 
   </div>

@@ -60,22 +60,23 @@ btn-solid--white"></span>
                 link: {title: btn ~ " " ~ size, url: link_url},
                 size: size,
                 svg_position: key,
-                link_svg_name: svg
+                link_svg_name: svg,
+                icon_only: false
               } %}
             </div>
+            <span class="mr-sm">
+              {% if key == 'none' %}
+                {% include 'btns/' ~ btn ~ '.twig' with {
+                  link: {title: btn ~ " " ~ size, url: link_url},
+                  size: size,
+                  link_svg_name: "arrow-right",
+                  icon_only: true
+                } %}
+              {% endif %}
+            </span>
           {% endfor %}
         </div>
       {% endfor %}
     </div>
   {% endfor %}
-  <div class="{{ bgColor }} p-md">
-    <span class="body-base inline-block ts-text-high-contrast">btn-icon</span>
-    <span class="mr-sm inline-block {{ bgColor }}">
-      {% include 'btns/btn-icon.twig' with {
-        link: {url: link_url},
-        size: size,
-        link_svg_name: "arrow-right"
-      } %}
-    </span>
-  </div>
 {% endfor %}
