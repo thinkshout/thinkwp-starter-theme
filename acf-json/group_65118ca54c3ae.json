@@ -33,14 +33,10 @@
                         "id": ""
                     },
                     "choices": {
-                        "grid-two-column": "Two Column Grid",
-                        "grid-three-column": "Three Column Grid",
-                        "grid-four-column": "Four Column Grid",
-                        "banner-one-column": "Banner with Link List",
-                        "banner-two-column": "Banner with Two Column Link Grid",
-                        "banner-three-column": "Banner with Three Column Link Grid",
-                        "banner-image-left": "Banner with Image on the Left",
-                        "banner-image-right": "Banner with Image on the Right"
+                        "1": "1 column list",
+                        "2": "2 Column Grid",
+                        "3": "3 Column Grid",
+                        "4": "4 Column Grid"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -286,5 +282,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695777333
+    "modified": 1695798215
 }

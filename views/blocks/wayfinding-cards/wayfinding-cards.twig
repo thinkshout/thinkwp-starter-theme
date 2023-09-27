@@ -8,5 +8,8 @@
 #}
 
 {% include 'blocks/wayfinding-cards/wayfinding-cards.html.twig' with {
-  wayfinding_cards: fields.wayfinding_cards,
+  cards: fields.wayfinding_cards,
+  columns: fields.wayfinding_cards.block_presentation,
+  header: fields.wayfinding_cards.block_section_title,
+  cards: fields.wayfinding_cards.block_cards
 } %}
