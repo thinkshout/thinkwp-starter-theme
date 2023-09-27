@@ -115,12 +115,24 @@ class Theme extends Timber\Site {
 				'description' => 'Header Primary Navigation',
 			),
 			array(
-				'location'    => 'footer_primary_navigation',
-				'description' => 'Footer Primary Navigation',
+				'location'    => 'header_utility_navigation',
+				'description' => 'Header Utility Navigation',
 			),
 			array(
-				'location'    => 'footer_secondary_navigation',
-				'description' => 'Footer Secondary Navigation',
+				'location'    => 'footer_about',
+				'description' => 'Footer About',
+			),
+			array(
+				'location'    => 'footer_programs',
+				'description' => 'Footer Programs',
+			),
+			array(
+				'location'    => 'footer_get_involved',
+				'description' => 'Footer Get Involved',
+			),
+			array(
+				'location'    => 'footer_copyright',
+				'description' => 'Footer Copyright',
 			),
 		);
 
