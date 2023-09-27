@@ -19,16 +19,16 @@
 
 {% if header %}
   {% if style == "center" %}
-    {% include "blocks/section-title/section-title--align-center.twig" %}
+    {% include "components/section-title/section-title--align-center.twig" %}
   {% elseif style == "left" %}
-    {% include "blocks/section-title/section-title--align-side.twig" with {
+    {% include "components/section-title/section-title--align-side.twig" with {
       alignment: "left"
     } %}
   {% elseif style == "right" %}
-      {% include "blocks/section-title/section-title--align-side.twig" with {
+      {% include "components/section-title/section-title--align-side.twig" with {
         alignment: "right"
       } %}
   {% else %}
-    {% include "blocks/section-title/section-title--side-by-side.twig" %}
+    {% include "components/section-title/section-title--side-by-side.twig" %}
   {% endif %}
 {% endif %}

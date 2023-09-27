@@ -1,15 +1,16 @@
-{# Section title -- Centered
+{# Section title -- Side by side
  *
- * See variables in section-title.twig.
+ * See variables in section-title.twig
 #}
 
-<div class="component--section-title--center text-center flex flex-col md:items-center gap-sm mb-base md:mb-sm">
+<div class="component--section-title--side-by-side flex flex-col md:items-center gap-sm mb-base
+md:mb-sm md:flex-row md:justify-between">
 
   {# Text wrapper #}
   <div>
 
     {# Text #}
-    {% include "blocks/section-title/section-title--text.twig" with {
+    {% include "components/section-title/section-title--text.twig" with {
       eyebrow: eyebrow,
       header: header,
       text: text
@@ -22,7 +23,7 @@
     <div class="md:block shrink-0">
       <div class="flex flex-col md:flex-row gap-md">
 
-        {# Button(s) #}
+        {# Buttons #}
         {% include "btns/btn-two-up.twig" with {
           primary_btn: primary_btn,
           secondary_btn: secondary_btn
