@@ -11,11 +11,12 @@
 #}
 
 {# Sets bg color based on the colorway set #}
-{% set colorway_bg = colorway == "brand" ? "ts-bg-brand-1" : "ts-bg-lt" %}
+{% set colorway_bg = colorway == "brand" ? "ts-bg-dk" : "ts-bg-lt" %}
 
 {# if style is wide, style text and cta side by side, otherwise stack and center them #}
 {% set its_wide = "stacked" in block_presentation|split('-') ? false : true %}
-{% set stacked_or_wide_layout = its_wide ? "md:flex-row md:items-center md:justify-between" : "text-center" %}
+{% set stacked_or_wide_layout = its_wide ? "text-center md:text-left md:flex-row md:items-center md:justify-between" :
+  "text-center" %}
 {% set typography_classes = its_wide ? "flex flex-grow flex-col gap-base md:max-w-[75%]" %}
 
 {# If style is full, adds bg color at the top level #}
