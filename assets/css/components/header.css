@@ -1,6 +1,8 @@
 /* Global Header Nav styles go here */
 .site-header {
-  .main-navigation {
+	.btn-dropdown {
+	}
+	.main-navigation {
     .menu-toggle {
       padding-top: rem(5px);
     }
@@ -55,4 +57,8 @@
       visibility: hidden;
     }
   }
+}
+#nav-main--mobile {
+	height: calc(100vh - 45px);
+	transition: transform .25s;
 }
