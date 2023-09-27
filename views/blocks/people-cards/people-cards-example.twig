@@ -1,0 +1,27 @@
+{# People Cards -- example data #}
+
+{% set primary_btn = primary_btn ?? { title: 'Donate', url: '/' }  %}
+{% set secondary_btn = secondary_btn ?? { title: 'Learn more', url: '/' }  %}
+
+{% include 'blocks/people-cards/people-cards.html.twig' with {
+  header: "People Cards",
+  text: "Lorem ipsum",
+  btn_primary: "Lorem ipsum",
+  cards: [
+    {
+    card_title: "Person McPeople",
+    card_description: "Card text",
+    card_link: "/"
+    },
+    {
+    card_title: "Jane Doe",
+    card_description: "Card text",
+    card_link_url: "/"
+    },
+    {
+    card_title: "John Doe",
+    card_description: "Card text",
+    link_url: "/"
+    },
+  ]}
+%}

@@ -1,0 +1,43 @@
+{# Card Grid
+ *
+ * Variables:
+ Section title:
+ * - eyebrow
+ * - header
+ * - text
+ * - primary_btn
+ * - secondary_btn
+ * Cards:
+ * - columns
+ * - cards (array)
+ * - card_view_mode
+ * - block_class
+#}
+
+{% set column_class = "ts-grid-col-" ~ columns %}
+{% set more_btn_text = more_btn_text ?? link.title %}
+{% set more_btn_url = more_btn_url ?? link.url %}
+
+<div class="block--card-grid block--card-grid--{{ block_class }} my-block ts-friendly">
+  <div class="p-site xl:container">
+    {% include "components/section-title/section-title.twig" with {
+      eyebrow: eyebrow,
+      header: header,
+      text: text,
+      primary_btn: primary_btn,
+      primary_btn: secondary_btn,
+      style: style
+    } %}
+    <div class="{{ column_class }} gap-sm md:gap-base">
+      {% for card in cards %}
+        {% include "cards/" ~ card_view_mode ~ ".html.twig" with {
+          has_image: card.card_image ? 1 : 0,
+          image: has_image ? Image(card.card_image),
+          title: card.card_title,
+          text: function( 'nl2br', card.card_description ),
+          link: card.card_link
+        } %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
