@@ -56,8 +56,7 @@
     },
     ".btn-outline": {
       "background": "var(--color-btn-outline--bg)",
-      "border": "1px solid;",
-      "border-color": "var(--color-btn-outline--border)",
+      "border": "1px solid var(--color-btn-outline--border);",
       "border-radius": "var(--spacer-2xs)",
       "color": "var(--color-btn-outline--text)",
       "display": "inline-block",

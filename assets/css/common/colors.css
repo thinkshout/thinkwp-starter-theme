@@ -15,7 +15,7 @@
 
 /* DARK COLORWAY */
 .ts-bg-dk {
-	@apply bg-black;
+	@apply bg-neutral-900;
 	/* Text colors on Dark Colorway */
 	--color-high-contrast: var(--color-white);
 	--color-md-contrast: var(--color-neutral-300);
@@ -36,15 +36,15 @@
 	--color-btn-outline--svg--focus: var(--color-white);
 
 	/* Btn Solid on Dark Colorway */
-	--color-btn-solid--text: var(--color-neutral-900);
-	--color-btn-solid--text--hover: var(--color-neutral-900);
+	--color-btn-solid--text: var(--color-white);
+	--color-btn-solid--text--hover: var(--color-white);
 	--color-btn-solid--text--focus: var(--color-white);
-	--color-btn-solid--bg: var(--color-white);
-	--color-btn-solid--bg--hover: var(--color-neutral-400);
-	--color-btn-solid--bg--focus: var(--color-neutral-200);
-	--color-btn-solid--svg: var(--color-neutral-900);
-	--color-btn-solid--svg--hover: var(--color-neutral-900);
-	--color-btn-solid--svg--focus: var(--color-neutral-900);
+	--color-btn-solid--bg: var(--color-primary-500);
+	--color-btn-solid--bg--hover: var(--color-primary-900);
+	--color-btn-solid--bg--focus: var(--color-primary-900);
+	--color-btn-solid--svg: var(--color-white);
+	--color-btn-solid--svg--hover: var(--color-white);
+	--color-btn-solid--svg--focus: var(--color-white);
 
 	/* Btn Underline on Dark Colorway */
 	--color-btn-underline--text: var(--color-neutral-200);
@@ -64,9 +64,9 @@
 	--color-btn-outline--text: var(--color-neutral-900);
 	--color-btn-outline--text--hover: var(--color-neutral-900);
 	--color-btn-outline--text--focus: var(--color-neutral-900);
-	--color-btn-outline--border: 1px solid var(--color-neutral-900);
-	--color-btn-outline--border--hover: 1px solid var(--color-neutral-900);
-	--color-btn-outline--border--focus: 1px solid var(--color-neutral-900);
+	--color-btn-outline--border: var(--color-neutral-300);
+	--color-btn-outline--border--hover: var(--color-neutral-900);
+	--color-btn-outline--border--focus: var(--color-neutral-900);
 	--color-btn-outline--bg: transparent;
 	--color-btn-outline--bg--hover: var(--color-neutral-50);
 	--color-btn-outline--bg--focus: var(--color-neutral-200);
