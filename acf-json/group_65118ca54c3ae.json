@@ -47,6 +47,28 @@
                     "placeholder": ""
                 },
                 {
+                    "key": "field_65149201722da",
+                    "label": "Block Colorway",
+                    "name": "block_colorway",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_65137c7cb010c"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                },
+                {
                     "key": "field_651191e92d624",
                     "label": "Block Card Images",
                     "name": "block_card_images",
@@ -282,5 +304,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695798215
+    "modified": 1695846953
 }
