@@ -66,6 +66,8 @@
               <li><a href="/style-guide#accordion" class="{{ subnav_classes }}">Accordion</a></li>
               <li><a href="/style-guide#image-text" class="{{ subnav_classes }}">Image + Text</a></li>
               <li><a href="/style-guide#cta" class="{{ subnav_classes }}">Call to Action (CTA)</a></li>
+              <li><a href="/style-guide#wayfinding-cards" class="{{ subnav_classes }}">Wayfinding Cards</a></li>
+              <li><a href="/style-guide#people-cards" class="{{ subnav_classes }}">People Cards</a></li>
 {#              <li><a href="/style-guide#image" class="{{ subnav_classes }}">Image</a></li>#}
 {#              <li><a href="/style-guide#flexible-image-text" class="{{ subnav_classes }}">Flexible Image + Text</a></li>#}
 {#              <li><a href="/style-guide#campaign--callout-text" class="{{ subnav_classes }}">Callout + Text*</a></li>#}
@@ -623,6 +625,26 @@
           block_presentation: "inset-wide",
           colorway: "brand"
         } %}
+      </div>
+
+      {# Wayfinding Cards #}
+      <div class="py-block-sm" id="wayfinding-cards">
+        <div class="p-site xl:container">
+          <h2 class="{{ block_title_classes }}">Wayfinding Cards</h2>
+          <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through.
+          </p>
+        </div>
+        {% include "/blocks/wayfinding-cards/wayfinding-cards-example.twig" %}
+      </div>
+
+      {# People Cards #}
+      <div class="py-block-sm" id="people-cards">
+        <div class="p-site xl:container">
+          <h2 class="{{ block_title_classes }}">People Cards</h2>
+          <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through.
+          </p>
+        </div>
+        {% include "/blocks/people-cards/people-cards-example.twig" %}
       </div>
 
 {#      #}{# Image #}

@@ -8,19 +8,23 @@
 #}
 
 <div class="card-md rounded-[10px] relative ts-bg-white ts-hocus-scale">
+
   {# Image #}
-  {% if has_image %}
+{#  {% if has_image %}#}
     <div class="">
-      {% block card_image %}
-      {% endblock %}
+{#      {% block card_image %}#}
+        {{ image }}
+{#      {% endblock %}#}
     </div>
-  {% endif %}
+{#  {% endif %}#}
 
   {# Text Wrapper #}
   <div class="py-base">
 
-    {# Title #}
+    {# Card link -- needs to be immediately before card-title-hocus #}
     {% include "components/card-overlay-link.html.twig" with { link_url: link_url } %}
+
+    {# Title #}
     {% if title %}
       <a href="{{ link_url }}" class="ts-text-md-contrast card-title-hocus">
         <h3 class="h3 mb-sm">
