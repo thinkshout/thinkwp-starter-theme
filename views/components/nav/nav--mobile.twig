@@ -1,0 +1,35 @@
+{# Mobile Nav #}
+
+{% set hide_nav = "translate-x-full"  %}
+{% set show_nav = "left-0" %}
+
+<nav id="nav-main--mobile" class="nav-main nav-main--mobile md:hidden ts-bg-lt fixed top-[140px] {{ hide_nav }} px-base
+overflow-x-hidden w-full z-[50]" role="navigation">
+  {# Top level nav #}
+  {% include "components/nav/menu--header--mobile.twig" with { 'items': header_menu.get_items } %}
+
+ {# CTA wrapper #}
+  <div class="nav-main--cta--mobile flex flex-row gap-base w-full">
+
+    {# CTAs #}
+    {% include "btns/btn-two-up.twig" with {
+      primary_btn: { title: 'Donate', url: '/' },
+      secondary_btn: { title: 'Secondary CTA', url: '/' },
+      size: 'md',
+      shared_btn_classes: "flex-grow flex-1 text-center"
+    } %}
+  </div>
+
+  {# Search wrapper #}
+  <div class="nav-main--search--mobile block text-center mt-base">
+
+    {# Search #}
+    {% include "btns/btn-icon.twig" with {
+      link: {title: 'search', url: '/search'},
+      link_svg_name: "search",
+      size: "md",
+      add_classes: "block"
+    } %}
+
+  </div>
+</nav>

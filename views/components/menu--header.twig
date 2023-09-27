@@ -1,0 +1,20 @@
+{# Menu in header, top level #}
+
+{% if items %}
+	<ul class="flex flex-row items-center gap-x-lg">
+	{% set menu_wrapper_classes = '' %}
+	{% for item in items %}
+		<li class="{{ item.classes | join(' label-lg ts-text-high-contrast flex items-center ') }}">
+			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+{#      {% if items.children %}#}
+        {% include "btns/btn-dropdown.twig" with {
+          link_svg_name: "chevron-down",
+          size: "md",
+          link_svg_classes: "submenu-dropdown-icon"
+        } %}
+			{% include "components/menu-submenu--header.twig" with { 'items': item.children } %}
+{#      {% endif %}#}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}
