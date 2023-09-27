@@ -21,13 +21,18 @@
 	--color-md-contrast: var(--color-neutral-300);
 	--color-low-contrast: var(--color-neutral-500);
 
+	/* Btn icon */
+	--color-btn-icon--svg: var(--color-white);
+	--color-btn-icon--svg--hover: var(--color-white);
+	--color-btn-icon--svg--focus: var(--color-white);
+
 	/* Btn Outline on Dark Colorway */
 	--color-btn-outline--text: var(--color-white);
 	--color-btn-outline--text--hover: var(--color-white);
 	--color-btn-outline--text--focus: var(--color-white);
-	--color-btn-outline--border: 1px solid var(--color-white);
-	--color-btn-outline--border--hover: 1px solid var(--color-white);
-	--color-btn-outline--border--focus: 1px solid var(--color-white);
+	--color-btn-outline--border: var(--color-white);
+	--color-btn-outline--border--hover: var(--color-white);
+	--color-btn-outline--border--focus: var(--color-white);
 	--color-btn-outline--bg: transparent;
 	--color-btn-outline--bg--hover: var(--color-neutral-700);
 	--color-btn-outline--bg--focus: var(--color-neutral-700);
@@ -59,6 +64,13 @@
 .ts-bg-lt {
 	@apply bg-white;
 	/* Text colors on Brand Colorway 2 */
+
+
+	/* Btn icon on Light Colorway */
+	--color-btn-icon--bg: var(--color-neutral-50);
+	--color-btn-icon--svg: var(--color-neutral-900);
+	--color-btn-icon--svg--hover: var(--color-purple-500);
+	--color-btn-icon--svg--focus: var(--color-purple-500);
 
 	/* Btn Outline on Light Colorway */
 	--color-btn-outline--text: var(--color-neutral-900);
@@ -98,6 +110,12 @@
 .ts-bg-brand-1 {
 	@apply bg-neutral-100;
 
+	/* Btn icon on Light Colorway */
+	--color-btn-icon--bg: var(--color-neutral-300);
+	--color-btn-icon--svg: var(--color-neutral-900);
+	--color-btn-icon--svg--hover: var(--color-purple-500);
+	--color-btn-icon--svg--focus: var(--color-purple-500);
+
 	/* Btn Solid on Brand Colorway 1 */
 	--color-btn-solid--text: var(--color-white);
 	--color-btn-solid--text--hover: var(--color-white);
@@ -126,13 +144,19 @@
 	--color-md-contrast: var(--color-neutral-50);
 	--color-low-contrast: var(--color-neutral-200);
 
+	/* Btn icon on Light Colorway */
+	--color-btn-icon--bg: var(--color-purple-500);
+	--color-btn-icon--svg: var(--color-white);
+	--color-btn-icon--svg--hover: var(--color-purple-300);
+	--color-btn-icon--svg--focus: var(--color-purple-300);
+
 	/* Btn Outline on Brand Colorway 2 */
 	--color-btn-outline--text: var(--color-white);
 	--color-btn-outline--text--hover: var(--color-white);
 	--color-btn-outline--text--focus: var(--color-white);
-	--color-btn-outline--border: 1px solid var(--color-white);
-	--color-btn-outline--border--hover: 1px solid var(--color-white);
-	--color-btn-outline--border--focus: 1px solid var(--color-white);
+	--color-btn-outline--border: var(--color-white);
+	--color-btn-outline--border--hover: var(--color-white);
+	--color-btn-outline--border--focus: var(--color-white);
 	--color-btn-outline--bg: transparent;
 	--color-btn-outline--bg--hover: var(--color-neutral-700);
 	--color-btn-outline--bg--focus: var(--color-neutral-700);

@@ -121,6 +121,38 @@
         "background-color": "var(--color-neutral-200);",
         "color": "var(--color-neutral-500);"
       }
+    },
+    ".btn-icon": {
+      "background-color": "var(--color-btn-icon--bg);",
+      "display": "inline-block",
+      "transition": "var(--transition-defaults);",
+      ".btn-svg": {
+        "display": "inline-flex;",
+        "align-items": "center;"
+      },
+      ".btn-svg svg path": {
+        "fill": "var(--color-btn-icon--svg)"
+      },
+      "&:hover": {
+        "background-color": "var(--color-btn-icon--bg--hover);",
+        "border-color": "var(--color-btn-icon--border--hover);",
+        ".btn-svg svg path": {
+          "fill": "var(--color-btn-icon--svg--hover)"
+        }
+      },
+      "&:focus": {
+        "background-color": "var(--color--btn-icon--bg--focus);",
+        "border-color": "var(--color-btn-icon--border--focus);",
+        ".btn-svg svg path": {
+          "fill": "var(--color-btn-icon--svg--focus)"
+        }
+      },
+      "&:disabled": {
+        "background-color": "var(--color-neutral-200);",
+        ".btn-svg svg path": {
+          "fill": "var(--color-neutral-600)"
+        }
+      }
     }
   }
 }
