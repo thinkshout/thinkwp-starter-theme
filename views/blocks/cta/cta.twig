@@ -6,12 +6,13 @@
   SupportsAlign: full wide
   Example: {}
 #}
-{% set title = fields.cta_block.title %}
-{% set text = fields.cta_block.description %}
-{% set primary_btn = fields.cta_block.primary_cta %}
-{% set secondary_btn = fields.cta_block.secondary_cta %}
-{% set colorway = fields.cta_block.block_colorway %}
-{% set block_presentation = fields.cta_block.block_presentation %}
-{% set block_alignment = block.align ? block.align : fields.block_align %}
+{% set title = fields.title %}
+{% set text = fields.description %}
+{% set eyebrow = fields.eyebrow %}
+{% set primary_btn = fields.primary_cta %}
+{% set secondary_btn = fields.secondary_cta %}
+{% set colorway = fields.block_colorway %}
+{% set block_presentation = fields.block_presentation %}
+{% set block_alignment = block.align ? block.align : fields.block_alignment %}
 
 {% include 'blocks/cta/cta.html.twig' %}

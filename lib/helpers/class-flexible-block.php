@@ -24,6 +24,15 @@ class Flexible_Block {
 		// Assign block fields to banner param.
 		$this->block['fields'] = $this->block['banner'];
 	}
+
+	/**
+	 * Make a CTA Block
+	 */
+	protected function make_cta_block() {
+		// Assign block fields to cta param.
+		$this->block['fields'] = $this->block;
+	}
+
 	/**
 	 * Generate Block for use in TWIG template.
 	 */
@@ -33,6 +42,9 @@ class Flexible_Block {
 		switch ( $this->block_layout ) {
 			case 'banner':
 				$this->make_banner_block();
+				break;
+			case 'cta':
+				$this->make_cta_block();
 				break;
 			default:
 				break;
