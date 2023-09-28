@@ -2,7 +2,7 @@
 
 {% block content %}
 	<div class="content-wrapper">
-		<article class="page-landing landing-page" id="post-{{post.ID}}">
+		<article class="page-landing landing-page page-{{post.slug}}" id="post-{{post.ID}}">
 			<header>
 				{% set hero_fields = post.get_field('hero') %}
 				{% include 'blocks/banner/banner-example.twig' with {
@@ -10,11 +10,9 @@
 				} %}
 			</header>
       <main class="landing-content">
-        {% set landing_page_blocks = post.get_field('landing_page_content') ? post.get_field('landing_page_content') : [] %}
-        {% for landing_page_block in landing_page_blocks %}
-          {% include 'blocks/' ~ landing_page_block.acf_fc_layout ~ '/' ~ landing_page_block.acf_fc_layout ~ '-example.twig' with {
-            block: landing_page_block
-          } %}
+        {% for landing_page_block in post.landing_page_content %}
+          {% set fields = landing_page_block.fields %}
+          {% include 'blocks/' ~ landing_page_block.block_layout ~ '/' ~ landing_page_block.block_layout ~ '.twig' %}
         {% endfor %}
       </main>
 		</article>
