@@ -5,3 +5,12 @@
 	text-underline-offset: var(--spacer-2xs);
 	transition: all var(--transition-default);
 }
+
+.hocus-underline {
+	@apply hover:underline focus:underline underline-offset-4;
+}
+
+.hocus-action:hover,
+.hocus-action:focus {
+	color: var(--color-action);
+}
