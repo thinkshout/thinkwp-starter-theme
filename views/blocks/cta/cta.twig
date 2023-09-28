@@ -12,6 +12,6 @@
 {% set secondary_btn = fields.cta_block.secondary_cta %}
 {% set colorway = fields.cta_block.block_colorway %}
 {% set block_presentation = fields.cta_block.block_presentation %}
-{% set block_alignment = block.align %}
+{% set block_alignment = block.align ? block.align : fields.block_align %}
 
 {% include 'blocks/cta/cta.html.twig' %}

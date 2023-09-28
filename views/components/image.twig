@@ -1,7 +1,7 @@
 
-{% set image = image %}
-{% set size = size ?: 'full' %}
-{% set image_src = image.src(size) ?? image.src %}
+{% set image = image.id ? make_timber_image(image.id) : image %}
+{% set size = size ?: false %}
+{% set image_src = size and image.src(size) ? image.src(size) : image.src %}
 {% set image_srcset = image.srcset(size) ? "srcset='" ~ image.srcset(size) ~ "'" : '' %}
 {% set classes = classes %}
 {% set caption = caption ?? image.caption %}
