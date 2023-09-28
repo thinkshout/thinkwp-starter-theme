@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="page-landing landing-page" id="post-{{post.ID}}">
+			<header>
+				{% set hero_fields = post.get_field('hero') %}
+				{% include 'blocks/banner/banner-example.twig' with {
+					banner: hero_fields.banner,
+				} %}
+			</header>
+      <main class="landing-content">
+        {% set landing_page_blocks = post.get_field('landing_page_content') ? post.get_field('landing_page_content') : [] %}
+        {% for landing_page_block in landing_page_blocks %}
+          {% include 'blocks/' ~ landing_page_block.acf_fc_layout ~ '/' ~ landing_page_block.acf_fc_layout ~ '-example.twig' with {
+            block: landing_page_block
+          } %}
+        {% endfor %}
+      </main>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
