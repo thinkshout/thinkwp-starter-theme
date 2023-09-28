@@ -4,7 +4,10 @@
  * - eyebrow
  * - header
  * - text
+ * - header_tag
 #}
+
+{% set header_tag = header_tag|default('h2') %}
 
 {# Eyebrow #}
 {% if eyebrow %}
@@ -12,7 +15,11 @@
 {% endif %}
 
 {# Header #}
-<div class="h2 ts-text-high-contrast mb-xs">{{ header }}</div>
+{% if header_tag == 'h1' %}
+<h1 class="h1 ts-text-high-contrast mb-xs">{{ header }}</h1>
+{% else %}
+<h2 class="h2 ts-text-high-contrast mb-xs">{{ header }}</h2>
+{% endif %}
 
 {# text #}
 {% if text %}
