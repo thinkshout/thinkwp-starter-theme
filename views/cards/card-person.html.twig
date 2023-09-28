@@ -9,12 +9,10 @@
 
 <div class="card-person relative ts-bg-white ts-hocus-scale">
   {# Image #}
-  {% if has_image %}
-    <div class="">
-      {% block card_image %}
-      {% endblock %}
-    </div>
-  {% endif %}
+    {% include 'components/image.twig' with {
+      image: image,
+      classes: 'aspect-square object-cover max-h-[400px]'
+    } %}
 
   {# Text Wrapper #}
   <div class="py-base">
