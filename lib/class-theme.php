@@ -315,7 +315,7 @@ class Theme extends Timber\Site {
 		// Add menus to context.
 		$context['menus'] = array();
 		foreach ( $this->thinktimber_menus as $thinktimber_menu ) {
-			$context['menus'][ $thinktimber_menu['location'] ] = new Timber\Menu( sanitize_title( $thinktimber_menu['description'] ) );
+			$context['menus'][ $thinktimber_menu['location'] ] = new Timber\Menu( $thinktimber_menu['location'] );
 		}
 
 		// Add site to context.

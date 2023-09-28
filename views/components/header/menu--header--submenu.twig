@@ -6,7 +6,6 @@
 	{% for item in items %}
 		<li class="{{ item.classes | join(' ') }}">
 			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
-			{% include "components/nav/menu.twig" with { 'items': item.children } %}
 		</li>
 	{% endfor %}
 	</ul>
