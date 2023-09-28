@@ -17,8 +17,8 @@
 @import "common/hocus.css";
 
 /* COMPONENTS */
-@import "components/header.css";
-@import "components/footer.css";
+@import "../../views/components/header/header.css";
+@import "../../views/components/footer/footer.css";
 @import "../../views/blocks/accordion/accordion.css";
 /* PAGES */
 @import "pages/home.css";
