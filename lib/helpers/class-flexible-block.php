@@ -34,17 +34,28 @@ class Flexible_Block {
 	}
 
 	/**
+	 * Make an Image + Text Block
+	 */
+	protected function make_image_text_block() {
+		// Assign block fields to image_text param.
+		$this->block['fields'] = $this->block;
+	}
+
+	/**
 	 * Generate Block for use in TWIG template.
 	 */
 	public function make_block() {
 		// Assign block layout to block.
-		$this->block['block_layout'] = $this->block_layout;
+		$this->block['block_layout'] = str_replace( '_', '-', $this->block_layout );
 		switch ( $this->block_layout ) {
 			case 'banner':
 				$this->make_banner_block();
 				break;
 			case 'cta':
 				$this->make_cta_block();
+				break;
+			case 'image_text':
+				$this->make_image_text_block();
 				break;
 			default:
 				break;

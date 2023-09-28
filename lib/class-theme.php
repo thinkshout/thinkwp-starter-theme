@@ -508,17 +508,6 @@ class Theme extends Timber\Site {
 	}
 
 	/**
-	 * Make Timber/Image Object from an attachment ID.
-	 * 
-	 * @param int $attachment_id The attachment ID.
-	 * 
-	 * @return object The Timber Image object.
-	 */
-	public function make_timber_image( $attachment_id ) {
-		return new Timber\Image( $attachment_id );
-	}
-
-	/**
 	 * Console Logging PHP Values
 	 *
 	 * @param multi $value The variables to be logged.
@@ -545,13 +534,6 @@ class Theme extends Timber\Site {
 			new Timber\Twig_Function(
 				'get_posts_by_ids',
 				array( $this, 'get_posts_by_ids' )
-			)
-		);
-		// Make Timber Image.
-		$twig->addFunction(
-			new Timber\Twig_Function(
-				'make_timber_image',
-				array( $this, 'make_timber_image' )
 			)
 		);
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );

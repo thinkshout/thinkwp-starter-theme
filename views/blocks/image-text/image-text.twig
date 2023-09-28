@@ -8,11 +8,12 @@
 #}
 
 {% include 'blocks/image-text/image-text.html.twig' with {
-  eyebrow: fields.image_text.eyebrow_text,
-  title: fields.image_text.title,
-  text: fields.image_text.description,
-  primary_btn: fields.image_text.primary_cta,
-  secondary_btn: fields.image_text.secondary_cta,
-  presentation: fields.image_text.block_presentation,
-  image: fields.image_text.image ? Image(fields.image_text.image),
+  eyebrow: fields.eyebrow_text,
+  title: fields.title,
+  eyebrow: fields.eyebrow,
+  text: fields.description,
+  primary_btn: fields.primary_cta,
+  secondary_btn: fields.secondary_cta,
+  presentation: fields.block_presentation,
+  image: fields.image ? Image(fields.image),
 } %}
