@@ -8,6 +8,11 @@
 #}
 
 {% include 'blocks/banner/banner.html.twig' with {
-  banner: fields.banner,
-  primary_cta: fields.banner.primary_cta,
+  eyebrow: fields.eyebrow,
+  title: fields.title,
+  text: fields.description,
+  image: fields.image,
+  primary_btn: fields.primary_cta,
+  secondary_btn: fields.secondary_cta,
+  presentation: fields.block_presentation,
 } %}
