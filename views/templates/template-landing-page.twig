@@ -3,10 +3,7 @@
 {% block content %}
 	<div class="content-wrapper">
 		<article class="page-landing landing-page page-{{post.slug}}" id="post-{{post.ID}}">
-			<header>
-				{% set hero_fields = post.get_field('hero') %}
-				{% include 'blocks/banner/banner.twig' with { fields: hero_fields.banner } %}
-			</header>
+			{% include "components/hero.twig" %}
       <main class="landing-content">
         {% for landing_page_block in post.landing_page_content %}
           {% include 'blocks/' ~ landing_page_block.block_layout ~ '/' ~ landing_page_block.block_layout ~ '.twig' with { fields: landing_page_block.fields } %}
