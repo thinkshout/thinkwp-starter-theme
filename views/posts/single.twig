@@ -5,9 +5,7 @@
 		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
 			<header>
 				{% set hero_fields = post.get_field('hero') %}
-				{% include 'blocks/banner/banner.html.twig' with {
-					banner: hero_fields.banner,
-				} %}
+				{% include 'blocks/banner/banner.twig' with { fields: hero_fields.banner } %}
 			</header>
 			<section class="article-content">
 				<div class="article-body">
