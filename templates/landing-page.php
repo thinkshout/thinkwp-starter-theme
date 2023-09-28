@@ -10,5 +10,5 @@
 $context = Timber::context();
 
 $timber_post     = new Timber\Post();
-$context['post'] = $timber_post;
+$context['post'] = apply_filters( 'landing_page_blocks', $timber_post );
 Timber::render( array( 'templates/template-landing-page.twig', 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );
