@@ -36,55 +36,21 @@
             <li><a href="/style-guide#heroes" class="{{ nav_classes }}">Banners</a></li>
             <ul>
               <li><a href="/style-guide#banner" class="{{ subnav_classes }}">Banner</a></li>
-{#              <li><a href="/style-guide#hero--bg-img-video" class="{{ subnav_classes }}">Hero (background image or#}
-{#                  video)#}
-{#                </a></li>#}
-{#              <li><a href="/style-guide#hero--texture" class="{{ subnav_classes }}">Hero (texture)</a></li>#}
-{#              <li><a href="/style-guide#hero--values" class="{{ subnav_classes }}">Hero (values animation)*</a></li>#}
-{#              <li><a href="/style-guide#hero--urgent-action" class="{{ subnav_classes }}">Hero (urgent action)#}
-{#                  *</a></li>#}
-{#              <li><a href="/style-guide#hero--download" class="{{ subnav_classes }}">Hero (download)*</a></li>#}
-{#              <li><a href="/style-guide#hero--inline-image" class="{{ subnav_classes }}">Hero (Issue detail)*</a></li>#}
-{#              <li><a href="/style-guide#hero--country" class="{{ subnav_classes }}">Hero (Country)*</a></li>#}
-{#              <li><a href="/style-guide#hero--event" class="{{ subnav_classes }}">Hero (Event)*</a></li>#}
-{#              <li><a href="/style-guide#hero--search" class="{{ subnav_classes }}">Hero (Search)*</a></li>#}
-{#              <li><a href="/style-guide#hero--person" class="{{ subnav_classes }}">Hero (Person)*</a></li>#}
-
             </ul>
             <li><a href="/style-guide#blocks--page-specific" class="{{ nav_classes }}">Blocks (page-specific)</a></li>
 {#            <ul>#}
-{#              <li><a href="/style-guide#homepage--wayfinding-cards" class="{{ subnav_classes }}">Wayfinding#}
-{#                  Cards*</a></li>#}
-{#              <li><a href="/style-guide#homepage--issue-scroller" class="{{ subnav_classes }}">Issue Scroller*</a></li>#}
-{#              <li><a href="/style-guide#campaign--list" class="{{ subnav_classes }}">Campaign List*</a></li>#}
-{#              <li><a href="/style-guide#campaign--issue-grid" class="{{ subnav_classes }}">Issue Grid*</a></li>#}
-{#              <li><a href="/style-guide#event--list" class="{{ subnav_classes }}">Event List*</a></li>#}
 {#            </ul>#}
             <li><a href="/style-guide#blocks--global" class="{{ nav_classes }}">Blocks (global)</a></li>
             <ul>
-              <li><a href="/style-guide#accordion" class="{{ subnav_classes }}">Accordion</a></li>
-              <li><a href="/style-guide#image-text" class="{{ subnav_classes }}">Image + Text</a></li>
-              <li><a href="/style-guide#cta" class="{{ subnav_classes }}">Call to Action (CTA)</a></li>
-              <li><a href="/style-guide#wayfinding-cards" class="{{ subnav_classes }}">Wayfinding Cards</a></li>
               <li><a href="/style-guide#people-cards" class="{{ subnav_classes }}">People Cards</a></li>
-{#              <li><a href="/style-guide#image" class="{{ subnav_classes }}">Image</a></li>#}
-{#              <li><a href="/style-guide#flexible-image-text" class="{{ subnav_classes }}">Flexible Image + Text</a></li>#}
-{#              <li><a href="/style-guide#campaign--callout-text" class="{{ subnav_classes }}">Callout + Text*</a></li>#}
-{#              <li><a href="/style-guide#two-column-text" class="{{ subnav_classes }}">Two Column Text</a></li>#}
-{#              <li><a href="/style-guide#card-grid" class="{{ subnav_classes }}">Card Grid</a></li>#}
-{#              <li><a href="/style-guide#research-cards" class="{{ subnav_classes }}">Research Cards</a></li>#}
-{#              <li><a href="/style-guide#mobilize-links" class="{{ subnav_classes }}">Mobilize Links</a></li>#}
-{#              <li><a href="/style-guide#latest-scroller" class="{{ subnav_classes }}">Latest Scroller</a></li>#}
-{#              <li><a href="/style-guide#event-scroller" class="{{ subnav_classes }}">Event Scroller</a></li>#}
-{#              <li><a href="/style-guide#subscribe-form" class="{{ subnav_classes }}">Subscribe Form</a></li>#}
-{#              <li><a href="/style-guide#banner-cta" class="{{ subnav_classes }}">Banner CTA</a></li>#}
-{#              <li><a href="/style-guide#featured-action" class="{{ subnav_classes }}">Featured Action</a></li>#}
-{#              <li><a href="/style-guide#quick-actions" class="{{ subnav_classes }}">Quick Actions</a></li>#}
-{#              <li><a href="/style-guide#tab-text" class="{{ subnav_classes }}">Tab + Text</a></li>#}
-{#              <li><a href="/style-guide#numbers-cards" class="{{ subnav_classes }}">Numbers Cards</a></li>#}
-{#              <li><a href="/style-guide#testimonial" class="{{ subnav_classes }}">Testimonial</a></li>#}
-{#              <li><a href="/style-guide#relevant-links" class="{{ subnav_classes }}">Relevant Links</a></li>#}
-{#              <li><a href="/style-guide#downloads" class="{{ subnav_classes }}">Downloads</a></li>#}
+              {# Blocks auto generate nav items and same page links to the block on the page #}
+              {% for block in ts_blocks %}
+                {# Removes "acf/" from block name #}
+                {% set block_name = block.name[4:]  %}
+                <li><a href="/style-guide#{{ block_name }}" class="{{ subnav_classes }}">{{
+                    block_name|replace({'-': " "})|capitalize }}
+                  </a></li>
+              {% endfor %}
             </ul>
           </ul>
         </div>
@@ -238,309 +204,31 @@
         </div>
       </div>
 
-      <hr class="{{ hr_classes }}">
+{#      <hr class="{{ hr_classes }}">#}
 
-      <div class="p-site xl:container my-block">
-        <h2 class="{{ section_title_classes }}" id="heroes">Banners</h2>
-        <p class="{{ section_body_classes }}">Heroes are located at the top of each page, and contain the page heading.
-          Some pages have the hero set automatically, and others allow you to select between styles. Hero style and text
-          values can be edited on the edit screen, at the bottom of the blocks section.
-        </p>
-      </div>
+{#      <div class="p-site xl:container my-block">#}
+{#        <h2 class="{{ section_title_classes }}" id="heroes">Banners</h2>#}
+{#        <p class="{{ section_body_classes }}">Heroes are located at the top of each page, and contain the page heading.#}
+{#          Some pages have the hero set automatically, and others allow you to select between styles. Hero style and text#}
+{#          values can be edited on the edit screen, at the bottom of the blocks section.#}
+{#        </p>#}
+{#      </div>#}
 
-      {# Banner #}
-      <div class="my-block" id="banner">
-        <div class="p-site xl:container">
-          <h2 class="{{ block_title_classes }}">Banner</h2>
-          <p class="{{ block_description_classes }}">The default option for Basic Pages. Best used for secondary level pages when the breadcrumb will be present. When an image is loaded, it will be automatically cropped to a 16:7 aspect ratio. Template name:
-            </p>
-        </div>
-        {% include 'blocks/banner/banner-example.twig' with {
-        } %}
-      </div>
-
-{#      #}{# Hero -- Solid Color w/o image #}
-{#      <div class="py-block-sm">#}
+{#      #}{# Banner #}
+{#      <div class="my-block" id="banner">#}
 {#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (solid color, no image)</h2>#}
-{#          <p class="{{ block_description_classes }}">Available on Basic Pages. Template name:#}
-{#            <em>hero--solid-color</em>.</p>#}
+{#          <h2 class="{{ block_title_classes }}">Banner</h2>#}
+{#          <p class="{{ block_description_classes }}">The default option for Basic Pages. Best used for secondary level pages when the breadcrumb will be present. When an image is loaded, it will be automatically cropped to a 16:7 aspect ratio. Template name:#}
+{#            </p>#}
 {#        </div>#}
-{#        {% include 'components/hero--solid-color.twig' with {#}
-{#          title: 'Ways to Give',#}
-{#          eyebrow: 'eyebrow',#}
-{#          subtitle: 'Optional subtitle. No image. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',#}
+{#        {% include 'blocks/banner/banner-example.twig' with {#}
 {#        } %}#}
 {#      </div>#}
 
-{#      #}{# Hero -- Background image or video #}
-{#      <div class="py-block-sm" id="hero--bg-img-video">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (background image or video)</h2>#}
-{#          <p class="{{ block_description_classes }}">Can display an image or video, and up to two buttons. Best used#}
-{#            for top level landing pages that need an immediate CTA. An image is required, and displays on mobile.#}
-{#            Template name:#}
-{#            <em>hero--background-image-or-video</em>.</p>#}
-{#        </div>#}
-{#        {% include 'components/hero--background-image-or-video.twig' with {#}
-{#          title: 'Ways to Give',#}
-{#          image: Image(83844),#}
-{#          eyebrow: 'eyebrow',#}
-{#          subtitle: 'Optional subtitle.',#}
-{#          link_1: {title: 'Take Action', url: '/'},#}
-{#          link_2: {title: 'Give Now', url: '/'}#}
-{#        } %}#}
-{#      </div>#}
-
-{#      #}{# Hero -- Texture #}
-{#      <div class="py-block-sm" id="hero--texture">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (texture)</h2>#}
-{#          <div class="{{ block_description_classes }}"><p>#}
-{#              Best used for tertiary level pages when the breadcrumb will be present. Gives you the options to select#}
-{#              "yellow" or "gray" with the textured background, or "gradient" with a yellow gradient background.</p>#}
-
-{#            <h3 class="utility-xs mt-xs">Yellow Gradient</h3>#}
-{#            <ul>#}
-{#              <li>— Get Involved 2nd Level (when no image is desired - otherwise solid color with image)</li>#}
-{#              <li>— About 2nd Level (when no image is desired - otherwise solid color with image)</li>#}
-{#              <li>— Learn 2nd Level (when no image is desired - otherwise solid color with image)</li>#}
-{#            </ul>#}
-{#            <h3 class="utility-xs mt-xs">Yellow Texture</h3>#}
-{#            <p>Get Involved 3+ Level (we know you'd going a few levels deep in this area, so anything 3rd level and#}
-{#              beyond should be the yellow texture)</p>#}
-
-{#            <h3 class="utility-xs mt-xs">Black Texture</h3>#}
-{#            <ul>#}
-{#              <li>— About 3rd Level</li>#}
-{#              <li>— News 2nd Level / Learn 3rd Level (reports and press releases have their own hero that pairs well with this)</li>#}
-{#            </ul>#}
-{#            <p class="mt-xs">Template name:<em>hero--texture</em></p>#}
-{#          </div>#}
-{#        </div>#}
-{#        {% include 'components/hero--texture.twig' with {#}
-{#          eyebrow: 'Sint ex',#}
-{#          title: 'Consequat do cillum',#}
-{#          description: 'Labore in laborum reprehenderit nisi veniam ex dolore.',#}
-{#        } %}#}
-
-{#        <div class="mt-sm">#}
-{#          #}{# Grey variant #}
-{#          {% include 'components/hero--texture.twig' with {#}
-{#            eyebrow: 'Sint ex',#}
-{#            title: 'Consequat do cillum',#}
-{#            description: 'Labore in laborum reprehenderit nisi veniam ex dolore.',#}
-{#            hero_color: 'grey'#}
-{#          } %}#}
-{#        </div>#}
-{#        <div class="mt-sm">#}
-{#          #}{# Gradient variant #}
-{#          {% include 'components/hero--texture.twig' with {#}
-{#            eyebrow: 'Sint ex',#}
-{#            title: 'Consequat do cillum',#}
-{#            description: 'Labore in laborum reprehenderit nisi veniam ex dolore.',#}
-{#            hero_color: 'gradient'#}
-{#          } %}#}
-{#        </div>#}
-{#      </div>#}
-
-{#      #}{# Hero Homepage (values animation) #}
-{#      <div class="py-block-sm" id="hero--values">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (values animation)*</h2>#}
-{#          <p class="{{ block_description_classes }}">This hero is only available on the homepage and ties to our#}
-{#            strategic goal of highlighting Amnesty values front and center. It should be used for the homepage when#}
-{#            there is not an urgent action or issue to highlight. An image is required, and displays on mobile. Template name:#}
-{#            <em>hero--values-animation</em></p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        {% include 'components/hero--values-animation.twig' with {#}
-{#          image: Image(82101),#}
-{#          link_1: {title: 'Take Action', url: '/'},#}
-{#          link_2: {title: 'Give Now', url: '/'}#}
-{#        } %}#}
-{#      </div>#}
-
-{#      #}{# Hero -- Urgent action #}
-{#      <div class="py-block-sm" id="hero--urgent-action">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (urgent action)*</h2>#}
-{#          <p class="{{ block_description_classes }}">Available on the Homepage. Can display an image or video, and up to two buttons. Best used for featuring urgent crises/updates with immediate CTAs.#}
-{#            An image is required, and displays on mobile. Template name: <em>hero--urgent-action</em>.</p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        {% include 'components/hero--urgent-action.twig' with {#}
-{#          title: 'Hero (urgent action)',#}
-{#          image: Image(83844),#}
-{#          eyebrow: 'eyebrow',#}
-{#          subtitle: 'Optional subtitle.',#}
-{#          link_1: {title: 'Take Action', url: '/'},#}
-{#          link_2: {title: 'Give Now', url: '/'}#}
-{#        } %}#}
-{#      </div>#}
-
-{#      #}{# Hero -- Download #}
-{#      <div class="py-block-sm" id="hero--download">#}
-{#        #}{#      @todo fix missing image and block height.#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (download)*</h2>#}
-{#          <p class="{{ block_description_classes }}">This hero style is only available on any news or report related content. It includes the ability to download a file.#}
-{#            Template name:#}
-{#            <em>hero--download</em></p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        {% include 'components/hero--download.twig' with {#}
-{#          title: 'Download Hero Style',#}
-{#          tags: ['Press Release'],#}
-{#          image: Image(82101),#}
-{#          download: {title: 'Take Action', url: '/'},#}
-{#        } %}#}
-{#      </div>#}
-
-{#      #}{# Hero -- Inline image (issue detail #}
-{#      <div class="py-block-sm" id="hero--inline-image">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (Issue Detail)*</h2>#}
-{#          <p class="{{ block_description_classes }}">This hero style is only available on the issue detail pages. Includes page title, image, description, share links and last updated text.#}
-{#            Template name: <em>hero--inline-image</em></p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        {% include 'components/hero--inline-img.twig' with {#}
-{#          image: Image(84952),#}
-{#          title: 'Gender and Sexuality Justice',#}
-{#          subtitle: 'Women, survivors, queer, trans, and femme people experience gender-based violence all over the world.'#}
-{#        } %}#}
-{#      </div>#}
-
-{#      #}{# Hero -- Country #}
-{#      <div class="py-block-sm" id="hero--country">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (country)*</h2>#}
-{#          <p class="{{ block_description_classes }}">This hero is only available on country detail pages.#}
-{#            Template name:#}
-{#            <em>hero--country</em></p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        {% include 'components/hero--country.twig' with {#}
-{#          title: 'Eu enim exercitation sit',#}
-{#          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur lorem mi, quis mattis ante luctus sed.',#}
-{#        } only %}#}
-{#      </div>#}
-
-{#      #}{# Hero -- Event #}
-{#      <div class="py-block-sm" id="hero--event">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (Event)*</h2>#}
-{#          <p class="{{ block_description_classes }}">This hero is only available on event pages and includes automatically populated event data such as date, time, location, and cost.#}
-{#            Template name:#}
-{#            <em>hero--event</em></p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        {% include 'components/hero--event.twig' with {#}
-{#          title: 'Rally to Free Leonard Peltier',#}
-{#          date: 'November 13, 2022 @ 2:00 pm - 5:00 pm EST',#}
-{#          location: 'Lincoln Memorial',#}
-{#          address: '2 Lincoln Memorial Cir NW<br>Washington, DC 20002 United States',#}
-{#          cost: 'Free',#}
-{#          link_url: '/',#}
-{#        } %}#}
-{#      </div>#}
-
-{#      #}{# Hero -- Search #}
-{#      <div class="py-block-sm" id="hero--search">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (Search)*</h2>#}
-{#          <p class="{{ block_description_classes }}">This hero is only available on the Search pages and includes#}
-{#            a search form.#}
-{#            Template name:#}
-{#            <em>search-form.twig</em></p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        {% include 'components/search-form.twig' %}#}
-{#      </div>#}
-
-{#      #}{# Hero -- Person #}
-{#      <div class="py-block-sm" id="hero--person">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (Person)*</h2>#}
-{#          <p class="{{ block_description_classes }}">This hero is only available on the Person pages and includes#}
-{#            social media and email contact information.#}
-{#            Template name:#}
-{#            <em>hero--person.twig</em></p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        {% include 'components/hero--person.twig' with {#}
-{#          name: "Person Name",#}
-{#          staff_title: "Executive Operations Specialist",#}
-{#          department: "Executive Office",#}
-{#          unit: "Department Head",#}
-{#          twitter: "https://twitter.com/amnesty",#}
-{#          linkedin: "https://www.linkedin.com/company/amnesty-international/",#}
-{#          email: "email@email.com"#}
-{#        }%}#}
-{#      </div>#}
-
-      <div class="p-site xl:container" id="blocks--page-specific"><h2 class="{{ section_title_classes }}">Blocks
-          (page-specific)</h2>
-        <p class="{{ section_description_classes }}">Blocks are full width elements that can be added to the page, and
-          combined to create a variety of layouts and designs.</p>
-      </div>
-
-{#      #}{# Wayfinding Cards block -- 3-up #}
-{#      <div class="py-block-sm" id="homepage--wayfinding-cards">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Wayfinding cards*</h2>#}
-{#          <p class="{{ block_description_classes }}">The 3-up card is available on the homepage as a wayfinding tool to drive users into your#}
-{#            core areas of work.#}
-{#          </p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        {% include "/blocks/wayfinding-cards-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Issue Scroller #}
-{#      <div class="py-block-sm" id="homepage--issue-scroller">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Issue scroller*</h2>#}
-{#          <p class="{{ block_description_classes }}">Available only on the homepage to provide pathways for users to explore main issues pages.#}
-{#          </p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        #}{# Issue Scroller block -- card-lg #}
-{#        {% include "/components/block--issue-scroller.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Campaign List #}
-{#      <div class="py-block-sm" id="campaign--list">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Campaign List*</h2>#}
-{#          <p class="{{ block_description_classes }}">Wayfinding grid available only on the Campaigns Landing page to encourage users to explore more campaign detail pages.#}
-{#          </p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        #}{# Campaign List block #}
-{#        {% include "/blocks/campaign-list-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Issue Grid #}
-{#      <div class="py-block-sm" id="campaign--issue-grid">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Issue Grid*</h2>#}
-{#          <p class="{{ block_description_classes }}">Wayfinding grid with animation to be used on the Issues Landing page only. Encourages users to click into relevant issues detail pages.</p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
-{#        #}{# Issue Grid block #}
-{#        {% include "/blocks/issue-grid-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Event List #}
-{#      <div class="py-block-sm" id="event--list">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Event List*</h2>#}
-{#          <p class="{{ block_description_classes }}">Displays events in list mode - reserved for Events Landing Page only.</p>#}
-{#          <p><em>Preview of this block is not available.</em></p>#}
-{#          <p class="{{ block_description_classes }}"><em>{{ limited_message }}</em></p>#}
-{#        </div>#}
+{#      <div class="p-site xl:container" id="blocks--page-specific"><h2 class="{{ section_title_classes }}">Blocks#}
+{#          (page-specific)</h2>#}
+{#        <p class="{{ section_description_classes }}">Blocks are full width elements that can be added to the page, and#}
+{#          combined to create a variety of layouts and designs.</p>#}
 {#      </div>#}
 
        {# Global blocks #}
@@ -551,292 +239,20 @@
         </div>
       </div>
 
-      {# Accordion #}
-      <div class="py-block-sm" id="accordion">
-        <div class="p-site xl:container">
-          <h2 class="{{ block_title_classes }}">Accordion</h2>
-          <p class="{{ block_description_classes }}">Accordions organize content into "hidden" sections. Good for content with questions-and-answers or longer sections where you want to have only headings visible on page load and encourage users to expand content to see more details.
-          </p>
+      {# Displays all custom Blocks #}
+      {% for block in ts_blocks %}
+        {% set block_name = block.name[4:]  %}
+        {% set block_display_name = block_name|replace({'-': " "})|capitalize  %}
+        <div class="py-block-sm" id="{{ block_name }}">
+          <div class="p-site xl:container">
+            <h2 class="{{ block_title_classes }}">{{ block_display_name }}</h2>
+            <p class="{{ block_description_classes }}">{{ block.description }}</p>
+          </div>
+          <div class="xl:container p-site my-block ts-bg-lt">
+            {% include "/blocks/" ~ block_name ~ "/" ~ block_name ~ "-example.twig" %}
+          </div>
         </div>
-        {# Header link #}
-        <div class="xl:container p-site my-block ts-bg-lt">
-          {% include "/components/section-title/section-title--example.twig" %}
-          {# Accordion block #}
-          {% include "/blocks/accordion/accordion-example.twig" %}
-        </div>
-      </div>
-
-      {# Image + text #}
-      <div class="py-block-sm" id="image-text">
-        <div class="p-site xl:container">
-          <h2 class="{{ block_title_classes }}">Image + text</h2>
-          <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through (as opposed to the Flexible Image + Text with no button).
-          </p>
-        </div>
-        {% include "/blocks/image-text/image-text-example.twig" with {
-          text: "Inset-left, two buttons"
-        } %}
-        {% include "/blocks/image-text/image-text-example.twig" with {
-          presentation: "inset-right",
-          text: "Inset-right, two buttons"
-        } %}
-        {% include "/blocks/image-text/image-text-example.twig" with {
-          presentation: "full-right",
-          text: "Full-right",
-        } %}
-        {% include "/blocks/image-text/image-text-example.twig" with {
-          presentation: "full-left",
-          text: "Full-left.",
-        } %}
-      </div>
-
-      {# Call to Action (CTA) #}
-      <div class="py-block-sm" id="block--cta">
-        <div class="p-site xl:container">
-          <h2 class="{{ block_title_classes }}">Call to Action (CTA)</h2>
-          <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through (as opposed to the Flexible Image + Text with no button).
-          </p>
-        </div>
-        {% include "/blocks/cta/cta-example.twig" with {
-          text: "Brand colorway, full bleed color, wide layout",
-          colorway: "brand"
-        } %}
-        {% include "/blocks/cta/cta-example.twig" with {
-          text: "Page colorway, full bleed color, wide layout"
-        } %}
-        {% include "/blocks/cta/cta-example.twig" with {
-          text: "Brand colorway, full bleed color, stacked layout",
-          block_presentation: "full-stacked",
-          colorway: "brand"
-        } %}
-        {% include "/blocks/cta/cta-example.twig" with {
-          text: "Brand colorway, inset color, stacked layout",
-          block_presentation: "inset-stacked",
-          colorway: "brand"
-        } %}
-        {% include "/blocks/cta/cta-example.twig" with {
-          text: "Brand colorway, inset color, wide layout",
-          block_presentation: "inset-wide",
-          colorway: "brand"
-        } %}
-      </div>
-
-      {# Wayfinding Cards #}
-      <div class="py-block-sm" id="wayfinding-cards">
-        <div class="p-site xl:container">
-          <h2 class="{{ block_title_classes }}">Wayfinding Cards</h2>
-          <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through.
-          </p>
-        </div>
-        {% include "/blocks/wayfinding-cards/wayfinding-cards-example.twig" %}
-      </div>
-
-      {# People Cards #}
-      <div class="py-block-sm" id="people-cards">
-        <div class="p-site xl:container">
-          <h2 class="{{ block_title_classes }}">People Cards</h2>
-          <p class="{{ block_description_classes }}">Used to promote or feature a piece of content, specific pathway, call-to-action, or supplemental content. Works well for landing pages to showcase priority content or at the end of pages to give users relevant related pathways. Since this block offers a button, it is ideal to encourage users to click-through.
-          </p>
-        </div>
-        {% include "/blocks/people-cards/people-cards-example.twig" %}
-      </div>
-
-{#      #}{# Image #}
-{#      <div class="py-block-sm" id="image">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Image</h2>#}
-{#          <p class="{{ block_description_classes }}">Used to display in-content media. One or two images can be added and background colors can be chosen between white, black, and yellow.</p>#}
-{#        </div>#}
-{#        <div>#}
-{#          #}{# Image block #}
-{#          {% include "/blocks/image-example.twig" %}#}
-{#          {% include "/blocks/image-example.twig" with { image_2:Image(84893) } %}#}
-{#        </div>#}
-{#      </div>#}
-
-{#      #}{# Flexible Image + Text #}
-{#      <div class="py-block-sm" id="flexible-image-text">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Flexible Image + text</h2>#}
-{#          <p class="{{ block_description_classes }}">Used as a supplemental content block to display media, it allows for flexibility to add images within longer form content (such as reports) to break up long text sections. Images can be displayed on the left or right with paragraph text fields.#}
-{#          </p>#}
-{#        </div>#}
-{#        #}{# Flexible Image with Text #}
-{#        {% include "/blocks/flexible-image-text-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Callout + Text #}
-{#      <div class="py-block-sm" id="campaign--callout-text">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Callout + Text</h2>#}
-{#          <p class="{{ block_description_classes }}">Visually dramatic way to call out a piece of text. Block splits#}
-{#            into two columns with highlighted large text and paragraph text. When a subtitle isn't used, the title is#}
-{#            larger and highlighted. Available with white or black background color.#}
-{#          </p>#}
-{#        </div>#}
-{#        #}{# Callout and Text block #}
-{#        {% include "/blocks/callout-and-text-example.twig" %}#}
-{#        #}{# Callout and Text block #}
-{#        {% include "/blocks/callout-and-text-example.twig" with { subtitle: "Optional subtitle", background_color:#}
-{#          "black"} %}#}
-{#      </div>#}
-
-{#      #}{# Two Column Text #}
-{#      <div class="py-block-sm" id="two-column-text">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Two Column Text</h2>#}
-{#          <p class="{{ block_description_classes }}">Block splits into two columns with paragraph text.</p>#}
-{#        </div>#}
-{#        #}{# Callout and Text block #}
-{#        {% include "/blocks/two-column-text-example.twig" %}#}
-{#      </div>#}
-
-
-
-{#      #}{# Research Cards #}
-{#      <div class="py-block-sm" id="research-cards">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Research Cards</h2>#}
-{#          <p class="{{ block_description_classes }}">Encourages users to dive deeper into Amnesty’s research by pulling in top relevant reports, fact sheets, and toolkits. Capable of referencing report posts. Title styling reminiscent of branded report covers.</p>#}
-{#        </div>#}
-{#        #}{# Research Cards block #}
-{#        {% include "/blocks/research-cards-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Mobilize Links #}
-{#      <div class="py-block-sm" id="mobilize-links">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Mobilize Links</h2>#}
-{#          <p class="{{ block_description_classes }}">Used to drive users down various pathways of engagement. Giving#}
-{#            them a high level view of the sub-areas within a given site area. Most notably present in the Get Involved#}
-{#            area to reach nested content within sections. Available in a grid or a horizontal scrolling layout.</p>#}
-{#        </div>#}
-{#        #}{# Mobilize Links block -- grid #}
-{#        {% include "/blocks/mobilize-scroller-example.twig" %}#}
-
-{#        #}{# Mobilize Links block -- scroller #}
-{#        {% include "/blocks/mobilize-scroller-example.twig" with { list_type: "scroller"} %}#}
-{#      </div>#}
-
-{#      #}{# Latest Scroller #}
-{#      <div class="py-block-sm" id="latest-scroller">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Latest Scroller</h2>#}
-{#          <p class="{{ block_description_classes }}">A catch all block that features content from a variety of site areas, pulling in automatically the absolute latest post types such as Press Releases, Victories, Updates, etc. Overflows into a slider for shortened scroll and user-driven discoverability. Issue-specific detail pages will automatically filter promoted content that relates to that issue.#}
-{#          </p>#}
-{#        </div>#}
-{#        #}{# Latest Scroller block -- card-lg #}
-{#        {% include "/components/block--latest-scroller.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Event Scroller #}
-{#      <div class="py-block-sm" id="event-scroller">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Event Scroller</h2>#}
-{#          <p class="{{ block_description_classes }}">Used to promote events across the site, such as the Get Involved section. Carousel will display upcoming events with a button to view more that will take users to the Events landing page.#}
-{#          </p>#}
-{#        </div>#}
-{#        #}{# Event scroller block #}
-{#        {% include "/blocks/event-scroller-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Subscribe Form #}
-{#      <div class="py-block-sm" id="subscribe-form">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Subscribe Form</h2>#}
-{#          <p class="{{ block_description_classes }}">Subscribe forms can be added to all post types to encourage users to sign up for your email subscription.</p>#}
-{#        </div>#}
-{#        #}{# Subscribe form block -- wide #}
-{#        {% include "/components/block--subscribe-form.twig" with {#}
-{#          title: '10 million activists and growing',#}
-{#          text: 'Join us and build a world where human rights are enjoyed by all.',#}
-{#          style: 'wide'#}
-{#        } %}#}
-{#      </div>#}
-
-{#      #}{# Banner CTA #}
-{#      <div class="py-block-sm" id="banner-cta">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Banner CTA</h2>#}
-{#          <p class="{{ block_description_classes }}">Used to promote a specific call to action without taking up much space on the page. Good for the Events landing page as well as other post types where a simple call to action is relevant. Ability to adjust title, text, and button text</p>#}
-{#        </div>#}
-{#        #}{# Banner CTA block #}
-{#        {% include "/blocks/banner-cta-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Featured Action #}
-{#      <div class="py-block-sm" id="featured-action">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Featured Action</h2>#}
-{#          <p class="{{ block_description_classes }}">Ability to call-out a priority quick action in a featured block. Encourages users to take action— should be reserved for highest-priority action related to page content.</p>#}
-{#        </div>#}
-{#        #}{# Featured Action block #}
-{#        {% include "/blocks/quick-action-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Quick Actions #}
-{#      <div class="py-block-sm" id="quick-actions">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Quick Actions</h2>#}
-{#          <p class="{{ block_description_classes }}">Automatically displays Actions (same as those that appear in the expandable drawer). Issue-specific pages will be automatically filtered to display actions that are tagged with that specific issue. Edit actions through the Action post type on the admin screen.#}
-{#        </div>#}
-{#        </p>#}
-{#        #}{# Quick Actions block #}
-{#        {% include "/blocks/take-quick-action-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Tab + Text #}
-{#      <div class="py-block-sm" id="tab-text">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Tab + Text</h2>#}
-{#          <p class="{{ block_description_classes }}">Tabs can be used to break up content into digestible sections and reduce the length of the page. Tabs should be natural sections of the page copy, and clear to the user what the content within the tab holds. Recommended use on longer form content such as issues detail pages.#}
-{#        </div>#}
-{#        </p>#}
-{#        #}{# Tabs and Text block #}
-{#        {% include "/blocks/tabs-and-text-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Numbers Cards #}
-{#      <div class="py-block-sm" id="numbers-cards">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Numbers Cards</h2>#}
-{#          <p class="{{ block_description_classes }}">Numbers cards provide a visual representation of key stats and numbers related to content. Block will automatically adjust depending on the number added (3 is not required).</p>#}
-{#        </div>#}
-{#        #}{# Numbers Cards block #}
-{#        {% include "/blocks/numbers-cards-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Testimonial #}
-{#      <div class="py-block-sm" id="testimonial">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Testimonial</h2>#}
-{#          <p class="{{ block_description_classes }}">Used to display individuals’ stories and experiences. Quotes can be added and highlighted within any post type.#}
-{#        </div>#}
-{#        </p>#}
-{#        #}{# Testimonial block #}
-{#        {% include "/blocks/testimonial-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Relevant Links #}
-{#      <div class="py-block-sm" id="relevant-links">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Relevant Links</h2>#}
-{#          <p class="{{ block_description_classes }}">Link list to display a group of relevant links in a simple bullet-list format. Good for a large group of resources that aren’t necessarily pathways to encourage movement through the site but rather useful resources that are supplemental to the page content.#}
-{#          </p>#}
-{#        </div>#}
-{#        #}{# Relevant links block #}
-{#        {% include "/blocks/relevant-links-example.twig" %}#}
-{#      </div>#}
-
-{#      #}{# Downloads #}
-{#      <div class="py-block-sm" id="downloads">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Downloads</h2>#}
-{#          <p class="{{ block_description_classes }}">Link list to display a group of relevant downloads in a simple bullet-list format. Good for useful downloadable resources (such as PDFs) that are supplemental to the page content.</p>#}
-{#        </div>#}
-{#        #}{# Relevant links block #}
-{#        {% include "/blocks/downloads-example.twig" %}#}
-{#      </div>#}
+      {% endfor %}
 
     </div>
   </div>
