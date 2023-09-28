@@ -98,6 +98,7 @@ class Theme extends Timber\Site {
 		add_filter( 'use_block_editor_for_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
 		add_filter( 'gutenberg_can_edit_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
 		add_filter( 'allowed_block_types_all', array( $this, 'allowed_block_types' ), 10, 2 );
+		add_filter( 'landing_page_blocks', array( $this, 'make_landing_page_blocks' ) );
 		// Disable Comments and Ping Backs.
 		add_filter( 'comments_open', '__return_false', 20, 2 );
 		add_filter( 'pings_open', '__return_false', 20, 2 );
@@ -223,7 +224,8 @@ class Theme extends Timber\Site {
 			return $can_edit;
 		}
 		$post_can_gutenberg = true;
-		if ( get_option( 'page_on_front' ) === $post_id || $this->is_style_guide_page() ) {
+		// Check if the page is the landing page template, the style guide, or the front page.
+		if ( get_option( 'page_on_front' ) === $post_id || $this->is_style_guide_page() || get_page_template_slug( $post_id ) === 'templates/landing-page.php' ) {
 			$post_can_gutenberg = false;
 		}
 		return $post_can_gutenberg;
@@ -237,9 +239,32 @@ class Theme extends Timber\Site {
 		if ( is_null( $post_id ) ) {
 			return;
 		}
-		if ( get_option( 'page_on_front' ) === $post_id || $this->is_style_guide_page() ) {
+		// Check if the page is the landing page template, the style guide, or the front page.
+		if ( get_option( 'page_on_front' ) === $post_id || $this->is_style_guide_page() || get_page_template_slug( $post_id ) === 'templates/landing-page.php' ) {
 			remove_post_type_support( 'page', 'editor' );
 		}
+	}
+
+	/**
+	 * Process landing page flexible content blocks.
+	 * 
+	 * @param object $timber_post The post containing a landing_page_content field.
+	 * 
+	 * @return object The timber post with blocks constructed.
+	 */
+	public function make_landing_page_blocks( $timber_post ) {
+		// Get the flexible content block helper class.
+		require_once __DIR__ . '/helpers/class-flexible-block.php';
+		// Get the landing page content array.
+		$timber_post->landing_page_content = get_field( 'landing_page_content', $timber_post->ID ) ?: [];
+
+		// Loop through the landing page content blocks and make them.
+		foreach ( $timber_post->landing_page_content as &$landing_page_block ) {
+			$landing_block      = new Flexible_Block( $timber_post, $landing_page_block );
+			$landing_page_block = $landing_block->make_block();
+		}
+
+		return $timber_post;
 	}
 
 	/**
@@ -275,7 +300,6 @@ class Theme extends Timber\Site {
 	 * @return string The block content with a wrapping div.
 	 */
 	public function thinktimber_wrap_gutenberg_blocks( $block_content, $block ) {
-		// Target core/* and core-embed/* blocks.
 		return $block_content;
 	}
 
