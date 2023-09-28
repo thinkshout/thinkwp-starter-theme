@@ -3,5 +3,6 @@
   {% set hero_fields = hero_fields.banner %}
   {% set hero_fields = hero_fields|merge({ 'title': hero_fields.title ? hero_fields.title : post.title }) %}
   {% set hero_fields = hero_fields|merge({ 'image': hero_fields.image ? hero_fields.image : post.thumbnail }) %}
+  {% set hero_fields = hero_fields|merge({ 'is_hero': true }) %}
   {% include 'blocks/banner/banner.twig' with { fields: hero_fields } %}
 </header>
