@@ -34,9 +34,9 @@
               <li><a href="/style-guide#cards" class="{{ subnav_classes }}">Cards</a></li>
               <li><a href="/style-guide#section-title" class="{{ subnav_classes }}">Section title</a></li>
             </ul>
-            <li><a href="/style-guide#heroes" class="{{ nav_classes }}">Heroes</a></li>
+            <li><a href="/style-guide#heroes" class="{{ nav_classes }}">Banners</a></li>
             <ul>
-{#              <li><a href="/style-guide#hero--solid-color" class="{{ subnav_classes }}">Hero (solid color)</a></li>#}
+              <li><a href="/style-guide#banner" class="{{ subnav_classes }}">Banner</a></li>
 {#              <li><a href="/style-guide#hero--bg-img-video" class="{{ subnav_classes }}">Hero (background image or#}
 {#                  video)#}
 {#                </a></li>#}
@@ -241,29 +241,24 @@
 
       <hr class="{{ hr_classes }}">
 
-      <div class="p-site xl:container">
-        <h2 class="{{ section_title_classes }}" id="heroes">Heroes</h2>
+      <div class="p-site xl:container my-block">
+        <h2 class="{{ section_title_classes }}" id="heroes">Banners</h2>
         <p class="{{ section_body_classes }}">Heroes are located at the top of each page, and contain the page heading.
           Some pages have the hero set automatically, and others allow you to select between styles. Hero style and text
           values can be edited on the edit screen, at the bottom of the blocks section.
         </p>
       </div>
 
-{#      #}{# Hero -- Solid Color #}
-{#      <div class="py-block-sm" id="hero--solid-color">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Hero (solid color)</h2>#}
-{#          <p class="{{ block_description_classes }}">The default option for Basic Pages. Best used for secondary level pages when the breadcrumb will be present. When an image is loaded, it will be automatically cropped to a 16:7 aspect ratio. Template name:#}
-{#            <em>hero--solid-color</em></p>#}
-{#        </div>#}
-{#        {% include 'components/hero--solid-color.twig' with {#}
-{#          title: 'Ways to Give',#}
-{#          eyebrow: 'eyebrow',#}
-{#          subtitle: 'Optional subtitle. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',#}
-{#          image: Image(82781),#}
-{#          description: 'Description: Optional text that appears under the title.',#}
-{#        } %}#}
-{#      </div>#}
+      {# Banner #}
+      <div class="my-block" id="banner">
+        <div class="p-site xl:container">
+          <h2 class="{{ block_title_classes }}">Banner</h2>
+          <p class="{{ block_description_classes }}">The default option for Basic Pages. Best used for secondary level pages when the breadcrumb will be present. When an image is loaded, it will be automatically cropped to a 16:7 aspect ratio. Template name:
+            </p>
+        </div>
+        {% include 'blocks/banner/banner-example.twig' with {
+        } %}
+      </div>
 
 {#      #}{# Hero -- Solid Color w/o image #}
 {#      <div class="py-block-sm">#}
