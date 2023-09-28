@@ -1,75 +1,101 @@
-/* SITE-WIDE STYLES ARE SET IN TAILWIND: in tailwind-typography.json, made into tailwind components in tailwind.config.js.*/
+/* Typography -- ONLY Gutenberg styles in this file.
+ *
+ * SITE-WIDE STYLES ARE SET IN TAILWIND: in tailwind-typography.json,
+ * made into tailwind components in tailwind.config.js.
+*/
 
-.wysiwyg-wrapper {
+/*@todo	Remove ability to add an H1 heading to the page */
+/* H1 heading GB block styles */
+h1.wp-block-heading {
+	@apply h1 mt-2xl mb-md;
+	color: var(--color-high-contrast);
+}
+
+/* H2 heading GB block styles */
+h2.wp-block-heading {
+	@apply h2 mt-lg mb-base;
+	color: var(--color-high-contrast);
+}
+
+/* H3 heading GB block styles */
+h3.wp-block-heading {
+	@apply h3 mt-base;
+	color: var(--color-high-contrast);
+}
+
+/* H4 heading GB block styles */
+h4.wp-block-heading {
+	@apply h4 mt-base;
+	color: var(--color-high-contrast);
+}
+
+/* H5 heading GB block styles */
+h5.wp-block-heading {
+	@apply h5 mt-base;
+	color: var(--color-high-contrast);
+}
+
+/* Pull Quote GB block styles */
+.wp-block-quote {
+	@apply bg-neutral-50 p-2xl my-lg;
 	p {
-		@apply body-base;
+		@apply blockquote;
+	}
+	cite {
+		@apply body-sm block pt-sm;
 	}
 }
-h1.wp-block-heading {
-	@apply h1 text-high-contrast;
-}
-h2.wp-block-heading {
-	@apply h2 text-high-contrast;
-}
-h3.wp-block-heading {
-	@apply h3 text-high-contrast;
-}
-h4.wp-block-heading {
-	@apply h4 text-high-contrast;
-}
-h5.wp-block-heading {
-	@apply h5 text-high-contrast;
-}
-.ts-block p {
-	@apply body-base text-high-contrast mb-md;
-}
 
+/* P, UL, OL, text link and header link styles */
+.article-body,
+/* Editor view */
+.wp-block-post-content {
 
-.wp-block-heading {
-	&.h2,
-	&.h3,
-	&.h4,
-	&.h5,
-	&.h6 {
-		@apply mb-xs;
- }
+	/* Paragraphs */
+	& > p {
+		@apply body-base my-base;
+		color: var(--color-high-contrast);
+		}
+	/* Paragraph -- Italic text */
+	& > p em {
+		@apply italic;
+	}
+	/* Bold	*/
+	& > p strong {
+		@apply font-bold;
+	}
+
+	/* Text links */
+	& > p a,
+	& > ul a,
+	& > h2 a,
+	& > h3 a,
+	& > h4 a,
+	& > h5 a {
+		@apply underline-offset-4 underline;
+		color: var(--color-high-contrast);
+		&:hover,
+		&:focus {
+			color: var(--color-action);
+		 }
+	}
+
+	/* Unordered List	*/
+	& > ul {
+		@apply list-disc py-base pl-base;
+		li {
+			@apply my-xs;
+			color: var(--color-high-contrast);
+		}
+	}
+
+	/* Ordered List	*/
+	& > ol {
+		@apply body-base list-decimal py-md pl-md;
+		li {
+			@apply list-outside my-xs;
+			color: var(--color-high-contrast);
+		}
+	}
+
 }
-
-/*p:not(.body-xl) + h2,*/
-/*p:not(.body-xl) + h3 {*/
-/*	@apply mt-sm md:mt-lg;*/
-/*}*/
-/*p:not(.body-xl) + h4,*/
-/*p:not(.body-xl) + h5 {*/
-/*	@apply mt-sm md:mt-md;*/
-/*}*/
-/*ul:not([class^="tribe-events"], [class^="select2"]) {*/
-/*	@apply body-base list-none;*/
-/*li {*/
-/*	@apply pl-md md:pl-lg;*/
-/*&:before {*/
-/*	 content: "";*/
-/*	 top: 15px;*/
-/*	 @apply absolute left-0 inline-block h-px w-sm bg-md-contrast md:w-md;*/
-/* }*/
-/*}*/
-/*}*/
-/*ol,*/
-/*ul {*/
-/*	margin-bottom: 1.25rem;*/
-/*li {*/
-/*	@apply relative my-sm;*/
-/*}*/
-/*}*/
-/*ol {*/
-/*	@apply body-base list-decimal pl-md;*/
-/*	counter-reset: steps;*/
-/*li {*/
-/*	counter-increment: steps;*/
-/*	@apply body-base-bold list-outside pl-sm pb-sm text-gray-700;*/
-/*&::before {*/
-/*	 content: counter(steps);*/
-/*	 @apply utility-md absolute left-0 top-0 -ml-lg inline-flex h-lg w-lg items-center justify-center rounded-full bg-black text-3xl text-yellow-500;*/
-/* }*/
-/*}*/
-/*}*/

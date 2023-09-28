@@ -1,51 +1,51 @@
 {
   "style": {
     ".h1": {
-      "fontFamily": "var(--font-family-sans);",
-      "fontSize": "2rem /* 32px */;",
-      "fontWeight": "var(--font-weight-bold);",
-      "lineHeight": "var(--lh-12);",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "2rem /* 32px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-12);",
       "@media ( min-width: 769px )": {
-        "fontSize": "3rem /* 48px */;"
+        "font-size": "3rem /* 48px */;"
       }
     },
     ".h2": {
-      "fontFamily": "var(--font-family-sans);",
-      "fontSize": "1.5rem /* 24px */;",
-      "fontWeight": "var(--font-weight-bold);",
-      "lineHeight": "var(--lh-12);",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.5rem /* 24px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-12);",
       "@media ( min-width: 769px )": {
-        "fontSize": "2rem /* 32px */;"
+        "font-size": "2rem /* 32px */;"
       }
     },
     ".h3": {
-      "fontFamily": "var(--font-family-sans);",
-      "fontSize": "1.3125rem /* 21px */;",
-      "fontWeight": "var(--font-weight-bold);",
-      "lineHeight": "var(--lh-15);",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.3125rem /* 21px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-15);",
       "@media ( min-width: 769px )": {
-        "fontSize": "1.5rem /* 24px */;"
+        "font-size": "1.5rem /* 24px */;"
       }
     },
     ".h4": {
-      "fontFamily": "var(--font-family-sans);",
-      "fontSize": "1.125rem /* 18px */;",
-      "fontWeight": "var(--font-weight-bold);",
-      "lineHeight": "var(--lh-13);",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.125rem /* 18px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-13);",
       "@media ( min-width: 769px )": {
-        "fontSize": "1.3125rem /* 21px */;"
+        "font-size": "1.3125rem /* 21px */;"
       }
     },
     ".h5": {
-      "fontFamily": "var(--font-family-sans);",
-      "fontSize": ".75rem /* 12px */;",
-      "fontWeight": "var(--font-weight-bold);",
-      "lineHeight": "var(--lh-130);",
+      "font-family": "var(--font-family-sans);",
+      "font-size": ".75rem /* 12px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-130);",
       "text-transform": "uppercase;",
       "letter-spacing": "1px;"
     },
     ".body-base": {
-      "fontFamily": "var(--font-family-sans);",
+      "font-family": "var(--font-family-sans);",
       "font-size": "1.0625rem /* 17px */;",
       "font-weight": "var(--font-weight-regular);",
       "line-height": "var(--lh-15);",
@@ -54,7 +54,7 @@
       }
     },
     ".body-sm": {
-      "fontFamily": "var(--font-family-sans);",
+      "font-family": "var(--font-family-sans);",
       "font-size": "1.066rem /* 15px */;",
       "font-weight": "var(--font-weight-regular);",
       "line-height": "var(--lh-15);",
@@ -63,18 +63,27 @@
       }
     },
     ".body-xs": {
-      "fontFamily": "var(--font-family-sans);",
+      "font-family": "var(--font-family-sans);",
       "font-size": ".875rem; /* 14px */;",
       "font-weight": "var(--font-weight-regular);",
       "line-height": "var(--lh-15);"
     },
     ".tag": {
-      "fontFamily": "var(--font-family-sans);",
-      "fontSize": ".75rem /* 12px */;",
-      "fontWeight": "var(--font-weight-bold);",
-      "lineHeight": "var(--lh-130);",
-      "letterspacing": "5%;",
+      "font-family": "var(--font-family-sans);",
+      "font-size": ".75rem /* 12px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-130);",
+      "letter-spacing": "5%;",
       "text-transform": "uppercase;"
+    },
+    ".blockquote": {
+      "color": "var(--color-high-contrast);",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.5rem /* 24px */;",
+      "font-style": "italic;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-16);"
     }
+
   }
 }

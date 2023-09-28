@@ -276,11 +276,6 @@ class Theme extends Timber\Site {
 	 */
 	public function thinktimber_wrap_gutenberg_blocks( $block_content, $block ) {
 		// Target core/* and core-embed/* blocks.
-		if ( preg_match( '~^core/|core-embed/~', $block['blockName'] ) ) {
-			// Remove slashes from block name.
-			$block_name = str_replace( '/', '-', $block['blockName'] );
-			$block_content = sprintf( '<div class="ts-block ts-block--'. $block_name .'">%s</div>', $block_content );
-		}
 		return $block_content;
 	}
 

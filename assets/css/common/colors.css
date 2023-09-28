@@ -12,6 +12,9 @@
 .ts-svg-high-contrast svg path {
 	fill: var(--color-high-contrast);
 }
+.ts-text-action {
+	color: var(--color-action);
+}
 
 /* DARK COLORWAY */
 .ts-bg-dk {
@@ -20,6 +23,7 @@
 	--color-high-contrast: var(--color-white);
 	--color-md-contrast: var(--color-neutral-300);
 	--color-low-contrast: var(--color-neutral-500);
+	--color-action: var(--color-primary-300);
 
 	/* Btn Outline on Dark Colorway */
 	--color-btn-outline--text: var(--color-white);
@@ -58,7 +62,7 @@
 /* LIGHT COLORWAY */
 .ts-bg-lt {
 	@apply bg-white;
-	/* Text colors on Brand Colorway 2 */
+	/* Text colors on Light are the default values set in tokens */
 
 	/* Btn Outline on Light Colorway */
 	--color-btn-outline--text: var(--color-neutral-900);
@@ -97,6 +101,10 @@
 /* BRAND COLORWAY 1 */
 .ts-bg-brand-1 {
 	@apply bg-neutral-100;
+	--color-high-contrast: var(--color-neutral-900);
+	--color-md-contrast: var(--color-neutral-700);
+	--color-low-contrast: var(--color-neutral-600);
+	--color-action: var(--color-primary-500);
 
 	/* Btn Solid on Brand Colorway 1 */
 	--color-btn-solid--text: var(--color-white);
@@ -139,6 +147,7 @@
 	--color-high-contrast: var(--color-white);
 	--color-md-contrast: var(--color-neutral-50);
 	--color-low-contrast: var(--color-neutral-200);
+	--color-action: var(--color-primary-300);
 
 	/* Btn Outline on Brand Colorway 2 */
 	--color-btn-outline--text: var(--color-neutral-900);

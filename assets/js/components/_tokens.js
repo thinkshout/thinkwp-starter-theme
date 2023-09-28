@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 26 Sep 2023 22:09:36 GMT
+ * Generated on Thu, 28 Sep 2023 03:42:27 GMT
  */
 
 module.exports = {
@@ -73,6 +73,23 @@ module.exports = {
       "path": [
         "color",
         "high-contrast"
+      ]
+    },
+    "action": {
+      "value": "#3c00e7",
+      "filePath": "tokens/src/color.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "{color.primary.500.value}"
+      },
+      "name": "ColorAction",
+      "attributes": {
+        "category": "color",
+        "type": "action"
+      },
+      "path": [
+        "color",
+        "action"
       ]
     },
     "black": {

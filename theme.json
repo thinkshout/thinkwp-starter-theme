@@ -22,6 +22,11 @@
           "name": "High Contrast"
         },
         {
+          "slug": "action",
+          "color": "#3c00e7",
+          "name": "Action"
+        },
+        {
           "slug": "black",
           "color": "#000000",
           "name": "Black"
