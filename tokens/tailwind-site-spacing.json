@@ -1,0 +1,28 @@
+{
+  "spacing": {
+    ".ts-my-block": {
+      "margin-top": "var(--spacer-3xl)",
+      "@media ( min-width: 768px )": {
+        "gap": "var(--spacer-5xl)"
+      }
+    },
+    ".ts-my-block-sm": {
+      "margin-top": "var(--spacer-2xl)",
+      "@media ( min-width: 768px )": {
+        "gap": "var(--spacer-3xl)"
+      }
+    },
+    ".p-site": {
+      "padding-left": "var(--spacer-sm)",
+      "padding-right": "var(--spacer-sm)",
+      "@media ( min-width: 768px )": {
+        "padding-left": "var(--spacer-base)",
+        "padding-right": "var(--spacer-base)"
+      },
+      "@media ( min-width: 1025px )": {
+        "padding-left": "var(--spacer-md)",
+        "padding-right": "var(--spacer-md)"
+      }
+    }
+  }
+}

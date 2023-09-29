@@ -2,6 +2,7 @@ const tokens     = require( './tokens/tailwind-tokens.json' );
 const typography = require( './tokens/tailwind-typography.json' );
 const grids = require('./tokens/tailwind-grids.json');
 const btns = require('./tokens/tailwind-btns.json');
+const site_spacing = require('./tokens/tailwind-site-spacing.json');
 const plugin     = require( 'tailwindcss/plugin' );
 
 module.exports = {
@@ -58,7 +59,17 @@ module.exports = {
             }
             // Reduce the mapped array of objects into a single object
           }).reduce((btnsStyles, newBtnsStyleObject) => ({ ...btnsStyles, ...newBtnsStyleObject }), {}),
-
+          // Loops through each key in the site spacing.style object and creates a new object with the key as the class
+          // name and the value as the styles
+          ...Object.keys(site_spacing.spacing).map((key) => {
+            return {
+              [`${key}`]: site_spacing.spacing[key],
+            }
+            // Reduce the mapped array of objects into a single object
+          }).reduce((siteSpacingStyles, newSiteSpacingStyleObject) => ({ ...siteSpacingStyles, ...newSiteSpacingStyleObject }), {}),
+          // Auto generate block level spacing classes from keys in tailwind-site-spacing.json
+          // Loops through each key in the site_spacing.spacing object and creates a new object with the key as the
+          // class name and the value as the styles
         });
 			}
 		)
