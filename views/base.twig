@@ -12,7 +12,9 @@
 	<body class="{{body_class}}" data-template="base.twig">
 		{% include 'components/body-scripts.twig' %}
     <a class="skip-link screen-reader-text" href="{{post.link}}#content">{{ __( 'Skip to content', 'thinktimber' ) }}</a>
-		{% include 'components/header/header.twig' %}
+		{% block header %}
+      {% include 'components/header/header.twig' %}
+		{% endblock %}
 
 		<section id="content" role="main" class="content-wrapper">
 			{% if title %}<h1>{{title}}</h1>{% endif %}
@@ -28,7 +30,9 @@
 			{% endif %}
 		</section>
 
-		{% include 'components/footer/footer.twig' %}
+		{% block footer %}
+		  {% include 'components/footer/footer.twig' %}
+		{% endblock %}
 		{% include 'components/footer/footer-scripts.twig' %}
 	</body>
 </html>
