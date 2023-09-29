@@ -18,7 +18,7 @@
             },
             "choices": {
                 "left": "Left aligned",
-                "center": "Right aligned",
+                "center": "Center aligned",
                 "row": "Text and button are side-by-side"
             },
             "default_value": false,
@@ -92,5 +92,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695925138
+    "modified": 1695992012
 }
