@@ -12,11 +12,12 @@
   'sm'
 ] %}
 
+{#TO SEE ALL COLORWAYS, ADD THESE BG COLORS#}
+{#  "Brand Colorway 1": 'ts-bg-brand-1',#}
+{#  "Brand Colorway 2": 'ts-bg-brand-2'#}
+{#  "Light Colorway": 'ts-bg-lt',#}
 {% set bgColors = {
   "Dark Colorway": 'ts-bg-dk',
-  "Light Colorway": 'ts-bg-lt',
-  "Brand Colorway 1": 'ts-bg-brand-1',
-  "Brand Colorway 2": 'ts-bg-brand-2'
 }
 %}
 
@@ -48,19 +49,18 @@ btn--lg"></span>
 {% for key, bgColor in bgColors %}
   <h3 class="h5 mt-base">{{ key }}</h3>
   {% for btn in btnLinkStyles %}
-    <div class="py-base {{ bgColor }}">
+    <div class="px-base py-xs {{ bgColor }}">
       {% for size in sizes %}
-        <div class="block  py-xs px-md">
+        <div class="py-sm flex items-center justify-between gap-sm">
           {% for key, svg in svgs %}
-            <div class="inline-block">
-              {% include 'btns/' ~ btn ~ '.twig' with {
-                link: {title: btn ~ " " ~ size, url: link_url},
-                size: size,
-                svg_position: key,
-                link_svg_name: svg,
-                icon_only: false
-              } %}
-            </div>
+
+            {% include 'btns/' ~ btn ~ '.twig' with {
+              link: {title: btn ~ " " ~ size, url: link_url},
+              size: size,
+              svg_position: key,
+              link_svg_name: svg,
+              icon_only: false
+            } %}
             <span class="mr-sm">
               {% if key == 'none' %}
                 {% include 'btns/' ~ btn ~ '.twig' with {
