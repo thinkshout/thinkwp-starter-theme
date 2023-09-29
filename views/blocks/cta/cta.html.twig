@@ -15,12 +15,6 @@
 {# Sets bg color based on the colorway set #}
 {% set colorway_bg = colorway == "brand" ? "ts-bg-dk" : "ts-bg-lt" %}
 
-{# if style is wide, style text and cta side by side, otherwise stack and center them #}
-{% set its_wide = "stacked" in block_presentation|split('-') ? false : true %}
-{% set stacked_or_wide_layout = its_wide ? "text-center md:text-left md:flex-row md:items-center md:justify-between" :
-  "text-center" %}
-{% set typography_classes = its_wide ? "flex flex-grow flex-col gap-base md:max-w-[75%]" %}
-
 {# If style is full, adds bg color at the top level #}
 {% set use_full_color_bg = "full" in block_presentation|split('-') %}
 {% set full_bg_color = use_full_color_bg ? colorway_bg ~ " py-4xl" : "my-block-sm" %}
@@ -28,24 +22,8 @@
 {# If style is inset, add color inside the container and padding #}
 {% set inset_bg_color = not use_full_color_bg ? colorway_bg ~ " p-lg" %}
 
-<article class="block--cta ts-lovey {{ full_bg_color }}">
-  <div class="flex gap-md flex-col ts-block-container {{ stacked_or_wide_layout }} {{ inset_bg_color }}">
-
-    {# Text Wrapper #}
-    <div class="{{ typography_classes }}">
-      {% include "blocks/cta/cta-text.html.twig" %}
-    </div>
-
-    {# CTA #}
-    {% block cta %}
-      <div class="shrink-0 ">
-        {# Up to Two buttons #}
-        {% include "btns/btn-two-up.twig" with {
-          primary_btn: primary_btn,
-          secondary_btn: secondary_btn
-        } %}
-      </div>
-    {% endblock %}
-
-  </div>
-</article>
+{% if "stacked" in block_presentation|split('-') %}
+  {% include "blocks/cta/cta--centered.twig" %}
+{% else %}
+  {% include "blocks/cta/cta--row.twig" %}
+{% endif %}

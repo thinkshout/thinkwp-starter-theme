@@ -17,9 +17,9 @@
                 "id": ""
             },
             "choices": {
-                "left": "Text on the Left",
-                "center": "Text in the Center",
-                "right": "Text on the Right"
+                "left": "Left aligned",
+                "center": "Right aligned",
+                "row": "Text and button are side-by-side"
             },
             "default_value": false,
             "return_format": "value",
