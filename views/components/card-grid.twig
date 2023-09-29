@@ -17,9 +17,10 @@
 {% set column_class = "ts-grid-col-" ~ columns %}
 {% set more_btn_text = more_btn_text ?? link.title %}
 {% set more_btn_url = more_btn_url ?? link.url %}
+{% set colorway = colorway ?? 'ts-bg-lt' %}
 
-<div class="block--card-grid block--card-grid--{{ block_class }} my-block ts-friendly">
-  <div class="p-site xl:container">
+<div class="block--card-grid block--card-grid--{{ block_class }} py-block {{ colorway }}">
+  <div class="ts-block-container">
     {% include "components/section-title/section-title.twig" with {
       eyebrow: eyebrow,
       header: header,

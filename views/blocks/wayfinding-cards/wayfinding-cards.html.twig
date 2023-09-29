@@ -2,8 +2,10 @@
 
 #}
 
+{% set colorway = colorway == 'brand' ? 'ts-bg-brand-1' : 'ts-bg-dk' %}
+
 {% include 'components/card-grid.twig' with {
   card_view_mode: "card-md",
-  block_class: "wayfinding ts-bg-lt",
+  block_class: "wayfinding ",
   style: "center"
 } %}
