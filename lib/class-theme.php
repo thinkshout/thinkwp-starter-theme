@@ -260,7 +260,7 @@ class Theme extends Timber\Site {
 
 		// Loop through the landing page content blocks and make them.
 		foreach ( $timber_post->landing_page_content as &$landing_page_block ) {
-			$landing_block      = new Flexible_Block( $timber_post, $landing_page_block );
+			$landing_block      = new Flexible_Block( $landing_page_block );
 			$landing_page_block = $landing_block->make_block();
 		}
 
@@ -499,7 +499,7 @@ class Theme extends Timber\Site {
 	 *
 	 * @return array The timber posts.
 	 */
-	public function get_posts_by_ids( $post_ids = array() ) {
+	public function get_timber_posts_by_ids( $post_ids = array() ) {
 		$posts = array();
 		foreach ( $post_ids as $post_id ) {
 			$posts[] = new Timber\Post( $post_id );
@@ -532,8 +532,8 @@ class Theme extends Timber\Site {
 		// Get Posts by IDs.
 		$twig->addFunction(
 			new Timber\Twig_Function(
-				'get_posts_by_ids',
-				array( $this, 'get_posts_by_ids' )
+				'get_timber_posts_by_ids',
+				array( $this, 'get_timber_posts_by_ids' )
 			)
 		);
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );

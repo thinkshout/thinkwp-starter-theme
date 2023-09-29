@@ -138,6 +138,38 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6516d3a9c8cb0": {
+                    "key": "layout_6516d3a9c8cb0",
+                    "name": "card_grid",
+                    "label": "Card Grid",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6516d3b0c8cb3",
+                            "label": "Card Grid Fields",
+                            "name": "card_grid_fields",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_650ce02cd2c7a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -163,5 +195,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695926662
+    "modified": 1695994823
 }
