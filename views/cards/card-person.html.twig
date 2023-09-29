@@ -8,28 +8,26 @@
 #}
 
 <div class="card-person relative ts-bg-white ts-hocus-scale">
+
   {# Image #}
-    {% include 'components/image.twig' with {
-      image: image,
-      classes: 'aspect-square object-cover max-h-[400px]'
-    } %}
+  {% if has_image %}
+    <div class="">
+      {% block card_image %}
+      {% endblock %}
+    </div>
+  {% endif %}
 
   {# Text Wrapper #}
   <div class="py-base">
 
     {# Title #}
-    {% include "components/card-overlay-link.html.twig" with { link_url: link_url } %}
+    {% include "cards/card-overlay-link.html.twig" with { link_url: link_url } %}
     {% if title %}
       <a href="{{ link_url }}" class="ts-text-md-contrast card-title-hocus">
         <h3 class="h3 mb-sm">
           {{ title }}
         </h3>
       </a>
-    {% endif %}
-
-    {# Text #}
-    {% if text %}
-      <div class="body-sm ts-text-md-contrast">{{ text }}</div>
     {% endif %}
 
   </div> {# end Text Wrapper #}

@@ -1,44 +1,32 @@
 {# Cards that should display on the style guide #}
 
-{# 1 col, Listing cards #}
+{# LISTING CARDS #}
 {% include ("/cards/example--card.html.twig") with {
   size: 'listing',
   number_of_columns: '1',
-  number_of_cards: 3
+  number_of_cards: 2
 } %}
-{# 2 col, Example Card Md #}
+{# CARD MD #}
 {% include ("/cards/example--card.html.twig") with {
   size: 'md',
-  number_of_columns: '6',
-  number_of_cards: 6
+  number_of_columns: '4',
+  number_of_cards: 4
 } %}
-{# 3 col, Example Card Md #}
-{% include ("/cards/example--card.html.twig") with {
-  size: 'md',
-  number_of_columns: '3',
-  number_of_cards: 3
-} %}
-{# 2 col, Example Card Lg #}
+{# CARD LG #}
 {% include ("/cards/example--card.html.twig") with {
   size: 'lg',
   number_of_columns: '2',
   number_of_cards: 2
 } %}
-{# 2 col, Example Card Lg #}
-{% include ("/cards/example--card.html.twig") with {
-  size: 'lg',
-  number_of_columns: '3',
-  number_of_cards: 3
-} %}
-{# 2 col, Example Card Lg #}
-{% include ("/cards/example--card.html.twig") with {
-  size: 'lg',
-  number_of_columns: '4',
-  number_of_cards: 4
-} %}
-{# 2 col, Example Card 2xl #}
+{# CARD XL #}
 {% include ("/cards/example--card.html.twig") with {
   size: 'xl',
   number_of_columns: '1',
   number_of_cards: 1
+} %}
+{# CARD PERSON #}
+{% include ("/cards/example--card.html.twig") with {
+  size: 'person',
+  number_of_columns: '4',
+  number_of_cards: 4
 } %}

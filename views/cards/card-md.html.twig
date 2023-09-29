@@ -10,19 +10,18 @@
 <div class="card-md rounded-[10px] relative ts-hocus-scale">
 
   {# Image #}
-{#  {% if has_image %}#}
+  {% if has_image %}
     <div class="">
-{#      {% block card_image %}#}
-        {{ image }}
-{#      {% endblock %}#}
+      {% block card_image %}
+      {% endblock %}
     </div>
-{#  {% endif %}#}
+  {% endif %}
 
   {# Text Wrapper #}
   <div class="py-base">
 
     {# Card link -- needs to be immediately before card-title-hocus #}
-    {% include "components/card-overlay-link.html.twig" with { link_url: link_url } %}
+    {% include "cards/card-overlay-link.html.twig" with { link_url: link_url } %}
 
     {# Title #}
     {% if title %}
