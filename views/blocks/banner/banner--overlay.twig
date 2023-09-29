@@ -1,0 +1,44 @@
+{# Banner -- text over the image, left aligned.
+ *
+ * See banner.html.twig for full variables.
+#}
+
+{% set banner_height_desktop = "800px" %}
+{% set banner_height_mobile = "540px" %}
+
+<span class="hidden h-[540px] md:h-[800px] left-[25%] right-[25%]"></span>
+
+<div class="block--banner--overlay ts-bg-brand-1 overflow-hidden relative ts-lovey">
+  <div class="xl:container p-site ">
+    <div class="md:flex md:flex-col justify-center h-[{{ banner_height_mobile }}] lg:h-[{{ banner_height_desktop }}]">
+
+      {# Image #}
+      <div class="absolute h-[{{ banner_height_mobile }}] left-0 top-[25%]
+      md:top-0 z-0">
+        {% include 'components/image.twig' with {
+          image: image,
+          classes: 'aspect-square object-cover max-h-[' ~ banner_height_mobile ~ '] lg:max-h-[' ~ banner_height_desktop
+          ~ '] w-full',
+          caption_style: "below",
+          bg_figcaption: "ts-bg-lt",
+          figcaption_classes: 'ts-text-low-contrast p-2xs lg:px-0 lg:pb-0'
+        } %}
+      </div>
+
+      {# Text Wrapper #}
+      <div class="ts-bg-lt mt-base md:mt-0 relative z-2 md:w-[50%] p-base md:p-3xl lg:p-5xl">
+        {% include "components/section-title/section-title.twig" with {
+          eyebrow: eyebrow,
+          header: title,
+          text: text,
+          primary_btn: primary_btn,
+          secondary_btn: secondary_btn,
+          secondary_btn: secondary_btn,
+          style: "left",
+          header_tag: is_hero ? "h1" : "h2",
+        } %}
+      </div>  {# Closes Text wrapper #}
+
+    </div>
+  </div>
+</div>
