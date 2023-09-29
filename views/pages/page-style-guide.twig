@@ -7,7 +7,6 @@
   {% set block_description_classes = "body-sm max-w-[900px] mb-sm" %}
   {% set limited_message = "*Available on limited pages." %}
 
-
   <span class="hidden justify-end justify-start"></span>
   <div class="relative" id="page-style-guide">
     {# Menu#}
@@ -21,25 +20,45 @@
             {% set subnav_classes = "body-xs block pl-lg py-xs hover:underline focus:underline underline-offset-2" %}
             <li><a href="/style-guide#foundations" class="{{ nav_classes }}">Foundations</a></li>
             <ul>
-              <li><a href="/style-guide#color" class="{{ subnav_classes }}">Color</a></li>
-              <li><a href="/style-guide#typography" class="{{ subnav_classes }}">Typography</a></li>
-              <li><a href="/style-guide#spacing" class="{{ subnav_classes }}">Spacing</a></li>
-              <li><a href="/style-guide#grids" class="{{ subnav_classes }}">Grids</a></li>
+
+              {# FOUNDATION LINKS #}
+              {#  @todo replace hardcoded arrays with a twig function to pull all files from
+              _styleguide_sections/foundation/#}
+              {% set foundations = [
+                "color-all",
+                "color-bg",
+                "colorways",
+                "typography",
+                "spacing",
+                "grids"
+              ] %}
+              {% for foundation in foundations %}
+                <li><a href="/style-guide#{{ foundation }}" class="{{ subnav_classes }}">
+                    {{ foundation|replace({'-':" "})|capitalize }}
+                </a></li>
+              {% endfor %}
+
             </ul>
             <li><a href="/style-guide#components" class="{{ nav_classes }}">Components</a></li>
             <ul>
-              <li><a href="/style-guide#linkstyles" class="{{ subnav_classes }}">Buttons & links</a></li>
-              <li><a href="/style-guide#forms" class="{{ subnav_classes }}">Inputs</a></li>
-              <li><a href="/style-guide#cards" class="{{ subnav_classes }}">Cards</a></li>
-              <li><a href="/style-guide#section-title" class="{{ subnav_classes }}">Section title</a></li>
+
+              {# COMPONENT LINKS #}
+              {#  @todo replace hardcoded arrays with a twig function to pull all files from
+              _styleguide_sections/components/#}
+              {% set components = [
+                "buttons-&-links",
+                "inputs",
+                "cards",
+                "section-title"
+              ] %}
+              {% for component in components %}
+                <li><a href="/style-guide#{{ component }}" class="{{ subnav_classes }}">
+                    {{ component|replace({'-':" "})|capitalize }}
+                  </a></li>
+              {% endfor %}
             </ul>
-            <li><a href="/style-guide#heroes" class="{{ nav_classes }}">Banners</a></li>
-            <ul>
-              <li><a href="/style-guide#banner" class="{{ subnav_classes }}">Banner</a></li>
-            </ul>
-            <li><a href="/style-guide#blocks--page-specific" class="{{ nav_classes }}">Blocks (page-specific)</a></li>
-{#            <ul>#}
-{#            </ul>#}
+
+            {# GLOBAL BLOCKS #}
             <li><a href="/style-guide#blocks--global" class="{{ nav_classes }}">Blocks (global)</a></li>
             <ul>
               <li><a href="/style-guide#people-cards" class="{{ subnav_classes }}">People Cards</a></li>
@@ -59,179 +78,35 @@
 
     <div class="styleguide-menu-padding">
 
-      {# Foundations section#}
+      {# FOUNDATION #}
       <div class="py-block xl:container p-site" id="foundations">
         <h2 class="{{ section_title_classes }}">Foundations</h2>
         <p class="{{ section_description_classes }}">The "Foundations" section outlines the color tokens, typography styles, grid parameters, and spacing rules used throughout the AmnestyUSA theme.
         </p>
       </div>
 
-      {# All colors #}
-      <div class="my-block xl:container p-site" id="color">
-        {% include "/_styleguide_sections/color-all.twig" %}
+      {% for foundation in foundations %}
+      <div class="my-block xl:container p-site" id="{{ section }}">
+        {% include "/_styleguide_sections/foundation/" ~ foundation ~ ".twig" %}
       </div>
+      {% endfor %}
 
-      {# Background colors #}
-      <div class="my-block xl:container p-site">
-        {% include "/_styleguide_sections/color-bg.twig" %}
-      </div>
-
-      {# Dynamic colors #}
-      <div class="my-block xl:container p-site">
-        {% include "/_styleguide_sections/color-dynamic.twig" %}
-      </div>
-
-      {# Typography #}
-      <div class="my-block xl:container p-site" id="typography">
-        {# {% include "/_styleguide_sections/typography.twig" %} #}
-      </div>
-
-      {# Spacing #}
-      <div class="py-block xl:container p-site" id="spacing">
-        {% include "/_styleguide_sections/spacer-visual.twig" %}
-      </div>
-
-      {# Grids #}
-      <div class="my-block xl:container p-site" id="grids">
-        {% include "/_styleguide_sections/layouts.twig" %}
-      </div>
-
-      {# Components #}
+      {# COMPONENTS #}
       <div class="pt-block xl:container p-site" id="components">
         <h2 class="{{ section_title_classes }}">Components</h2>
         <p class="{{ section_description_classes }}">The “Components” section outlines larger UI elements throughout the theme including buttons, inputs, dropdowns, and cards that display a variety of different snippets of content. These elements are present within the larger blocks or sections of your page builder.
         </p>
       </div>
 
-      {# Buttons & Links #}
-      <div class="py-block xl:container p-site" id="linkstyles">
-        {% include '/_styleguide_sections/btn-link-styles.twig' %}
-      </div>
-
-      {# Form Inputs #}
-      <div class="py-block xl:container p-site" id="forms">
-        {% include '/_styleguide_sections/form-inputs.twig' %}
-      </div>
-
-      {# Cards #}
-      <div class="mt-0 mb-block" id="cards">
-        <div class="p-site xl:container">
-          <h2 class="{{ block_title_classes }}">Cards</h2>
-          <p class="{{ block_description_classes }}">Used across different block types.
-          </p>
-          {# 1 col, Listing cards #}
-          {% include ("/cards/example--card.html.twig") with {
-            size: 'listing',
-            number_of_columns: '1',
-            number_of_cards: 3
-          } %}
-          {# 2 col, Example Card Md #}
-          {% include ("/cards/example--card.html.twig") with {
-            size: 'md',
-            number_of_columns: '6',
-            number_of_cards: 6
-          } %}
-          {# 3 col, Example Card Md #}
-          {% include ("/cards/example--card.html.twig") with {
-            size: 'md',
-            number_of_columns: '3',
-            number_of_cards: 3
-          } %}
-          {# 2 col, Example Card Lg #}
-          {% include ("/cards/example--card.html.twig") with {
-            size: 'lg',
-            number_of_columns: '2',
-            number_of_cards: 2
-          } %}
-          {# 2 col, Example Card Lg #}
-          {% include ("/cards/example--card.html.twig") with {
-            size: 'lg',
-            number_of_columns: '3',
-            number_of_cards: 3
-          } %}
-          {# 2 col, Example Card Lg #}
-          {% include ("/cards/example--card.html.twig") with {
-            size: 'lg',
-            number_of_columns: '4',
-            number_of_cards: 4
-          } %}
-          {# 2 col, Example Card 2xl #}
-          {% include ("/cards/example--card.html.twig") with {
-            size: 'xl',
-            number_of_columns: '1',
-            number_of_cards: 1
-          } %}
+      {% for component in components %}
+        <div class="my-block xl:container p-site" id="{{ component }}">
+          <h2 class="{{ block_title_classes }}">{{ component|capitalize }}</h2>
+          {% include "/_styleguide_sections/components/" ~ component ~ ".twig" %}
         </div>
-      </div>
+        <hr class="{{ hr_classes }}">
+      {% endfor %}
 
-      <hr class="{{ hr_classes }}">
-
-      <div class="mt-0 mb-block" id="cards">
-        <div class="p-site xl:container">
-          <h2 class="{{ block_title_classes }}">Section title</h2>
-          <p class="{{ block_description_classes }}">Used across different block types. Option: center,
-            left, right, side-by-side (default)
-          </p>
-          <div class="p-site xl:container my-block ts-bg-lt">
-            {% include ("components/section-title/section-title--example.twig") with {
-              style: 'center'
-            } %}
-          </div>
-          <div class="p-site xl:container my-block ts-bg-lt">
-            {% include "/components/section-title/section-title--example.twig" with {
-              text: "Align side-by-side (default)"
-            } %}
-          </div>
-          <div class="p-site xl:container py-block ts-bg-dk">
-            {% include "/components/section-title/section-title--example.twig" with {
-              style: "left",
-              text: "Align left"
-            } %}
-          </div>
-          <div class="p-site xl:container py-block ts-bg-brand-2">
-            {% include "/components/section-title/section-title--example.twig" with {
-              style: "right",
-              text: "Align right"
-            } %}
-          </div>
-          <div class="p-site xl:container py-block ts-bg-brand-1">
-            {% include "/components/section-title/section-title--example.twig" with {
-              style: "left",
-              text: "Align left"
-            } %}
-          </div>
-
-        </div>
-      </div>
-
-{#      <hr class="{{ hr_classes }}">#}
-
-{#      <div class="p-site xl:container my-block">#}
-{#        <h2 class="{{ section_title_classes }}" id="heroes">Banners</h2>#}
-{#        <p class="{{ section_body_classes }}">Heroes are located at the top of each page, and contain the page heading.#}
-{#          Some pages have the hero set automatically, and others allow you to select between styles. Hero style and text#}
-{#          values can be edited on the edit screen, at the bottom of the blocks section.#}
-{#        </p>#}
-{#      </div>#}
-
-{#      #}{# Banner #}
-{#      <div class="my-block" id="banner">#}
-{#        <div class="p-site xl:container">#}
-{#          <h2 class="{{ block_title_classes }}">Banner</h2>#}
-{#          <p class="{{ block_description_classes }}">The default option for Basic Pages. Best used for secondary level pages when the breadcrumb will be present. When an image is loaded, it will be automatically cropped to a 16:7 aspect ratio. Template name:#}
-{#            </p>#}
-{#        </div>#}
-{#        {% include 'blocks/banner/banner-example.twig' with {#}
-{#        } %}#}
-{#      </div>#}
-
-{#      <div class="p-site xl:container" id="blocks--page-specific"><h2 class="{{ section_title_classes }}">Blocks#}
-{#          (page-specific)</h2>#}
-{#        <p class="{{ section_description_classes }}">Blocks are full width elements that can be added to the page, and#}
-{#          combined to create a variety of layouts and designs.</p>#}
-{#      </div>#}
-
-       {# Global blocks #}
+      {# Global blocks #}
       <div class="py-block-sm" id="blocks--global">
         <div class="p-site xl:container">
           <h2 class="{{ section_title_classes }}">Blocks (global)</h2>
@@ -252,6 +127,7 @@
             {% include "/blocks/" ~ block_name ~ "/" ~ block_name ~ "-example.twig" %}
           </div>
         </div>
+        <hr class="{{ hr_classes }}">
       {% endfor %}
 
     </div>
