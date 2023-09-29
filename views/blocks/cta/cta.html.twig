@@ -16,11 +16,11 @@
 {% set colorway_bg = colorway == "brand" ? "ts-bg-dk" : "ts-bg-lt" %}
 
 {# If style is full, adds bg color at the top level #}
-{% set use_full_color_bg = "full" in block_presentation|split('-') %}
-{% set full_bg_color = use_full_color_bg ? colorway_bg ~ " py-4xl" : "my-block-sm" %}
+{#{% set use_full_color_bg = "full" in block_presentation|split('-') %}#}
+{% set full_bg_color = use_full_color_bg ? "my-block-sm" : colorway_bg ~ " py-4xl" %}
 
 {# If style is inset, add color inside the container and padding #}
-{% set inset_bg_color = not use_full_color_bg ? colorway_bg ~ " p-lg" %}
+{#{% set inset_bg_color = not use_full_color_bg ? colorway_bg ~ " p-lg" %}#}
 
 {% if "stacked" in block_presentation|split('-') %}
   {% include "blocks/cta/cta--centered.twig" %}
