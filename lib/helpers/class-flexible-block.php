@@ -39,7 +39,7 @@ class Flexible_Block {
 		// Assign block fields to image_text param.
 		$this->block['fields'] = $this->block;
 	}
-	
+
 	/**
 	 * Make a Wayfinding Cards Block
 	 */
@@ -56,12 +56,12 @@ class Flexible_Block {
 		// Check if card grid is query populated and construct the query for IDs if so.
 		if ( $this->block['grid_population'] == 'automatic' ) {
 			// Construct wp query to get post ids for card grid.
-			$card_grid_query = new WP_Query(
+			$card_grid_query           = new WP_Query(
 				array(
 					'post_type'      => $this->block['post_type'],
 					'posts_per_page' => $this->block['posts_per_page'],
 					'order'          => $this->block['order'],
-					'fields'         => 'ids'
+					'fields'         => 'ids',
 				)
 			);
 			$this->block['grid_cards'] = $card_grid_query->posts;

@@ -247,16 +247,16 @@ class Theme extends Timber\Site {
 
 	/**
 	 * Process landing page flexible content blocks.
-	 * 
+	 *
 	 * @param object $timber_post The post containing a landing_page_content field.
-	 * 
+	 *
 	 * @return object The timber post with blocks constructed.
 	 */
 	public function make_landing_page_blocks( $timber_post ) {
 		// Get the flexible content block helper class.
 		require_once __DIR__ . '/helpers/class-flexible-block.php';
 		// Get the landing page content array.
-		$timber_post->landing_page_content = get_field( 'landing_page_content', $timber_post->ID ) ?: [];
+		$timber_post->landing_page_content = get_field( 'landing_page_content', $timber_post->ID ) ?: array();
 
 		// Loop through the landing page content blocks and make them.
 		foreach ( $timber_post->landing_page_content as &$landing_page_block ) {
@@ -373,7 +373,7 @@ class Theme extends Timber\Site {
 
 		/**
 		 * Enable support for Custom Logo.
-		 * 
+		 *
 		 * @link https://developer.wordpress.org/themes/functionality/custom-logo/
 		 */
 		add_theme_support( 'custom-logo' );
