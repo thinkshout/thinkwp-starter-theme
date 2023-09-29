@@ -256,7 +256,8 @@ class Theme extends Timber\Site {
 		// Get the flexible content block helper class.
 		require_once __DIR__ . '/helpers/class-flexible-block.php';
 		// Get the landing page content array.
-		$timber_post->landing_page_content = get_field( 'landing_page_content', $timber_post->ID ) ?: array();
+		$landing_content                   = get_field( 'landing_page_content', $timber_post->ID );
+		$timber_post->landing_page_content = $landing_content ? $landing_content : array();
 
 		// Loop through the landing page content blocks and make them.
 		foreach ( $timber_post->landing_page_content as &$landing_page_block ) {

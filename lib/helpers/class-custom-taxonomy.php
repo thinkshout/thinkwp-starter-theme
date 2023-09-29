@@ -11,6 +11,18 @@
  * Create a custom taxonomy and expose the register taxonomy function.
  */
 class Custom_Taxonomy {
+
+	/**
+	 * The taxonomy to register.
+	 *
+	 * @var array
+	 */
+	protected $taxonomy = array(
+		'names'      => null,
+		'post_types' => null,
+		'args'       => null,
+	);
+
 	/**
 	 * Register a custom taxonomy
 	 *

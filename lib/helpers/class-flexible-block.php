@@ -12,7 +12,17 @@
  */
 class Flexible_Block {
 
+	/**
+	 * The block to create.
+	 *
+	 * @var array
+	 */
 	protected $block;
+	/**
+	 * The block layout.
+	 *
+	 * @var string
+	 */
 	protected $block_layout;
 
 
@@ -54,7 +64,7 @@ class Flexible_Block {
 	protected function make_card_grid_block() {
 		$this->block['fields'] = $this->block;
 		// Check if card grid is query populated and construct the query for IDs if so.
-		if ( $this->block['grid_population'] == 'automatic' ) {
+		if ( 'query' === $this->block['grid_population'] ) {
 			// Construct wp query to get post ids for card grid.
 			$card_grid_query           = new WP_Query(
 				array(

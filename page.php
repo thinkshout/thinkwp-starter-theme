@@ -25,8 +25,8 @@ $context = Timber::context();
 
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
-// Check if this is the style guide page
-if ( $timber_post->post_name === 'style-guide' ) {
+// Check if this is the style guide page.
+if ( 'style-guide' === $timber_post->post_name ) {
 	$acf_block_types      = acf_get_store( 'block-types' );
 	$context['ts_blocks'] = $acf_block_types->get_data();
 }
