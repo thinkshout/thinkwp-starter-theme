@@ -494,17 +494,21 @@ class Theme extends Timber\Site {
 	}
 
 	/**
-	 * Get posts by an array of IDs.
+	 * Get posts for card grid using an array of IDs.
 	 *
 	 * @param array $post_ids The post IDs to get.
 	 *
 	 * @return array The timber posts.
 	 */
-	public function make_cards_for_grid( $post_ids = array() ) {
+	public static function make_cards_for_grid( $post_ids = array() ) {
 		$posts = array();
 		foreach ( $post_ids as $post_id ) {
-			$posts[] = new Timber\Post( $post_id );
+			$timber_post                 = new Timber\Post( $post_id );
+			$banner_thumbnail            = $timber_post->get_field( 'banner_image' );
+			$timber_post->featured_image = $banner_thumbnail ? new Timber\Image( $banner_thumbnail ) : $timber_post->thumbnail();
+			$posts[]                     = $timber_post;
 		}
+
 		return $posts;
 	}
 

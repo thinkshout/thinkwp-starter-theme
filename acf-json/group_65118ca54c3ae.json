@@ -180,7 +180,7 @@
                 {
                     "key": "field_651193d87e52a",
                     "label": "Card Image",
-                    "name": "thumbnail",
+                    "name": "featured_image",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -286,5 +286,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695998593
+    "modified": 1696015365
 }

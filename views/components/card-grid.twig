@@ -32,29 +32,18 @@
 
     <div class="{{ column_class }} gap-sm md:gap-base">
       {% for card in cards %}
-
-        {# Manually staged content #}
-        {% if card.card_title %}
-          {% include "cards/" ~ card_view_mode ~ ".html.twig" with {
-            has_image: card.card_image ? 1 : 0,
-            image: has_image ? Image(card.card_image),
-            title: card.card_title,
-            text: function( 'nl2br', card.card_description ),
-            link: card.card_link
-          } %}
-        {% else %}
-
-        {# Node content #}
-{#          @todo  Fix references for nodes so they work#}
-          {% include "cards/" ~ card_view_mode ~ ".html.twig" with {
-            has_image: card.image ? 1 : 0,
-            image: has_image ? Image(card.image),
-            title: card.title,
-            text: function( 'nl2br', card.text ),
-            link: card.link
-          } %}
-        {% endif %}
-
+        {% embed "cards/" ~ card_view_mode ~ ".html.twig" with {
+          has_image: card.featured_image ? 1 : 0,
+          title: card.title,
+          text: function( 'nl2br', card.excerpt ),
+          link: card.link
+        } %}
+          {% block card_image %}
+            {% include "components/image.twig" with {
+              image: card.featured_image,
+            } %}
+          {% endblock %}
+        {% endembed %}
       {% endfor %}
     </div>
   </div>
