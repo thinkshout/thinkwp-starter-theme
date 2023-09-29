@@ -6,6 +6,21 @@
 .unfriendly {
 	@apply py-xl md:py-3xl;
 }
+.ts-lovey + .ts-friendly {
+
+}
+
+.article-body > *:first-child:not(.ts-lovey) {
+	@apply mt-2xl md:mt-5xl;
+}
+
+.article-body .ts-block-container {
+	@apply p-site xl:container;
+}
+
+.wp-block-columns {
+	@apply p-site xl:container;
+}
 
 /* Sets the limitations of the full site container. Do not set if you want an*/
 /* element to stretch the full width of the site.*/
@@ -20,3 +35,4 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+

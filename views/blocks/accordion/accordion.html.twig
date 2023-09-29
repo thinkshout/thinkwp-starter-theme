@@ -6,13 +6,13 @@
 
 {% set accordion = accordion|default([]) %}
 
-<div class="block--accordion accordion my-block-sm bg-neutral-50">
-  <div class="wysiwyg-container divide-y divide-neutral-300">
+<div class="block--accordion accordion ts-lovey bg-neutral-50">
+  <div class="wysiwyg-container divide-y divide-neutral-300 ts-block-container">
     {% for accordion_section in accordion %}
       <div class="accordion__section wysiwyg-content py-sm">
         <button class="accordion__section__toggle hover:text-primary-500 focus:text-primary-500 text-neutral-800 w-full
         flex items-center justify-between
-        p-md">
+        py-md">
           <h3 class="accordion__section__title inline-block h4 text-left">{{
             accordion_section
             .title

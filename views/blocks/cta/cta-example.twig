@@ -1,17 +1,26 @@
 {# Call to action (CTA) example #}
 
+{% set title = 'CTA Block' %}
+{% set text = 'This is a CTA block' %}
+{% set primary_btn = {
+  title: 'Primary CTA',
+  url: '#',
+  target: '_blank',
+}
+%}
+{% set secondary_btn = {
+  title: 'Secondary CTA',
+  url: '#',
+} %}
+
+{# "ROW" variant #}
 {% include 'blocks/cta/cta.html.twig' with {
-  title: 'CTA Block',
-  text: text ?: 'This is a CTA block',
-  colorway: colorway ?: 'page',
+  colorway: 'page',
   block_presentation: block_presentation ?: 'full-columns',
-  primary_btn: {
-    title: 'Primary CTA',
-    url: '#',
-    target: '_blank',
-  },
-  secondary_btn: {
-    title: 'Secondary CTA',
-    url: '#',
-  },
+} %}
+
+{# "CENTERED" variant #}
+{% include 'blocks/cta/cta.html.twig' with {
+  colorway: 'brand',
+  block_presentation: 'stacked',
 } %}

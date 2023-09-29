@@ -2,6 +2,7 @@
  *
  * Configuration:
  * - colorway
+ * - inset vs full bleed
  *
  * Variables:
  * - title
@@ -27,8 +28,8 @@
 {# If style is inset, add color inside the container and padding #}
 {% set inset_bg_color = not use_full_color_bg ? colorway_bg ~ " p-lg" %}
 
-<article class="block--cta p-site xl:container ts-lovey {{ full_bg_color }}">
-  <div class="flex gap-md flex-col {{ stacked_or_wide_layout }} {{ inset_bg_color }}">
+<article class="block--cta ts-lovey {{ full_bg_color }}">
+  <div class="flex gap-md flex-col ts-block-container {{ stacked_or_wide_layout }} {{ inset_bg_color }}">
 
     {# Text Wrapper #}
     <div class="{{ typography_classes }}">

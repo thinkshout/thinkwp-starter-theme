@@ -48,6 +48,8 @@ h5.wp-block-heading {
 
 /* P, UL, OL, text link and header link styles */
 .article-body,
+/* In WP columns */
+.wp-block-column,
 /* Editor view */
 .wp-block-post-content {
 
@@ -82,25 +84,23 @@ h5.wp-block-heading {
 
 	/* Unordered List	*/
 	& > ul {
-		@apply list-disc py-base pl-base;
+		@apply body-base list-disc py-base;
 		li {
-			@apply my-xs;
+			@apply list-inside my-xs;
 			color: var(--color-high-contrast);
 		}
 	}
 
 	/* Ordered List	*/
 	& > ol {
-		@apply body-base list-decimal py-md pl-md;
+		@apply body-base list-decimal py-md;
 		li {
-			@apply list-outside my-xs;
+			@apply list-inside my-xs;
 			color: var(--color-high-contrast);
 		}
 	}
 
 }
-
-
 
 /* LAYOUTS FOR GUTENBERG TEXT BLOCKS */
 
@@ -111,8 +111,6 @@ h5.wp-block-heading {
 	& > p,
 	& > ul,
 	& > ol {
-		max-width: 75%;
-		margin-left: auto;
-		margin-right: auto;
+		@apply p-site md:max-w-[700px] md:mx-auto;
 	}
 }
