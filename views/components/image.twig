@@ -1,5 +1,5 @@
-
 {% set image = image.id ? Image(image.id) : image %}
+{% set focal_point = image.id ? image.get_field('focal_point') : null %}
 {% set size = size ?: false %}
 {% set image_src = size and image.src(size) ? image.src(size) : image.src %}
 {% set image_srcset = image.srcset(size) ? "srcset='" ~ image.srcset(size) ~ "'" : '' %}
@@ -21,7 +21,7 @@
   <figure class="{{ figure_classes }}">
     <img src="{{ image_src }}" {{ image_srcset }}
        width="{{ image.width }}" height="{{ image.height }}"
-       alt="{{ image.alt }}" class="{{ classes }}">
+       alt="{{ image.alt }}" class="{{ classes }}"{% if focal_point %} style="object-position: {{focal_point.horizontal_focal_point}}% {{focal_point.vertical_focal_point}}%"{% endif %}>
     {% if caption %}
       {% if caption_style == "hidden" %}
         {# For hidden captions, make them only available to screen readers #}

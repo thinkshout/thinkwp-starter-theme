@@ -31,31 +31,6 @@
             "placeholder": ""
         },
         {
-            "key": "field_60be204b8b5e7",
-            "label": "Banner Image",
-            "name": "image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Display this image atop of the page. Overrides the featured image if set.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "large"
-        },
-        {
             "key": "field_65137b4beef68",
             "label": "Banner Title",
             "name": "block_title",
@@ -76,6 +51,31 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
+        },
+        {
+            "key": "field_651715c054092",
+            "label": "Banner Image",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -96,5 +96,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695998782
+    "modified": 1696012051
 }

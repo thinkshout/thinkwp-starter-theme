@@ -8,7 +8,7 @@
 #}
 
 {# Get the Block Posts by the grid_cards property #}
-{% set block_card_posts = get_timber_posts_by_ids(fields.grid_cards) %}
+{% set block_card_posts = make_cards_for_grid(fields.grid_cards) %}
 
 {% include 'blocks/card-grid/card-grid.html.twig' with {
   cards: block_card_posts,

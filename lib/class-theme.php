@@ -500,7 +500,7 @@ class Theme extends Timber\Site {
 	 *
 	 * @return array The timber posts.
 	 */
-	public function get_timber_posts_by_ids( $post_ids = array() ) {
+	public function make_cards_for_grid( $post_ids = array() ) {
 		$posts = array();
 		foreach ( $post_ids as $post_id ) {
 			$posts[] = new Timber\Post( $post_id );
@@ -533,8 +533,8 @@ class Theme extends Timber\Site {
 		// Get Posts by IDs.
 		$twig->addFunction(
 			new Timber\Twig_Function(
-				'get_timber_posts_by_ids',
-				array( $this, 'get_timber_posts_by_ids' )
+				'make_cards_for_grid',
+				array( $this, 'make_cards_for_grid' )
 			)
 		);
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );

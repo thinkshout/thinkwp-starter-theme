@@ -51,8 +51,30 @@
             "prefix_name": 0
         },
         {
-            "key": "field_650c4f27ac2b1",
-            "label": "Image",
+            "key": "field_65137f44be540",
+            "label": "Block Title",
+            "name": "block_title",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_651379242e4f5"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_651715da477ae",
+            "label": "Block Image",
             "name": "image",
             "aria-label": "",
             "type": "image",
@@ -74,28 +96,6 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium"
-        },
-        {
-            "key": "field_65137f44be540",
-            "label": "Block Title",
-            "name": "block_title",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_651379242e4f5"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
         }
     ],
     "location": [
@@ -116,5 +116,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695926415
+    "modified": 1696012076
 }
