@@ -1,13 +1,145 @@
 {
     "key": "group_65118ca54c3ae",
-    "title": "Block - Wayfinding Cards",
+    "title": "Model - Wayfinding Cards",
     "fields": [
         {
-            "key": "field_65118ca50f441",
-            "label": "Wayfinding Cards",
-            "name": "wayfinding_cards",
+            "key": "field_65118ddb5423f",
+            "label": "Block Presentation",
+            "name": "block_presentation",
             "aria-label": "",
-            "type": "group",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1 column list",
+                "2": "2 Column Grid",
+                "3": "3 Column Grid",
+                "4": "4 Column Grid"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_65149201722da",
+            "label": "Block Colorway",
+            "name": "block_colorway",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65137c7cb010c"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_651191e92d624",
+            "label": "Block Card Images",
+            "name": "block_card_images",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Display blocks in the grid with images",
+            "default_value": 0,
+            "ui_on_text": "Blocks have Images",
+            "ui_off_text": "Blocks have no images",
+            "ui": 1
+        },
+        {
+            "key": "field_6511936a9df0c",
+            "label": "Block Card Descriptions",
+            "name": "block_card_descriptions",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Cards in the grid should display with descriptions",
+            "default_value": 0,
+            "ui_on_text": "Cards have descriptions",
+            "ui_off_text": "Cards do not have descriptions",
+            "ui": 1
+        },
+        {
+            "key": "field_651192b5cae30",
+            "label": "Block Card Links",
+            "name": "block_card_links",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Cards in the grid should link",
+            "default_value": 0,
+            "ui_on_text": "Cards have links",
+            "ui_off_text": "Cards are not links",
+            "ui": 1
+        },
+        {
+            "key": "field_6513820d7babe",
+            "label": "Block Section Title",
+            "name": "block_section_title",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_651379242e4f5"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_6511916e86dd2",
+            "label": "Block Cards",
+            "name": "block_cards",
+            "aria-label": "",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,13 +149,19 @@
                 "id": ""
             },
             "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_6511919e86dd4",
+            "button_label": "Add Card",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_65118ddb5423f",
-                    "label": "Block Presentation",
-                    "name": "block_presentation",
+                    "key": "field_6511919e86dd4",
+                    "label": "Card Title",
+                    "name": "title",
                     "aria-label": "",
-                    "type": "select",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -32,256 +170,100 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "1": "1 column list",
-                        "2": "2 Column Grid",
-                        "3": "3 Column Grid",
-                        "4": "4 Column Grid"
-                    },
-                    "default_value": false,
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": ""
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6511916e86dd2"
                 },
                 {
-                    "key": "field_65149201722da",
-                    "label": "Block Colorway",
-                    "name": "block_colorway",
+                    "key": "field_651193d87e52a",
+                    "label": "Card Image",
+                    "name": "thumbnail",
                     "aria-label": "",
-                    "type": "clone",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "clone": [
-                        "group_65137c7cb010c"
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_651191e92d624",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
                     ],
-                    "display": "seamless",
-                    "layout": "block",
-                    "prefix_label": 0,
-                    "prefix_name": 0
-                },
-                {
-                    "key": "field_651191e92d624",
-                    "label": "Block Card Images",
-                    "name": "block_card_images",
-                    "aria-label": "",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "message": "Display blocks in the grid with images",
-                    "default_value": 0,
-                    "ui_on_text": "Blocks have Images",
-                    "ui_off_text": "Blocks have no images",
-                    "ui": 1
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_6511916e86dd2"
                 },
                 {
-                    "key": "field_6511936a9df0c",
-                    "label": "Block Card Descriptions",
-                    "name": "block_card_descriptions",
+                    "key": "field_651191ca86dd6",
+                    "label": "Card Link",
+                    "name": "link",
                     "aria-label": "",
-                    "type": "true_false",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "Cards in the grid should display with descriptions",
-                    "default_value": 0,
-                    "ui_on_text": "Cards have descriptions",
-                    "ui_off_text": "Cards do not have descriptions",
-                    "ui": 1
-                },
-                {
-                    "key": "field_651192b5cae30",
-                    "label": "Block Card Links",
-                    "name": "block_card_links",
-                    "aria-label": "",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "Cards in the grid should link",
-                    "default_value": 0,
-                    "ui_on_text": "Cards have links",
-                    "ui_off_text": "Cards are not links",
-                    "ui": 1
-                },
-                {
-                    "key": "field_6513820d7babe",
-                    "label": "Block Section Title",
-                    "name": "block_section_title",
-                    "aria-label": "",
-                    "type": "clone",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "clone": [
-                        "group_651379242e4f5"
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_651192b5cae30",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
                     ],
-                    "display": "seamless",
-                    "layout": "block",
-                    "prefix_label": 0,
-                    "prefix_name": 0
-                },
-                {
-                    "key": "field_6511916e86dd2",
-                    "label": "Block Cards",
-                    "name": "block_cards",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
-                    "pagination": 0,
-                    "min": 0,
-                    "max": 0,
-                    "collapsed": "field_6511919e86dd4",
-                    "button_label": "Add Card",
-                    "rows_per_page": 20,
-                    "sub_fields": [
-                        {
-                            "key": "field_6511919e86dd4",
-                            "label": "Card Title",
-                            "name": "card_title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_6511916e86dd2"
-                        },
-                        {
-                            "key": "field_651193d87e52a",
-                            "label": "Card Image",
-                            "name": "card_image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_651191e92d624",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "",
-                            "preview_size": "medium",
-                            "parent_repeater": "field_6511916e86dd2"
-                        },
-                        {
-                            "key": "field_651191ca86dd6",
-                            "label": "Card Link",
-                            "name": "card_link",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_651192b5cae30",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "parent_repeater": "field_6511916e86dd2"
-                        },
-                        {
-                            "key": "field_651191a986dd5",
-                            "label": "Card Description",
-                            "name": "card_description",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_6511936a9df0c",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "rows": "",
-                            "placeholder": "",
-                            "new_lines": "",
-                            "parent_repeater": "field_6511916e86dd2"
-                        }
-                    ]
+                    "return_format": "array",
+                    "parent_repeater": "field_6511916e86dd2"
+                },
+                {
+                    "key": "field_651191a986dd5",
+                    "label": "Card Description",
+                    "name": "excerpt",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6511936a9df0c",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_6511916e86dd2"
                 }
             ]
         }
@@ -289,9 +271,9 @@
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/wayfinding-cards"
+                "value": "post"
             }
         ]
     ],
@@ -301,8 +283,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695994564
+    "modified": 1695998593
 }

@@ -39,6 +39,14 @@ class Flexible_Block {
 		// Assign block fields to image_text param.
 		$this->block['fields'] = $this->block;
 	}
+	
+	/**
+	 * Make a Wayfinding Cards Block
+	 */
+	protected function make_wayfinding_cards_block() {
+		// Assign block fields to wayfinding_card param.
+		$this->block['fields'] = $this->block;
+	}
 
 	/**
 	 * Make a Card Grid Block
@@ -78,6 +86,9 @@ class Flexible_Block {
 				break;
 			case 'card_grid':
 				$this->make_card_grid_block();
+				break;
+			case 'wayfinding_cards':
+				$this->make_wayfinding_cards_block();
 				break;
 			default:
 				break;
