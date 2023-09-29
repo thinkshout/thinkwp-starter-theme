@@ -4,7 +4,7 @@
 {% set hide_nav = "translate-x-full"  %}
 {% set show_nav = "left-0" %}
 
-<nav id="nav-main--mobile" class="nav-main nav-main--mobile md:hidden ts-bg-lt fixed top-[140px] {{ hide_nav }} px-base
+<nav id="nav-main--mobile" class="nav-main nav-main--mobile lg:hidden ts-bg-lt fixed top-[140px] {{ hide_nav }} px-base
 overflow-x-hidden w-full z-[50]" role="navigation">
   {# Top level nav #}
   {% include "components/header/menu--header--mobile.twig" with { 'items': header_menu.get_items } %}
