@@ -8,5 +8,12 @@
 #}
 
 {% include 'blocks/card-grid/card-grid.html.twig' with {
-  card_grid: fields.card_grid,
+  cards: fields.card_grid.grid_cards,
+  colorway: fields.card_grid.block_colorway,
+  header: fields.card_grid.title,
+  eyebrow: fields.card_grid.eyebrow,
+  text: fields.card_grid.description,
+  primary_btn: fields.card_grid.primary_cta,
+  secondary_btn: fields.card_grid.secondary_cta,
+  view_mode: 'card-xl'
 } %}
