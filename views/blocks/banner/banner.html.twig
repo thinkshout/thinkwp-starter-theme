@@ -1,4 +1,4 @@
-{# Banner
+{# Banner -- left aligned
  *
  * Configuration options:
  *  image align:
@@ -18,15 +18,23 @@
  * - is_hero
 #}
 
-<div class="block--banner ts-bg-lt relative ">
+{% set banner_height_desktop = "800px" %}
+{% set banner_height_mobile = "540px" %}
+
+<span class="hidden h-[540px] md:h-[800px]"></span>
+
+<div class="block--banner ts-bg-lt overflow-hidden relative ts-lovey">
   <div class="xl:container p-site ">
-    <div class="flex flex-col justify-center h-[800px]">
+    <div class="md:flex md:flex-col justify-center h-[{{ banner_height_mobile }}] lg:h-[{{ banner_height_desktop }}]">
 
     {# Image #}
-    <div class="absolute left-[25%] top-0 right-0 bottom-0 z-0">
+    <div class="absolute h-[{{ banner_height_mobile }}] left-0 md:left-[25%] top-[25%] md:top-0
+    right-0
+    z-0">
       {% include 'components/image.twig' with {
         image: image,
-        classes: 'aspect-square object-cover max-h-[800px] w-full',
+        classes: 'aspect-square object-cover max-h-[' ~ banner_height_mobile ~ '] lg:max-h-[' ~ banner_height_desktop
+        ~ '] w-full',
         caption_style: "below",
         bg_figcaption: "ts-bg-lt",
         figcaption_classes: 'ts-text-low-contrast p-2xs lg:px-0 lg:pb-0'
@@ -34,7 +42,7 @@
     </div>
 
     {# Text Wrapper #}
-    <div class="md:w-[50%] p-base md:p-7xl relative z-2 ts-bg-lt">
+    <div class="md:w-[50%] p-base md:p-5xl lg:p-7xl relative z-2 ts-bg-lt">
         {% include "components/section-title/section-title.twig" with {
           eyebrow: eyebrow,
           header: title,
