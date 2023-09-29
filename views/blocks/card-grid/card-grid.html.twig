@@ -2,10 +2,10 @@
 
 #}
 
-{% set colorway = colorway == 'brand' ? 'ts-bg-brand-1' : 'ts-bg-dk' %}
+{% set colorway = colorway == 'brand' ? 'ts-bg-brand-1' : '' %}
 
 {% include 'components/card-grid.twig' with {
   card_view_mode: "card-xl",
   block_class: "article-page ",
-  colorway: 'ts-bg-brand-1'
+  style: "center"
 } %}

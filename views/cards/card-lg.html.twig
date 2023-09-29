@@ -10,6 +10,8 @@
  * - link_url
 #}
 
+{% set link_url = link.url ? link.url : link %}
+
 <div class="card-lg mb-sm md:mb-0 relative ts-bg-brand-1">
   {# Image #}
   {% if has_image %}

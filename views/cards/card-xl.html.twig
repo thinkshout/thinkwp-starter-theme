@@ -11,6 +11,8 @@
  * - link2
 #}
 
+{% set link_title = link.title ? link.title : false %}
+{% set link_url = link.url ? link.url : link %}
 
 {% if title or text and image %}
   <div class="card-2xl my-block ts-bg-brand-1 relative">
@@ -69,7 +71,7 @@
             {% endif %}
 
             {# Buttons #}
-            {% if link_url %}
+            {% if link_title %}
               <div>
                 {% include 'btns/btn-solid.twig' with {
                   link: { title: link_title, url: link_url },

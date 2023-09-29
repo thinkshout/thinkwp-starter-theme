@@ -7,6 +7,8 @@
  * - link_url
 #}
 
+{% set link_url = link.url ? link.url : link %}
+
 <div class="card-md rounded-[10px] relative ts-hocus-scale">
 
   {# Image #}
