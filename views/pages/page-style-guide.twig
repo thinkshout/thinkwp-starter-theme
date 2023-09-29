@@ -116,11 +116,10 @@
 
       {# Displays all custom Blocks #}
       {% for block in ts_blocks %}
-        {% set block_name = block.name[4:]  %}
-        {% set block_display_name = block_name|replace({'-': " "})|capitalize  %}
+        {% set block_name = block.name|replace({'acf/': ''}) %}
         <div class="py-block-sm" id="{{ block_name }}">
           <div class="p-site xl:container">
-            <h2 class="{{ block_title_classes }}">{{ block_display_name }}</h2>
+            <h2 class="{{ block_title_classes }}">{{ block.title }}</h2>
             <p class="{{ block_description_classes }}">{{ block.description }}</p>
           </div>
           <div class="xl:container p-site my-block ts-bg-lt">
