@@ -4,7 +4,7 @@
 	<ul class="menu--header flex flex-row items-center gap-x-lg">
 	{% set menu_wrapper_classes = '' %}
 	{% for item in items %}
-		<li class="{{ item.classes | join(' label-lg ts-text-high-contrast flex items-center ') }}">
+		<li class="{{ item.class }} label-lg ts-text-high-contrast flex items-center">
 			<a target="{{ item.target }}" class="hocus-action hocus-underline" href="{{ item.link }}">{{ item.title }}</a>
 			{% if item.children %}
         {% include "btns/btn-dropdown.twig" with {
