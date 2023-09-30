@@ -18,7 +18,7 @@
 	@apply mt-4xl;
 }
 
-.article-body > *:first-child:not(.ts-lovey) {
+.article-body > *:first-child:not(.ts-lovey):not(.wp-block-columns) {
 	@apply mt-2xl md:mt-5xl;
 }
 
@@ -26,8 +26,8 @@
 	@apply p-site xl:container;
 }
 
-.wp-block-columns {
-	@apply p-site xl:container;
+.wp-block-columns.alignwide {
+	@apply xl:container;
 }
 
 /* Sets the limitations of the full site container. Do not set if you want an*/
