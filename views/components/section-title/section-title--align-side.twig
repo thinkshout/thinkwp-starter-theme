@@ -4,10 +4,8 @@
  * - alignment ("right" or "left"). Left is default
 #}
 
-{% set btn_alignment = alignment == "right" ? "end" : "start" %}
-
 <div class="component--section-title--align-{{ alignment}} text-{{ alignment }} flex flex-col gap-sm
-mb-base md:mb-sm">
+mb-base md:mb-xl">
 
   {# Text wrapper #}
   <div>
@@ -24,7 +22,7 @@ mb-base md:mb-sm">
   {% if primary_btn or secondary_btn %}
     {# Button wrapper #}
     <div class="md:block shrink-0">
-      <div class="flex flex-col md:flex-row gap-md justify-{{ btn_alignment }}">
+      <div class="flex flex-col md:flex-row gap-md justify-start">
 
         {# Button(s) #}
         {% include "btns/btn-two-up.twig" with {
