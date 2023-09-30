@@ -19,6 +19,9 @@
 /* DARK COLORWAY */
 .ts-bg-dk {
 	@apply bg-neutral-900;
+	.ts-bg-card {
+		@apply bg-neutral-800;
+	}
 	/* Text colors on Dark Colorway */
 	--color-high-contrast: var(--color-white);
 	--color-md-contrast: var(--color-neutral-300);
@@ -62,6 +65,9 @@
 /* LIGHT COLORWAY */
 .ts-bg-lt {
 	@apply bg-white;
+	.ts-bg-card {
+		@apply bg-neutral-50;
+	}
 	/* Text colors on Light are the default values set in tokens */
 
 	/* Btn Outline on Light Colorway */
@@ -101,6 +107,9 @@
 /* BRAND COLORWAY 1 */
 .ts-bg-brand-1 {
 	@apply bg-neutral-100;
+	.ts-bg-card {
+		@apply bg-neutral-50;
+	}
 	--color-high-contrast: var(--color-neutral-900);
 	--color-md-contrast: var(--color-neutral-700);
 	--color-low-contrast: var(--color-neutral-600);
@@ -143,6 +152,10 @@
 /* BRAND COLORWAY 2 */
 .ts-bg-brand-2 {
 	@apply bg-neutral-500;
+	.ts-bg-card {
+		@apply bg-neutral-50;
+	}
+
 	/* Text colors on Brand Colorway 2 */
 	--color-high-contrast: var(--color-white);
 	--color-md-contrast: var(--color-neutral-50);
