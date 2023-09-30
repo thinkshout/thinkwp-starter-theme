@@ -14,7 +14,7 @@
  * - block_class
 #}
 
-{% set column_class = "ts-grid-col-" ~ columns %}
+{% set column_class = "ts-grid-col-1 md:ts-grid-col-" ~ columns %}
 {% set more_btn_text = more_btn_text ?? link.title %}
 {% set more_btn_url = more_btn_url ?? link.url %}
 {% set colorway = colorway ?? 'ts-bg-lt' %}
@@ -38,11 +38,11 @@
           text: function( 'nl2br', card.excerpt ),
           link: card.link
         } %}
-          {% block card_image %}
-            {% include "components/image.twig" with {
-              image: card.featured_image,
-            } %}
-          {% endblock %}
+        {% block card_image %}
+          {% include "components/image.twig" with {
+            image: card.featured_image,
+          } %}
+        {% endblock %}
         {% endembed %}
       {% endfor %}
     </div>

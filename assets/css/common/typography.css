@@ -113,4 +113,7 @@ h5.wp-block-heading {
 	& > ol {
 		@apply p-site md:max-w-[700px] md:mx-auto;
 	}
+	.wp-block-image {
+		@apply mx-auto;
+	}
 }
