@@ -20,12 +20,12 @@
 {% set image_align_classes = "left" in presentation|split('-') ? 'order-2' : '' %}
 {% set align_left = "left" in presentation|split('-') ? 1 : 0 %}
 {% set alignment = align_left ? "left" : "right" %}
-{% set padding = "inset" in presentation|split('-') ? "md:my-6xl ts-friendly" : "my-block-sm
-ts-lovey"
+{% set padding = "inset" in presentation|split('-') ? "md:my-6xl ts-friendly" : "py-block-sm ts-lovey"
 %}
+{% set colorway = colorway == 'brand' ? "ts-bg-brand-1" : "ts-bg-lt" %}
 
-<div class="block--image-text ts-bg-lt {{ padding }} xl:container p-site">
-  <div class="md:ts-grid-col-2 md:gap-7xl md:justify-between">
+<div class="block--image-text {{ colorway }} {{ padding }}">
+  <div class="md:ts-grid-col-2 md:gap-7xl md:justify-between xl:container p-site">
 
     {# Image #}
     <div class="{{ image_align_classes }} mb-xs md:mb-0">
@@ -46,7 +46,6 @@ ts-lovey"
         header: title,
         text: text,
         primary_btn: primary_btn,
-        secondary_btn: secondary_btn,
         secondary_btn: secondary_btn,
         style: alignment,
       } %}
