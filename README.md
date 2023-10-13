@@ -14,10 +14,7 @@ Getting started you will need to install theme dependencies with [nvm](https://g
 
 1. Navigate to the theme directory in your project folder.
 2. Run `composer require timber/timber` to install Timber in the site, if prompted use the existing `composer.json` file in the project root directory. For more information on using Twig in WordPress see our [wiki article](https://github.com/thinkshout/thinkwp-starter-theme/wiki/TWIG-In-WordPress)
-3. If using custom Gutenberg blocks with ACF run `composer require palmiak/timber-acf-wp-blocks` and add the following line to the constructor of the theme class in [class-theme.php](https://github.com/thinkshout/thinkwp-starter-theme/blob/main/lib/class-theme.php).
-```php
-new Timber_Acf_Wp_Blocks(); // Register blocks in views/blocks with ACF.
-```
+3. If using custom Gutenberg blocks with ACF run `composer require palmiak/timber-acf-wp-blocks`. For more information refer to the [Timber ACF Blocks documentation](https://palmiak.github.io/timber-acf-wp-blocks/#/).
 4. Run `npm install` to install dependencies. Install will check the node version against the `.nvmrc` file, install all dependencies, and populate an initial set of token definitions.
 
 ## Theme Development
@@ -53,3 +50,4 @@ External docs for relevant theme technologies:
 - [WordPress](https://wordpress.org)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Timber](https://timber.github.io/docs/)
+- [Timber ACF Blocks](https://palmiak.github.io/timber-acf-wp-blocks/#/)
