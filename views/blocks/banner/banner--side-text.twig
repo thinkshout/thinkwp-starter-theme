@@ -4,7 +4,7 @@
 #}
 
 {% set image_align = presentation == 'left' ? "md:left-[25%]" : "md:right-[25%]" %}
-{% set text_align = presentation == 'right' ? "md:ml-[50%]" %}
+{% set banner_text_align = presentation == 'right' ? "md:ml-[50%]" %}
 {% set image_classes = "aspect-[4/5] md:aspect-square lg:aspect-[16/9] lazyloaded" %}
 <span class="hidden md:min-h-[540px] lg:min-h-[800px] left-[25%] md:right-[25%]"></span>
 
@@ -18,7 +18,7 @@
       <div class="md:flex md:items-center md:min-h-[{{ banner_height_sm }}] lg:min-h-[{{ banner_height_lg }}]">
 
         {# Text Wrapper #}
-        <div class="{{ text_align }} ts-bg-lt relative z-2 md:w-[50%] p-base md:p-3xl lg:p-5xl">
+        <div class="{{ banner_text_align }} ts-bg-lt relative z-2 md:w-[50%] p-base md:p-3xl lg:p-5xl">
           {% include "components/section-title/section-title.twig" with {
             eyebrow: eyebrow,
             header: title,
@@ -35,14 +35,13 @@
 
   {# Image #}
   <div class="banner--side-text-bg-image {{ image_align }} -mt-3xl  md:mt-0 md:absolute top-0 overflow-hidden
-  h-full w-full md:w-[75%]
-  z-0 {{ image_classes }}">
+  h-full w-full md:w-[75%] z-0 {{ image_classes }}">
     {% include 'components/image.twig' with {
       image: image,
       classes: "object-cover w-full",
-      caption_style: "below",
-      bg_figcaption: "ts-bg-lt",
-      figcaption_classes: 'ts-text-low-contrast p-2xs lg:px-0 lg:pb-0'
+      caption_style: "under",
+      bg_figcaption: "ts-bg-dk",
+      figcaption_classes: "ts-text-low-contrast p-xs lg:pb-0 absolute left-0 bottom-0"
     } %}
   </div>
 

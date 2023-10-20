@@ -10,14 +10,7 @@
 {% set figcaption_classes = figcaption_classes %}
 {% set text_align = text_align %}
 
-{#
-# Temporary check for images wider than a 2:1 aspect ratio with the word "logo" in the filename.
-# Remove this when these "placeholder images" are removed from the website!
-# See: https://github.com/thinkshout/aiusa/issues/291
-#}
-{% set is_wide_logo = 'logo' in image.src and image.height > 0 and image.width / image.height > 2 %}
-
-{% if image and not is_wide_logo %}
+{% if image %}
   <figure class="{{ figure_classes }}">
     <img src="{{ image_src }}" {{ image_srcset }}
        width="{{ image.width }}" height="{{ image.height }}"
