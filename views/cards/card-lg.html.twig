@@ -16,7 +16,7 @@
 <div class="card-lg mb-sm md:mb-0 relative ts-bg-card {{ hocus_style }}">
   {# Image #}
   {% if has_image %}
-    <div class="">
+    <div class="overflow-hidden">
       {% set classes = "aspect-[5/3] object-cover overflow-hidden lazyloaded w-full" %}
       {% block card_image %}
       {% endblock %}
