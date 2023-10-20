@@ -6,20 +6,19 @@
 {% set image_align = presentation == 'left' ? "md:left-[25%]" : "md:right-[25%]" %}
 {% set text_align = presentation == 'right' ? "md:ml-[50%]" %}
 {% set image_classes = "aspect-[4/5] md:aspect-square lg:aspect-[16/9] lazyloaded" %}
-<span class="hidden md:h-[540px] sm:h-[800px] left-[25%] md:right-[25%]"></span>
+<span class="hidden md:min-h-[540px] lg:min-h-[800px] left-[25%] md:right-[25%]"></span>
 
 {% set banner_height_lg = "800px" %}
 {% set banner_height_md = "650px" %}
 {% set banner_height_sm = "540px" %}
 
-<div class="block--banner--side-text--{{ presentation}} ts-bg-brand-1 overflow-hidden pt-md md:pt-0 relative ts-lovey">
+<div class="block--banner--side-text--{{ presentation}} ts-bg-brand-1 pt-md md:pt-0 relative ts-lovey">
 
     <div class="h-full xl:container p-site ">
-      <div class="md:flex md:items-center md:h-[{{ banner_height_sm }}] lg:h-[{{ banner_height_lg }}]">
+      <div class="md:flex md:items-center md:min-h-[{{ banner_height_sm }}] lg:min-h-[{{ banner_height_lg }}]">
 
         {# Text Wrapper #}
-        <div class="{{ text_align }} ts-bg-lt relative z-2 md:w-[50%] p-base
-        md:p-3xl lg:p-5xl">
+        <div class="{{ text_align }} ts-bg-lt relative z-2 md:w-[50%] p-base md:p-3xl lg:p-5xl">
           {% include "components/section-title/section-title.twig" with {
             eyebrow: eyebrow,
             header: title,
@@ -35,8 +34,9 @@
     </div>
 
   {# Image #}
-  <div class="{{ image_align }} -mt-3xl  md:mt-0 md:absolute top-0 overflow-hidden w-full z-0 {{ image_classes
-  }}">
+  <div class="banner--side-text-bg-image {{ image_align }} -mt-3xl  md:mt-0 md:absolute top-0 overflow-hidden
+  h-full w-full
+  z-0 {{ image_classes }}">
     {% include 'components/image.twig' with {
       image: image,
       classes: "object-cover w-full",
