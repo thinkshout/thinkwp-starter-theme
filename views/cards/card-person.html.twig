@@ -9,10 +9,11 @@
 
 {% set link_url = link.url ? link.url : link %}
 
-<div class="card-person ts-bg-card relative ts-hocus-scale">
+<div class="card-person relative ts-hocus-scale">
 
   {# Image #}
   {% if has_image %}
+    {% set classes = "aspect-[2/3] object-cover w-full" %}
     <div class="">
       {% block card_image %}
       {% endblock %}
@@ -20,16 +21,19 @@
   {% endif %}
 
   {# Text Wrapper #}
-  <div class="py-base">
+  <div class="py-md">
 
     {# Title #}
     {% include "cards/card-overlay-link.html.twig" with { link_url: link_url } %}
     {% if title %}
-      <a href="{{ link_url }}" class="ts-text-md-contrast card-title-hocus">
-        <h3 class="h3 mb-sm">
+      <a href="{{ link_url }}" class="ts-text-high-contrast card-title-hocus">
+        <h3 class="h3 mb-2xs">
           {{ title }}
         </h3>
       </a>
+    {% endif %}
+    {% if text %}
+      <p class="body-sm ts-text-md-contrast">{{ text }}</p>
     {% endif %}
 
   </div> {# end Text Wrapper #}
