@@ -12,24 +12,20 @@
  * Style:
  * - center
  * - left
- * - right
  * - side-by-side (default)
  *
  * Colorway is defined by the parent block, and shouldn't be set on this component.
 #}
 
+{% set description_max_width = "730px" %}
+
 {% if header %}
   {% if style == "center" %}
     {% include "components/section-title/section-title--align-center.twig" %}
   {% elseif style == "left" %}
-    {% include "components/section-title/section-title--align-side.twig" with {
-      alignment: "left"
-    } %}
-  {% elseif style == "right" %}
-      {% include "components/section-title/section-title--align-side.twig" with {
-        alignment: "right"
-      } %}
+    {% include "components/section-title/section-title--align-left.twig" %}
   {% else %}
+    {# Default is "row" #}
     {% include "components/section-title/section-title--side-by-side.twig" %}
   {% endif %}
 {% endif %}

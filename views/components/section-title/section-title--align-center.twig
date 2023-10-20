@@ -6,7 +6,7 @@
 <div class="component--section-title--center text-center flex flex-col md:items-center gap-sm mb-base md:mb-xl">
 
   {# Text wrapper #}
-  <div class="md:max-w-[60%]">
+  <div class="md:max-w-[{{ description_max_width }}]">
 
     {# Text #}
     {% include "components/section-title/section-title--text.twig" with {

@@ -7,8 +7,7 @@
 md:mb-lg md:flex-row md:justify-between">
 
   {# Text wrapper #}
-  <div>
-
+  <div class="md:max-w-[{{ description_max_width }}]">
     {# Text #}
     {% include "components/section-title/section-title--text.twig" with {
       eyebrow: eyebrow,
