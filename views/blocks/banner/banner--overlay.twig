@@ -3,22 +3,21 @@
  * See banner.html.twig for full variables.
 #}
 
-{% set banner_height_desktop = "800px" %}
-{% set banner_height_mobile = "540px" %}
-
+{% set banner_height_lg = "800px" %}
+{% set banner_height_sm = "540px" %}
+{% set image_classes = "aspect-[21/9] lazyloaded" %}
 <span class="hidden h-[540px] md:h-[800px] left-[25%] right-[25%]"></span>
 
 <div class="block--banner--overlay ts-bg-brand-1 overflow-hidden relative ts-lovey">
   <div class="xl:container p-site ">
-    <div class="md:flex md:flex-col justify-center h-[{{ banner_height_mobile }}] lg:h-[{{ banner_height_desktop }}]">
+    <div class="md:flex md:flex-col justify-center h-[{{ banner_height_sm }}] lg:h-[{{ banner_height_lg }}]">
 
       {# Image #}
-      <div class="absolute h-[{{ banner_height_mobile }}] left-0 top-[25%]
-      md:top-0 z-0">
+      <div class="absolute h-[{{ banner_height_sm }}] left-0 top-[25%]
+      md:top-0 z-0 {{ image_classess }}">
         {% include 'components/image.twig' with {
           image: image,
-          classes: 'aspect-video object-cover max-h-[' ~ banner_height_mobile ~ '] lg:max-h-[' ~ banner_height_desktop
-          ~ '] w-full',
+          classes: 'object-cover overflow-hidden w-full',
           caption_style: "below",
           bg_figcaption: "ts-bg-lt",
           figcaption_classes: 'ts-text-low-contrast p-2xs lg:px-0 lg:pb-0'
