@@ -3,7 +3,9 @@
  * See variables in section-title.twig.
 #}
 
-<div class="component--section-title--center text-center flex flex-col md:items-center gap-sm mb-base md:mb-xl">
+{% set margin = margin ?? "mb-base md:mb-xl" %}
+
+<div class="component--section-title--center text-center flex flex-col md:items-center gap-sm {{ margin }}">
 
   {# Text wrapper #}
   <div class="md:max-w-[{{ description_max_width }}]">
