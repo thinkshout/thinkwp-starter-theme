@@ -14,7 +14,7 @@
  * - block_class
 #}
 
-{% set column_class = "ts-grid-col-1 md:ts-grid-col-" ~ columns %}
+{% set column_class = column_class ?? "ts-grid-col-1 md:ts-grid-col-" ~ columns %}
 {% set more_btn_text = more_btn_text ?? link.title %}
 {% set more_btn_url = more_btn_url ?? link.url %}
 {% set colorway = colorway ?? 'ts-bg-lt' %}
@@ -30,12 +30,16 @@
       style: style
     } %}
 
-    <div class="{{ column_class }} gap-sm md:gap-base">
+{#          @todo add Tag value to model#}
+    <div class="{{ column_class }}">
       {% for card in cards %}
         {% embed "cards/" ~ card_view_mode ~ ".html.twig" with {
           has_image: card.featured_image ? 1 : 0,
+          btn_tag_text: card.tag,
           title: card.title,
           text: function( 'nl2br', card.excerpt ),
+          date: card.date,
+          author: card.author,
           link: card.link
         } %}
         {% block card_image %}
