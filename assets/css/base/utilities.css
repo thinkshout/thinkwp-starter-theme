@@ -30,3 +30,11 @@
 	@apply xl:container;
 }
 
+/* Video Block */
+.wp-block-video {
+	@apply ts-bg-dk py-block;
+	video {
+		@apply aspect-video p-site xl:container mx-auto md:max-w-[800px];
+	}
+}
+
