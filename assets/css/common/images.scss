@@ -5,7 +5,12 @@ figure.wp-block-image.size-full {
   }
   figcaption {
     margin-top: rem(8);
-    color: $color-gray-dk;
+    color: var(--color-neutral-900);
     text-align: left;
   }
+}
+
+// Centers WP Image blocks on desktop
+figure.wp-block-image image {
+  //@apply md:mx-auto;
 }

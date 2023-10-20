@@ -1,15 +1,11 @@
-{# Section title -- left or right alignment
+{# Section title -- left aligned
  *
- * Variables:
- * - alignment ("right" or "left"). Left is default
 #}
 
-<div class="component--section-title--align-{{ alignment}} text-{{ alignment }} flex flex-col gap-sm
-mb-base md:mb-xl">
+<div class="component--section-title--align-left flex flex-col gap-sm">
 
   {# Text wrapper #}
-  <div>
-
+  <div class="md:max-w-[{{ description_max_width }}]">
     {# Text #}
     {% include "components/section-title/section-title--text.twig" with {
       eyebrow: eyebrow,
