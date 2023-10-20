@@ -21,7 +21,7 @@
       {# Image #}
       {% if has_image %}
         <div class="mb-base md:mb-0">
-          {# Image field display should be set to 16:9 responsive image style #}
+          {% set classes = "aspect-[16/9] object-cover overflow-hidden lazyloaded w-full" %}
           {% block card_image %}
           {% endblock %}
         </div>
