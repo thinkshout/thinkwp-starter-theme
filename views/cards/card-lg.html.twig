@@ -11,12 +11,13 @@
 #}
 
 {% set link_url = link.url ? link.url : link %}
-{% set classes = "w-full aspect-[16/9]" %}
+{% set hocus_style = link_url ? "ts-hocus-scale" : "" %}
 
-<div class="card-lg mb-sm md:mb-0 relative ts-bg-card">
+<div class="card-lg mb-sm md:mb-0 relative ts-bg-card {{ hocus_style }}">
   {# Image #}
   {% if has_image %}
     <div class="">
+      {% set classes = "aspect-[5/3] object-cover overflow-hidden lazyloaded w-full" %}
       {% block card_image %}
       {% endblock %}
     </div>
