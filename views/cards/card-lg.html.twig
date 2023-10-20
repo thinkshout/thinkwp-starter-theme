@@ -11,6 +11,7 @@
 #}
 
 {% set link_url = link.url ? link.url : link %}
+{% set classes = "w-full aspect-[16/9]" %}
 
 <div class="card-lg mb-sm md:mb-0 relative ts-bg-card">
   {# Image #}
@@ -38,7 +39,7 @@
 
       {# Title #}
       {% if title %}
-        <a href="{{ link_url }}" class="ts-text-md-contrast card-title-hocus">
+        <a href="{{ link_url }}" class="ts-text-high-contrast card-title-hocus">
           <h3 class="h3 mb-sm">
             {{ title }}
           </h3>
@@ -46,7 +47,7 @@
       {% endif %}
 
       {# Text Small #}
-      {% if text_small %}
+      {% if author or date %}
         <div class="body-xs mb-lg ts-text-md-contrast">
           <span class="ts-text-low-contrast">By </span>
           {{ author }}
