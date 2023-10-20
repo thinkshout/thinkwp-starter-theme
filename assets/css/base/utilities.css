@@ -1,7 +1,7 @@
 /* Paragraph or section-level spacing. */
 /* See the wiki for detailed variations: https://github.com/thinkshout/ts_grid/wiki/Vertical-Spacing*/
 .friendly {
-	@apply my-xl md:my-3xl;
+	@apply ts-my-block;
 }
 .unfriendly {
 	@apply py-xl md:py-3xl;
@@ -28,19 +28,5 @@
 
 .wp-block-columns.alignwide {
 	@apply xl:container;
-}
-
-/* Sets the limitations of the full site container. Do not set if you want an*/
-/* element to stretch the full width of the site.*/
-/* Mobile Padding .*/
-.p-site {
-	@apply px-sm md:px-base lg:px-md;
-}
-
-/* Components */
-.bg-image {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 

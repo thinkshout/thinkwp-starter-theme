@@ -21,7 +21,7 @@
     ".h3": {
       "font-family": "var(--font-family-sans);",
       "font-size": "1.3125rem /* 21px */;",
-      "font-weight": "var(--font-weight-bold);",
+      "font-weight": "var(--font-weight-semibold);",
       "line-height": "var(--lh-15);",
       "@media ( min-width: 769px )": {
         "font-size": "1.5rem /* 24px */;"
@@ -73,7 +73,7 @@
       "font-size": ".75rem /* 12px */;",
       "font-weight": "var(--font-weight-bold);",
       "line-height": "var(--lh-130);",
-      "letter-spacing": "5%;",
+      "letter-spacing": "1px;",
       "text-transform": "uppercase;"
     },
     ".blockquote": {
