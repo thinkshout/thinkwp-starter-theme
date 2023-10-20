@@ -13,3 +13,7 @@
 .acf-field textarea {
   border: 1px solid #8c8f94;
 }
+
+.block-editor-block-list__layout .ts-block-container {
+	@apply p-site;
+}
