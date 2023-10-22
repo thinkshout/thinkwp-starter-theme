@@ -3,22 +3,28 @@
  * See banner.html.twig for full variables.
 #}
 
-{% set image_align = presentation == 'left' ? "md:left-[25%]" : "md:right-[25%]" %}
+{% set image_align = presentation == 'left' ? "left-0 md:left-[25%]" : "right-0 md:right-[25%]" %}
+{% set caption_align = presentation == 'left' ? "right-0" : "left-0" %}
 {% set banner_text_align = presentation == 'right' ? "md:ml-[50%]" %}
-{% set image_classes = "aspect-[4/5] md:aspect-square lg:aspect-[16/9] lazyloaded" %}
-<span class="hidden md:min-h-[540px] lg:min-h-[800px] left-[25%] md:right-[25%]"></span>
-
-{% set banner_height_lg = "800px" %}
+{% set banner_height_lg = "700px" %}
 {% set banner_height_md = "650px" %}
-{% set banner_height_sm = "540px" %}
+{% set banner_height_sm = "600px" %}
 
-<div class="block--banner--side-text--{{ presentation}} ts-bg-brand-1 pt-md md:pt-0 relative ts-lovey">
+<style>
+  .banner--side-text--bg-image {
+    background-image: url("{{ image.url }}");
+  }
+</style>
+
+<div class="block--banner--side-text--{{ presentation}} min-h-[{{ banner_height_sm }}] md:min-h-[{{ banner_height_md
+}}] overflow-hidden md:h-full ts-bg-brand-1 pt-md md:pt-0 relative ts-lovey w-full">
 
     <div class="h-full xl:container p-site ">
-      <div class="md:flex md:items-center md:min-h-[{{ banner_height_sm }}] lg:min-h-[{{ banner_height_lg }}]">
+      <div class="md:flex md:items-center min-h-[{{ banner_height_sm }}] md:min-h-[{{ banner_height_md }}]
+      lg:min-h-[{{ banner_height_lg }}]">
 
         {# Text Wrapper #}
-        <div class="{{ banner_text_align }} ts-bg-lt relative z-2 md:w-[50%] p-base md:p-3xl lg:p-5xl">
+        <div class="{{ banner_text_align }} ts-bg-lt relative md:w-[50%] p-base md:p-3xl lg:p-5xl z-2">
           {% include "components/section-title/section-title.twig" with {
             eyebrow: eyebrow,
             header: title,
@@ -33,15 +39,30 @@
       </div>
     </div>
 
-  {# Image #}
-  <div class="banner--side-text-bg-image {{ image_align }} -mt-3xl  md:mt-0 md:absolute top-0 overflow-hidden
-  h-full w-full md:w-[75%] z-0 {{ image_classes }}">
+    {# Image: Hides image, bit keeps it for screen readers, and sets it as a background on the figure tag #}
+    <div>
+    {% set figure_classes =
+      "banner--side-text--bg-image
+      absolute
+      top-0
+      overflow-hidden
+      h-full
+      bg-[center_12rem]
+      bg-cover
+      bg-no-repeat
+      md:bg-center
+      md:max-h-auto
+      w-full
+      md:w-[75%]
+      z-0"
+    %}
     {% include 'components/image.twig' with {
       image: image,
-      classes: "object-cover w-full",
+      classes: "sr-only",
       caption_style: "under",
       bg_figcaption: "ts-bg-dk",
-      figcaption_classes: "ts-text-low-contrast p-xs lg:pb-0 absolute left-0 bottom-0"
+      figure_classes: figure_classes ~ " " ~ image_classes ~ " " ~ image_align,
+      figcaption_classes: "ts-text-low-contrast absolute bottom-0 p-xs lg:pb-0  " ~ caption_align
     } %}
   </div>
 
