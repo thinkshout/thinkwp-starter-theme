@@ -81,6 +81,7 @@ class Theme extends Timber\Site {
 		// Actions.
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'thinktimber_remove_comment_links' ) );
 		add_action( 'after_setup_theme', array( $this, 'thinktimber_setup' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'thinktimber_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'thinktimber_admin_scripts' ) );
@@ -242,6 +243,40 @@ class Theme extends Timber\Site {
 		// Check if the page is the landing page template, the style guide, or the front page.
 		if ( get_option( 'page_on_front' ) === $post_id || $this->is_style_guide_page() || get_page_template_slug( $post_id ) === 'templates/landing-page.php' ) {
 			remove_post_type_support( 'page', 'editor' );
+		}
+	}
+
+	/** Disable Comments for the theme */
+	public function thinktimber_disable_comments() {
+		// Redirect any user trying to access comments page.
+		global $pagenow;
+
+		if ( 'edit-comments.php' === $pagenow ) {
+			wp_safe_redirect( admin_url() );
+			exit;
+		}
+
+		// Remove comments metabox from dashboard.
+		remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+
+		// Disable support for comments and trackbacks in post types.
+		foreach ( get_post_types() as $post_type ) {
+			if ( post_type_supports( $post_type, 'comments' ) ) {
+				remove_post_type_support( $post_type, 'comments' );
+				remove_post_type_support( $post_type, 'trackbacks' );
+			}
+		}
+	}
+
+	/** Remove Comments Page From Menus */
+	public function thinktimber_remove_comments_page() {
+		remove_menu_page( 'edit-comments.php' );
+	}
+
+	/** Remove comment links from admin bar */
+	public function thinktimber_remove_comment_links() {
+		if ( is_admin_bar_showing() ) {
+			remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
 		}
 	}
 
