@@ -502,6 +502,9 @@ class Theme extends Timber\Site {
 	 */
 	public static function make_cards_for_grid( $post_ids = array() ) {
 		$posts = array();
+		if ( !$post_ids ) {
+			return $posts;
+		}
 		foreach ( $post_ids as $post_id ) {
 			$timber_post                 = new Timber\Post( $post_id );
 			$banner_thumbnail            = $timber_post->get_field( 'banner_image' );
