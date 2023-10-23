@@ -10,9 +10,11 @@
 {% set banner_height_md = "650px" %}
 {% set banner_height_sm = "600px" %}
 
+{% set image = image.src ? image : Image(image) %}
+
 <style>
   .banner--side-text--bg-image {
-    background-image: url("{{ image.url }}");
+    background-image: url("{{ image.src }}");
   }
 </style>
 

@@ -35,9 +35,9 @@
       {% for card in cards %}
         {% embed "cards/" ~ card_view_mode ~ ".html.twig" with {
           has_image: card.featured_image ? 1 : 0,
-          btn_tag_text: card.tag,
+          btn_tag_text: card.tag ? card.tag.title : '',
           title: card.title,
-          text: function( 'nl2br', card.excerpt ),
+          text: card.excerpt,
           date: card.date,
           author: card.author,
           link: card.link

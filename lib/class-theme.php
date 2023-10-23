@@ -455,7 +455,7 @@ class Theme extends Timber\Site {
 	 */
 	public function thinktimber_block_editor_scripts() {
 		// Scripts.
-		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif-admin.js",  array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ), $this->scripts_version, true );
+		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif-admin.js", array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ), $this->scripts_version, true );
 	}
 
 	/**
@@ -502,14 +502,12 @@ class Theme extends Timber\Site {
 	 */
 	public static function make_cards_for_grid( $post_ids = array() ) {
 		$posts = array();
-		if ( !$post_ids ) {
+		if ( ! $post_ids ) {
 			return $posts;
 		}
+		require_once __DIR__ . '/helpers/class-card-post.php';
 		foreach ( $post_ids as $post_id ) {
-			$timber_post                 = new Timber\Post( $post_id );
-			$banner_thumbnail            = $timber_post->get_field( 'banner_image' );
-			$timber_post->featured_image = $banner_thumbnail ? new Timber\Image( $banner_thumbnail ) : $timber_post->thumbnail();
-			$posts[]                     = $timber_post;
+			$posts[] = new Card_Post( $post_id );
 		}
 
 		return $posts;
