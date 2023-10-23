@@ -13,6 +13,7 @@ $thinkwp_allowed_blocks = array(
 	'core/code',
 	'core/columns',
 	'core/cover',
+	'core/embed',
 	'core/gallery',
 	'core/group',
 	'core/heading',

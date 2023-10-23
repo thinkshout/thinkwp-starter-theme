@@ -455,7 +455,7 @@ class Theme extends Timber\Site {
 	 */
 	public function thinktimber_block_editor_scripts() {
 		// Scripts.
-		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif-admin.js", array( 'wp-edit-post' ), $this->scripts_version, true );
+		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif-admin.js",  array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ), $this->scripts_version, true );
 	}
 
 	/**
