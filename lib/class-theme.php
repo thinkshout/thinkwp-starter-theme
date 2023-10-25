@@ -460,6 +460,7 @@ class Theme extends Timber\Site {
 		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$this->scripts_dir/motif.css", array(), $this->scripts_version );
 		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif.js", array(), $this->scripts_version, true );
 
+		// Pass themeBase and ajaxUrl to JS.
 		wp_localize_script(
 			'thinktimber-scripts',
 			'thinktimber',
@@ -468,8 +469,6 @@ class Theme extends Timber\Site {
 				'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
 			)
 		);
-
-		wp_enqueue_script( 'thinktimber-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), $this->scripts_version, true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
