@@ -4,6 +4,7 @@ import navigation from "../../views/components/header/navigation";
 
 async function init () {
   /* Load JS for blocks only if they exist on the page */
+  // https://parceljs.org/features/code-splitting/
   // Accordion
   const accordionsList = document.querySelector(".accordion");
   if (accordionsList) {
