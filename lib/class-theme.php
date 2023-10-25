@@ -458,7 +458,7 @@ class Theme extends Timber\Site {
 	public function thinktimber_scripts() {
 		wp_enqueue_style( 'thinktimber-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap', array(), $this->scripts_version );
 		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$this->scripts_dir/motif.css", array(), $this->scripts_version );
-		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif.js", array( 'jquery' ), $this->scripts_version, true );
+		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif.js", array(), $this->scripts_version, true );
 
 		wp_localize_script(
 			'thinktimber-scripts',
@@ -468,8 +468,6 @@ class Theme extends Timber\Site {
 				'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
 			)
 		);
-
-		wp_enqueue_script( 'thinktimber-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), $this->scripts_version, true );
 
 		wp_enqueue_script( 'thinktimber-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), $this->scripts_version, true );
 

@@ -1,38 +1,42 @@
-export default ($) => {
-  const axsMenuItem = $(".accessible-menu li.menu-item-has-children");
-  $(".accessible-menu li.menu-item-has-children button").attr(
-    "aria-expanded",
-    "false"
-  );
+export default () => {
+  const axsMenuItems = document.querySelectorAll(".accessible-menu li.menu-item-has-children");
+  const axsMenuButtons = document.querySelectorAll(".accessible-menu li.menu-item-has-children button");
 
-  axsMenuItem.each(function () {
-    const activatingA = $(this).children("a");
-    const buttonLabel = `Open submenu for “${activatingA.text()}”`;
-    const btn = `<button class="reset menu-chevron"><span class="screen-reader-text">${buttonLabel}</span></button>`;
-    activatingA.after(btn);
-
-    $(this)
-      .find("button")
-      .on("click", function (event) {
-        event.stopPropagation();
-        const li = $(this)
-          .closest("li.menu-item-has-children")
-          .toggleClass("open");
-        const isOpen = li.hasClass("open");
-        $(this).attr("aria-expanded", isOpen ? "true" : "false");
-        $(this)
-          .children("span.screen-reader-text")
-          .text(isOpen ? buttonLabel.replace("Open", "Close") : buttonLabel);
-      });
+  axsMenuButtons.forEach(button => {
+    button.setAttribute("aria-expanded", "false");
   });
 
-  $(".main-navigation > .accessible-menu > .menu-item > .menu-link").on(
-    "focus",
-    function () {
-      axsMenuItem
-        .removeClass("open")
-        .find("button")
-        .attr("aria-expanded", "false");
-    }
-  );
+  axsMenuItems.forEach(axsMenuItem => {
+    const activatingA = axsMenuItem.querySelector("a");
+    const buttonLabel = `Open submenu for “${activatingA.textContent}”`;
+    const btn = document.createElement('button');
+    btn.classList.add('reset', 'menu-chevron');
+    const span = document.createElement('span');
+    span.classList.add('screen-reader-text');
+    span.textContent = buttonLabel;
+    btn.appendChild(span);
+    activatingA.after(btn);
+
+    btn.addEventListener("click", function(event) {
+      event.stopPropagation();
+      const li = event.target.closest("li.menu-item-has-children");
+      li.classList.toggle("open");
+      const isOpen = li.classList.contains("open");
+      event.target.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      const screenReaderText = event.target.querySelector("span.screen-reader-text");
+      screenReaderText.textContent = isOpen ? buttonLabel.replace("Open", "Close") : buttonLabel;
+    });
+  });
+
+  const mainMenuLinks = document.querySelectorAll(".main-navigation > .accessible-menu > .menu-item > .menu-link");
+
+  mainMenuLinks.forEach(mainMenuLink => {
+    mainMenuLink.addEventListener("focus", function() {
+      axsMenuItems.forEach(axsMenuItem => {
+        axsMenuItem.classList.remove("open");
+        const button = axsMenuItem.querySelector("button");
+        button.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
 };

@@ -4,7 +4,7 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
-(function () {
+export default function () {
   let masthead, container, button, menu, links, site, buttonLabel;
 
   site = document.getElementsByTagName("html")[0];
@@ -122,4 +122,4 @@
       }
     }
   })(container);
-})();
+}

@@ -1,4 +1,4 @@
-export default function () {
+export function render() {
   // Find all accordion sections
   const accordionSections = document.querySelectorAll(".accordion__section");
   // Loop through each section and add event listener

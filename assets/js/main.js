@@ -1,14 +1,20 @@
 // IMPORTS GO HERE
 import accessibleMenu from "../../views/components/header/accessible-menu";
-import accordions from "../../views/blocks/accordion/accordion";
 import navigation from "../../views/components/header/navigation";
 
-(($) => {
-  $(document).ready(() => {
-    // BEGIN CUSTOM CODE GOES HERE
-    accessibleMenu($);
-    accordions();
-    navigation();
-    // END CUSTOM CODE GOES HERE
-  });
-})(jQuery);
+async function init () {
+  /* Load JS for blocks only if they exist on the page */
+  // Accordion
+  const accordionsList = document.querySelector(".accordion");
+  if (accordionsList) {
+    const accordionsJS = await import('../../views/blocks/accordion/accordion');
+    accordionsJS.render();
+  }
+
+  // Global Components
+  accessibleMenu();
+  navigation();
+}
+
+// Initialize Site Scripts
+init();
