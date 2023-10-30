@@ -20,6 +20,7 @@
 @import "../../views/components/header/header.css";
 @import "../../views/components/footer/footer.css";
 @import "../../views/blocks/accordion/accordion.css";
+
 /* PAGES */
 @import "pages/home.css";
 @import "pages/404.css";

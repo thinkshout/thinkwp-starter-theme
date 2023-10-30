@@ -2,7 +2,7 @@
   "spacer": {
     "0": { "value": "0" },
     "px": { "value": "1px" },
-    "3xs": { "value": ".125px" },
+    "3xs": { "value": ".125rem" },
     "2xs": { "value": "0.25rem" },
     "xs": { "value": "0.5rem" },
     "sm": { "value": "0.75rem" },
