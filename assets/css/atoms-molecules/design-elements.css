@@ -13,6 +13,16 @@
   top: 0;
   left: 0;
   background-color: var(--color-black);
-  opacity: var(--opacity-05);
-  z-index: var(--z-index-2);
+  opacity: 5%;
+  z-index: var(--z-2);
+}
+
+/* Border radius */
+.ts-border-radius {
+	border-radius: 12px;
+}
+
+/* Dropdown chevron color on main nav. */
+.submenu-dropdown-icon path {
+	--color-btn-underline--svg: var(--color-low-contrast);
 }
