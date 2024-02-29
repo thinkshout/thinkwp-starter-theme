@@ -1,25 +1,30 @@
 /* Ordering based on this article re: using imports w/ tailwind https://medium.com/@arulpraba/using-tailwind-css-utilities-in-custom-css-files-acf811089055 */
 /* Tailwind Setup */
-@import "base/tailwind-base.css";
+@import "_elements/tailwind-base.css";
 
 /* Global Dictionary */
-@import "base/_generated-variables.css";
+@import "_elements/_generated-variables.css";
 
-/* Base Definitions */
-@import "base/base.css";
-@import "base/utilities.css";
+/* Element Definitions */
+@import "_elements/colors.css";
+@import "_elements/site-spacing.css";
 
-/* Primitives */
-@import "common/buttons-links.css";
-@import "common/colors.css";
-@import "common/design-elements.css";
-@import "common/typography.css";
-@import "common/hocus.css";
+/* Atoms & Molecules */
+@import "atoms-molecules/base.css";
+@import "atoms-molecules/design-elements.css";
+@import "atoms-molecules/forms.css";
+@import "atoms-molecules/hocus.css";
+@import "atoms-molecules/images.css";
+@import "atoms-molecules/typography.css";
 
-/* COMPONENTS */
-@import "../../views/components/header/header.css";
-@import "../../views/components/footer/footer.css";
-@import "../../views/blocks/accordion/accordion.css";
+/* Organisms */
+@import "../../views/organisms/header/display/header.css";
+@import "../../views/organisms/footer/display/footer.css";
+@import "../../views/organisms/blocks/accordion/display/accordion.css";
+@import "../../views/organisms/blocks/people-cards/display/people-cards.css";
+@import "organisms/wp-blocks.css";
+@import "../../views/molecules/pagination/pagination.css";
+@import "../../views/organisms/blocks/banner/display/banner.css";
 
 /* PAGES */
 @import "pages/home.css";
@@ -27,4 +32,4 @@
 @import "pages/styleguide.css";
 
 /* Tailwind Wrap-up */
-@import "base/tailwind-end.css";
+@import "_elements/tailwind-end.css";
