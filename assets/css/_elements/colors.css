@@ -28,6 +28,14 @@
 	--color-low-contrast: var(--color-neutral-500);
 	--color-action: var(--color-primary-300);
 
+	/* Btn Social on Dark Colorway */
+	--color-btn-social--bg: var(--color-primary-100);
+	--color-btn-social--svg: var(--color-primary-900);
+	--color-btn-social--bg--hover: var(--color-primary-100 );
+	--color-btn-social--bg--focus: var(--color-primary-100);
+	--color-btn-social--svg--hover: var(--color-secondary-500);
+	--color-btn-social--svg--focus: var(--color-secondary-500);
+
 	/* Btn Outline on Dark Colorway */
 	--color-btn-outline--text: var(--color-white);
 	--color-btn-outline--text--hover: var(--color-white);
@@ -63,12 +71,27 @@
 }
 
 /* LIGHT COLORWAY */
-.ts-bg-lt {
+.ts-bg-lt,
+.wp-block-post-content.block-editor-block-list__layout {
 	@apply bg-white;
+
+	/* Text colors on light colorway */
+	--color-high-contrast: var(--color-primary-900);
+	--color-md-contrast: var(--color-neutral-800);
+	--color-low-contrast: var(--color-primary-500);
+	--color-action: var(--color-secondary-700);
+
 	.ts-bg-card {
-		@apply bg-neutral-50;
+		@apply bg-neutral-100;
 	}
-	/* Text colors on Light are the default values set in tokens */
+
+	/* Btn Social on Light Colorway */
+	--color-btn-social--bg: var(--color-primary-100);
+	--color-btn-social--svg: var(--color-primary-900);
+	--color-btn-social--bg--hover: var(--color-primary-100 );
+	--color-btn-social--bg--focus: var(--color-primary-100);
+	--color-btn-social--svg--hover: var(--color-secondary-500);
+	--color-btn-social--svg--focus: var(--color-secondary-500);
 
 	/* Btn Outline on Light Colorway */
 	--color-btn-outline--text: var(--color-neutral-900);
@@ -110,10 +133,20 @@
 	.ts-bg-card {
 		@apply bg-neutral-50;
 	}
+	
+	/* Text colors on Brand Colorway 1 */
 	--color-high-contrast: var(--color-neutral-900);
 	--color-md-contrast: var(--color-neutral-700);
 	--color-low-contrast: var(--color-neutral-600);
 	--color-action: var(--color-primary-500);
+
+	/* Btn Social on Brand Colorway 1 */
+	--color-btn-social--bg: var(--color-white);
+	--color-btn-social--svg: var(--color-primary-900);
+	--color-btn-social--bg--hover: var(--color-white );
+	--color-btn-social--bg--focus: var(--color-white);
+	--color-btn-social--svg--hover: var(--color-secondary-500);
+	--color-btn-social--svg--focus: var(--color-secondary-500);
 
 	/* Btn Solid on Brand Colorway 1 */
 	--color-btn-solid--text: var(--color-white);
@@ -161,6 +194,14 @@
 	--color-md-contrast: var(--color-neutral-50);
 	--color-low-contrast: var(--color-neutral-200);
 	--color-action: var(--color-primary-300);
+
+	/* Btn Social on Brand Colorway 2 */
+	--color-btn-social--bg: var(--color-white);
+	--color-btn-social--svg: var(--color-primary-900);
+	--color-btn-social--bg--hover: var(--color-white );
+	--color-btn-social--bg--focus: var(--color-white);
+	--color-btn-social--svg--hover: var(--color-secondary-500);
+	--color-btn-social--svg--focus: var(--color-secondary-500);
 
 	/* Btn Outline on Brand Colorway 2 */
 	--color-btn-outline--text: var(--color-neutral-900);
