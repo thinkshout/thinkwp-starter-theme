@@ -86,7 +86,7 @@ module.exports = {
       buildPath: "assets/",
       files: [
         {
-          destination: "css/base/_generated-variables.css",
+          destination: "css/_elements/_generated-variables.css",
           format: "css/variables",
           options: {
             showFileHeader: false,
