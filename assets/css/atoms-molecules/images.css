@@ -1,16 +1,57 @@
-figure,
+/* WP IMAGE BLOCK */
+
+/* Max-width 788px */
 figure.wp-block-image.size-full {
-  img {
-    width: 100%;
-  }
-  figcaption {
-    margin-top: rem(8);
-    color: var(--color-neutral-900);
-    text-align: left;
-  }
+	@apply px-md md:px-0 max-w-[788px] mx-auto ts-my-block-sm;
+	figcaption {
+		@apply mt-xs text-left;
+	}
+}
+/* Images inside of layouts */
+.wp-block-columns-is-layout-flex {
+	@apply mx-auto px-0;
+	figure.wp-block-image.size-full {
+		@apply my-0;
+	}
 }
 
-// Centers WP Image blocks on desktop
-figure.wp-block-image image {
-  //@apply md:mx-auto;
+/* Max-width 1440px */
+.wp-block-image.alignwide.size-large {
+	@apply p-site max-w-[1440px] ts-my-block-sm;
 }
+
+/* Full width image */
+.wp-block-image.alignfull.size-large {
+	@apply ts-my-block-sm;
+	figcaption {
+		@apply p-site;
+	}
+}
+
+/* Image align left */
+.wp-block-image.alignleft,
+.wp-block-image.alignleft.size-full {
+	@apply py-base md:float-left md:pr-base p-site xl:container w-full md:w-auto;
+	figcaption.wp-element-caption {
+		@apply p-site md:pr-base;
+	}
+}
+
+/* Image align right */
+.wp-block-image.alignright,
+.wp-block-image.alignright.size-full {
+	@apply py-base md:float-right md:pl-base p-site xl:container w-full md:w-auto;
+	figcaption.wp-element-caption {
+		@apply p-site md:pl-base;
+	}
+}
+
+/* Image align center */
+.wp-block-image.aligncenter,
+.wp-block-image.aligncenter.size-full {
+	@apply py-base p-site xl:container w-full md:w-auto;
+	figcaption.wp-element-caption {
+		@apply p-site text-left;
+	}
+}
+
