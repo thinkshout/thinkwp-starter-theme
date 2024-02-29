@@ -1,8 +1,8 @@
 #page-style-guide {
-@media (--bp-md) {
+	@media (min-width: 768px) {
 	.styleguide-nav {
 		position: fixed;
-		border-right: 1px solid var(--color-grey-400);
+		border-right: 1px solid var(--color-neutral-5 00);
 		height: 100%;
 		width: 280px;
 		left: 0;
