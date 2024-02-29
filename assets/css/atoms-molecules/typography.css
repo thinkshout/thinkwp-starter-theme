@@ -13,7 +13,7 @@ h1.wp-block-heading {
 
 /* H2 heading GB block styles */
 h2.wp-block-heading {
-	@apply h2 mt-lg mb-base;
+	@apply h2 mt-lg mb-2xs;
 	color: var(--color-high-contrast);
 }
 
@@ -35,29 +35,40 @@ h5.wp-block-heading {
 	color: var(--color-high-contrast);
 }
 
-/* Pull Quote GB block styles */
-.wp-block-quote {
-	@apply bg-neutral-50 p-2xl my-lg;
+/* Pull Quote: GB block styles */
+.wp-block-pullquote {
+	@apply bg-blue-100 my-lg;
 	p {
-		@apply blockquote;
+		@apply blockquote p-2xl text-high-contrast;
 	}
 	cite {
-		@apply body-sm block pt-sm;
+		@apply body-sm block mt-sm mb-2xl text-low-contrast;
+	}
+}
+/* Quote */
+.wp-block-quote {
+	@apply border-l-4 border-secondary-500 my-lg ml-md px-md;
+	p {
+		@apply blockquote px-md text-high-contrast;
+	}
+	cite {
+		@apply body-sm block mt-md px-md text-md-contrast;
+		font-style: normal;
 	}
 }
 
 /* P, UL, OL, text link and header link styles */
 .article-body,
-/* In WP columns */
+	/* In WP columns */
 .wp-block-column,
-/* Editor view */
+	/* Editor view */
 .wp-block-post-content {
 
 	/* Paragraphs */
 	& > p {
-		@apply body-base my-base;
+		@apply body-base mb-base;
 		color: var(--color-high-contrast);
-		}
+	}
 	/* Paragraph -- Italic text */
 	& > p em {
 		@apply italic;
@@ -69,51 +80,38 @@ h5.wp-block-heading {
 
 	/* Text links */
 	& > p a,
-	& > ul a,
 	& > h2 a,
 	& > h3 a,
 	& > h4 a,
 	& > h5 a {
-		@apply underline-offset-4 underline;
-		color: var(--color-high-contrast);
-		&:hover,
-		&:focus {
-			color: var(--color-action);
-		 }
+		@apply btn-text-link;
 	}
 
 	/* Unordered List	*/
-	& > ul {
-		@apply body-base list-disc py-base;
+	& > ul:not(.news--filters),
+		/* Accordion block */
+	.block--accordion ul {
+		@apply utility-lg list-disc my-lg;
 		li {
-			@apply list-inside my-xs;
+			@apply list-outside ml-base my-base;
 			color: var(--color-high-contrast);
+			&::marker {
+				color: var(--color-secondary-500);
+			}
 		}
 	}
 
 	/* Ordered List	*/
 	& > ol {
-		@apply body-base list-decimal py-md;
+		@apply utility-lg list-decimal my-lg;
 		li {
-			@apply list-inside my-xs;
+			@apply list-outside ml-base my-xs;
 			color: var(--color-high-contrast);
 		}
 	}
 
 }
 
-/* LAYOUTS FOR GUTENBERG TEXT BLOCKS */
-
-/* Centered layout */
-.article-body {
-	& > .wp-block-heading,
-	& > .wp-block-quote,
-	& > p,
-	& > ul,
-	& > ol {
-		@apply p-site md:max-w-[700px] md:mx-auto;
-	}
-	.wp-block-image {
-		@apply mx-auto;
-	}
+.wp-block-image figcaption {
+	@apply utility-sm text-low-contrast;
 }
