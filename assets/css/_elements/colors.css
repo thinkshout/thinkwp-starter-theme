@@ -133,7 +133,7 @@
 	.ts-bg-card {
 		@apply bg-neutral-50;
 	}
-	
+
 	/* Text colors on Brand Colorway 1 */
 	--color-high-contrast: var(--color-neutral-900);
 	--color-md-contrast: var(--color-neutral-700);
