@@ -2,6 +2,6 @@
 
 {% block content %}
 	{% for post in posts %}
-		{% include ["components/tease-"~post.post_type~".twig", "components/tease.twig"] %}
+		{% include ["molecules/tease-"~post.post_type~".twig", "molecules/tease.twig"] %}
 	{% endfor %}
 {% endblock %}
