@@ -16,8 +16,8 @@
 $context          = Timber::context();
 $context['posts'] = new Timber\PostQuery();
 $context['foo']   = 'bar';
-$templates        = array( 'index.twig' );
-if ( is_home() ) {
-	array_unshift( $templates, 'pages/front-page.twig', 'pages/home.twig' );
+$templates               = array( 'templates/archives/archive.twig' );
+if ( is_front_page() ) {
+	array_unshift( $templates, 'templates/pages/page-home.twig', 'templates/pages/page.twig' );
 }
 Timber::render( $templates, $context );
