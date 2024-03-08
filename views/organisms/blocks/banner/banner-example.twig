@@ -23,23 +23,23 @@
 
 <h3 class="{{ title_style }}">Banner: text on left</h3>
 {# Text on Left #}
-{% include 'blocks/banner/banner.html.twig' with {
+{% include 'organisms/blocks/banner/display/banner.html.twig' with {
   presentation: 'left',
 } %}
 
 {# Text on Right #}
 <h3 class="{{ title_style }} ">Banner: text on right</h3>
-{% include 'blocks/banner/banner.html.twig' with {
+{% include 'organisms/blocks/banner/display/banner.html.twig' with {
   presentation: 'right',
 } %}
 
 {# Text Floating #}
 <h3 class="{{ title_style }}">Banner: text floating over image</h3>
-{% include 'blocks/banner/banner.html.twig' with {
+{% include 'organisms/blocks/banner/display/banner.html.twig' with {
   presentation: 'floating',
 } %}
 
 {# Centered text #}
 <h3 class="{{ title_style }}">Banner: text centered</h3>
-{% include 'blocks/banner/banner.html.twig' %}
+{% include 'organisms/blocks/banner/display/banner.html.twig' %}
 

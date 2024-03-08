@@ -19,15 +19,15 @@
 </style>
 
 <div class="block--banner--side-text--{{ presentation}} min-h-[{{ banner_height_sm }}] md:min-h-[{{ banner_height_md
-}}] overflow-hidden md:h-full ts-bg-brand-1 pt-md md:pt-0 relative ts-lovey w-full">
+}}] overflow-hidden md:h-full pt-md md:pt-0 relative ts-lovey w-full">
 
     <div class="h-full xl:container p-site ">
       <div class="md:flex md:items-center min-h-[{{ banner_height_sm }}] md:min-h-[{{ banner_height_md }}]
       lg:min-h-[{{ banner_height_lg }}]">
 
         {# Text Wrapper #}
-        <div class="{{ banner_text_align }} ts-bg-lt relative md:w-[50%] p-base md:p-3xl lg:p-5xl z-2">
-          {% include "components/section-title/section-title.twig" with {
+        <div class="{{ banner_text_align }} ts-bg-brand-1 relative md:w-[50%] p-base md:p-3xl lg:p-5xl z-2">
+          {% include "molecules/section-title/section-title.twig" with {
             eyebrow: eyebrow,
             header: title,
             text: text,
@@ -58,7 +58,7 @@
       md:w-[75%]
       z-0"
     %}
-    {% include 'components/image.twig' with {
+    {% include 'molecules/image/media.twig' with {
       image: image,
       classes: "sr-only",
       caption_style: "under",

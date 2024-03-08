@@ -11,7 +11,7 @@
 
   {# Image #}
   <div class="banner--center-image-wrapper overflow-hidden z-0 {{ image_classes }}">
-    {% include 'components/image.twig' with {
+    {% include 'molecules/image/media.twig' with {
       image: image,
       classes: "object-cover w-full",
       caption_style: "under",
@@ -23,7 +23,7 @@
   <div class="xl:container p-site ">
     {# Text Wrapper #}
     <div class="ts-bg-lt -mt-2xl md:-mt-[150px] mx-auto relative z-5 md:w-[80%] p-base md:p-5xl">
-      {% include "components/section-title/section-title.twig" with {
+      {% include "molecules/section-title/section-title.twig" with {
         eyebrow: eyebrow,
         header: title,
         text: text,

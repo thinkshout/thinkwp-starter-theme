@@ -8,14 +8,14 @@
 {% set image_classes = "aspect-[21/9] lazyloaded" %}
 <span class="hidden h-[540px] md:h-[800px] left-[25%] right-[25%] md:max-w-[730px]"></span>
 
-<div class="block--banner--overlay ts-bg-brand-1 overflow-hidden relative ts-lovey">
+<div class="block--banner--overlay overflow-hidden relative ts-lovey  {{ colorway }}">
   <div class="xl:container p-site ">
     <div class="md:flex md:flex-col justify-center h-[{{ banner_height_sm }}] lg:h-[{{ banner_height_lg }}]">
 
       {# Image #}
       <div class="absolute h-[{{ banner_height_sm }}] left-0 top-[25%]
       md:top-0 z-0 {{ image_classess }} w-full">
-        {% include 'components/image.twig' with {
+        {% include 'molecules/image/media.twig' with {
           image: image,
           classes: 'object-cover overflow-hidden w-full',
           caption_style: "below",
@@ -26,7 +26,7 @@
 
       {# Text Wrapper #}
       <div class="ts-bg-lt mt-base md:mt-0 relative z-2 md:w-[50%] p-base md:p-3xl lg:p-5xl">
-        {% include "components/section-title/section-title.twig" with {
+        {% include "molecules/section-title/section-title.twig" with {
           eyebrow: eyebrow,
           header: title,
           text: text,
