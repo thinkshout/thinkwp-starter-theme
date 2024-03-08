@@ -15,6 +15,8 @@
 {% set link = link|default({ title: '', url: '', target: '' }) %}
 {% set link_aria_label = link_aria_label %}
 {% set link_disabled = link_disabled %}
+{% set rel = link_rel %}
+{% set id = id %}
 
 {# Classes + svg name #}
 {% set link_classes = link_classes %}
@@ -22,49 +24,51 @@
 {% set link_svg_name = link_svg_name %}
 {% set svg_position = svg_position ?? 'before' %}
 {% set ariaLabel = link_aria_label ? 'aria-label="' ~ link_aria_label ~ '"' %}
+{% set type = link_type ? 'type="' ~ link_type ~ '"' %}
 {% set text_margin = link_svg_name and svg_position|trim == 'before' ? 'ml-2xs' : link_svg_name ? "mr-2xs" %}
 
 {# anchor or button -- checks to see if link.url is set #}
 {% if link.url is not empty %}
-  <a class="{{ link_classes }}" href="{{ link.url }}" target="{{ link.target }}" {{ link_disabled }} {{ ariaLabel }}>
-{% else %}
-  <button class="{{ link_classes }}" {{ link_disabled }} {{ ariaLabel }}>
-{% endif %}
+<a class="{{ link_classes }}" href="{{ link.url }}" target="{{ link.target }}" {{ link_disabled }} {{ ariaLabel }}
+  {{ rel }}>
+  {% else %}
+  <button class="{{ link_classes }}" id="{{ id }}"{{ link_disabled }} {{ ariaLabel }} {{ type }}>
+    {% endif %}
 
-      {# SVG #}
-      {% block svg %}
-        {% if link_svg_name is not empty and svg_position == 'before' %}
-          <span class="btn-svg {{ link_svg_classes }}">
-            {% include 'components/svg-icon-embed.twig' with {
+    {# SVG #}
+    {% block svg %}
+      {% if link_svg_name is not empty and svg_position == 'before' %}
+        <span class="btn-svg btn-svg--before {{ link_svg_classes }}">
+            {% include 'atoms/svg-icon-embed.twig' with {
               'svg_name': link_svg_name,
             } only %}
           </span>
-        {% endif %}
-      {% endblock %}
+      {% endif %}
+    {% endblock %}
 
-      {# Content #}
-      {% block content %}
-        {% if link.title and icon_only == false %}
-          <span class="{{ text_class }} {{ text_margin }}">
+    {# Content #}
+    {% block content %}
+      {% if link.title and icon_only == false %}
+        <span class="{{ text_class }} {{ text_margin }}">
           {{ link.title }}</span>
-        {% elseif icon_only == true %}
-          <span class="sr-only">{{ link.title }}</span>
-        {% endif %}
-      {% endblock %}
+      {% elseif icon_only == true %}
+        <span class="sr-only">{{ link.title }}</span>
+      {% endif %}
+    {% endblock %}
 
-      {# SVG #}
-      {% block svg_after %}
-        {% if link_svg_name is not empty and svg_position == 'after' and icon_only == false %}
-          <span class="btn-svg {{ link_svg_classes }}">
-            {% include 'components/svg-icon-embed.twig' with {
+    {# SVG #}
+    {% block svg_after %}
+      {% if link_svg_name is not empty and svg_position == 'after' and icon_only == false %}
+        <span class="btn-svg btn-svg--after {{ link_svg_classes }}">
+            {% include 'atoms/svg-icon-embed.twig' with {
               'svg_name': link_svg_name,
             } only %}
           </span>
-        {% endif %}
-      {% endblock %}
+      {% endif %}
+    {% endblock %}
 
-{% if link.url is not empty %}
-  </a>
+    {% if link.url is not empty %}
+</a>
 {% else %}
   </button>
 {% endif %}
