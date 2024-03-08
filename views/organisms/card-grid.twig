@@ -21,7 +21,7 @@
 
 <div class="block--card-grid block--card-grid--{{ block_class }} py-block {{ colorway }} ts-lovey">
   <div class="ts-block-container">
-    {% include "components/section-title/section-title.twig" with {
+    {% include "molecules/section-title/section-title.twig" with {
       eyebrow: eyebrow,
       header: header,
       text: text,
@@ -33,7 +33,7 @@
 {#          @todo add Tag value to model#}
     <div class="{{ column_class }}">
       {% for card in cards %}
-        {% embed "cards/" ~ card_view_mode ~ ".html.twig" with {
+        {% embed "molecules/cards/" ~ card_view_mode ~ ".html.twig" with {
           has_image: card.featured_image ? 1 : 0,
           btn_tag_text: card.tag ? card.tag.title : '',
           title: card.title,
@@ -43,7 +43,7 @@
           link: card.link
         } %}
         {% block card_image %}
-          {% include "components/image.twig" with {
+          {% include "molecules/image/media.twig" with {
             image: card.featured_image,
           } %}
         {% endblock %}
