@@ -11,7 +11,7 @@
   <div class="md:max-w-[{{ description_max_width }}]">
 
     {# Text #}
-    {% include "components/section-title/section-title--text.twig" with {
+    {% include "molecules/section-title/display/variants/section-title--text.twig" with {
       eyebrow: eyebrow,
       header: header,
       text: text
@@ -22,10 +22,10 @@
   {% if primary_btn or secondary_btn %}
     {# Button wrapper #}
     <div class="md:block shrink-0">
-      <div class="flex flex-col md:flex-row gap-md">
+      <div class="flex flex-col md:flex-row gap-2xs md:gap-md">
 
         {# Button(s) #}
-        {% include "btns/btn-two-up.twig" with {
+        {% include "atoms/btns/btn-two-up.twig" with {
           primary_btn: primary_btn,
           secondary_btn: secondary_btn
         } %}
