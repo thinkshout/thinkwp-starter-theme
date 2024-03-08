@@ -9,18 +9,22 @@
                 </li>
             {% else %}
                 <li class="first btn disabled">
-                    <button disabled>First</button>
+                    <button disabled>{{ __('First', 'ts') }}</button>
                 </li>
             {% endif %}
 
             {# Previous #}
             {% if posts.pagination.prev %}
                 <li class="prev btn">
-                    <a href="{{ posts.pagination.prev.link }}">Previous</a>
+                  {% include "atoms/btns/btn-solid.twig" with {
+                    link: {title: __('Previous', 'ts'), url:posts.pagination.prev.link},
+                    link_svg_name: "arrow-left-short",
+                    size: "md"
+                  } %}
                 </li>
             {% else %}
                 <li class="prev btn disabled">
-                    <button disabled>Previous</button>
+                    <button disabled>{{ __('Previous', 'ts') }}</button>
                 </li>
             {% endif %}
 
@@ -40,22 +44,27 @@
             {# Next #}
             {% if posts.pagination.next %}
                 <li class="next btn">
-                    <a href="{{ posts.pagination.next.link }}">Next</a>
+                  {% include "atoms/btns/btn-solid.twig" with {
+                    link: {title: __('Next', 'ts'), url:posts.pagination.next.link},
+                    link_svg_name: "arrow-right-short",
+                    size: "md",
+                    svg_position: "after"
+                  } %}
                 </li>
             {% else %}
                 <li class="next btn disabled">
-                    <button disabled>Next</button>
+                    <button disabled>{{ __('Next', 'ts') }}</button>
                 </li>
             {% endif %}
 
             {# Last #}
             {% if posts.pagination.pages|last and posts.pagination.pages|last.current != true %}
                 <li class="last btn">
-                    <a href="{{ posts.pagination.pages|last.link }}">Last</a>
+                    <a href="{{ posts.pagination.pages|last.link }}">{{ __('Last', 'ts') }}</a>
                 </li>
             {% else %}
                 <li class="last btn disabled">
-                    <button disabled>Last</button>
+                    <button disabled>{{ __('Last', 'ts') }}</button>
                 </li>
             {% endif %}
 
