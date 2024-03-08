@@ -58,7 +58,60 @@
     }
   }
 }
-#nav-main--mobile {
-	height: calc(100vh - 45px);
+
+.nav-main--mobile--wrapper {
+	@apply h-full;
 	transition: transform .25s;
 }
+
+/* Hides submenu items on desktop. */
+.menu-main li.menu-item-has-children .menu-main--submenu {
+  display: none;
+  opacity: 0;
+}
+/* Shows submenu items on desktop */
+.menu-main li.menu-item-has-children.open .menu-main--submenu {
+  display: flex;
+  opacity: 1;
+}
+
+/* Hides submenu items on mobile. */
+.menu-main--mobile li.menu-item-has-children .menu-main--mobile-submenu {
+  display: none;
+  opacity: 0;
+}
+/* Shows submenu items on mobile. */
+.menu-main--mobile li.menu-item-has-children.open .menu-main--mobile-submenu {
+  display: flex;
+  opacity: 1;
+}
+
+/* Open/Close mobile nav. */
+.nav-main--mobile--wrapper {
+  transform: translateX(100%);
+  display: none;
+  opacity: 0;
+  &.open {
+    display: block;
+    opacity: 1;
+    left: 0;
+    transform: translateX(0);
+    transition: all 500ms ease-in-out;
+  }
+}
+
+/* Positions mobile nav under admin bar when logged in. */
+.admin-bar .nav-main--mobile--wrapper {
+  @apply top-[46px];
+}
+
+.btn-menu-dropdown {
+  @apply rotate-0;
+  transition: tranform 300ms ease-in-out;
+
+  &.open {
+    @apply rotate-180;
+  }
+}
+
+

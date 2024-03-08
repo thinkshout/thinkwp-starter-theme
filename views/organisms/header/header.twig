@@ -1,37 +1,53 @@
 {% set header_menu = menus.header_primary_navigation %}
+{% set header_menu_utility = menus.header_utility_navigation %}
 {% set primary_cta = header_menu.get_field('primary_cta') %}
 {% set secondary_cta = header_menu.get_field('secondary_cta') %}
 
-<header id="masthead" class="site-header z-50 relative py-base ts-bg-lt md:py-md">
-  <div id="site-navigation" class="main-navigation flex flex-row justify-between items-start p-site
-  xl:container">
-    <div class="site-branding site-title relative opacity-100 visible">
-      <a href="{{ site.home_url }}" rel="home" class="w-full">
-        {% if site_logo %}
-          <img src="{{ site_logo.src('medium') }}" alt="Site Logo" />
-          <span class="sr-only">{{ site.name }}</span>
-        {% else %}
-        <h1 class="site-title h4 w-10xl ts-text-high-contrast">
-          {{ site.name }}
-        </h1>
-        <span class="sr-only site-description">
-          {{ site.description }}
-        </span>
-        {% endif %}
-      </a>
+<header id="masthead" class="site-header z-50 relative">
+  <div class="ts-bg-brand-1">
+    <div class="p-site xl:container flex justify-end">
+      <nav id="nav-utility" class="nav-utility nav-utility--desktop hidden lg:flex flex-row" aria-label="utility navigation">
+        {% include "organisms/header/menu-utility/menu--utility.twig" with { 'items': header_menu_utility.get_items } %}
+      </nav>
     </div>
-    <!-- .site-branding -->
+  </div>
+  <div id="site-navigation" class="main-navigation py-base ts-bg-dk md:py-md relative z-10">
+    <div class="p-site xl:container ">
+      <div class="site-branding site-title relative opacity-100 visible">
+        <a href="{{ site.home_url }}" rel="home" class="w-full" aria-label="{{ __('Homepage: Friends of the
+        Gorge', 'ts') }}">
+          {% if site_logo %}
+            <img src="{{ site_logo.src('medium') }}" alt="Site Logo" class="absolute h-[86px] w-[86px] left-0 top-0 z-10
+            lg:h-auto lg:w-auto" />
+            <span class="sr-only">{{ site.name }}</span>
+          {% else %}
+          <h1 class="site-title h4 w-10xl ts-text-high-contrast">
+            {{ site.name }}
+          </h1>
+          <span class="sr-only site-description">
+            {{ site.description }}
+          </span>
+          {% endif %}
+        </a>
+      </div>
+      <!-- .site-branding -->
 
-    <div class="flex">
-      {# Desktop Nav #}
-      {% include "components/header/nav--desktop.twig" %}
+      <div class="flex justify-end">
+        {# Desktop Nav #}
+        {% include "organisms/header/nav--desktop.twig" %}
 
-      {# Hamburger button #}
-      {% include "components/header/btn-hamburger.twig" %}
+        {# Hamburger button #}
+        {% include "atoms/btns/btn-solid.twig" with {
+          size: "md",
+          link_svg_name: "hamburger",
+          link: {title: __('Menu', 'ts')},
+          add_classes: "lg:hidden",
+          id: "btn-menu-mobile--open"
+        } %}
 
-      {# Mobile nav #}
-      {% include "components/header/nav--mobile.twig" %}
-
+        {# Mobile nav #}
+        {% include "organisms/header/nav--mobile.twig" %}
+      </div>
     </div>
   </div>
   <!-- #site-navigation -->

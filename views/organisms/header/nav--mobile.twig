@@ -1,37 +1,56 @@
 {# Mobile Nav #}
 
-{#@todo WIP styles, JS isn't added yet, styles aren't finalized#}
-{% set hide_nav = "translate-x-full"  %}
-{% set show_nav = "left-0" %}
+<style>
+	/* Full CSS in header.css. @style rule animates the display property. */
+	.nav-main--mobile--wrapper.open {
+		@starting-style {
+      opacity: 0;
+      left: 100%;
+			transform: translateX(100%);
+		}
+	}
+</style>
 
-<nav id="nav-main--mobile" class="nav-main nav-main--mobile lg:hidden ts-bg-lt fixed top-[140px] {{ hide_nav }} px-base
-overflow-x-hidden w-full z-[50]" role="navigation">
-  {# Top level nav #}
-  {% include "components/header/menu--header--mobile.twig" with { 'items': header_menu.get_items } %}
-
- {# CTA wrapper #}
-  <div class="nav-main--cta--mobile flex flex-row gap-base w-full">
-
-    {# CTAs #}
-    {% include "btns/btn-two-up.twig" with {
-      primary_btn: { title: 'Donate', url: '/' },
-      secondary_btn: { title: 'Secondary CTA', url: '/' },
-      size: 'md',
-      shared_btn_classes: "flex-grow flex-1 text-center"
-    } %}
+<div class="nav-main--mobile--wrapper ts-bg-dk fixed pt-base top-0 px-base
+  overflow-x-hidden w-full z-[50] lg:hidden" id="nav-main--mobile--wrapper" tabindex="-1" aria-label="mobile navigation">
+  <div class="flex justify-between">
+    {# Logo #}
+    {% if site_logo %}
+      <img src="{{ site_logo.src('medium') }}" alt="Site Logo" class="h-[86px] w-[86px]" />
+      <span class="sr-only">{{ site.name }}</span>
+    {% else %}
+      <h1 class="site-title h4 w-2xl ts-text-high-contrast">
+        {{ site.name }}
+      </h1>
+      <span class="sr-only site-description">{{ site.description }}</span>
+    {% endif %}
+    <div class="text-right">
+      {% include "atoms/btns/btn-outline.twig" with {
+        link: {title: "Close"},
+        link_svg_name: "x",
+        size: "md",
+        id: "btn-menu-mobile--close"
+      } %}
+    </div>
   </div>
+  <nav id="nav-main--mobile" class="nav-main nav-main--mobile " role="navigation">
+    {# Top level nav #}
+    {% include "organisms/header/menu-main/mobile/menu-main--mobile.twig" with { 'items': header_menu.get_items } %}
 
-  {# Search wrapper #}
-  <div class="nav-main--search--mobile block text-center mt-base">
+    {# CTA wrapper #}
+    {% set header_primary_cta = header_menu.get_field('primary_cta') %}
+    <div class="nav-main--cta--mobile flex w-full">
+      {# Btn #}
+      {% include "atoms/btns/btn-solid.twig" with {
+        link: header_primary_cta,
+        size: 'md',
+        add_classes: "flex-grow flex-1 text-center"
+      } %}
+    </div>
 
-    {# Search #}
-    {% include "btns/btn-outline.twig" with {
-      link: {title: 'search', url: '/search'},
-      link_svg_name: "search",
-      size: "md",
-      add_classes: "block",
-      icon_only: true
-    } %}
 
-  </div>
-</nav>
+  </nav>
+  <nav id="nav-utility" class="nav-utility nav-utility--mobile mt-base" aria-label="utility navigation">
+    {% include "organisms/header/menu-utility/menu--utility.twig" with { 'items': header_menu_utility.get_items } %}
+  </nav>
+</div>

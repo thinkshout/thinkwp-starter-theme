@@ -1,28 +1,16 @@
 {# Desktop Nav #}
 
-<nav id="nav-main" class="nav-main nav-main--desktop hidden lg:flex flex-row" role="navigation">
+<nav id="nav-main" class="nav-main nav-main--desktop hidden lg:flex flex-row" aria-label="main navigation">
   {# Top level nav #}
-  {% include "components/header/menu--header.twig" with { 'items': header_menu.get_items } %}
+  {% include "organisms/header/menu-main/menu-main.twig" with { 'items': header_menu.get_items } %}
 
   {# Buttons#}
   <div class="nav-main__cta ml-lg flex flex-row-reverse gap-sm">
     {# CTAs #}
-    {% include "btns/btn-two-up.twig" with {
-      primary_btn: { title: 'Donate', url: '/' },
-      secondary_btn: { title: 'Secondary CTA', url: '/' },
+    {% set header_primary_cta = header_menu.get_field('primary_cta') %}
+    {% include "atoms/btns/btn-two-up.twig" with {
+      primary_btn: header_primary_cta,
       size: 'md'
     } %}
   </div>
-
-  {# Search #}
-  <div class="nav-main__search">
-    {# Search #}
-    {% include "btns/btn-underline.twig" with {
-      link: {title: 'search', url: '/search'},
-      link_svg_name: "search",
-      size: "md",
-      icon_only: true
-    } %}
-  </div>
-
 </nav>

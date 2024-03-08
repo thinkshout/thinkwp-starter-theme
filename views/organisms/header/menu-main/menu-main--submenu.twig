@@ -1,0 +1,16 @@
+{# Submenu in header nav
+ *
+ * Variables:
+ * - items
+#}
+
+{% if items %}
+	<ul class="{{ menu_wrapper_classes }} menu-main--submenu ts-bg-lt ts-border-radius absolute flex-col gap-y-sm 
+	left-0 top-2xl pt-sm px-base pb-base min-w-[12.5rem]">
+	{% for item in items %}
+		<li class="menu-item ts-text-high-contrast body-sm">
+			<a target="{{ item.target }}" class="hocus-action hocus-underline" href="{{ item.link }}">{{ item.title }}</a>
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}
