@@ -3,7 +3,8 @@
 {% set btnLinkStyles = [
   'btn-solid',
   'btn-outline',
-  'btn-underline'
+  'btn-underline',
+  'btn-text-link'
 ] %}
 
 {% set sizes = [
@@ -18,14 +19,17 @@
 {#  "Light Colorway": 'ts-bg-lt',#}
 {% set bgColors = {
   "Dark Colorway": 'ts-bg-dk',
+  "Light Colorway": 'ts-bg-lt',
+  "Brand 1 Colorway": 'ts-bg-brand-1',
+  "Brand 2 Colorway": 'ts-bg-brand-2',
 }
 %}
 
 {% set svgs = {
-    "before": "download",
-    "after": "arrow-right",
-    "none": "",
-  }
+  "before": "download",
+  "after": "arrow-right",
+  "none": "",
+}
 %}
 
 {% set iconBtnLinkStyles = [
@@ -34,16 +38,16 @@
 
 {% set link_url = '/' %}
 <span class="hidden bg-black bg-neutral-100 bg-neutral-500 bg-white btn--sm btn--md
-btn--lg"></span>
+btn--lg ts-bg-brand-1"></span>
 <span class="py-xs py-2xs px-sm px-md "></span>
 <p class="body-lg mt-zero">css/common/_buttons-links.css</p>
 <p class="body-lg mt-zero">views/btns</p>
 <p class="body-lg gray mt-sm mb-md">Buttons and links with icons are reusable components found in twig
   "views/btns"</p>
 <hr class="mt-sm mb-sm">
- Button styles
+Button styles
 <p class="utility-xs">All button and links use an included template. <br/>
-  <em>See views/btns/[btn name] for templates and docs</em></p>
+  <em>See views/atoms/btns/[btn name] for templates and docs</em></p>
 
 {# Loops through buttons, prints them on all backgrounds at all sizes #}
 {% for key, bgColor in bgColors %}
@@ -54,7 +58,7 @@ btn--lg"></span>
         <div class="py-sm flex items-center justify-between gap-sm">
           {% for key, svg in svgs %}
 
-            {% include 'btns/' ~ btn ~ '.twig' with {
+            {% include 'atoms/btns/' ~ btn ~ '.twig' with {
               link: {title: btn ~ " " ~ size, url: link_url},
               size: size,
               svg_position: key,
@@ -63,7 +67,7 @@ btn--lg"></span>
             } %}
             <span class="mr-sm">
               {% if key == 'none' %}
-                {% include 'btns/' ~ btn ~ '.twig' with {
+                {% include 'atoms/btns/' ~ btn ~ '.twig' with {
                   link: {title: btn ~ " " ~ size, url: link_url},
                   size: size,
                   link_svg_name: "arrow-right",
@@ -76,4 +80,8 @@ btn--lg"></span>
       {% endfor %}
     </div>
   {% endfor %}
+  <div class="{{ bgColor }} p-md">
+    {% include "/molecules/social-nav.twig" %}
+    {% include "/atoms/btns/btn-tag.twig" with { svg_name: "hike-type", text: "Type"} %}
+  </div>
 {% endfor %}
