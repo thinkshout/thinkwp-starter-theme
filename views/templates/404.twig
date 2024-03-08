@@ -1,5 +1,27 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	Sorry, we couldn't find what you're looking for.
+  <div class="ts-bg-dk">
+    <div class="max-w-[600px] py-2xl md:py-3xl p-site mx-auto text-center">
+
+      {# Subhead #}
+      <h2 class="ts-text-high-contrast utility-md uppercase">{{ __( '404', 'ts' ) }}</h2>
+
+      {# Heading #}
+      <h1 class="ts-text-high-contrast h1 mt-sm">{{ __( 'Page Not Found', 'ts' ) }}</h1>
+
+      {# Description #}
+      <p class="ts-text-high-contrast body-base mt-sm">{{ __( "Just as we fight for everyone to be heard, we strive to help you find the information you need. Unfortunately, this page no longer exists. But don't let this stop you from exploring the work we do.", 'ts' ) }}</p>
+
+      {# Buttons #}
+      <div class="flex flex-col gap-base justify-center mt-md sm:flex-row">
+        <div class="text-center">
+          {% include "atoms/btns/btn-two-up.twig" with {
+            primary_btn: {title:__( 'Return Home', 'ts' ), url:"/" },
+            secondary_btn: {title:__( 'Donate', 'ts' ), url:"/donate" },
+          } %}
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
