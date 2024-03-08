@@ -16,7 +16,7 @@
 
 <p class="{{ bgColor }} inline-flex items-center py-2xs px-2xs {{ tag_classes }}">
   {% if svg_name in svgs_available %}
-    <span class="pr-2xs">{% include "components/svg-icon-embed.twig" with { svg_name: svg_name|lower } %}</span>
+    <span class="pr-2xs">{% include "atoms/svg-icon-embed.twig" with { svg_name: svg_name|lower } %}</span>
   {% endif %}
   <span class="tag text-neutral-900 inline-block">{{ text }}</span>
 </p>

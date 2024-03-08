@@ -1,20 +1,14 @@
-{# Solid button
+{# Solid Social media button
  * A color pill button.
  * Variations styled below.
   DEFAULT STYLES SET IN: tailwind-btns.json.
- *
- * SIZE OPTIONS:
- *    - lg (default)
- *    - md
- *    - sm
- *    - xs
  *
  * Icon only -- adds screen reader text
  * - icon_only (boolean)
 
   HOW TO USE:
-  btn-solid md:
-  {% include 'btns/btn-solid.twig' with {
+  btn-social:
+  {% include 'atoms/btns/btn-social.twig' with {
       link: {title: 'learn more', url: '/'}
       size: 'md',
     }
@@ -23,13 +17,13 @@
 
 {# Primary values #}
 {% set link = link %}
-{% set size = size ?: 'lg' %}
 {% set add_classes = add_classes %}
 {% set link_svg_name = link_svg_name %}
 {% set icon_only = icon_only ?? false %}
+{% set rel = "rel='noopener'" %}
 
 {# btn classes, colorway, svg name #}
-{% set btn_class = "btn-solid btn--" ~ size %}
+{% set btn_class = "btn-social" %}
 {# Final set of classes #}
 {% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
 

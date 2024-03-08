@@ -1,5 +1,5 @@
-{# Solid button
- * A color pill button.
+{# Text link
+ * Found in body copy.
  * Variations styled below.
   DEFAULT STYLES SET IN: tailwind-btns.json.
  *
@@ -13,24 +13,25 @@
  * - icon_only (boolean)
 
   HOW TO USE:
-  btn-solid md:
-  {% include 'btns/btn-solid.twig' with {
+  Add .btn-text-link in the twig template, or include this template:
+  btn-text-link:
+  {% include 'atoms/btns/btn-text-link.twig' with {
       link: {title: 'learn more', url: '/'}
-      size: 'md',
     }
   %}
 #}
 
 {# Primary values #}
 {% set link = link %}
-{% set size = size ?: 'lg' %}
-{% set add_classes = add_classes %}
+{% set size = size ?: '' %}
+
+{# btn classes, icon only, svg name #}
 {% set link_svg_name = link_svg_name %}
 {% set icon_only = icon_only ?? false %}
 
-{# btn classes, colorway, svg name #}
-{% set btn_class = "btn-solid btn--" ~ size %}
-{# Final set of classes #}
+{# Combines classes, adds them to the btn template #}
+{% set btn_class = "btn-text-link btn--" ~ size %}
+{# Final set of classes, including any passed in #}
 {% set link_classes = add_classes ? btn_class ~ ' ' ~ add_classes : btn_class %}
 
 {% extends 'atoms/btns/btn-base.twig' %}
