@@ -1,62 +1,68 @@
-{# 
-  Set in lib/class-theme.php as part of thinktimber_menus class prop in the constuctor.
-  Added to timber's context in the add_to_context function.
+{#
+Set in lib/class-theme.php as part of thinktimber_menus class prop in the constuctor.
+Added to timber's context in the add_to_context function.
 #}
 {% set footer_about_menu = menus.footer_about %}
 {% set footer_programs_menu = menus.footer_programs %}
 {% set footer_get_involved_menu = menus.footer_get_involved %}
 {% set footer_copyright_menu = menus.footer_copyright %}
 
-<footer id="colophon" class="site-footer py-4xl ts-bg-lt">
+{% set email = "info@gorgefriends.org" %}
+{% set tel_display = "+1(503) 241-3762" %}
+{% set tel_call = "15032413762" %}
+
+<footer id="colophon" class="site-footer py-lg md:py-4xl ts-bg-dk">
   <div class="p-site xl:container">
-    <div class="footer-content divide-y divide-neutral-300">
+    <div class="footer-content md:divide-y md:divide-neutral-300">
 
       {# Subscribe form #}
       {# @todo Once we add the form variant of the Section Title, that will handle the text and form #}
-      <div class="pb-2xl">
-        {% include "components/section-title/section-title.twig" with {
-          header: "Join our newsletter",
-          text: "We’ll send you a nice letter once per week. No spam.",
-          style: "form",
-          primary_btn: { title: 'Sign Up', url: '/' },
+      <div class="md:pb-2xl">
+        {% include "molecules/section-title/section-title.twig" with {
+          header: __("Receive Updates ", 'ts'),
+          text: __("Receive eNews, action alerts, and event invitations. Receive Friends' eNews, action alerts, and event invitations.", 'ts'),
+          style: "row",
+          primary_btn: { title: __("Subscribe",'ts'), url: '/' }
         }
         %}
       </div>
 
       {# Footer menus #}
-      <div class="footer-content__menu-wrapper py-2xl flex flex-row justify-between">
-        <div class="md:ts-grid-col-2">
-          <div class="flex flex-row gap-x-xl">
-            <nav class="footer-nav-about inline-block mt-0">
-              <h3 class="h5 mb-md ts-text-high-contrast">About</h3>
-              {% include 'components/footer/menu--footer.twig' with {
-                'items': footer_about_menu.get_items
-              } %}
-            </nav>
-            <nav class="footer-nav-programs inline-block mt-0">
-              <h3 class="h5 mb-md ts-text-high-contrast">Programs</h3>
-              {% include 'components/footer/menu--footer.twig' with {
-                'items': footer_programs_menu.get_items
-              } %}
-            </nav>
-            <nav class="footer-nav-get-involved inline-block mt-0">
-              <h3 class="h5 mb-md ts-text-high-contrast">Get Involved</h3>
-              {% include 'components/footer/menu--footer.twig' with {
-                'items': footer_get_involved_menu.get_items
-              } %}
-            </nav>
+      <div class="footer-content__menu-wrapper py-2xl md:flex md:flex-row md:justify-between">
+        <nav class="footer-nav-about inline-block mt-0">
+          {% include 'organisms/footer/menu--footer.twig' with {
+            'items': footer_about_menu.get_items
+          } %}
+        </nav>
+        <div class="md:flex">
+          <div class="inline-flex mt-md md:mt-0 ">
+            {% set link_classes = "h6 hocus-underline hocus-action ts-text-md-contrast md:text-right block" %}
+            <div>
+              <a href="tel:{{ tel_call }}" class="{{ link_classes }}">{{ __(tel_display, 'ts') }}</a>
+              <a href="email:{{email}}" class="{{ link_classes }}">{{ email }}</a>
+              <div class="mt-sm">
+                {% include "molecules/social-nav.twig" with {
+                  icons_only: true
+                } %}
+              </div>
+            </div>
           </div>
-          <div class="flex flex-row justify-end"></div>
+          {% if site_logo %}
+            <img src="{{ site_logo.src('medium') }}" alt="Site Logo" class="h-[8.75rem] w-[8.75rem]
+            mt-base md:mt-0 md:ml-base" />
+            <span class="sr-only">{{ site.name }}</span>
+          {% endif %}
         </div>
       </div>
 
       {# Copyright #}
-      <div class="footer-content__copyright pt-2xl md:flex flex-row gap-xs justify-between">
-        <p class="body-sm ts-text-md-contrast mt-0 lg:mb-0 lh:relative">
-          &copy; {{ 'now'|date('Y') }} {{ site.name }}. All Rights Reserved.
+      <div class="footer-content__copyright md:pt-2xl md:flex flex-row gap-xs justify-between">
+        <p class="body-base ts-text-md-contrast mt-0 lg:mb-0 lh:relative">
+          {% set copyright = '&copy; ' ~ 'now'|date('Y') ~ " " ~ site.name ~ __('. All Rights Reserved.', 'ts') %}
+          {{ __(copyright, 'ts') }}
         </p>
         <nav class="footer-nav-copy mt-md md:mt-0">
-          {% include 'components/footer/menu--footer--privacy.twig' with {
+          {% include 'organisms/footer/menu--footer--privacy.twig' with {
             'items': footer_copyright_menu.get_items
           } %}
         </nav>
