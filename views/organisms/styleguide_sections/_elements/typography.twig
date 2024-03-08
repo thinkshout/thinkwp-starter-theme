@@ -13,12 +13,17 @@
   set textStyles = [
   'body-base',
   'body-sm',
+  'link-sm',
   'body-xs',
-  'tag'
-  ]
+  'tag',
+  'utility-xl',
+  'utility-lg',
+  'utility-lg font-bold',
+  'utility-sm'
+]
 %}
 {#Pre-renders tailwind classes that havent been used yet#}
-<span class="hidden body-base body-sm body-xs"></span>
+<span class="hidden body-base body-sm body-xs link-sm utility-xl utility-lg utility-sm"></span>
 
 <h2 class="h3 mt-md mb-sm">Typography</h2>
 <p class="body-sm mt-zero mb-sm">Defined in tailwind-typography.json. Use classes in twig templates to apply styles
