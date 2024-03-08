@@ -1,14 +1,18 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			{% include "organisms/blocks/banner/hero.twig" %}
-			<section class="article-content">
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
+  {% set bg_color = 'ts-bg-lt' %}
+  <div class="content-wrapper">
+    <article class="post-type-{{ post.post_type }} {{ bg_color }}" id="post-{{ post.ID }}">
+      {% include "organisms/blocks/banner/hero.twig" with {
+        presentation: 'default',
+        is_hero: 1
+      } %}
+      <main class="article-content">
+        <div class="article-body">
+          {{ post.content }}
+        </div>
+      </main>
+    </article>
+  </div><!-- /content-wrapper -->
 {% endblock %}
