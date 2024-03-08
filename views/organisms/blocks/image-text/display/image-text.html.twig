@@ -29,7 +29,7 @@
 
     {# Image #}
     <div class="{{ image_align_classes }} mb-xs md:mb-0">
-      {% include 'components/image.twig' with {
+      {% include 'molecules/image/media.twig' with {
         image: image,
         classes: "aspect-[5/3] object-cover overflow-hidden lazyloaded w-full",
         caption_style: "below",
@@ -41,7 +41,7 @@
     {# Text Wrapper #}
     <div class="flex flex-col items-justified-center md:-w-[5/12]">
       <div>
-      {% include "components/section-title/section-title.twig" with {
+      {% include "molecules/section-title/section-title.twig" with {
         eyebrow: eyebrow,
         header: title,
         text: text,
