@@ -83,6 +83,30 @@
       "font-style": "italic;",
       "font-weight": "var(--font-weight-regular);",
       "line-height": "var(--lh-16);"
+    },
+    ".utility-lg": {
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1rem /* 16px */;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-16);"
+    },
+    ".utility-sm": {
+      "font-family": "var(--font-family-sans);",
+      "font-size": ".8125rem /* 13px */;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-16);"
+    },
+    ".utility-xl": {
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.125rem /* 18px */;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-13);"
+    },
+    ".link-sm": {
+      "font-family": "var(--font-family-serif);",
+      "font-size": "1rem /* 16px */;",
+      "font-weight": "var(--font-weight-light);",
+      "line-height": "var(--lh-15);"
     }
 
   }
