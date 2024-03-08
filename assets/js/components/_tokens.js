@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 02 Oct 2023 21:23:41 GMT
+ * Generated on Fri, 08 Mar 2024 04:59:00 GMT
  */
 
 module.exports = {
@@ -984,11 +984,11 @@ module.exports = {
       ]
     },
     "3xs": {
-      "value": ".125px",
+      "value": ".125rem",
       "filePath": "tokens/src/spacer.tokens.json",
       "isSource": true,
       "original": {
-        "value": ".125px"
+        "value": ".125rem"
       },
       "name": "Spacer3xs",
       "attributes": {
@@ -1430,236 +1430,6 @@ module.exports = {
           "font",
           "family",
           "sans"
-        ]
-      }
-    },
-    "size": {
-      "2xs": {
-        "value": "0.625rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "0.625rem"
-        },
-        "name": "FontSize2xs",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "2xs"
-        },
-        "path": [
-          "font",
-          "size",
-          "2xs"
-        ]
-      },
-      "xs": {
-        "value": "0.75rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "0.75rem"
-        },
-        "name": "FontSizeXs",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "xs"
-        },
-        "path": [
-          "font",
-          "size",
-          "xs"
-        ]
-      },
-      "sm": {
-        "value": "0.875rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "0.875rem"
-        },
-        "name": "FontSizeSm",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "sm"
-        },
-        "path": [
-          "font",
-          "size",
-          "sm"
-        ]
-      },
-      "base": {
-        "value": "1rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "1rem"
-        },
-        "name": "FontSizeBase",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "base"
-        },
-        "path": [
-          "font",
-          "size",
-          "base"
-        ]
-      },
-      "md": {
-        "value": "1.125rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "1.125rem"
-        },
-        "name": "FontSizeMd",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "md"
-        },
-        "path": [
-          "font",
-          "size",
-          "md"
-        ]
-      },
-      "lg": {
-        "value": "1.25rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "1.25rem"
-        },
-        "name": "FontSizeLg",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "lg"
-        },
-        "path": [
-          "font",
-          "size",
-          "lg"
-        ]
-      },
-      "xl": {
-        "value": "1.375rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "1.375rem"
-        },
-        "name": "FontSizeXl",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "xl"
-        },
-        "path": [
-          "font",
-          "size",
-          "xl"
-        ]
-      },
-      "2xl": {
-        "value": "1.4375rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "1.4375rem"
-        },
-        "name": "FontSize2xl",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "2xl"
-        },
-        "path": [
-          "font",
-          "size",
-          "2xl"
-        ]
-      },
-      "3xl": {
-        "value": "1.875rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "1.875rem"
-        },
-        "name": "FontSize3xl",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "3xl"
-        },
-        "path": [
-          "font",
-          "size",
-          "3xl"
-        ]
-      },
-      "4xl": {
-        "value": "2.5rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "2.5rem"
-        },
-        "name": "FontSize4xl",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "4xl"
-        },
-        "path": [
-          "font",
-          "size",
-          "4xl"
-        ]
-      },
-      "5xl": {
-        "value": "2.8125rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "2.8125rem"
-        },
-        "name": "FontSize5xl",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "5xl"
-        },
-        "path": [
-          "font",
-          "size",
-          "5xl"
-        ]
-      },
-      "6xl": {
-        "value": "3.75rem",
-        "filePath": "tokens/src/typography.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": "3.75rem"
-        },
-        "name": "FontSize6xl",
-        "attributes": {
-          "category": "font",
-          "type": "size",
-          "item": "6xl"
-        },
-        "path": [
-          "font",
-          "size",
-          "6xl"
         ]
       }
     }

@@ -6,7 +6,7 @@
 @custom-media --reduce-motion (prefers-reduced-motion: reduce);
 
 html {
-	background-color: var(--color-neutral-05);
+	background-color: var(--color-neutral-50);
 }
 
 body {

@@ -37,7 +37,7 @@ h5.wp-block-heading {
 
 /* Pull Quote: GB block styles */
 .wp-block-pullquote {
-	@apply bg-blue-100 my-lg;
+	@apply bg-neutral-300 my-lg;
 	p {
 		@apply blockquote p-2xl text-high-contrast;
 	}
