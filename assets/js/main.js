@@ -14,10 +14,7 @@ async function init() {
 	}
 	/* People Cards */
 	const peopleCardsGrid = document.querySelector(".people-cards");
-	if (peopleCardsGrid) {
-		const peopleCardsJS = await import('../../views/organisms/blocks/people-cards/display/people-cards.js');
-		peopleCardsJS.render();
-	}
+
 	/* Video Element */
 	const videoElement = document.querySelector('.video-container');
 	if (videoElement) {
