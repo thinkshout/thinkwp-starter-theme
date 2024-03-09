@@ -30,7 +30,7 @@
       "300": { "value": "{color.yellow.300.value}" },
       "500": { "value": "{color.yellow.500.value}" },
       "700": { "value": "{color.yellow.700.value}" },
-      "900": { "value": "{color.purple.900.value}" }
+      "900": { "value": "{color.yellow.900.value}" }
     },
     "purple": {
       "100": { "value": "#EBE6FD" },
