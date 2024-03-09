@@ -1,0 +1,11 @@
+{
+  "grid": {
+    "columns-sm": { "value": "1" },
+    "columns-md": { "value": "6" },
+    "columns-lg": { "value": "8" },
+    "columns-xl": { "value": "12" },
+    "gap": { "value": "{spacer.md.value}" },
+    "gap-md": { "value": "{spacer.lg.value}" },
+    "gap-lg": { "value": "{spacer.xl.value}" }
+  }
+}

@@ -33,7 +33,7 @@
       "300": "#ffe380",
       "500": "#ffc700",
       "700": "#b36100",
-      "900": "#0c002e"
+      "900": "#330800"
     },
     "purple": {
       "100": "#ebe6fd",
@@ -61,6 +61,15 @@
       "100": "#e7f3ee",
       "500": "#0f8a56"
     }
+  },
+  "grid": {
+    "columns-sm": "1",
+    "columns-md": "6",
+    "columns-lg": "8",
+    "columns-xl": "12",
+    "gap": "1.5rem",
+    "gap-md": "2rem",
+    "gap-lg": "2.25rem"
   },
   "screen": {
     "default": "375px",
