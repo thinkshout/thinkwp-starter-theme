@@ -7,9 +7,10 @@ Added to timber's context in the add_to_context function.
 {% set footer_get_involved_menu = menus.footer_get_involved %}
 {% set footer_copyright_menu = menus.footer_copyright %}
 
-{% set email = "info@gorgefriends.org" %}
-{% set tel_display = "+1(503) 241-3762" %}
-{% set tel_call = "15032413762" %}
+{#@todo: replace placeholder contact info.#}
+{% set email = "info@myorganization.org" %}
+{% set tel_display = "+1(123) 567-8910" %}
+{% set tel_call = "12345678910" %}
 
 <footer id="colophon" class="site-footer py-lg md:py-4xl ts-bg-dk">
   <div class="p-site xl:container">
@@ -20,7 +21,7 @@ Added to timber's context in the add_to_context function.
       <div class="md:pb-2xl">
         {% include "molecules/section-title/section-title.twig" with {
           header: __("Receive Updates ", 'ts'),
-          text: __("Receive eNews, action alerts, and event invitations. Receive Friends' eNews, action alerts, and event invitations.", 'ts'),
+          text: __("Receive eNews, action alerts, and event invitations.", 'ts'),
           style: "row",
           primary_btn: { title: __("Subscribe",'ts'), url: '/' }
         }
