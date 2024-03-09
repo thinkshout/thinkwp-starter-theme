@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block content %}
-  {% set section_title_classes = "h2 mb-xs" %}
-  {% set section_description_classes = "body-xl" %}
+  {% set section_title_classes = "h2 mb-xs ts-text-high-contrast" %}
+  {% set section_description_classes = "ts-text-md-contrast body-xl" %}
   {% set block_title_classes = "h3 mb-xs" %}
   {% set block_description_classes = "body-sm max-w-[900px] mb-sm" %}
   {% set limited_message = "*Available on limited pages." %}
@@ -18,7 +18,7 @@
     {# Menu#}
     <div class="styleguide-nav ts-bg-white">
       <div class="pt-base text-gray-dk">
-        <h1 class="h4 pl-sm pt-xs pb-xs">Styleguide</h1>
+        <h2 class="h4 pl-sm pt-xs pb-xs">Style guide</h2>
         <div class="">
           <ul>
             {% set nav_classes = "body-base-bold bg-gray-100 block pl-sm py-xs rounded-md hover:underline
@@ -90,6 +90,14 @@
 
     <div class="styleguide-menu-padding">
 
+      {# WELCOME #}
+      <div class="ts-bg-dk py-block xl:container p-site" id="welcome">
+        <h2 class="ts-text-high-contrast h1 mb-lg">Welcome to your Design System</h2>
+        <p class="{{ section_description_classes }}">The "Foundations" section outlines the color tokens, typography
+          styles, grids, and spacing rules used throughout the design system.
+        </p>
+      </div>
+
       {# FOUNDATION #}
       <div class="py-block xl:container p-site" id="elements">
         <h2 class="{{ section_title_classes }}">Global Elements</h2>
@@ -99,7 +107,7 @@
       </div>
 
       {% for element in elements %}
-        <div class="my-block xl:container p-site" id="{{ section }}">
+        <div class="my-block xl:container p-site" id="{{ element }}">
           {% include "/organisms/styleguide-sections/_elements/" ~ element ~ ".twig" %}
         </div>
       {% endfor %}

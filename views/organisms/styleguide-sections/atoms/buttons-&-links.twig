@@ -40,14 +40,13 @@
 <span class="hidden bg-black bg-neutral-100 bg-neutral-500 bg-white btn--sm btn--md
 btn--lg ts-bg-brand-1"></span>
 <span class="py-xs py-2xs px-sm px-md "></span>
-<p class="body-lg mt-zero">css/common/_buttons-links.css</p>
-<p class="body-lg mt-zero">views/btns</p>
-<p class="body-lg gray mt-sm mb-md">Buttons and links with icons are reusable components found in twig
+<p class="body-sm gray mt-sm mb-md">Buttons and links with icons are reusable components found in twig
   "views/btns"</p>
-<hr class="mt-sm mb-sm">
 Button styles
-<p class="utility-xs">All button and links use an included template. <br/>
-  <em>See views/atoms/btns/[btn name] for templates and docs</em></p>
+<p class="utility-sm">All button and links can be included in a template, or applied with "@" syntax in CSS.
+<p class="utility-sm mt-zero">CSS: tokens/tailwind-btns.json</p>
+<p class="utility-sm mt-zero">HTML: views/atoms/btns</p>
+<hr class="mt-sm mb-sm">
 
 {# Loops through buttons, prints them on all backgrounds at all sizes #}
 {% for key, bgColor in bgColors %}
