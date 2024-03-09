@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	{% set bg_color = 'ts-bg-brand-1' %}
+	<div class="content-wrapper {{ bg_color }}">
+		<article class="post-type-{{post.post_type}} staff-landing" id="post-{{post.ID}}">
+			{% include "organisms/blocks/banner/hero.twig" with {
+				presentation: "fullBleed"
+			}%}
+			<section class="article-content">
+				<div class="article-body">
+					{# Staff Card Grid #}
+					{% include "organisms/blocks/people-cards/people-cards.twig" %}
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
