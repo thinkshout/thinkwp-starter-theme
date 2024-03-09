@@ -84,6 +84,7 @@
                   </a></li>
               {% endfor %}
               <li><a href="/style-guide#people-cards" class="{{ subnav_classes }}">People Cards</a></li>
+              <li><a href="/style-guide#footer" class="{{ subnav_classes }}">Footer</a></li>
             </ul>
           </ul>
         </div>
@@ -172,6 +173,16 @@
         </div>
       </div>
       <hr class="{{ hr_classes }}">
+
+      <div class="py-block-sm" id="people-cards">
+        <div class="p-site xl:container">
+          <h2 class="{{ block_title_classes }}">Footer</h2>
+          <p class="{{ block_description_classes }}">{{ block.description }}</p>
+        </div>
+        <div class="xl:container p-site my-block ts-bg-lt">
+          {% include "/organisms/footer/display/footer.twig" %}
+        </div>
+      </div>
 
     </div>
   </div>
