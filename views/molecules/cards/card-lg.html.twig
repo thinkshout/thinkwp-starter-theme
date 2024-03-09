@@ -35,16 +35,22 @@
       </div>
     {% endif %}
 
+    {% if link_url %}
       {# Card overlay link: needs to be immediately followed by the .card-title for hover/focus styles #}
       {% include "molecules/cards/card-overlay-link.html.twig" with { link_url: link_url } %}
+    {% endif %}
 
       {# Title #}
       {% if title %}
+        {% if link_url %}
         <a href="{{ link_url }}" class="ts-text-high-contrast card-title-hocus">
+        {% endif %}
           <h3 class="h3 mb-sm">
             {{ title }}
           </h3>
+        {% if link_url %}
         </a>
+        {% endif %}
       {% endif %}
 
       {# Text Small #}

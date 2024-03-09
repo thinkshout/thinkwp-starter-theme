@@ -82,6 +82,8 @@ Button styles
   {% endfor %}
   <div class="{{ bgColor }} p-md">
     {% include "/molecules/social-nav.twig" %}
-    {% include "/atoms/btns/btn-tag.twig" with { svg_name: "hike-type", text: "Btn-Tag"} %}
+    <div class="my-md">
+      {% include "/atoms/btns/btn-tag.twig" with { svg_name: "hike-type", text: "Btn-Tag"} %}
+    </div>
   </div>
 {% endfor %}

@@ -13,8 +13,8 @@
 
   {# Image #}
   {% if has_image %}
-    {% set classes = "aspect-[2/3] object-cover w-full" %}
-    <div class="">
+    {% set classes = image_classes %}
+    <div class="{{ image_wrapper_classes }}">
       {% block card_image %}
       {% endblock %}
     </div>
