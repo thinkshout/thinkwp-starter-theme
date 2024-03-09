@@ -5,11 +5,16 @@
 
 <h2 class="h3 mt-md mb-xs">Spacing</h2>
 <p class="body-xs mt-zero">tokens/src/spacer.tokens.json</p>
-<p class="body-sm mt-sm"><em>.ts-py-block</em> and <em>.ts-py-block-sm</em> classes define block-level spacing.</p>
-<p class="body-xs mt-zero">See assets/css/base/utilities.css for definitions.</p>
-<p class="body-xs">All of the margin, padding and height classes use generated from these base values. The are also
+<p class="body-sm mt-sm">Spacing values define the space between elements on the page. This can include space
+  between buttons, between columns of text, or around an image. Setting a scale of sizes helps the page to feel
+  cohesive and considered.</p>
+<p class="utility-sm mt-sm">Development notes on spacing: <em>.ts-py-block, .ts-my-block, .ts-py-block-sm and
+    .ts-my-block-sm</em> classes define
+  block-level spacing.</p>
+<p class="utility-sm mt-zero">See tokens/tailwind-site-spacing, and tokens/src/spacer-tokens.json for definitions.
+  All of the margin, padding and height classes use generated from these base values. They are also
   available as css and tailwind variables.</p>
-<p class="utility-sm my-md">--spacer-[size]</p>
+<p class="utility-sm my-md">CSS custom property name: --spacer-[size]</p>
 <span class="h-4xl h-xl h-lg h-md h-2xs h-3xs h-px hidden"></span>
 
 {% set spacing_values = [
