@@ -1,0 +1,117 @@
+/* Typography -- ONLY Gutenberg styles in this file.
+ *
+ * SITE-WIDE STYLES ARE SET IN TAILWIND: in tailwind-typography.json,
+ * made into tailwind components in tailwind.config.js.
+*/
+
+/*@todo	Remove ability to add an H1 heading to the page */
+/* H1 heading GB block styles */
+h1.wp-block-heading {
+	@apply h1 mt-2xl mb-md;
+	color: var(--color-high-contrast);
+}
+
+/* H2 heading GB block styles */
+h2.wp-block-heading {
+	@apply h2 mt-lg mb-2xs;
+	color: var(--color-high-contrast);
+}
+
+/* H3 heading GB block styles */
+h3.wp-block-heading {
+	@apply h3 mt-base;
+	color: var(--color-high-contrast);
+}
+
+/* H4 heading GB block styles */
+h4.wp-block-heading {
+	@apply h4 mt-base;
+	color: var(--color-high-contrast);
+}
+
+/* H5 heading GB block styles */
+h5.wp-block-heading {
+	@apply h5 mt-base;
+	color: var(--color-high-contrast);
+}
+
+/* Pull Quote: GB block styles */
+.wp-block-pullquote {
+	@apply bg-neutral-300 my-lg;
+	p {
+		@apply blockquote p-2xl text-high-contrast;
+	}
+	cite {
+		@apply body-sm block mt-sm mb-2xl text-low-contrast;
+	}
+}
+/* Quote */
+.wp-block-quote {
+	@apply border-l-4 border-secondary-500 my-lg ml-md px-md;
+	p {
+		@apply blockquote px-md text-high-contrast;
+	}
+	cite {
+		@apply body-sm block mt-md px-md text-md-contrast;
+		font-style: normal;
+	}
+}
+
+/* P, UL, OL, text link and header link styles */
+.article-body,
+	/* In WP columns */
+.wp-block-column,
+	/* Editor view */
+.wp-block-post-content {
+
+	/* Paragraphs */
+	& > p {
+		@apply body-base mb-base;
+		color: var(--color-high-contrast);
+	}
+	/* Paragraph -- Italic text */
+	& > p em {
+		@apply italic;
+	}
+	/* Bold	*/
+	& > p strong {
+		@apply font-bold;
+	}
+
+	/* Text links */
+	& > p a,
+	& > h2 a,
+	& > h3 a,
+	& > h4 a,
+	& > h5 a {
+		@apply btn-text-link;
+	}
+
+	/* Unordered List	*/
+	& > ul:not(.news--filters),
+		/* Accordion block */
+	.block--accordion ul {
+		@apply utility-lg list-disc my-lg;
+		li {
+			@apply list-outside ml-base my-base;
+			color: var(--color-high-contrast);
+			&::marker {
+				color: var(--color-secondary-500);
+			}
+		}
+	}
+
+	/* Ordered List	*/
+	& > ol {
+		@apply utility-lg list-decimal my-lg;
+		li {
+			@apply list-outside ml-base my-xs;
+			color: var(--color-high-contrast);
+		}
+	}
+
+}
+
+.wp-block-image figcaption {
+	@apply utility-sm text-low-contrast;
+}

@@ -1,0 +1,70 @@
+{# Event Card
+ * An event card template.
+ *
+ * Variables:
+ * - day
+ * - day_number
+ * - has_image
+ * - image
+ * - eyebrow
+ * - title
+ * - text
+ * - text_small
+ * - link_url
+#}
+
+{% set link_url = link.url ? link.url : link %}
+
+<h3 class="card-event--section-hr flex"><span class="ts-text-high-contrast utility-lg pr-2sm">December
+    2023</span></h3>
+
+<div class="card-event flex relative ts-hocus-scale py-md ts-bg-brand-1">
+  <div class="mr-2xl">
+    <div class="flex items-center px-base py-xs ts-bg-card text-center ts-text-high-contrast">
+      <div>
+        <p class="tag">{{ day }}</p>
+        <p class="h3 -mt-xs mb-0">{{ day_number }}</p>
+      </div>
+    </div>
+  </div>
+
+  {# Text wrapper #}
+  <div class="inline-block">
+
+    {# Tag #}
+    {% if eyebrow %}
+      <div class="mb-2xs tag ts-text-md-contrast">
+       {{ eyebrow }}
+      </div>
+    {% endif %}
+
+    {# Full Card Link #}
+    {% include "molecules/cards/card-overlay-link.html.twig" with { link_url: link_url } %}
+
+    {# Title #}
+    <a href="{{ link_url }}" class="card-title-hocus"><h3 class="h4 mb-2xs ts-text-high-contrast">{{ title }}</h3></a>
+
+    {# Text #}
+    {% if text %}
+      <p class="utility-lg mb-2xs ts-text-high-contrast">{{ text }}</p>
+    {% endif %}
+
+    {# Small Text #}
+    {% if text_small %}
+      <div class="ts-text-high-contrast body-sm">
+        {{ text_small }}
+      </div>
+    {% endif %}
+
+  </div> {# End text wrapper #}
+
+  {# Image #}
+  {% if has_image %}
+    <div class="aspect-[5/3] inline-block ml-sm max-w-4xl overflow-hidden">
+      {% block card_image %}
+        {% set classes = "lazyloaded w-full ts-border-radius" %}
+      {% endblock %}
+    </div>
+  {% endif %}
+
+</div>

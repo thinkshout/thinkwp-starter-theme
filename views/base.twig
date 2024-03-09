@@ -6,20 +6,24 @@
 <!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{site.language_attributes}}> <![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" {{site.language_attributes}}> <!--<![endif]-->
 
-	<head>{% include 'components/head.twig' %}</head>
+<head>{% include 'organisms/header/head.twig' %}</head>
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		{% include 'components/body-scripts.twig' %}
+  {% include 'organisms/header/body-scripts.twig' %}
     <a class="skip-link screen-reader-text" href="{{post.link}}#content">{{ __( 'Skip to content', 'thinktimber' ) }}</a>
-		{% include 'components/header.twig' %}
+		{% block header %}
+      {% include 'organisms/header/header.twig' %}
+		{% endblock %}
 
 		<section id="content" role="main" class="content-wrapper">
 			{% if title %}<h1>{{title}}</h1>{% endif %}
 			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					Sorry, no content
-				{% endblock %}
+        {% block content %}
+          {# Sets default bg color, can be overriden by setting a value in any extending template. #}
+          {% set bg_color = bg_color ?? 'ts-bg-lt' %}
+          {{ __('Sorry, no content', 'ts') }}
+        {% endblock %}
 			</div>
 			{% if sidebar %}
 				<aside class="layout-sidebar">
@@ -28,7 +32,9 @@
 			{% endif %}
 		</section>
 
-		{% include 'components/footer.twig' %}
-		{% include 'components/footer-scripts.twig' %}
+		{% block footer %}
+      {% include 'organisms/footer/display/footer.twig' %}
+		{% endblock %}
+  {% include 'organisms/footer/footer-scripts.twig' %}
 	</body>
 </html>

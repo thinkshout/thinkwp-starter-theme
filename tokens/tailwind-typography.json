@@ -1,155 +1,113 @@
 {
   "style": {
-    ".h1-lede": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-2xl)",
-      "fontWeight": "var(--font-weight-medium)",
-      "letterSpacing": "-0.01em",
-      "lineHeight": "var(--lh-120)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-7xl)"
-      }
-    },
     ".h1": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-3xl)",
-      "fontWeight": "var(--font-weight-medium)",
-      "letterSpacing": "-0.01em",
-      "lineHeight": "var(--lh-110)",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "2rem /* 32px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-12);",
       "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-6xl)"
+        "font-size": "3rem /* 48px */;"
       }
     },
     ".h2": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-xl)",
-      "fontWeight": "var(--font-weight-medium)",
-      "lineHeight": "var(--lh-130)",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.5rem /* 24px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-12);",
       "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-3xl)"
-      },
-      "@media ( min-width: 1200px )": {
-        "fontSize": "var(--font-size-5xl)"
+        "font-size": "2rem /* 32px */;"
       }
     },
     ".h3": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-md)",
-      "fontWeight": "var(--font-weight-medium)",
-      "lineHeight": "var(--lh-130)",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.3125rem /* 21px */;",
+      "font-weight": "var(--font-weight-semibold);",
+      "line-height": "var(--lh-15);",
       "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-lg)"
-      },
-      "@media ( min-width: 1200px )": {
-        "fontSize": "var(--font-size-3xl)"
+        "font-size": "1.5rem /* 24px */;"
       }
     },
     ".h4": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-base)",
-      "fontWeight": "var(--font-weight-regular)",
-      "lineHeight": "var(--lh-130)",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.125rem /* 18px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-13);",
       "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-lg)"
-      },
-      "@media ( min-width: 1200px )": {
-        "fontSize": "var(--font-size-2xl)"
+        "font-size": "1.3125rem /* 21px */;"
       }
     },
     ".h5": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-xs)",
-      "fontWeight": "var(--font-weight-regular)",
-      "lineHeight": "var(--lh-130)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-base)"
-      },
-      "@media ( min-width: 1200px )": {
-        "fontSize": "var(--font-size-xl)"
-      }
+      "font-family": "var(--font-family-sans);",
+      "font-size": ".75rem /* 12px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-130);",
+      "text-transform": "uppercase;",
+      "letter-spacing": "1px;"
     },
-    ".body-lg-bold": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-md)",
-      "fontWeight": "var(--font-weight-medium)",
-      "lineHeight": "var(--lh-140)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-lg)"
-      }
-    },
-    ".body-lg": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-md)",
-      "fontWeight": "var(--font-weight-regular)",
-      "lineHeight": "var(--lh-140)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-lg)"
-      }
-    },
-    ".body-md": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-md)",
-      "fontWeight": "var(--font-weight-medium)",
-      "lineHeight": "var(--lh-130)"
-    },
-    ".body": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-sm)",
-      "fontWeight": "var(--font-weight-regular)",
-      "lineHeight": "var(--lh-140)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-base)"
+    ".body-base": {
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.0625rem /* 17px */;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-15);",
+      "@media (min-width: 769px)": {
+        "font-size": "1.125rem; /* 18px */;"
       }
     },
     ".body-sm": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-xs)",
-      "fontWeight": "var(--font-weight-regular)",
-      "lineHeight": "var(--lh-160)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-xs)"
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.066rem /* 15px */;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-15);",
+      "@media (min-width: 769px)": {
+        "font-size": "1rem; /* 16px */;"
       }
     },
-    ".btn-back": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-2xs)",
-      "fontWeight": "var(--font-weight-medium)",
-      "lineHeight": "var(--lh-160)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-xs)"
-      }
+    ".body-xs": {
+      "font-family": "var(--font-family-sans);",
+      "font-size": ".875rem; /* 14px */;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-15);"
     },
-    ".utility-md": {
-      "fontFamily": "var(--font-family-mono)",
-      "fontSize": "var(--font-size-3xs)",
-      "fontWeight": "var(--font-weight-regular)",
-      "lineHeight": "var(--lh-150)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-xs)"
-      }
+    ".tag": {
+      "font-family": "var(--font-family-sans);",
+      "font-size": ".75rem /* 12px */;",
+      "font-weight": "var(--font-weight-bold);",
+      "line-height": "var(--lh-130);",
+      "letter-spacing": "1px;",
+      "text-transform": "uppercase;"
     },
-    ".utility": {
-      "fontFamily": "var(--font-family-mono)",
-      "fontSize": "var(--font-size-3xs)",
-      "fontWeight": "var(--font-weight-regular)",
-      "lineHeight": "var(--lh-200)"
+    ".blockquote": {
+      "color": "var(--color-high-contrast);",
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.5rem /* 24px */;",
+      "font-style": "italic;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-16);"
     },
-    ".text-nav--main": {
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-xl)",
-      "fontWeight": "var(--font-weight-medium)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-md)"
-      }
+    ".utility-lg": {
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1rem /* 16px */;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-16);"
     },
-    ".text-label": {
-      "color": "var(--color-black)",
-      "fontFamily": "var(--font-family-sans)",
-      "fontSize": "var(--font-size-sm)",
-      "fontWeight": "var(--font-weight-medium)",
-      "@media ( min-width: 769px )": {
-        "fontSize": "var(--font-size-base)"
-      }
+    ".utility-sm": {
+      "font-family": "var(--font-family-sans);",
+      "font-size": ".8125rem /* 13px */;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-16);"
+    },
+    ".utility-xl": {
+      "font-family": "var(--font-family-sans);",
+      "font-size": "1.125rem /* 18px */;",
+      "font-weight": "var(--font-weight-regular);",
+      "line-height": "var(--lh-13);"
+    },
+    ".link-sm": {
+      "font-family": "var(--font-family-serif);",
+      "font-size": "1rem /* 16px */;",
+      "font-weight": "var(--font-weight-light);",
+      "line-height": "var(--lh-15);"
     }
+
   }
 }

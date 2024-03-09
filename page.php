@@ -21,8 +21,29 @@
  * @since    Timber 0.1
  */
 
+$templates = array( 'templates/pages/page.twig' );
+
 $context = Timber::context();
 
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
-Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );
+
+// Add page slug based template lookup.
+array_unshift(
+	$templates,
+	'templates/pages/page-' . $timber_post->post_name
+	. '.twig'
+);
+
+// Check if this is the style guide page.
+if ( 'style-guide' === $timber_post->post_name ) {
+	$acf_block_types      = acf_get_store( 'block-types' );
+	$context['ts_blocks'] = $acf_block_types->get_data();
+}
+
+// Check if this is the home page and add template lookup.
+if ( is_front_page() ) {
+	array_unshift( $templates, 'templates/pages/page-home.twig' );
+}
+
+Timber::render( $templates, $context );

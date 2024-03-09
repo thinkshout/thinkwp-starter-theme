@@ -1,0 +1,88 @@
+{# Button and Link Styles#}
+
+{% set btnLinkStyles = [
+  'btn-solid',
+  'btn-outline',
+  'btn-underline',
+  'btn-text-link'
+] %}
+
+{% set sizes = [
+  'lg',
+  'md',
+  'sm'
+] %}
+
+{#TO SEE ALL COLORWAYS, ADD THESE BG COLORS#}
+{#  "Brand Colorway 1": 'ts-bg-brand-1',#}
+{#  "Brand Colorway 2": 'ts-bg-brand-2'#}
+{#  "Light Colorway": 'ts-bg-lt',#}
+{% set bgColors = {
+  "Dark Colorway": 'ts-bg-dk',
+  "Light Colorway": 'ts-bg-lt',
+  "Brand 1 Colorway": 'ts-bg-brand-1',
+  "Brand 2 Colorway": 'ts-bg-brand-2',
+}
+%}
+
+{% set svgs = {
+  "before": "download",
+  "after": "arrow-right",
+  "none": "",
+}
+%}
+
+{% set iconBtnLinkStyles = [
+
+] %}
+
+{% set link_url = '/' %}
+<span class="hidden bg-black bg-neutral-100 bg-neutral-500 bg-white btn--sm btn--md
+btn--lg ts-bg-brand-1"></span>
+<span class="py-xs py-2xs px-sm px-md "></span>
+<p class="body-sm gray mt-sm mb-md">Buttons and links with icons are reusable components found in twig
+  "views/btns"</p>
+Button styles
+<p class="utility-sm">All button and links can be included in a template, or applied with "@" syntax in CSS.
+<p class="utility-sm mt-zero">CSS: tokens/tailwind-btns.json</p>
+<p class="utility-sm mt-zero">HTML: views/atoms/btns</p>
+<hr class="mt-sm mb-sm">
+
+{# Loops through buttons, prints them on all backgrounds at all sizes #}
+{% for key, bgColor in bgColors %}
+  <h3 class="h5 mt-base">{{ key }}</h3>
+  {% for btn in btnLinkStyles %}
+    <div class="px-base py-xs {{ bgColor }}">
+      {% for size in sizes %}
+        <div class="py-sm flex items-center justify-between gap-sm">
+          {% for key, svg in svgs %}
+
+            {% include 'atoms/btns/' ~ btn ~ '.twig' with {
+              link: {title: btn ~ " " ~ size, url: link_url},
+              size: size,
+              svg_position: key,
+              link_svg_name: svg,
+              icon_only: false
+            } %}
+            <span class="mr-sm">
+              {% if key == 'none' %}
+                {% include 'atoms/btns/' ~ btn ~ '.twig' with {
+                  link: {title: btn ~ " " ~ size, url: link_url},
+                  size: size,
+                  link_svg_name: "arrow-right",
+                  icon_only: true
+                } %}
+              {% endif %}
+            </span>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  <div class="{{ bgColor }} p-md">
+    {% include "/molecules/social-nav.twig" %}
+    <div class="my-md">
+      {% include "/atoms/btns/btn-tag.twig" with { svg_name: "hike-type", text: "Btn-Tag"} %}
+    </div>
+  </div>
+{% endfor %}

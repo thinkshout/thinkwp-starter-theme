@@ -1,0 +1,58 @@
+{# Card Search Listing
+ *
+ * Seen on Search Listing.
+ * Variables:
+ * - has_image
+ * - btn_tag_text
+ * - title
+ * - text
+ * - text_small
+ * - link_url
+ * - link
+#}
+
+{% set link_url = link.url ? link.url : link %}
+
+<div class="ts-bg-card card-listing flex rounded-[10px] relative ts-bg-lt ts-hocus-scale py-md">
+
+  {# Image #}
+  {% if has_image %}
+    <div class="inline-block mr-sm max-w-4xl">
+      {% block card_image %}
+      {% endblock %}
+    </div>
+  {% endif %}
+
+  {# Text wrapper #}
+  <div class="inline-block">
+
+    {# Tag #}
+    {% if btn_tag_text %}
+      <div class="mb-2xs">
+        {% include "atoms/btns/btn-tag.twig" with {
+          text: btn_tag_text
+        } %}
+      </div>
+    {% endif %}
+
+    {# Full Card Link #}
+    {% include "molecules/cards/card-overlay-link.html.twig" with { link_url: link_url } %}
+
+    {# Title #}
+    <a href="{{ link_url }}" class="card-title-hocus"><h3 class="h3 mb-2xs ts-text-high-contrast">{{ title }}</h3></a>
+
+    {# Text #}
+    {% if text %}
+      <p class="body-sm mb-2xs ts-text-high-contrast">{{ text }}</p>
+    {% endif %}
+
+    {# Small Text #}
+    {% if text_small %}
+      <div class="ts-text-md-contrast body-xs">
+        {{ text_small }}
+      </div>
+    {% endif %}
+
+  </div> {# End text wrapper #}
+
+</div>

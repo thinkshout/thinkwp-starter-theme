@@ -35,12 +35,12 @@ if ( class_exists( 'Timber\Timber' ) ) {
 /**
  * Sets the directories (inside your theme) to find .twig files
  */
-Timber::$dirname = [ 'views' ];
+Timber::$dirname = array( 'views' );
 
 /**
  * Sets template directory locations inside the theme.
  */
-Timber::$locations = [ get_template_directory() . '/templates', get_template_directory() ];
+Timber::$locations = array( get_template_directory() . '/templates', get_template_directory() );
 
 /**
  * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
@@ -65,28 +65,86 @@ class Theme extends Timber\Site {
 	 * @var string $this->scripts_dir The directory of the scripts to be used.
 	 */
 	protected $scripts_dir = 'dist';
+	/**
+	 * Theme menus.
+	 *
+	 * @var array $this->menus The menus to be registered.
+	 */
+	protected $thinktimber_menus = array();
+
 	/** Add timber support. */
 	public function __construct() {
 		// Theme activation and deactivation hooks!
-		register_activation_hook( __FILE__, [ $this, 'thinktimber_activate' ] );
+		add_action( 'after_switch_theme', array( $this, 'thinktimber_activate' ) );
 
 		// Actions, Filters, and Theme Setup!
-		add_action( 'init', [ $this, 'register_post_types' ] );
-		add_action( 'init', [ $this, 'register_taxonomies' ] );
-		add_action( 'after_setup_theme', [ $this, 'thinktimber_content_width' ], 0 );
-		add_action( 'after_setup_theme', [ $this, 'thinktimber_setup' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'thinktimber_scripts' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'thinktimber_admin_scripts' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'thinktimber_block_editor_scripts' ] );
-		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
-		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
-		add_filter( 'script_loader_tag', [ $this, 'thinktimber_defer_scripts' ], 10, 2 );
-		add_filter( 'acf/settings/save_json', [ $this, 'my_acf_json_save_point' ] );
-		add_filter( 'acf/settings/load_json', [ $this, 'my_acf_json_load_point' ] );
+		// Actions.
+		add_action( 'init', array( $this, 'register_post_types' ) );
+		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'thinktimber_remove_comment_links' ) );
+		add_action( 'after_setup_theme', array( $this, 'thinktimber_setup' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'thinktimber_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'thinktimber_admin_scripts' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'thinktimber_block_editor_scripts' ) );
+		add_action( 'admin_init', array( $this, 'thinktimber_disable_comments' ) );
+		add_action( 'admin_init', array( $this, 'remove_content_editor' ) );
+		add_action( 'admin_menu', array( $this, 'thinktimber_remove_comments_page' ) );
+
+		// Filters.
+		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
+		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
+		add_filter( 'acf/settings/save_json', array( $this, 'thinktimber_acf_json_save_point' ) );
+		add_filter( 'acf/settings/load_json', array( $this, 'thinktimber_acf_json_load_point' ) );
+		add_filter( 'render_block', array( $this, 'thinktimber_wrap_gutenberg_blocks' ), 10, 2 );
+		add_filter( 'use_block_editor_for_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
+		add_filter( 'gutenberg_can_edit_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
+		add_filter( 'allowed_block_types_all', array( $this, 'allowed_block_types' ), 10, 2 );
+		add_filter( 'landing_page_blocks', array( $this, 'make_landing_page_blocks' ) );
+		// Disable Comments and Ping Backs.
+		add_filter( 'comments_open', '__return_false', 20, 2 );
+		add_filter( 'pings_open', '__return_false', 20, 2 );
+		add_filter( 'comments_array', '__return_empty_array', 10, 2 );
+		// XML-RPC Disabler.
+		add_filter( 'xmlrpc_enabled', '__return_false' );
 
 		// Set scripts version to theme version set in style.css.
 		$this->scripts_version = wp_get_theme()->get( 'Version' );
 
+		// Theme menus.
+		$this->thinktimber_menus = array(
+			array(
+				'location'    => 'header_primary_navigation',
+				'description' => 'Header Primary Navigation',
+			),
+			array(
+				'location'    => 'header_utility_navigation',
+				'description' => 'Header Utility Navigation',
+			),
+			array(
+				'location'    => 'footer_about',
+				'description' => 'Footer About',
+			),
+			array(
+				'location'    => 'footer_programs',
+				'description' => 'Footer Programs',
+			),
+			array(
+				'location'    => 'footer_get_involved',
+				'description' => 'Footer Get Involved',
+			),
+			array(
+				'location'    => 'footer_copyright',
+				'description' => 'Footer Copyright',
+			),
+		);
+
+		// If the Timber ACF Blocks library is installed, load it. https://github.com/palmiak/timber-acf-wp-blocks .
+		if ( class_exists( 'Timber_Acf_Wp_Blocks' ) ) {
+			// Register blocks in views/blocks with ACF.
+			new Timber_Acf_Wp_Blocks();
+		}
+
+		// That's it, construct the parent Timber\Site object.
 		parent::__construct();
 	}
 
@@ -94,20 +152,26 @@ class Theme extends Timber\Site {
 	 * Theme activation hook
 	 */
 	public function thinktimber_activate() {
+		// Create a style guide page if it doesn't exist.
 		$style_guide_page = array(
 			'post_title'  => 'Style Guide',
 			'post_status' => 'private',
 			'post_author' => 1,
-			'post_type'   => 'page'
+			'post_type'   => 'page',
 		);
-		wp_insert_post( $style_guide_page );
+		// Check if the page exists.
+		$style_guide_page_check = get_page_by_title( $style_guide_page['post_title'] );
+		// If the page doesn't exist, create it.
+		if ( ! $style_guide_page_check ) {
+			wp_insert_post( $style_guide_page );
+		}
 		// Add any additional activation code here.
 	}
 
 	/** This is where you can register custom post types. */
 	public function register_post_types() {
 		require_once __DIR__ . '/helpers/class-custom-post-type.php';
-		$thinktimber_post_types = [];
+		$thinktimber_post_types = array();
 		foreach ( $thinktimber_post_types as $thinktimber_post_type ) {
 			$thinktimber_post_type->add_to_wp();
 		}
@@ -116,10 +180,163 @@ class Theme extends Timber\Site {
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
 		require_once __DIR__ . '/helpers/class-custom-taxonomy.php';
-		$thinktimber_taxonomies = [];
+		$thinktimber_taxonomies = array();
 		foreach ( $thinktimber_taxonomies as $thinktimber_taxonomy ) {
 			$thinktimber_taxonomy->add_to_wp();
 		}
+	}
+
+	/**
+	 * Get post loaded in editor
+	 */
+	protected function get_admin_post() {
+		// @codingStandardsIgnoreStart
+		if ( ! ( is_admin() && ! empty( $_GET['post'] ) ) ) {
+			return null;
+		}
+		return $_GET['post'];
+		// @codingStandardsIgnoreEnd
+	}
+
+	/**
+	 * Check if we're editing the style guide page.
+	 */
+	protected function is_style_guide_page() {
+		$post_id = $this->get_admin_post();
+		if ( is_null( $post_id ) ) {
+			return false;
+		}
+		$style_guide_page    = get_page_by_title( 'Style Guide' );
+		$style_guide_page_id = strval( $style_guide_page->ID );
+		if ( $style_guide_page_id === $post_id ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Remove Gutenberg Editor from front page and any other pages that shouldn't have it.
+	 *
+	 * @param boolean $can_edit true or false user can edit.
+	 */
+	public function check_post_can_gutenberg( $can_edit ) {
+		$post_id = $this->get_admin_post();
+		if ( is_null( $post_id ) ) {
+			return $can_edit;
+		}
+		$post_can_gutenberg = true;
+		// Check if the page is the landing page template, the style guide, or the front page.
+		if ( get_option( 'page_on_front' ) === $post_id || $this->is_style_guide_page() || get_page_template_slug( $post_id ) === 'templates/landing-page.php' ) {
+			$post_can_gutenberg = false;
+		}
+		return $post_can_gutenberg;
+	}
+
+	/**
+	 * Remove Content Editor from front page
+	 */
+	public function remove_content_editor() {
+		$post_id = $this->get_admin_post();
+		if ( is_null( $post_id ) ) {
+			return;
+		}
+		// Check if the page is the landing page template, the style guide, or the front page.
+		if ( get_option( 'page_on_front' ) === $post_id || $this->is_style_guide_page() || get_page_template_slug( $post_id ) === 'templates/landing-page.php' ) {
+			remove_post_type_support( 'page', 'editor' );
+		}
+	}
+
+	/** Disable Comments for the theme */
+	public function thinktimber_disable_comments() {
+		// Redirect any user trying to access comments page.
+		global $pagenow;
+
+		if ( 'edit-comments.php' === $pagenow ) {
+			wp_safe_redirect( admin_url() );
+			exit;
+		}
+
+		// Remove comments metabox from dashboard.
+		remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+
+		// Disable support for comments and trackbacks in post types.
+		foreach ( get_post_types() as $post_type ) {
+			if ( post_type_supports( $post_type, 'comments' ) ) {
+				remove_post_type_support( $post_type, 'comments' );
+				remove_post_type_support( $post_type, 'trackbacks' );
+			}
+		}
+	}
+
+	/** Remove Comments Page From Menus */
+	public function thinktimber_remove_comments_page() {
+		remove_menu_page( 'edit-comments.php' );
+	}
+
+	/** Remove comment links from admin bar */
+	public function thinktimber_remove_comment_links() {
+		if ( is_admin_bar_showing() ) {
+			remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
+		}
+	}
+
+	/**
+	 * Process landing page flexible content blocks.
+	 *
+	 * @param object $timber_post The post containing a landing_page_content field.
+	 *
+	 * @return object The timber post with blocks constructed.
+	 */
+	public function make_landing_page_blocks( $timber_post ) {
+		// Get the flexible content block helper class.
+		require_once __DIR__ . '/helpers/class-flexible-block.php';
+		// Get the landing page content array.
+		$landing_content                   = get_field( 'landing_page_content', $timber_post->ID );
+		$timber_post->landing_page_content = $landing_content ? $landing_content : array();
+
+		// Loop through the landing page content blocks and make them.
+		foreach ( $timber_post->landing_page_content as &$landing_page_block ) {
+			$landing_block      = new Flexible_Block( $landing_page_block );
+			$landing_page_block = $landing_block->make_block();
+		}
+
+		return $timber_post;
+	}
+
+	/**
+	 * Filter allowed gutenberg blocks.
+	 *
+	 * @param array                   $allowed_block_types Allowed block types.
+	 * @param WP_Block_Editor_Context $block_editor_context The block editor context.
+	 *
+	 * @return array
+	 */
+	public function allowed_block_types( $allowed_block_types, $block_editor_context ) {
+		// If we're not on a post, return the default allowed block types.
+		if ( empty( $block_editor_context->post ) ) {
+			return $allowed_block_types;
+		}
+
+		require_once __DIR__ . '/helpers/allowed-blocks.php';
+
+		// Make sure we allow our ACF blocks.
+		$acf_block_types     = acf_get_store( 'block-types' );
+		$acf_block_types     = array_keys( $acf_block_types->get_data() );
+		$allowed_block_types = array_merge( $thinkwp_allowed_blocks, $acf_block_types );
+
+		return $allowed_block_types;
+	}
+
+	/**
+	 * Add wrapping div to all core gutenberg blocks.
+	 *
+	 * @param string $block_content The block content about to be appended.
+	 * @param array  $block The block being rendered.
+	 *
+	 * @return string The block content with a wrapping div.
+	 */
+	public function thinktimber_wrap_gutenberg_blocks( $block_content, $block ) {
+		return $block_content;
 	}
 
 	/** This is where you add some context
@@ -130,8 +347,23 @@ class Theme extends Timber\Site {
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your lib/class-theme.php file';
 		$context['notes'] = 'These values are available every time you call Timber::context();';
-		$context['menu']  = new Timber\Menu();
-		$context['site']  = $this;
+
+		// Add menus to context.
+		$context['menus'] = array();
+		foreach ( $this->thinktimber_menus as $thinktimber_menu ) {
+			$context['menus'][ $thinktimber_menu['location'] ] = new Timber\Menu( $thinktimber_menu['location'] );
+		}
+
+		// Add site to context.
+		$context['site'] = $this;
+
+		// Add site logo to context if it exists.
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		if ( $custom_logo_id ) {
+			$context['site_logo'] = new Timber\Image( $custom_logo_id );
+		}
+
+		// Return context.
 		return $context;
 	}
 
@@ -143,6 +375,15 @@ class Theme extends Timber\Site {
 	 * as indicating support for post thumbnails.
 	 */
 	public function thinktimber_setup() {
+		/*
+		 * Register navigation menus.
+		 */
+		$thinktimber_nav_menus = array();
+		foreach ( $this->thinktimber_menus as $nav_menu ) {
+			$thinktimber_nav_menus[ $nav_menu['location'] ] = $nav_menu['description'];
+		}
+		register_nav_menus( $thinktimber_nav_menus );
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -165,6 +406,13 @@ class Theme extends Timber\Site {
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+
+		/**
+		 * Enable support for Custom Logo.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/custom-logo/
+		 */
+		add_theme_support( 'custom-logo' );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -201,16 +449,18 @@ class Theme extends Timber\Site {
 		add_theme_support( 'menus' );
 
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'dist/motif-admin.css' );
+		add_editor_style( "$this->scripts_dir/motif-admin.css" );
 	}
 
 	/**
 	 * Enqueue scripts and styles.
 	 */
 	public function thinktimber_scripts() {
-		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$this->scripts_dir/motif.css", [], $this->scripts_version );
-		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif.js", [ 'jquery' ], $this->scripts_version, true );
+		wp_enqueue_style( 'thinktimber-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap', array(), $this->scripts_version );
+		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$this->scripts_dir/motif.css", array(), $this->scripts_version );
+		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif.js", array(), $this->scripts_version, true );
 
+		// Pass themeBase and ajaxUrl to JS.
 		wp_localize_script(
 			'thinktimber-scripts',
 			'thinktimber',
@@ -219,10 +469,6 @@ class Theme extends Timber\Site {
 				'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
 			)
 		);
-
-		wp_enqueue_script( 'thinktimber-navigation', get_template_directory_uri() . '/assets/js/navigation.js', [], $this->scripts_version, true );
-
-		wp_enqueue_script( 'thinktimber-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', [], $this->scripts_version, true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
@@ -234,8 +480,6 @@ class Theme extends Timber\Site {
 	 */
 	public function thinktimber_admin_scripts() {
 		// Fonts.
-		wp_enqueue_style( 'thinktimber-fonts', 'https://use.typekit.net/kitId.css', [], $this->scripts_version );
-		wp_enqueue_script( 'thinktimber-font-awesome', 'https://kit.fontawesome.com/3d318b83b5.js', [], $this->scripts_version, false );
 	}
 
 	/**
@@ -243,51 +487,33 @@ class Theme extends Timber\Site {
 	 */
 	public function thinktimber_block_editor_scripts() {
 		// Scripts.
-		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/dist/motif-admin.js", [ 'wp-edit-post' ], $scripts_version, true );
+		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif-admin.js", array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ), $this->scripts_version, true );
 	}
 
 	/**
-	 * Add defer tag to given script tags
+	 * Modify ACF JSON save point.
 	 *
-	 * @param string $tag Script tag.
-	 * @param string $handle Script handle.
+	 * @param string $path The path to the ACF JSON save point.
 	 *
-	 * @return string
+	 * @return string The path to the ACF JSON save point.
 	 */
-	public function thinktimber_defer_scripts( $tag, $handle ) {
-		$deferred_scripts = [ 'alpinejs' ];
-
-		if ( in_array( $handle, $deferred_scripts, true ) ) {
-			return str_replace( ' src', ' defer="defer" src', $tag );
-		}
-
-		return $tag;
-	}
-
-	function my_acf_json_save_point( $path ) {
+	public function thinktimber_acf_json_save_point( $path ) {
 		$path = get_stylesheet_directory() . '/acf-json';
 
 		return $path;
 	}
 
-	function my_acf_json_load_point( $paths ) {
+	/**
+	 * Modify ACF JSON load point.
+	 *
+	 * @param array $paths The paths to the ACF JSON load points.
+	 *
+	 * @return array The paths to the ACF JSON load points.
+	 */
+	public function thinktimber_acf_json_load_point( $paths ) {
 		$paths[] = get_stylesheet_directory() . '/acf-json';
 
 		return $paths;
-	}
-
-	/**
-	 * Set the content width in pixels, based on the theme's design and stylesheet.
-	 *
-	 * Priority 0 to make it available to lower priority callbacks.
-	 *
-	 * @global int $content_width
-	 */
-	public function thinktimber_content_width() {
-		// This variable is intended to be overruled from themes.
-		// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-		$GLOBALS['content_width'] = apply_filters( 'thinktimber_content_width', 640 );
 	}
 
 	/** This Would return 'foo bar!'.
@@ -297,6 +523,26 @@ class Theme extends Timber\Site {
 	public function myfoo( $text ) {
 		$text .= ' bar!';
 		return $text;
+	}
+
+	/**
+	 * Get posts for card grid using an array of IDs.
+	 *
+	 * @param array $post_ids The post IDs to get.
+	 *
+	 * @return array The timber posts.
+	 */
+	public static function make_cards_for_grid( $post_ids = array() ) {
+		$posts = array();
+		if ( ! $post_ids ) {
+			return $posts;
+		}
+		require_once __DIR__ . '/helpers/class-card-post.php';
+		foreach ( $post_ids as $post_id ) {
+			$posts[] = new Card_Post( $post_id );
+		}
+
+		return $posts;
 	}
 
 	/**
@@ -319,6 +565,13 @@ class Theme extends Timber\Site {
 			new Timber\Twig_Function(
 				'console',
 				array( $this, 'php_console' )
+			)
+		);
+		// Get Posts by IDs.
+		$twig->addFunction(
+			new Timber\Twig_Function(
+				'make_cards_for_grid',
+				array( $this, 'make_cards_for_grid' )
 			)
 		);
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );

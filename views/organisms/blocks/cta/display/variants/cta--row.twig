@@ -1,0 +1,34 @@
+{# Call to Action (CTA) -- "row" style
+ *
+ * Configuration:
+ * - colorway
+ *
+ * Variables:
+ * - title
+ * - eyebrow
+ * - text
+ * - primary_btn
+ * - secondary_btn
+#}
+
+<article class="block--cta ts-lovey {{ full_bg_color }}">
+  <div class="flex gap-md flex-col ts-block-container text-center md:text-left md:flex-row md:items-center md:justify-between {{ inset_bg_color }}">
+
+    {# Text Wrapper #}
+    <div class="flex flex-grow flex-col gap-base md:max-w-[75%]">
+      {% include "blocks/cta/cta--text.twig" %}
+    </div>
+
+    {# CTA #}
+    {% block cta %}
+      <div class="shrink-0 ">
+        {# Up to Two buttons #}
+        {% include "btns/btn-two-up.twig" with {
+          primary_btn: primary_btn,
+          secondary_btn: secondary_btn
+        } %}
+      </div>
+    {% endblock %}
+
+  </div>
+</article>

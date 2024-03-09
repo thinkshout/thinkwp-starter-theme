@@ -1,0 +1,240 @@
+/* COLORWAYS */
+
+.ts-text-low-contrast {
+	color: var(--color-low-contrast);
+}
+.ts-text-md-contrast {
+	color: var(--color-md-contrast);
+}
+.ts-text-high-contrast {
+	color: var(--color-high-contrast);
+}
+.ts-svg-high-contrast svg path {
+	fill: var(--color-high-contrast);
+}
+.ts-text-action {
+	color: var(--color-action);
+}
+
+/* DARK COLORWAY */
+.ts-bg-dk {
+	@apply bg-neutral-900;
+	.ts-bg-card {
+		@apply bg-neutral-800;
+	}
+	/* Text colors on Dark Colorway */
+	--color-high-contrast: var(--color-white);
+	--color-md-contrast: var(--color-neutral-300);
+	--color-low-contrast: var(--color-neutral-500);
+	--color-action: var(--color-primary-300);
+
+	/* Btn Social on Dark Colorway */
+	--color-btn-social--bg: var(--color-primary-100);
+	--color-btn-social--svg: var(--color-primary-900);
+	--color-btn-social--bg--hover: var(--color-primary-100 );
+	--color-btn-social--bg--focus: var(--color-primary-100);
+	--color-btn-social--svg--hover: var(--color-secondary-500);
+	--color-btn-social--svg--focus: var(--color-secondary-500);
+
+	/* Btn Outline on Dark Colorway */
+	--color-btn-outline--text: var(--color-white);
+	--color-btn-outline--text--hover: var(--color-white);
+	--color-btn-outline--text--focus: var(--color-white);
+	--color-btn-outline--border: var(--color-white);
+	--color-btn-outline--border--hover: var(--color-white);
+	--color-btn-outline--border--focus: var(--color-white);
+	--color-btn-outline--bg: transparent;
+	--color-btn-outline--bg--hover: var(--color-neutral-700);
+	--color-btn-outline--bg--focus: var(--color-neutral-700);
+	--color-btn-outline--svg: var(--color-white);
+	--color-btn-outline--svg--hover: var(--color-white);
+	--color-btn-outline--svg--focus: var(--color-white);
+
+	/* Btn Solid on Dark Colorway */
+	--color-btn-solid--text: var(--color-white);
+	--color-btn-solid--text--hover: var(--color-white);
+	--color-btn-solid--text--focus: var(--color-white);
+	--color-btn-solid--bg: var(--color-primary-500);
+	--color-btn-solid--bg--hover: var(--color-primary-300);
+	--color-btn-solid--bg--focus: var(--color-primary-300);
+	--color-btn-solid--svg: var(--color-white);
+	--color-btn-solid--svg--hover: var(--color-white);
+	--color-btn-solid--svg--focus: var(--color-white);
+
+	/* Btn Underline on Dark Colorway */
+	--color-btn-underline--text: var(--color-primary-100);
+	--color-btn-underline--text--hover: var(--color-primary-300);
+	--color-btn-underline--text--focus: var(--color-primary-300);
+	--color-btn-underline--svg: var(--color-primary-100);
+	--color-btn-underline--svg--hover: var(--color-primary-300);
+	--color-btn-underline--svg--focus: var(--color-primary-300);
+}
+
+/* LIGHT COLORWAY */
+.ts-bg-lt,
+.wp-block-post-content.block-editor-block-list__layout {
+	@apply bg-white;
+
+	/* Text colors on light colorway */
+	--color-high-contrast: var(--color-primary-900);
+	--color-md-contrast: var(--color-neutral-800);
+	--color-low-contrast: var(--color-primary-500);
+	--color-action: var(--color-secondary-700);
+
+	.ts-bg-card {
+		@apply bg-neutral-100;
+	}
+
+	/* Btn Social on Light Colorway */
+	--color-btn-social--bg: var(--color-primary-100);
+	--color-btn-social--svg: var(--color-primary-900);
+	--color-btn-social--bg--hover: var(--color-primary-100 );
+	--color-btn-social--bg--focus: var(--color-primary-100);
+	--color-btn-social--svg--hover: var(--color-secondary-500);
+	--color-btn-social--svg--focus: var(--color-secondary-500);
+
+	/* Btn Outline on Light Colorway */
+	--color-btn-outline--text: var(--color-neutral-900);
+	--color-btn-outline--text--hover: var(--color-neutral-900);
+	--color-btn-outline--text--focus: var(--color-neutral-900);
+	--color-btn-outline--border: var(--color-neutral-300);
+	--color-btn-outline--border--hover: var(--color-neutral-900);
+	--color-btn-outline--border--focus: var(--color-neutral-900);
+	--color-btn-outline--bg: transparent;
+	--color-btn-outline--bg--hover: var(--color-neutral-200);
+	--color-btn-outline--bg--focus: var(--color-neutral-200);
+	--color-btn-outline--svg: var(--color-neutral-900);
+	--color-btn-outline--svg--hover: var(--color-neutral-900);
+	--color-btn-outline--svg--focus: var(--color-neutral-900);
+
+	/* Btn Solid on Light Colorway */
+	--color-btn-solid--text: var(--color-white);
+	--color-btn-solid--text--hover: var(--color-white);
+	--color-btn-solid--text--focus: var(--color-white);
+	--color-btn-solid--bg: var(--color-primary-500);
+	--color-btn-solid--bg--hover: var(--color-primary-700);
+	--color-btn-solid--bg--focus: var(--color-primary-700);
+	--color-btn-solid--svg: var(--color-white);
+	--color-btn-solid--svg--hover: var(--color-white);
+	--color-btn-solid--svg--focus: var(--color-white);
+
+	/* Btn Underline on Light Colorway */
+	--color-btn-underline--text: var(--color-primary-500);
+	--color-btn-underline--text--hover: var(--color-primary-700);
+	--color-btn-underline--text--focus: var(--color-primary-700);
+	--color-btn-underline--svg: var(--color-primary-500);
+	--color-btn-underline--svg--hover: var(--color-primary-700);
+	--color-btn-underline--svg--focus: var(--color-primary-700);
+}
+
+/* BRAND COLORWAY 1 */
+.ts-bg-brand-1 {
+	@apply bg-neutral-100;
+	.ts-bg-card {
+		@apply bg-neutral-50;
+	}
+
+	/* Text colors on Brand Colorway 1 */
+	--color-high-contrast: var(--color-neutral-900);
+	--color-md-contrast: var(--color-neutral-700);
+	--color-low-contrast: var(--color-neutral-600);
+	--color-action: var(--color-primary-500);
+
+	/* Btn Social on Brand Colorway 1 */
+	--color-btn-social--bg: var(--color-white);
+	--color-btn-social--svg: var(--color-primary-900);
+	--color-btn-social--bg--hover: var(--color-white );
+	--color-btn-social--bg--focus: var(--color-white);
+	--color-btn-social--svg--hover: var(--color-secondary-500);
+	--color-btn-social--svg--focus: var(--color-secondary-500);
+
+	/* Btn Solid on Brand Colorway 1 */
+	--color-btn-solid--text: var(--color-white);
+	--color-btn-solid--text--hover: var(--color-white);
+	--color-btn-solid--text--focus: var(--color-white);
+	--color-btn-solid--bg: var(--color-primary-500);
+	--color-btn-solid--bg--hover: var(--color-primary-700);
+	--color-btn-solid--bg--focus: var(--color-primary-700);
+	--color-btn-solid--svg: var(--color-white);
+	--color-btn-solid--svg--hover: var(--color-white);
+	--color-btn-solid--svg--focus: var(--color-white);
+
+	/* Btn Underline on Brand Colorway 1 */
+	--color-btn-underline--text: var(--color-primary-500);
+	--color-btn-underline--text--hover: var(--color-primary-700);
+	--color-btn-underline--text--focus: var(--color-primary-700);
+	--color-btn-underline--svg: var(--color-primary-500);
+	--color-btn-underline--svg--hover: var(--color-primary-700);
+	--color-btn-underline--svg--focus: var(--color-primary-700);
+
+	/* Btn Outline on Brand Colorway 1 */
+	--color-btn-outline--text: var(--color-neutral-900);
+	--color-btn-outline--text--hover: var(--color-neutral-900);
+	--color-btn-outline--text--focus: var(--color-neutral-900);
+	--color-btn-outline--border: var(--color-neutral-300);
+	--color-btn-outline--border--hover: var(--color-neutral-900);
+	--color-btn-outline--border--focus: var(--color-neutral-900);
+	--color-btn-outline--bg: transparent;
+	--color-btn-outline--bg--hover: var(--color-neutral-200);
+	--color-btn-outline--bg--focus: var(--color-neutral-200);
+	--color-btn-outline--svg: var(--color-neutral-900);
+	--color-btn-outline--svg--hover: var(--color-neutral-900);
+	--color-btn-outline--svg--focus: var(--color-neutral-900);
+}
+
+/* BRAND COLORWAY 2 */
+.ts-bg-brand-2 {
+	@apply bg-neutral-500;
+	.ts-bg-card {
+		@apply bg-neutral-50;
+	}
+
+	/* Text colors on Brand Colorway 2 */
+	--color-high-contrast: var(--color-white);
+	--color-md-contrast: var(--color-neutral-50);
+	--color-low-contrast: var(--color-neutral-200);
+	--color-action: var(--color-primary-300);
+
+	/* Btn Social on Brand Colorway 2 */
+	--color-btn-social--bg: var(--color-white);
+	--color-btn-social--svg: var(--color-primary-900);
+	--color-btn-social--bg--hover: var(--color-white );
+	--color-btn-social--bg--focus: var(--color-white);
+	--color-btn-social--svg--hover: var(--color-secondary-500);
+	--color-btn-social--svg--focus: var(--color-secondary-500);
+
+	/* Btn Outline on Brand Colorway 2 */
+	--color-btn-outline--text: var(--color-neutral-900);
+	--color-btn-outline--text--hover: var(--color-neutral-900);
+	--color-btn-outline--text--focus: var(--color-neutral-900);
+	--color-btn-outline--border: var(--color-neutral-300);
+	--color-btn-outline--border--hover: var(--color-neutral-900);
+	--color-btn-outline--border--focus: var(--color-neutral-900);
+	--color-btn-outline--bg: transparent;
+	--color-btn-outline--bg--hover: var(--color-neutral-200);
+	--color-btn-outline--bg--focus: var(--color-neutral-200);
+	--color-btn-outline--svg: var(--color-neutral-900);
+	--color-btn-outline--svg--hover: var(--color-neutral-900);
+	--color-btn-outline--svg--focus: var(--color-neutral-900);
+
+	/* Btn Solid on Brand Colorway 2 */
+	--color-btn-solid--text: var(--color-white);
+	--color-btn-solid--text--hover: var(--color-white);
+	--color-btn-solid--text--focus: var(--color-white);
+	--color-btn-solid--bg: var(--color-primary-500);
+	--color-btn-solid--bg--hover: var(--color-primary-700);
+	--color-btn-solid--bg--focus: var(--color-primary-700);
+	--color-btn-solid--svg: var(--color-white);
+	--color-btn-solid--svg--hover: var(--color-white);
+	--color-btn-solid--svg--focus: var(--color-white);
+
+	/* Btn Underline on Brand Colorway 2 */
+	--color-btn-underline--text: var(--color-primary-500);
+	--color-btn-underline--text--hover: var(--color-primary-700);
+	--color-btn-underline--text--focus: var(--color-primary-700);
+	--color-btn-underline--svg: var(--color-primary-500);
+	--color-btn-underline--svg--hover: var(--color-primary-700);
+	--color-btn-underline--svg--focus: var(--color-primary-700);
+}
+
+

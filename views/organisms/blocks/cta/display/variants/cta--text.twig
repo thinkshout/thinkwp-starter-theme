@@ -1,0 +1,19 @@
+{# CTA text
+ * - eyebrow
+ * - title
+ * - text
+#}
+
+{# Text #}
+{# Eyebrow #}
+{% if eyebrow %}
+  <p class="h5 ts-text-high-contrast">{{ eyebrow }}</p>
+{% endif %}
+{% if title %}
+  <h2 class="h2 ts-text-high-contrast">{{ title }}</h2>
+{% endif %}
+{% if text %}
+  <div class="wysiwyg-wrapper ts-text-high-contrast">
+    {{ text }}
+  </div>
+{% endif %}

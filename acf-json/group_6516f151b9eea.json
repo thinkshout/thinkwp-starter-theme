@@ -1,0 +1,85 @@
+{
+    "key": "group_6516f151b9eea",
+    "title": "Image Focal Point",
+    "fields": [
+        {
+            "key": "field_6516f1522f580",
+            "label": "Focal Point Settings",
+            "name": "focal_point",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6516f19b2f582",
+                    "label": "Horizontal Focal Point",
+                    "name": "horizontal_focal_point",
+                    "aria-label": "",
+                    "type": "range",
+                    "instructions": "Use this slider to select the horizontal point of the image to focus on. 0 is all the way left and 100 is all the way right.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 50,
+                    "min": 0,
+                    "max": 100,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6516f2032f583",
+                    "label": "Vertical Focal Point",
+                    "name": "vertical_focal_point",
+                    "aria-label": "",
+                    "type": "range",
+                    "instructions": "Use this slider to select the vertical point of the image to focus on. 0 is all the way to the top and 100 is all the way to the bottom.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 50,
+                    "min": 0,
+                    "max": 100,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "attachment",
+                "operator": "==",
+                "value": "image"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1696012280
+}

@@ -2,7 +2,7 @@ module.exports = {
   source: ["tokens/src/**/*.json"],
   format: {
     wordpressTheme: ({dictionary, platform}) => {
-      const { color, font, screen } = dictionary.tokens;
+      const { color, font } = dictionary.tokens;
       const theme = {
         $schema: "https://schemas.wp.org/trunk/theme.json",
         version: 2,
@@ -17,13 +17,11 @@ module.exports = {
             fontSizes: [],
           },
           spacing: {
-            padding: true,
-            margin: true,
-            units: [ "px", "em", "rem", "vh", "vw" ]
+            customSpacingSize: false,
           },
           layout: {
-            contentSize: "1442px",
-            wideSize: "2000px"
+            contentSize: "800px",
+            wideSize: "1440px"
           },
           blocks: {}
         }
@@ -79,13 +77,6 @@ module.exports = {
           });
         });
       }
-      // Set Layout Settings
-      if ( screen.siteMaxWidth ) {
-        theme.settings.layout.wideSize = screen.siteMaxWidth.value;
-      }
-      if ( screen.xl ) {
-        theme.settings.layout.contentSize = screen.xl.value;
-      }
       return JSON.stringify(theme, null, 2);
     }
   },
@@ -95,7 +86,7 @@ module.exports = {
       buildPath: "assets/",
       files: [
         {
-          destination: "css/base/_generated-variables.css",
+          destination: "css/_elements/_generated-variables.css",
           format: "css/variables",
           options: {
             showFileHeader: false,
