@@ -24,13 +24,13 @@
             {% set nav_classes = "body-base-bold bg-gray-100 block pl-sm py-xs rounded-md hover:underline
           focus:underline underline-offset-2" %}
             {% set subnav_classes = "body-xs block pl-lg py-xs hover:underline focus:underline underline-offset-2" %}
-            <li><a href="/style-guide#foundations" class="{{ nav_classes }}">Foundations</a></li>
+            <li><a href="/style-guide#elements" class="{{ nav_classes }}">Global Elements</a></li>
             <ul>
 
-              {# FOUNDATION LINKS #}
+              {# ATOM LINKS #}
               {#  @todo replace hardcoded arrays with a twig function to pull all files from
-              _styleguide_sections/foundation/#}
-              {% set foundations = [
+              styleguide-sections/foundation/#}
+              {% set elements = [
                 "color-all",
                 "color-bg",
                 "colorways",
@@ -38,28 +38,34 @@
                 "spacing",
                 "grids"
               ] %}
-              {% for foundation in foundations %}
-                <li><a href="/style-guide#{{ foundation }}" class="{{ subnav_classes }}">
-                    {{ foundation|replace({'-':" "})|capitalize }}
-                </a></li>
+              {% for element in elements %}
+                <li><a href="/style-guide#{{ element }}" class="{{ subnav_classes }}">
+                    {{ element|replace({'-':" "})|capitalize }}
+                  </a></li>
               {% endfor %}
 
             </ul>
-            <li><a href="/style-guide#components" class="{{ nav_classes }}">Components</a></li>
             <ul>
-
-              {# COMPONENT LINKS #}
-              {#  @todo replace hardcoded arrays with a twig function to pull all files from
-              _styleguide_sections/components/#}
-              {% set components = [
+              <li><a href="/style-guide#components" class="{{ nav_classes }}">Atoms & Molecules</a></li>
+              {% set atoms = [
                 "buttons-&-links",
                 "inputs",
+              ] %}
+              {% for atom in atoms %}
+                <li><a href="/style-guide#{{ atom }}" class="{{ subnav_classes }}">
+                    {{ atom|replace({'-':" "})|capitalize }}
+                  </a></li>
+              {% endfor %}
+              {# COMPONENT LINKS #}
+              {#  @todo replace hardcoded arrays with a twig function to pull all files from
+              styleguide-sections/atoms/#}
+              {% set molecules = [
                 "cards",
                 "section-title"
               ] %}
-              {% for component in components %}
-                <li><a href="/style-guide#{{ component }}" class="{{ subnav_classes }}">
-                    {{ component|replace({'-':" "})|capitalize }}
+              {% for molecule in molecules %}
+                <li><a href="/style-guide#{{ molecule }}" class="{{ subnav_classes }}">
+                    {{ molecule|replace({'-':" "})|capitalize }}
                   </a></li>
               {% endfor %}
             </ul>
@@ -67,7 +73,6 @@
             {# GLOBAL BLOCKS #}
             <li><a href="/style-guide#blocks--global" class="{{ nav_classes }}">Blocks (global)</a></li>
             <ul>
-              <li><a href="/style-guide#people-cards" class="{{ subnav_classes }}">People Cards</a></li>
               {# Blocks auto generate nav items and same page links to the block on the page #}
               {% for block in ts_blocks %}
                 {# Removes "acf/" from block name #}
@@ -76,6 +81,7 @@
                     block_name|replace({'-': " "})|capitalize }}
                   </a></li>
               {% endfor %}
+              <li><a href="/style-guide#people-cards" class="{{ subnav_classes }}">People Cards</a></li>
             </ul>
           </ul>
         </div>
@@ -85,29 +91,40 @@
     <div class="styleguide-menu-padding">
 
       {# FOUNDATION #}
-      <div class="py-block xl:container p-site" id="foundations">
-        <h2 class="{{ section_title_classes }}">Foundations</h2>
-        <p class="{{ section_description_classes }}">The "Foundations" section outlines the color tokens, typography styles, grid parameters, and spacing rules used throughout the theme.
+      <div class="py-block xl:container p-site" id="elements">
+        <h2 class="{{ section_title_classes }}">Global Elements</h2>
+        <p class="{{ section_description_classes }}">The "Foundations" section outlines the color tokens, typography
+          styles, grids, and spacing rules used throughout the design system.
         </p>
       </div>
 
-      {% for foundation in foundations %}
-      <div class="my-block xl:container p-site" id="{{ section }}">
-        {% include "/_styleguide_sections/foundation/" ~ foundation ~ ".twig" %}
-      </div>
+      {% for element in elements %}
+        <div class="my-block xl:container p-site" id="{{ section }}">
+          {% include "/organisms/styleguide-sections/_elements/" ~ element ~ ".twig" %}
+        </div>
       {% endfor %}
 
-      {# COMPONENTS #}
+      {# ATOMS & MOLECULES #}
       <div class="pt-block xl:container p-site" id="components">
-        <h2 class="{{ section_title_classes }}">Components</h2>
-        <p class="{{ section_description_classes }}">The “Components” section outlines larger UI elements throughout the theme including buttons, inputs, dropdowns, and cards that display a variety of different snippets of content. These elements are present within the larger blocks or sections of your page builder.
+        <h2 class="{{ section_title_classes }}">Atoms & molecules</h2>
+        <p class="{{ section_description_classes }}">The “Atoms & Molecules” section outlines larger UI elements
+          throughout the design system including buttons, inputs, dropdowns, and cards that display a variety of
+          content. These elements are present within the larger blocks or sections of your page builder.
         </p>
       </div>
 
-      {% for component in components %}
-        <div class="my-block xl:container p-site" id="{{ component }}">
-          <h2 class="{{ block_title_classes }}">{{ component|capitalize }}</h2>
-          {% include "/_styleguide_sections/components/" ~ component ~ ".twig" %}
+      {% for atom in atoms %}
+        <div class="my-block xl:container p-site" id="{{ atom }}">
+          <h2 class="{{ block_title_classes }}">{{ atom|capitalize }}</h2>
+          {% include "/organisms/styleguide-sections/atoms/" ~ atom ~ ".twig" %}
+        </div>
+        <hr class="{{ hr_classes }}">
+      {% endfor %}
+
+      {% for molecule in molecules %}
+        <div class="my-block xl:container p-site" id="{{ molecule }}">
+          <h2 class="{{ block_title_classes }}">{{ molecule|capitalize }}</h2>
+          {% include "/organisms/styleguide-sections/molecules/" ~ molecule ~ ".twig" %}
         </div>
         <hr class="{{ hr_classes }}">
       {% endfor %}
@@ -116,28 +133,35 @@
       <div class="py-block-sm" id="blocks--global">
         <div class="p-site xl:container">
           <h2 class="{{ section_title_classes }}">Blocks (global)</h2>
-          <p>Blocks available on all pages.</p>
+          <p>Blocks available on all pages. They can be used to build entire page layouts in dynamic ways.</p>
         </div>
       </div>
 
       {# Displays all custom Blocks #}
       {% for block in ts_blocks %}
-        {% set block_name = block.name|replace({'acf/': ''}) %}
-        <div class="py-block-sm" id="{{ block_name }}">
-          <div class="p-site xl:container">
-            <h2 class="{{ block_title_classes }}">{{ block.title }}</h2>
-            <p class="{{ block_description_classes }}">{{ block.description }}</p>
+        {% if block.title %}
+          {% set block_name = block.name|replace({'acf/': ''}) %}
+          <div class="py-block-sm" id="{{ block_name }}">
+            <div class="p-site xl:container">
+              <h2 class="{{ block_title_classes }}">{{ block.title }}</h2>
+              <p class="{{ block_description_classes }}">{{ block.description }}</p>
+            </div>
+            <div class="xl:container p-site my-block ts-bg-lt">
+              {% include "/organisms/blocks/" ~ block_name ~ "/" ~ block_name ~ "-example.twig" %}
+            </div>
           </div>
-          <div class="xl:container p-site my-block ts-bg-lt">
-            {% include "/blocks/" ~ block_name ~ "/" ~ block_name ~ "-example.twig" %}
-          </div>
-        </div>
-        <hr class="{{ hr_classes }}">
+        {% endif %}
       {% endfor %}
-{#      @todo think about where pagination should live, move it, update nav#}
-      <div class="article-pagination">
-        {% include "molecules/pagination/pagination.twig" %}
+      <div class="py-block-sm" id="people-cards">
+        <div class="p-site xl:container">
+          <h2 class="{{ block_title_classes }}">People cards</h2>
+          <p class="{{ block_description_classes }}">{{ block.description }}</p>
+        </div>
+        <div class="xl:container p-site my-block ts-bg-lt">
+          {% include "/organisms/blocks/people-cards/people-cards-example.twig" %}
+        </div>
       </div>
+      <hr class="{{ hr_classes }}">
 
     </div>
   </div>
