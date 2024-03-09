@@ -28,6 +28,13 @@ $context = Timber::context();
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
 
+// Add page slug based template lookup.
+array_unshift(
+	$templates,
+	'templates/pages/page-' . $timber_post->post_name
+	. '.twig'
+);
+
 // Check if this is the style guide page.
 if ( 'style-guide' === $timber_post->post_name ) {
 	$acf_block_types      = acf_get_store( 'block-types' );
