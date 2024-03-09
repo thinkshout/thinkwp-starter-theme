@@ -7,7 +7,7 @@
 		<li class="{{ item.classes | join(' ') }}">
 			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
 			{% if item.children %}
-			{% include "components/nav/menu.twig" with { 'items': item.children } %}
+        {% include "organisms/menu.twig" with { 'items': item.children } %}
 			{% endif %}
 		</li>
 	{% endfor %}
