@@ -21,7 +21,7 @@
 
 <div class="ts-grid-col-{{ number_of_columns }} my-block">
   {% for i in 1..number_of_cards %}
-    {% embed "/cards/card-" ~ size ~ ".html.twig" %}
+    {% embed "molecules/cards/card-" ~ size ~ ".html.twig" %}
       {% set image_sample = 1 %}
       {% block card_image %}
         <img class="{{ classes }}" src="{{site.theme.uri}}/assets/images/default-dark.png" alt="Placeholder image">
