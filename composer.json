@@ -1,0 +1,13 @@
+{
+  "name": "thinkshout/theme-scripts",
+  "description": "copies base assets into the theme",
+  "type": "project",
+  "keywords": [],
+  "scripts": {
+    "scaffold": [
+      "git clone git@github.com:thinkshout/base-assets.git",
+      "mv base-assets/scaffold/* ./",
+      "rm -rf base-assets"
+    ]
+  }
+}
