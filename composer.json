@@ -1,10 +1,11 @@
 {
-  "name": "thinkshout/theme-scripts",
-  "description": "copies base assets into the theme",
+  "name": "thinkshout/thinkwp-starter-theme",
+  "description": "A starter theme for ThinkShout WordPress projects.",
   "type": "project",
   "keywords": [],
   "scripts": {
     "scaffold": [
+      "rm -rf base-assets views assets tokens",
       "git clone git@github.com:thinkshout/base-assets.git",
       "mv base-assets/scaffold/* ./",
       "rm -rf base-assets"
