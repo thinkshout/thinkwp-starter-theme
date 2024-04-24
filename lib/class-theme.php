@@ -366,7 +366,7 @@ class Theme extends Timber\Site {
 	 *
 	 * @return string
 	 */
-	protected function ts_acf_json_save_point( $path ) {
+	public function ts_acf_json_save_point( $path ) {
 		$path = get_stylesheet_directory() . '/acf-json';
 
 		return $path;
@@ -379,7 +379,7 @@ class Theme extends Timber\Site {
 	 *
 	 * @return array
 	 */
-	protected function ts_acf_json_load_point( $paths ) {
+	public function ts_acf_json_load_point( $paths ) {
 		$paths[] = get_stylesheet_directory() . '/acf-json';
 
 		return $paths;
