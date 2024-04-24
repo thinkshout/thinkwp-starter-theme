@@ -25,4 +25,9 @@ $context = Timber::context();
 
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
+// Check if this is the style guide page.
+if ( 'style-guide' === $timber_post->post_name ) {
+	$acf_block_types      = acf_get_store( 'block-types' );
+	$context['ts_blocks'] = $acf_block_types->get_data();
+}
 Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );

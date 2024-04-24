@@ -10,5 +10,15 @@
       "mv base-assets/scaffold/* ./",
       "rm -rf base-assets"
     ]
+  },
+  "require": {
+    "timber/timber": "^1.0",
+    "palmiak/timber-acf-wp-blocks": "^1.15",
+    "jjgrainger/posttypes": "^2.2"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
   }
 }
