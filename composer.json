@@ -8,6 +8,8 @@
       "rm -rf base-assets views assets tokens",
       "git clone git@github.com:thinkshout/base-assets.git",
       "mv base-assets/scaffold/* ./",
+      "mv tmp/js/* ./assets/js/",
+      "rm -rf tmp",
       "rm -rf base-assets"
     ]
   },
