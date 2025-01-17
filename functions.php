@@ -1,11 +1,22 @@
 <?php
+
 /**
- * Theme functions and definitions
+ * Functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
- * @package WordPress
- * @subpackage  Timber
+ * @link https://github.com/timber/starter-theme
  */
+
+namespace App;
+
+use Timber\Timber;
+
+// Load Composer dependencies.
+require_once __DIR__ . '/vendor/autoload.php';
+
+Timber::init();
+
+new StarterSite();
 
 /**
  * Grab necessary theme class from lib dir
