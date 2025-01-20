@@ -14,7 +14,6 @@ find . -type f \
 	-not -path "*jpg" \
 	-not -path "*update_theme_name.sh*" \
 	-not -path "*node_modules*" \
-	-not -path "*dist*" \
 	-not -path "*.git*" \
 	-not -path "*.idea*" \
 	| xargs sed -i '' -e "s/thinktimber/${THEME_NAME_LOWER}/g"
