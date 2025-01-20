@@ -12,12 +12,13 @@ After installation in the  `assets` directory you'll find `css/`, `js/`, and `st
 ## Installation
 Getting started you will need to install theme dependencies with [nvm](https://github.com/nvm-sh/nvm#installing-and-updating), [npm](https://docs.npmjs.com/), and [composer](https://getcomposer.org/).
 
-1. Navigate to the theme directory in your project folder.
-2. Run `composer scaffold` to pull the Base Build assets from the [TS Base Assets](https://github.com/thinkshout/base-assets/tree/develop) repository.
-3. Run `composer install` to install Timber, Twig, and other dependencies in the theme.
+1. Navigate to the theme directory in your project folder, and copy all files from this theme into it.
+2. Run `./update_theme_name.sh my_new_theme_name` to rename code for your project.
+3. Run `composer scaffold` to pull the Base Build assets from the [TS Base Assets](https://github.com/thinkshout/base-assets/tree/develop) repository.
+4. Run `composer install` to install Timber, Twig, and other dependencies in the theme.
 For more information on using Twig in WordPress see our [wiki article](https://github.com/thinkshout/thinkwp-starter-theme/wiki/TWIG-In-WordPress)
-4. Run `npm install` to install dependencies. Install will check the node version against the `.nvmrc` file, install all dependencies, and populate an initial set of token definitions.
-5. Ensure your project has ACF installed and activated. This theme uses ACF for custom fields and options pages.
+5. Run `npm install` to install dependencies. Install will check the node version against the `.nvmrc` file, install all dependencies, and populate an initial set of token definitions.
+6. Ensure your project has ACF installed and activated. This theme uses ACF for custom fields and options pages.
 
 ## Theme Development
 
