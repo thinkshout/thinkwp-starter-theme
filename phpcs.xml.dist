@@ -22,10 +22,10 @@
 		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
 	</rule>
 
-	<!-- Set the text domain to timber-starter -->
+	<!-- Set the text domain to thinktimber -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="timber-starter"/>
+			<property name="text_domain" type="array" value="thinktimber"/>
 		</properties>
 	</rule>
 

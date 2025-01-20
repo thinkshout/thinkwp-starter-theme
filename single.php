@@ -11,10 +11,10 @@ use Timber\Timber;
 
 $context   = Timber::context();
 $post      = $context['post'];
-$templates = [ 'posts/single-' . $post->post_type . '.twig', 'posts/single.twig' ];
+$templates = [ 'pages/single-' . $post->post_type . '.twig', 'pages/single.twig' ];
 
 if ( post_password_required( $post->ID ) ) {
-	$templates = 'posts/single-password.twig';
+	$templates = 'pages/single-password.twig';
 }
 
 Timber::render( $templates, $context );

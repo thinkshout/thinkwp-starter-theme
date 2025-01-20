@@ -12,7 +12,7 @@ use Timber\Timber;
 $context = Timber::context();
 
 if ( isset( $context['author'] ) ) {
-	$context['title'] = sprintf( __( 'Archive of %s', 'timber-starter' ), $context['author']->name() );
+	$context['title'] = sprintf( __( 'Archive of %s', 'thinktimber' ), $context['author']->name() );
 }
 
-Timber::render( [ 'archives/author.twig', 'archives/archive.twig' ], $context );
+Timber::render( [ 'pages/author.twig', 'pages/archive.twig' ], $context );

@@ -12,7 +12,7 @@ namespace App;
 
 use Timber\Timber;
 
-$templates = array( 'archives/archive.twig', 'archives/index.twig' );
+$templates = array( 'pages/archive.twig', 'pages/index.twig' );
 
 $title = 'Archive';
 if ( is_day() ) {
@@ -27,7 +27,7 @@ if ( is_day() ) {
 	$title = single_cat_title( '', false );
 } elseif ( is_post_type_archive() ) {
 	$title = post_type_archive_title( '', false );
-	array_unshift( $templates, 'archives/archive-' . get_post_type() . '.twig' );
+	array_unshift( $templates, 'pages/archive-' . get_post_type() . '.twig' );
 }
 
 $context = Timber::context(

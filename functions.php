@@ -5,6 +5,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  * @link https://github.com/timber/starter-theme
+ * @link https://github.com/thinkshout/thinkwp-starter-theme
  */
 
 namespace App;
@@ -14,16 +15,20 @@ use Timber\Timber;
 // Load Composer dependencies.
 require_once __DIR__ . '/vendor/autoload.php';
 
+/**
+ * This ensures that Timber is loaded and available as a PHP class.
+ * If not, it gives an error message to help direct developers on where to activate
+ */
+if ( ! class_exists( 'Timber\Timber' ) ) {
+	add_action(
+		'admin_notices',
+		function () {
+			echo '<div class="error"><p>Timber not activated. Make sure to install via composer.</p></div>';
+		}
+	);
+	return;
+}
+
 Timber::init();
 
 new StarterSite();
-
-/**
- * Grab necessary theme class from lib dir
- */
-require_once get_template_directory() . '/lib/class-theme.php';
-
-/**
- * Instantiate theme
- */
-new Theme();

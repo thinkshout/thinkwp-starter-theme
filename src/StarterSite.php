@@ -16,23 +16,75 @@ use Twig\TwigFilter;
  * Class StarterSite.
  */
 class StarterSite extends Site {
-
-
+	/**
+	 * Scripts version.
+	 *
+	 * @var string $scripts_version The version of the scripts to be used.
+	 */
+	protected $scripts_version = '';
+	/**
+	 * Scripts directory.
+	 *
+	 * @var string $this->scripts_dir The directory of the scripts to be used.
+	 */
+	protected $scripts_dir = 'dist';
 
 	/**
 	 * StarterSite constructor.
 	 */
 	public function __construct() {
-		add_action( 'after_setup_theme', [ $this, 'theme_supports' ] );
+		register_activation_hook( __FILE__, array( $this, 'activate' ) );
+
+		add_action( 'after_setup_theme', array( $this, 'content_width' ), 0 );
+		add_action( 'after_setup_theme', [ $this, 'setup' ] );
 		add_action( 'init', [ $this, 'register_post_types' ] );
 		add_action( 'init', [ $this, 'register_taxonomies' ] );
+		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_scripts' ) );
 
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
 		add_filter( 'timber/twig/filters', [ $this, 'add_filters_to_twig' ] );
 		add_filter( 'timber/twig/functions', [ $this, 'add_functions_to_twig' ] );
 		add_filter( 'timber/twig/environment/options', [ $this, 'update_twig_environment_options' ] );
 
+		add_filter( 'timber/acf-gutenberg-blocks-templates', array( $this, 'acf_gutenberg_blocks_template_location' ) );
+		add_filter( 'acf/settings/save_json', array( $this, 'acf_json_save_point' ) );
+		add_filter( 'acf/settings/load_json', array( $this, 'acf_json_load_point' ) );
+		add_filter( 'use_block_editor_for_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
+		add_filter( 'gutenberg_can_edit_post_type', array( $this, 'check_post_can_gutenberg' ), 10, 2 );
+		add_filter( 'allowed_block_types_all', array( $this, 'allowed_block_types' ), 10, 2 );
+
+		// Disable WP features.
+		add_filter( 'comments_open', '__return_false', 20, 2 );
+		add_filter( 'pings_open', '__return_false', 20, 2 );
+		add_filter( 'comments_array', '__return_empty_array', 10, 2 );
+		add_filter( 'xmlrpc_enabled', '__return_false' );
+
+		// Set scripts version to theme version set in style.css.
+		$this->scripts_version = wp_get_theme()->get( 'Version' );
+
+		// If the Timber ACF Blocks library is installed, load it. https://github.com/palmiak/timber-acf-wp-blocks .
+		if ( class_exists( 'Timber_Acf_Wp_Blocks' ) ) {
+			// Register blocks in views/blocks with ACF.
+			new Timber_Acf_Wp_Blocks();
+		}
+
 		parent::__construct();
+	}
+
+	/**
+	 * Theme activation hook
+	 */
+	public function activate() {
+		$style_guide_page = array(
+			'post_title'  => 'Style Guide',
+			'post_status' => 'private',
+			'post_author' => 1,
+			'post_type'   => 'page',
+		);
+		wp_insert_post( $style_guide_page );
+		// Add any additional activation code here.
 	}
 
 	/**
@@ -44,6 +96,13 @@ class StarterSite extends Site {
 	 * This is where you can register custom taxonomies.
 	 */
 	public function register_taxonomies() {}
+
+	/**
+	 * Modify ACF Gutenberg Blocks Template Location
+	 */
+	public function acf_gutenberg_blocks_template_location() {
+		return array( 'views/organisms/blocks' );
+	}
 
 	/**
 	 * This is where you add some context.
@@ -61,18 +120,27 @@ class StarterSite extends Site {
 	}
 
 	/**
-	 * This is where you can add your theme supports.
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * runs before the init hook. The init hook is too late for some features, such
+	 * as indicating support for post thumbnails.
 	 */
-	public function theme_supports() {
+	public function setup() {
 		// Register navigation menus
 		register_nav_menus(
 			[
-				'primary_navigation' => _x( 'Main menu', 'Backend - menu name', 'timber-starter' ),
+				'primary_navigation' => _x( 'Main menu', 'Backend - menu name', 'thinktimber' ),
 			]
 		);
 
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		/*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on thinktimber, use a find and replace
+		 * to change 'thinktimber' to the name of your theme in all the template files.
+		 */
+		load_theme_textdomain( 'thinktimber', get_template_directory() . '/languages' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -122,6 +190,184 @@ class StarterSite extends Site {
 		);
 
 		add_theme_support( 'menus' );
+
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'dist/motif-admin.css' );
+	}
+
+	/**
+	 * Enqueue scripts and styles.
+	 */
+	public function scripts() {
+		wp_enqueue_style( 'thinktimber-styles', get_template_directory_uri() . "/$this->scripts_dir/motif.css", array(), $this->scripts_version );
+		wp_enqueue_script( 'thinktimber-scripts', get_template_directory_uri() . "/$this->scripts_dir/motif.js", array( 'jquery' ), $this->scripts_version, true );
+
+		wp_localize_script(
+			'thinktimber-scripts',
+			'thinktimber',
+			array(
+				'themeBase' => get_theme_file_uri(),
+				'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
+			)
+		);
+
+		wp_enqueue_script( 'thinktimber-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), $this->scripts_version, true );
+
+		wp_enqueue_script( 'thinktimber-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), $this->scripts_version, true );
+
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
+	}
+
+	/**
+	 * Enqueue admin scripts and styles.
+	 */
+	public function admin_scripts() {
+		// Fonts.
+		wp_enqueue_style( 'thinktimber-fonts', 'https://use.typekit.net/kitId.css', array(), $this->scripts_version );
+		wp_enqueue_script( 'thinktimber-font-awesome', 'https://kit.fontawesome.com/3d318b83b5.js', array(), $this->scripts_version, false );
+	}
+
+	/**
+	 * Enqueue block editor scripts and styles.
+	 */
+	public function block_editor_scripts() {
+		// Scripts.
+		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . '/dist/motif-admin.js', array( 'wp-edit-post' ), $this->scripts_version, true );
+	}
+
+	/**
+	 * Filter allowed gutenberg blocks.
+	 *
+	 * @param array                   $allowed_block_types Allowed block types.
+	 * @param WP_Block_Editor_Context $block_editor_context The block editor context.
+	 *
+	 * @return array
+	 */
+	public function allowed_block_types( $allowed_block_types, $block_editor_context ) {
+		// If we're not on a post, return the default allowed block types.
+		if ( empty( $block_editor_context->post ) ) {
+			return $allowed_block_types;
+		}
+
+		$allowed_blocks = array(
+			'core/block',
+			'core/button',
+			'core/code',
+			'core/columns',
+			'core/cover',
+			'core/embed',
+			'core/gallery',
+			'core/group',
+			'core/heading',
+			'core/html',
+			'core/image',
+			'core/list',
+			'core/paragraph',
+			'core/preformatted',
+			'core/pullquote',
+			'core/quote',
+			'core/separator',
+			'core/shortcode',
+			'core/spacer',
+			'core/table',
+			'core/text-columns',
+			'core/video',
+		);
+
+		// Make sure we allow our ACF blocks.
+		$acf_block_types     = acf_get_store( 'block-types' );
+		$acf_block_types     = array_keys( $acf_block_types->get_data() );
+		$allowed_block_types = array_merge( $allowed_blocks, $acf_block_types );
+
+		return $allowed_block_types;
+	}
+
+	/**
+	 * Get post loaded in editor
+	 */
+	protected function get_admin_post() {
+		// @codingStandardsIgnoreStart
+		if ( ! ( is_admin() && ! empty( $_GET['post'] ) ) ) {
+			return null;
+		}
+		return $_GET['post'];
+		// @codingStandardsIgnoreEnd
+	}
+
+	/**
+	 * Check if we're editing the style guide page.
+	 */
+	protected function is_style_guide_page() {
+		$post_id = $this->get_admin_post();
+		if ( is_null( $post_id ) ) {
+			return false;
+		}
+		$style_guide_page    = get_page_by_path( 'style-guide' );
+		$style_guide_page_id = strval( $style_guide_page->ID );
+		if ( $style_guide_page_id === $post_id ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Remove Gutenberg Editor from Team page and any other pages that shouldn't have it.
+	 *
+	 * @param boolean $can_edit true or false user can edit.
+	 */
+	public function check_post_can_gutenberg( $can_edit ) {
+		$post_id = $this->get_admin_post();
+		if ( is_null( $post_id ) ) {
+			return $can_edit;
+		}
+		$post_can_gutenberg = true;
+		// Check if the page is the team landing page template, the style guide, if this is a tribe event post type, or if it's the posts page.
+		if ( $this->is_style_guide_page() ) {
+			$post_can_gutenberg = false;
+		}
+		return $post_can_gutenberg;
+	}
+
+	/**
+	 * Save ACF JSON to theme directory.
+	 *
+	 * @param string $path The path to save the JSON.
+	 *
+	 * @return string
+	 */
+	public function acf_json_save_point( $path ) {
+		$path = get_stylesheet_directory() . '/acf-json';
+
+		return $path;
+	}
+
+	/**
+	 * Load ACF JSON from theme directory.
+	 *
+	 * @param array $paths The paths to load the JSON from.
+	 *
+	 * @return array
+	 */
+	public function acf_json_load_point( $paths ) {
+		$paths[] = get_stylesheet_directory() . '/acf-json';
+
+		return $paths;
+	}
+
+	/**
+	 * Set the content width in pixels, based on the theme's design and stylesheet.
+	 *
+	 * Priority 0 to make it available to lower priority callbacks.
+	 *
+	 * @global int $content_width
+	 */
+	public function content_width() {
+		// This variable is intended to be overruled from themes.
+		// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+		$GLOBALS['content_width'] = 640;
 	}
 
 	/**
@@ -133,6 +379,16 @@ class StarterSite extends Site {
 		$text .= ' bar!';
 
 		return $text;
+	}
+
+	/**
+	 * Console Logging PHP Values
+	 *
+	 * @param multi $value The variables to be logged.
+	 */
+	public function php_console( $value = null ) {
+		// Console Log a mixed var.
+		echo '<script type="text/javascript">console.log(' . wp_json_encode( $value ) . ');</script>';
 	}
 
 	/**
@@ -161,8 +417,8 @@ class StarterSite extends Site {
 	 */
 	public function add_functions_to_twig( $functions ) {
 		$additional_functions = [
-			'get_theme_mod' => [
-				'callable' => 'get_theme_mod',
+			'console' => [
+				'callable' => 'php_console',
 			],
 		];
 

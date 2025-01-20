@@ -1,34 +1,7 @@
 {
-  "name": "thinkshout/thinkwp-starter-theme",
-  "description": "A starter theme for ThinkShout WordPress projects.",
+  "name": "thinkshout/thinktimber",
+  "description": "A ThinkShout WordPress theme.",
   "type":"wordpress-theme",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Erik van der Bas",
-      "email": "erik@basedonline.nl",
-      "homepage": "https://basedonline.nl"
-    },
-    {
-      "name": "Lukas Gächter",
-      "email": "lukas.gaechter@mind.ch",
-      "homepage": "https://www.mind.ch"
-    },
-    {
-      "name": "Nicolas Lemoine",
-      "email": "nico@n5s.dev",
-      "homepage": "https://n5s.dev"
-    },
-    {
-      "name": "Jared Novack",
-      "email": "jared@upstatement.com",
-      "homepage": "https://upstatement.com"
-    },
-    {
-      "name": "Timber Community",
-      "homepage": "https://github.com/timber/timber"
-    }
-  ],
   "repositories": [
     {
       "type": "composer",
