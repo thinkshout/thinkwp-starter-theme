@@ -7,7 +7,7 @@ if [[ $# -eq 0 ]] ; then
 	exit 0
 fi
 
-THEME_NAME_LOWER=`echo "$1" | tr '[:upper:]' '[:lower:]'`
+THEME_NAME_LOWER=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 
 find . -type f \
 	-not -path "*png" \
@@ -19,11 +19,13 @@ find . -type f \
 	-not -path "*.idea*" \
 	| xargs sed -i '' -e "s/thinktimber/${THEME_NAME_LOWER}/g"
 
-THEME_NAME_UPPER=`echo ${THEME_NAME_LOWER:0:1} | tr '[:lower:]' '[:upper:]'`${THEME_NAME_LOWER:1}
+mv "languages/thinktimber.pot" "languages/${THEME_NAME_LOWER}.pot"
 
-find . -name '*.php' \
+THEME_NAME_UPPER=$(echo "${THEME_NAME_LOWER:0:1}" | tr '[:lower:]' '[:upper:]')${THEME_NAME_LOWER:1}
+
+find . -name "*.php" \
   | xargs sed -i '' -e "s/StarterSite/${THEME_NAME_UPPER}Site/g"
 
-mv 'src/StarterSite.php' '${THEME_NAME_UPPER}Site.php'
+mv "src/StarterSite.php" "${THEME_NAME_UPPER}Site.php"
 
 rm update_theme_name.sh

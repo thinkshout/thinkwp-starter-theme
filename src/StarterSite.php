@@ -136,9 +136,7 @@ class StarterSite extends Site {
 
 		/*
 		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on thinktimber, use a find and replace
-		 * to change 'thinktimber' to the name of your theme in all the template files.
+		 * Translations are filed in the /languages/ directory.
 		 */
 		load_theme_textdomain( 'thinktimber', get_template_directory() . '/languages' );
 
