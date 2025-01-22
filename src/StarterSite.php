@@ -9,8 +9,7 @@ namespace App;
 
 use Timber\Site;
 use Timber\Timber;
-use Twig\Environment;
-use Twig\TwigFilter;
+use Timber_Acf_Wp_Blocks;
 
 /**
  * Class StarterSite.

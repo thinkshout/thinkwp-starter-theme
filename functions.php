@@ -12,8 +12,7 @@ namespace App;
 
 use Timber\Timber;
 
-// Load Composer dependencies.
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/src/StarterSite.php';
 
 /**
  * This ensures that Timber is loaded and available as a PHP class.
