@@ -7,6 +7,11 @@ if [[ $# -eq 0 ]] ; then
 	exit 0
 fi
 
+if [[ $1 =~ [^a-zA-Z0-9_] ]] ; then
+	echo 'Theme name must be alphanumeric (including underscore)'
+	exit 0
+fi
+
 THEME_NAME_LOWER=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 
 find . -type f \
@@ -25,6 +30,6 @@ THEME_NAME_UPPER=$(echo "${THEME_NAME_LOWER:0:1}" | tr '[:lower:]' '[:upper:]')$
 find . -name "*.php" \
   | xargs sed -i '' -e "s/StarterSite/${THEME_NAME_UPPER}Site/g"
 
-mv "src/StarterSite.php" "${THEME_NAME_UPPER}Site.php"
+mv "src/StarterSite.php" "src/${THEME_NAME_UPPER}Site.php"
 
 rm update_theme_name.sh
