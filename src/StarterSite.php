@@ -190,7 +190,7 @@ class StarterSite extends Site {
 		add_theme_support( 'menus' );
 
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'dist/motif-admin.css' );
+		add_editor_style( $this->scripts_dir . '/motif-admin.css' );
 	}
 
 	/**
@@ -232,7 +232,7 @@ class StarterSite extends Site {
 	 */
 	public function block_editor_scripts() {
 		// Scripts.
-		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . '/dist/motif-admin.js', array( 'wp-edit-post' ), $this->scripts_version, true );
+		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . '/' . $this->scripts_dir . '/motif-admin.js', array( 'wp-edit-post' ), $this->scripts_version, true );
 	}
 
 	/**
