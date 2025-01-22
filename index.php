@@ -12,7 +12,7 @@
 
 use Timber\Timber;
 
-$templates = [ 'pages/index.twig' ];
+$templates = [ 'templates/index.twig' ];
 
 if ( is_home() ) {
 	array_unshift( $templates, 'pages/front-page.twig', 'pages/home.twig' );
