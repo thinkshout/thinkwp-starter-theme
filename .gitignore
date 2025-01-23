@@ -1,6 +1,7 @@
-vendor
-wp-content
-composer.lock
+/composer.lock
+/vendor/
+/wordpress/
+.phpunit.result.cache
 node_modules
 .parcel-cache
 dist/

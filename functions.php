@@ -1,18 +1,33 @@
 <?php
+
 /**
- * Theme functions and definitions
+ * Functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
- * @package WordPress
- * @subpackage  Timber
+ * @link https://github.com/timber/starter-theme
+ * @link https://github.com/thinkshout/thinkwp-starter-theme
  */
 
-/**
- * Grab necessary theme class from lib dir
- */
-require_once get_template_directory() . '/lib/class-theme.php';
+namespace App;
+
+use Timber\Timber;
+
+require_once __DIR__ . '/src/StarterSite.php';
 
 /**
- * Instantiate theme
+ * This ensures that Timber is loaded and available as a PHP class.
+ * If not, it gives an error message to help direct developers on where to activate
  */
-new Theme();
+if ( ! class_exists( 'Timber\Timber' ) ) {
+	add_action(
+		'admin_notices',
+		function () {
+			echo '<div class="error"><p>Timber not activated. Make sure to install via composer.</p></div>';
+		}
+	);
+	return;
+}
+
+Timber::init();
+
+new StarterSite();
