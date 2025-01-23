@@ -32,7 +32,7 @@ class StarterSite extends Site {
 	 * StarterSite constructor.
 	 */
 	public function __construct() {
-		register_activation_hook( __FILE__, array( $this, 'activate' ) );
+		add_action( 'after_switch_theme', array( $this, 'activate' ) );
 
 		add_action( 'after_setup_theme', array( $this, 'content_width' ), 0 );
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
@@ -76,14 +76,15 @@ class StarterSite extends Site {
 	 * Theme activation hook
 	 */
 	public function activate() {
-		$style_guide_page = array(
-			'post_title'  => 'Style Guide',
-			'post_status' => 'private',
-			'post_author' => 1,
-			'post_type'   => 'page',
-		);
-		wp_insert_post( $style_guide_page );
-		// Add any additional activation code here.
+		if ( ! get_page_by_path('style-guide') ) {
+			wp_insert_post( array(
+				'post_title'  => 'Style Guide',
+				'post_name'   => 'style-guide',
+				'post_status' => 'private',
+				'post_author' => 1,
+				'post_type'   => 'page',
+			) );
+		}
 	}
 
 	/**
