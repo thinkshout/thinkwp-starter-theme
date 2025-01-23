@@ -3,7 +3,7 @@
 
 This is forked from the "_s" for Timber: a dead-simple theme that you can build from. The primary purpose of this theme is to provide a file structure rather than a framework for markup or styles. Configure your css, scripts, and task runners however you would like!
 
-## The `StarterSite` class
+## What's here?
 
 After installation in the  `assets` directory you'll find `css/`, `js/`, and `static/` is where you can keep your static front-end scripts, styles, or images. In other words, your CSS files, JS files, fonts, and SVGs would live here.
 
