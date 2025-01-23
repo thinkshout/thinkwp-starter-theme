@@ -12,14 +12,19 @@ After installation in the  `assets` directory you'll find `css/`, `js/`, and `st
 ## Installation
 Getting started you will need to install theme dependencies with [nvm](https://github.com/nvm-sh/nvm#installing-and-updating), [npm](https://docs.npmjs.com/), and [composer](https://getcomposer.org/).
 
-- [ ] Pull in supporting composer packages and commit the changes to composer.json & composer.lock: `composer require timber/timber palmiak/timber-acf-wp-blocks jjgrainger/posttypes`
+- [ ] Make sure you're running PHP >=8.1. (These instructions were tested with PHP 8.1.)
+- [ ] Navigate to your project root (where your site's composer.json file lives), and pull in supporting composer packages: `composer require -W timber/timber palmiak/timber-acf-wp-blocks jjgrainger/posttypes`
+- [ ] Commit the changes to composer.json & composer.lock
 - [ ] Navigate to your theme folder `~/sites/YOURSITE/web/wp-content/themes/`
 - [ ] Create a new folder `custom/`
 - [ ] Download a copy of the [TS WP starter theme](https://github.com/thinkshout/thinkwp-starter-theme/archive/main.zip)
 - [ ] Extract and rename it and then navigate to the newly added theme `mv thinkwp-starter-theme-main YOURSITE`, `cd YOURSITE`
+- [ ] Optional - commit the theme files. This is a checkpoint commit for the base theme code.
 - [ ] Update the theme name to your project name `./update_theme_name.sh YOURSITE`
+- [ ] Optional - commit the theme file updates. This is a checkpoint commit for the theme name updates.
 - [ ] Run `nvm install; npm install; npm run build`
 - [ ] Pull in our base build assets: run `composer scaffold`
+- [ ] Commit all remaining code updates.
 - [ ] In your admin panel, go to Appearance > Themes
 - [ ] Find your new theme and click Activate to use your new theme right away.
 - [ ] Ensure your project has ACF installed and activated. This theme uses ACF for custom fields and options pages.
