@@ -12,13 +12,17 @@ After installation in the  `assets` directory you'll find `css/`, `js/`, and `st
 ## Installation
 Getting started you will need to install theme dependencies with [nvm](https://github.com/nvm-sh/nvm#installing-and-updating), [npm](https://docs.npmjs.com/), and [composer](https://getcomposer.org/).
 
-1. Navigate to the theme directory in your project folder, and copy all files from this theme into it.
-2. Run `./update_theme_name.sh my_new_theme_name` to rename code for your project.
-3. Run `composer scaffold` to pull the Base Build assets from the [TS Base Assets](https://github.com/thinkshout/base-assets/tree/develop) repository.
-4. Run `composer install` to install Timber, Twig, and other dependencies in the theme.
-For more information on using Twig in WordPress see our [wiki article](https://github.com/thinkshout/thinkwp-starter-theme/wiki/TWIG-In-WordPress)
-5. Run `npm install` to install dependencies. Install will check the node version against the `.nvmrc` file, install all dependencies, and populate an initial set of token definitions.
-6. Ensure your project has ACF installed and activated. This theme uses ACF for custom fields and options pages.
+- [ ] Pull in supporting composer packages and commit the changes to composer.json & composer.lock: `composer require timber/timber palmiak/timber-acf-wp-blocks jjgrainger/posttypes`
+- [ ] Navigate to your theme folder `~/sites/YOURSITE/web/wp-content/themes/`
+- [ ] Create a new folder `custom/`
+- [ ] Download a copy of the [TS WP starter theme](https://github.com/thinkshout/thinkwp-starter-theme/archive/main.zip)
+- [ ] Extract and rename it and then navigate to the newly added theme `mv thinkwp-starter-theme-main YOURSITE`, `cd YOURSITE`
+- [ ] Update the theme name to your project name `./update_theme_name.sh YOURSITE`
+- [ ] Run `nvm install; npm install; npm run build`
+- [ ] Pull in our base build assets: run `composer scaffold`
+- [ ] In your admin panel, go to Appearance > Themes
+- [ ] Find your new theme and click Activate to use your new theme right away.
+- [ ] Ensure your project has ACF installed and activated. This theme uses ACF for custom fields and options pages.
 
 ## Theme Development
 
