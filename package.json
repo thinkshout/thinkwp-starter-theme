@@ -9,7 +9,7 @@
     "concurrently": "^6.3.0",
     "cssnano": "^5.0.8",
     "dotenv": "^8.2.0",
-    "eslint": "^7.32.0",
+    "eslint": "^9.19.0",
     "eslint-config-prettier": "^8.3.0",
     "find-config": "^1.0.0",
     "parcel": "^2.0.0",
