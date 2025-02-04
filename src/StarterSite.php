@@ -101,7 +101,12 @@ class StarterSite extends Site {
 	 * Modify ACF Gutenberg Blocks Template Location
 	 */
 	public function acf_gutenberg_blocks_template_location() {
-		return array( 'views/organisms/blocks' );
+		$theme_dir = get_template_directory();
+		foreach ( glob( $theme_dir . '/views/organisms/blocks/*', GLOB_ONLYDIR ) as $directory_path ) {
+			$directory = str_replace($theme_dir, "", $directory_path);
+			$paths[] = "$directory/controller";
+		}
+		return $paths;
 	}
 
 	/**
