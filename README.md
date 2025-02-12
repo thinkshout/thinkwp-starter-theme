@@ -29,6 +29,12 @@ Getting started you will need to install theme dependencies with [nvm](https://g
 - [ ] In your admin panel, go to Appearance > Themes
 - [ ] Find your new theme and click Activate to use your new theme right away.
 
+## ACF Setup
+Our Timber-based theme requires ACF (Advanced Custom Fields) Pro. ACF requires a paid subscription -- you should set this up before further development. Some clients may purchase an ACF subscription, but if they don't you can use [ThinkShout's unlimited license]([url](https://docs.google.com/spreadsheets/d/13-aOPAxrdrQ_1cHhOAqQ_cRa457orIScLCwgtuB1SsU/edit?gid=0#gid=0)).
+- [ ] Install ACF [via Composer](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/). Note that the "auth.json" file asks you to specify a URL. This is only informational on the ACF account side. Adding the pantheon live URL is a sensible default choice.
+- [ ] Enable ACF through the WordPress UI (you'll need to do this on whatever database is going to become the install source for developers)
+- [ ] Activate the ACF Pro license through the WP UI (again, this must be done on the source database so it can proliferate)
+
 ## Theme Development
 
 For most development tasks, simply run `npm start` to start Parcel's watch, which will compile the projects CSS and
