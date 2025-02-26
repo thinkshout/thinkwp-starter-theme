@@ -33,11 +33,12 @@ class StarterSite extends Site {
 	 */
 	public function __construct() {
 		add_action( 'after_switch_theme', array( $this, 'activate' ) );
-
 		add_action( 'after_setup_theme', array( $this, 'content_width' ), 0 );
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
-		add_action( 'init', [ $this, 'register_post_types' ] );
-		add_action( 'init', [ $this, 'register_taxonomies' ] );
+
+		$this->register_post_types();
+		$this->register_taxonomies();
+
 		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_scripts' ) );
@@ -88,12 +89,14 @@ class StarterSite extends Site {
 	}
 
 	/**
-	 * This is where you can register custom post types.
+	 * Register custom post types using the PostTypes library.
+	 * @link https://posttypes.jjgrainger.co.uk/post-types
 	 */
 	public function register_post_types() {}
 
 	/**
-	 * This is where you can register custom taxonomies.
+	 * Register custom taxonomies using the PostTypes library.
+	 * @link https://posttypes.jjgrainger.co.uk/taxonomies
 	 */
 	public function register_taxonomies() {}
 
