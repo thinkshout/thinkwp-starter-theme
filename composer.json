@@ -52,7 +52,7 @@
       "cp -rf base-assets/scaffold/views/* ./views/",
       "rm -rf base-assets/scaffold/views",
       "cp -rf base-assets/scaffold/* ./",
-      "cp -rf tmp/js/* ./assets/js/",
+      "cp -rf tmp/js/* ./assets/js/ || true",
       "rm -rf tmp",
       "rm -rf base-assets"
     ]
