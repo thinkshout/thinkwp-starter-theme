@@ -49,10 +49,10 @@
     "scaffold": [
       "rm -rf base-assets assets tokens",
       "git clone git@github.com:thinkshout/base-assets.git",
-      "mv -f base-assets/scaffold/views/* ./views/",
+      "cp -rf base-assets/scaffold/views/* ./views/",
       "rm -rf base-assets/scaffold/views",
-      "mv -f base-assets/scaffold/* ./",
-      "mv -f tmp/js/* ./assets/js/",
+      "cp -rf base-assets/scaffold/* ./",
+      "cp -rf tmp/js/* ./assets/js/",
       "rm -rf tmp",
       "rm -rf base-assets"
     ]
