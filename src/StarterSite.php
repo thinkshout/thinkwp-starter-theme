@@ -43,6 +43,7 @@ class StarterSite extends Site {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_scripts' ) );
 
+		add_filter( 'timber/loader/loader', [ $this, 'timber_loader' ] );
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
 		add_filter( 'timber/twig/filters', [ $this, 'add_filters_to_twig' ] );
 		add_filter( 'timber/twig/functions', [ $this, 'add_functions_to_twig' ] );
@@ -111,6 +112,14 @@ class StarterSite extends Site {
 			$paths[] = "$directory/controller";
 		}
 		return $paths;
+	}
+
+	/**
+	 * Add @thinktimber namespace for twig templates used in other contexts.
+	 */
+	public function timber_loader($loader){
+		$loader->addPath(get_template_directory() . '/views', 'thinktimber');
+		return $loader;
 	}
 
 	/**
