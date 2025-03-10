@@ -3,6 +3,28 @@
     "title": "Block - Banner",
     "fields": [
         {
+            "key": "field_6582f7cc53a00",
+            "label": "Banner Presentation",
+            "name": "presentation",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_6582f719ab7c1"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_651372bae7eca",
             "label": "Banner",
             "name": "banner",
@@ -25,11 +47,11 @@
             "prefix_name": 0
         },
         {
-            "key": "field_6582f7cc53a00",
-            "label": "Banner Presentation",
-            "name": "presentation",
+            "key": "field_67cf322efa341",
+            "label": "Image",
+            "name": "image",
             "aria-label": "",
-            "type": "clone",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -38,13 +60,17 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_6582f719ab7c1"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -65,5 +91,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741629583
+    "modified": 1741632066
 }
