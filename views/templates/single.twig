@@ -1,4 +1,4 @@
-{% extends 'base.twig' %}
+{% extends '@thinktimber/base.twig' %}
 
 {% block content %}
     <div class="content-wrapper">
@@ -19,7 +19,7 @@
                     {% if post.comments %}
                         <h3>comments</h3>
                         {% for cmt in post.comments %}
-                            {% include 'partials/comment.twig' with {
+                            {% include '@thinktimber/partials/comment.twig' with {
                                 comment: cmt
                             } %}
                         {% endfor %}
@@ -29,7 +29,7 @@
                 {% if post.comment_status == 'closed' %}
                     <p>comments for this post are closed</p>
                 {% else %}
-                    {% include 'partials/comment-form.twig' %}
+                    {% include '@thinktimber/partials/comment-form.twig' %}
                 {% endif %}
             </section>
         </article>

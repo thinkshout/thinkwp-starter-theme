@@ -1,7 +1,7 @@
-{% extends 'base.twig' %}
+{% extends '@thinktimber/base.twig' %}
 
 {% block content %}
     {% for post in posts %}
-        {% include ['partials/tease-' ~ post.type ~ '.twig', 'partials/tease.twig'] %}
+        {% include ['@thinktimber/partials/tease-' ~ post.type ~ '.twig', '@thinktimber/partials/tease.twig'] %}
     {% endfor %}
 {% endblock %}
