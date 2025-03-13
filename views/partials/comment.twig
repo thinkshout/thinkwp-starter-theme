@@ -3,13 +3,13 @@
     <div class="comment-content">{{ comment.content|wpautop }}</div>
 
     <section class="comment-box">
-        {% include 'partials/comment-form.twig' %}
+        {% include '@thinktimber/partials/comment-form.twig' %}
 
         {% if post.comments %}
             <h4>replies</h4>
             <div class="comments">
                 {% for cmt in comment.children %}
-                    {% include 'partials/comment.twig' with {
+                    {% include '@thinktimber/partials/comment.twig' with {
                         comment: cmt
                     } %}
                 {% endfor %}
