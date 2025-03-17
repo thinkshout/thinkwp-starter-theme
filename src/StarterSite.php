@@ -421,8 +421,7 @@ class StarterSite extends Site {
 	 * @param multi $value The variables to be logged.
 	 */
 	public function php_console( $value = null ) {
-		// Console Log a mixed var.
-		echo '<script type="text/javascript">console.log(' . wp_json_encode( $value ) . ');</script>';
+		return '<script type="text/javascript">console.log(' . wp_json_encode( $value ) . ');</script>';
 	}
 
 	/**
@@ -452,7 +451,7 @@ class StarterSite extends Site {
 	public function add_functions_to_twig( $functions ) {
 		$additional_functions = [
 			'console' => [
-				'callable' => 'php_console',
+				'callable' => [ $this, 'php_console' ],
 			],
 		];
 
