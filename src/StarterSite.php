@@ -294,6 +294,7 @@ class StarterSite extends Site {
 			'core/html',
 			'core/image',
 			'core/list',
+			'core/list-item',
 			'core/paragraph',
 			'core/preformatted',
 			'core/pullquote',
