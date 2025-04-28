@@ -145,7 +145,7 @@ class StarterSite extends Site {
 		$context['menus']['header_primary_navigation'] = Timber::get_menu( 'primary_navigation' );
 		$context['menus']['header_utility_navigation'] = Timber::get_menu( 'utility_navigation' );
 		$context['menus']['footer_about'] = Timber::get_menu( 'about' );
-		$context['menus']['footer_copyright'] = Timber::get_menu( 'copyright' );
+		$context['menus']['footer_legal'] = Timber::get_menu( 'legal' );
 		$context['site'] = $this;
 		$context['styleguide'] = is_page( 'style-guide' );
 
@@ -166,7 +166,7 @@ class StarterSite extends Site {
 				'primary_navigation' => __( 'Main menu', 'thinktimber' ),
 				'utility_navigation' => __( 'Utility menu', 'thinktimber' ),
 				'about' => __( 'About menu', 'thinktimber' ),
-				'copyright' => __( 'Copyright menu', 'thinktimber' ),
+				'legal' => __( 'Legal menu', 'thinktimber' ),
 			]
 		);
 
