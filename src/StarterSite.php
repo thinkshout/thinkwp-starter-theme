@@ -50,6 +50,7 @@ class StarterSite extends Site {
 		add_filter( 'timber/twig/environment/options', [ $this, 'update_twig_environment_options' ] );
 
 		add_filter( 'timber/acf-gutenberg-blocks-templates', array( $this, 'acf_gutenberg_blocks_template_location' ) );
+		add_filter( 'timber/acf-gutenberg-blocks-default-data', [ $this, 'acf_gutenberg_blocks_default_options' ] );
 		add_filter( 'timber/acf-gutenberg-blocks-data', array( $this, 'acf_gutenberg_blocks_data' ) );
 		add_filter( 'acf/settings/save_json', array( $this, 'acf_json_save_point' ) );
 		add_filter( 'acf/settings/load_json', array( $this, 'acf_json_load_point' ) );
@@ -113,6 +114,17 @@ class StarterSite extends Site {
 			$paths[] = "$directory/controller";
 		}
 		return $paths;
+	}
+
+	/**
+	 * Default options for Timber ACF WP Blocks.
+	 */
+	public function acf_gutenberg_blocks_default_options() {
+		$options['default'] = [
+			'mode' => 'auto',
+		];
+
+		return $options;
 	}
 
 	/**
