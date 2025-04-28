@@ -267,8 +267,8 @@ class StarterSite extends Site {
 	 */
 	public function admin_scripts() {
 		// Fonts.
-		wp_enqueue_style( 'thinktimber-fonts', 'https://use.typekit.net/kitId.css', array(), $this->scripts_version );
-		wp_enqueue_script( 'thinktimber-font-awesome', 'https://kit.fontawesome.com/3d318b83b5.js', array(), $this->scripts_version, false );
+		wp_enqueue_style( 'thinktimber-fonts', 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap', array(), null );
+		//wp_enqueue_style( 'thinktimber-fonts', 'https://use.typekit.net/kitId.css', array(), null );
 	}
 
 	/**
