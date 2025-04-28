@@ -296,6 +296,7 @@ class StarterSite extends Site {
 		$allowed_blocks = array(
 			'core/block',
 			'core/button',
+			'core/buttons',
 			'core/code',
 			'core/columns',
 			'core/cover',
