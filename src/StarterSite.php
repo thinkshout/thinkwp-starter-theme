@@ -166,6 +166,7 @@ class StarterSite extends Site {
 		$context['menus']['header_utility_navigation'] = Timber::get_menu( 'utility_navigation' );
 		$context['menus']['footer_about'] = Timber::get_menu( 'about' );
 		$context['menus']['footer_legal'] = Timber::get_menu( 'legal' );
+		$this->flatten_menu( $context['menus']['footer_legal'] );
 		$context['site'] = $this;
 		$context['styleguide'] = is_page( 'style-guide' );
 
@@ -489,5 +490,39 @@ class StarterSite extends Site {
 		// $options['autoescape'] = true;
 
 		return $options;
+	}
+
+	/**
+	 * Take a hierarchical WP menu and flatten it.
+	 *
+	 * This is useful when a menu doesn't allow for sub-items. It just makes all
+	 * items top-level, in the order they appear in the admin UX. Thus, if a
+	 * site editor accidentally assigns a sub-item on one of these menus (due to
+	 * either not knowing what is allowed, or a dragging error, etc.) then the
+	 * menu item will still behave in an expected way.
+	 *
+	 * @param object $menu The menu object to be flattened.
+	 * @param array  $items The current set of child menu links to flatten in.
+	 *
+	 * @return void
+	 */
+	private function flatten_menu( &$menu, $items = false ) {
+		if ( ! $menu ) {
+			return;
+		}
+		$add_current = (bool) $items;
+		if ( ! $items ) {
+			$items = $menu->get_items();
+		}
+		foreach ( $items as $menu_item ) {
+			$children = $menu_item->children;
+			if ( $add_current ) {
+				$menu_item->children = array();
+				$menu->items[] = $menu_item;
+			}
+			if ( ! empty( $children ) ) {
+				$this->flatten_menu( $menu, $children );
+			}
+		}
 	}
 }
