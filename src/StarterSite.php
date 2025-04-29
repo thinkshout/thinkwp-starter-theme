@@ -146,7 +146,7 @@ class StarterSite extends Site {
 		$context['menus']['header_utility_navigation'] = Timber::get_menu( 'utility_navigation' );
 		$context['menus']['footer_about'] = Timber::get_menu( 'about' );
 		$context['menus']['footer_copyright'] = Timber::get_menu( 'copyright' );
-		flatten_menu( $context['menus']['footer_copyright'] );
+		$this->flatten_menu( $context['menus']['footer_copyright'] );
 		$context['site'] = $this;
 		$context['styleguide'] = is_page( 'style-guide' );
 
@@ -486,6 +486,9 @@ class StarterSite extends Site {
 	 * @return void
 	 */
 	private function flatten_menu( &$menu, $items = false ) {
+		if ( ! $menu ) {
+			return;
+		}
 		$add_current = (bool) $items;
 		if ( ! $items ) {
 			$items = $menu->get_items();
