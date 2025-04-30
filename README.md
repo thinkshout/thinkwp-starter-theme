@@ -21,9 +21,9 @@ Getting started you will need to install theme dependencies with [nvm](https://g
 - [ ] Download a copy of the [TS WP starter theme](https://github.com/thinkshout/thinkwp-starter-theme/archive/main.zip)
 - [ ] Extract and rename it and then navigate to the newly added theme `mv thinkwp-starter-theme-main YOURSITE`, `cd YOURSITE`
 - [ ] Optional - commit the theme files. This is a checkpoint commit for the base theme code.
-- [ ] Update the theme name to your project name `./update_theme_name.sh YOURSITE`
-- [ ] Optional - commit the theme file updates. This is a checkpoint commit for the theme name updates.
 - [ ] Pull in our base build assets: run `composer scaffold`
+- [ ] Optional - commit the theme file updates. This is a checkpoint commit for the base assets.
+- [ ] Update the theme name to your project name `./update_theme_name.sh YOURSITE`
 - [ ] Commit all remaining code updates.
 - [ ] Run `nvm install; npm install; npm run build`
 - [ ] In your admin panel, go to Appearance > Themes
