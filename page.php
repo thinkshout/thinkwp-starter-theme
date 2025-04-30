@@ -29,10 +29,6 @@ if ( 'style-guide' === $post->post_name ) {
       foreach ($element_directories as $id) {
         $styleguide_file = "$directory/$id/styleguide/$id--styleguide-layout.twig";
         if ( file_exists( $styleguide_file ) ) {
-          $controller_file = "$directory/$id/controller/$id--controller.twig";
-          if ( file_exists( $styleguide_file ) ) {
-
-          }
           $context[$context_label][$id] = ucfirst(str_replace('-', ' ', $id));
         }
       }
