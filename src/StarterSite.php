@@ -50,6 +50,8 @@ class StarterSite extends Site {
 		add_filter( 'timber/twig/environment/options', [ $this, 'update_twig_environment_options' ] );
 
 		add_filter( 'timber/acf-gutenberg-blocks-templates', array( $this, 'acf_gutenberg_blocks_template_location' ) );
+		add_filter( 'timber/acf-gutenberg-blocks-example-identifier', [ $this, 'blocks_example_identifier' ] );
+		add_filter( 'timber/acf-gutenberg-blocks-default-data', [ $this, 'acf_gutenberg_blocks_default_options' ] );
 		add_filter( 'timber/acf-gutenberg-blocks-data', array( $this, 'acf_gutenberg_blocks_data' ) );
 		add_filter( 'acf/settings/save_json', array( $this, 'acf_json_save_point' ) );
 		add_filter( 'acf/settings/load_json', array( $this, 'acf_json_load_point' ) );
@@ -110,9 +112,27 @@ class StarterSite extends Site {
 		$theme_dir = get_template_directory();
 		foreach ( glob( $theme_dir . '/views/organisms/blocks/*', GLOB_ONLYDIR ) as $directory_path ) {
 			$directory = str_replace($theme_dir, "", $directory_path);
-			$paths[] = "$directory/controller";
+			$paths[] = "$directory/styleguide";
 		}
 		return $paths;
+	}
+
+	/**
+	 * Set example suffix.
+	 */
+	public function blocks_example_identifier( $suffix ){
+		return '--styleguide-layout';
+	}
+
+	/**
+	 * Default options for Timber ACF WP Blocks.
+	 */
+	public function acf_gutenberg_blocks_default_options() {
+		$options['default'] = [
+			'mode' => 'auto',
+		];
+
+		return $options;
 	}
 
 	/**
@@ -145,8 +165,8 @@ class StarterSite extends Site {
 		$context['menus']['header_primary_navigation'] = Timber::get_menu( 'primary_navigation' );
 		$context['menus']['header_utility_navigation'] = Timber::get_menu( 'utility_navigation' );
 		$context['menus']['footer_about'] = Timber::get_menu( 'about' );
-		$context['menus']['footer_copyright'] = Timber::get_menu( 'copyright' );
-		$this->flatten_menu( $context['menus']['footer_copyright'] );
+		$context['menus']['footer_legal'] = Timber::get_menu( 'legal' );
+		$this->flatten_menu( $context['menus']['footer_legal'] );
 		$context['site'] = $this;
 		$context['styleguide'] = is_page( 'style-guide' );
 
@@ -167,7 +187,7 @@ class StarterSite extends Site {
 				'primary_navigation' => __( 'Main menu', 'thinktimber' ),
 				'utility_navigation' => __( 'Utility menu', 'thinktimber' ),
 				'about' => __( 'About menu', 'thinktimber' ),
-				'copyright' => __( 'Copyright menu', 'thinktimber' ),
+				'legal' => __( 'Legal menu', 'thinktimber' ),
 			]
 		);
 
@@ -256,8 +276,8 @@ class StarterSite extends Site {
 	 */
 	public function admin_scripts() {
 		// Fonts.
-		wp_enqueue_style( 'thinktimber-fonts', 'https://use.typekit.net/kitId.css', array(), $this->scripts_version );
-		wp_enqueue_script( 'thinktimber-font-awesome', 'https://kit.fontawesome.com/3d318b83b5.js', array(), $this->scripts_version, false );
+		wp_enqueue_style( 'thinktimber-fonts', 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap', array(), null );
+		//wp_enqueue_style( 'thinktimber-fonts', 'https://use.typekit.net/kitId.css', array(), null );
 	}
 
 	/**
@@ -285,6 +305,7 @@ class StarterSite extends Site {
 		$allowed_blocks = array(
 			'core/block',
 			'core/button',
+			'core/buttons',
 			'core/code',
 			'core/columns',
 			'core/cover',
@@ -399,7 +420,7 @@ class StarterSite extends Site {
 		// This variable is intended to be overruled from themes.
 		// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-		$GLOBALS['content_width'] = 640;
+		$GLOBALS['content_width'] = 1184;
 	}
 
 	/**
