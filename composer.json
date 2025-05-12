@@ -48,7 +48,7 @@
     "phpstan": "@php ./vendor/bin/phpstan analyse",
     "scaffold": [
       "rm -rf base-assets assets tokens",
-      "git clone git@github.com:thinkshout/base-assets.git",
+      "git clone -b ${BASE_ASSETS_BRANCH:-main} git@github.com:thinkshout/base-assets.git",
       "cp -rf base-assets/scaffold/views/* ./views/",
       "rm -rf base-assets/scaffold/views",
       "cp -rf base-assets/scaffold/* ./",
