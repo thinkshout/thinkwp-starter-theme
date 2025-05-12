@@ -295,7 +295,7 @@ class StarterSite extends Site {
 	 */
 	public function dashboard_setup() {
 		$current_user = wp_get_current_user();
-		wp_add_dashboard_widget( 'thinktimber_dashboard_widget', 'Welcome, ' . $current_user->user_login, function () {
+		wp_add_dashboard_widget( 'thinktimber_dashboard_widget', sprintf( 'Welcome, %s', $current_user->display_name ), function () {
 			echo '<iframe src="/wp/wp-admin/admin-ajax.php?action=welcome_widget" scrolling="no"
 				style="width: calc(100% + 24px); height: 600px; margin: -12px;"></iframe>';
 		} );
