@@ -10,6 +10,7 @@ namespace App;
 use Timber\Site;
 use Timber\Timber;
 use Timber_Acf_Wp_Blocks;
+use WP_Block_Type_Registry;
 
 /**
  * Class StarterSite.
