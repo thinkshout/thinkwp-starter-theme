@@ -302,6 +302,8 @@ class StarterSite extends Site {
 			return $allowed_block_types;
 		}
 
+		// There are many more block options available. For a list, see:
+		// https://developer.wordpress.org/block-editor/reference-guides/core-blocks/
 		$allowed_blocks = array(
 			'core/block',
 			'core/button',
