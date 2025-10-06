@@ -43,7 +43,6 @@ class StarterSite extends Site {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_scripts' ) );
 		add_action( 'wp_dashboard_setup', array( $this, 'dashboard_setup' ) );
-		add_action( 'wp_ajax_welcome_widget', array( $this, 'ajax_welcome_widget' ) );
 
 		add_filter( 'timber/loader/loader', [ $this, 'timber_loader' ] );
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
@@ -295,19 +294,14 @@ class StarterSite extends Site {
 	 */
 	public function dashboard_setup() {
 		$current_user = wp_get_current_user();
-		wp_add_dashboard_widget( 'thinktimber_dashboard_widget', sprintf( 'Welcome, %s', $current_user->display_name ), function () {
-			echo '<iframe src="/wp/wp-admin/admin-ajax.php?action=welcome_widget" scrolling="no"
-				style="width: calc(100% + 24px); height: 600px; margin: -12px;"></iframe>';
-		} );
-	}
-
-	/**
-	 * Welcome widget for the WP Dashboard.
-	 */
-	public function ajax_welcome_widget() {
-		$context = Timber::context();
-		Timber::render('pages/welcome.twig', $context);
-		wp_die();
+		wp_add_dashboard_widget(
+			'thinktimber_dashboard_widget',
+			sprintf( 'Welcome, %s', $current_user->display_name ),
+			function () {
+				$context = Timber::context();
+				Timber::render( '@thinktimber/organisms/welcome/display/welcome--display.twig', $context );
+			}
+		);
 	}
 
 	/**
