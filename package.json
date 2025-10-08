@@ -3,26 +3,28 @@
   "version": "1.0.0",
   "description": "A ThinkShout WordPress theme.",
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "autoprefixer": "^10.3.6",
-    "concurrently": "^6.3.0",
-    "cssnano": "^5.0.8",
-    "dotenv": "^8.2.0",
-    "eslint": "^9.19.0",
-    "eslint-config-prettier": "^8.3.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
+    "cssnano": "^7.1.1",
+    "dotenv": "^17.2.3",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
     "find-config": "^1.0.0",
-    "parcel": "^2.0.0",
-    "postcss": "^8.3.8",
-    "postcss-import": "^14.0.2",
-    "postcss-loader": "^4.0.0",
-    "postcss-nested": "^5.0.6",
-    "postcss-preset-env": "^7.4.3",
-    "prettier": "^2.4.1",
-    "prettier-plugin-tailwindcss": "^0.1.8",
-    "prettier-plugin-twig-melody": "^0.4.6",
-    "style-dictionary": "^3.1.1",
-    "tailwindcss": "^3.0.5"
+    "parcel": "^2.16.0",
+    "postcss": "^8.5.6",
+    "postcss-import": "^16.1.1",
+    "postcss-loader": "^8.2.0",
+    "postcss-nested": "^7.0.2",
+    "postcss-preset-env": "^10.4.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "style-dictionary": "^4.4.0",
+    "tailwindcss": "^3.4.18"
+  },
+  "@parcel/transformer-css": {
+    "drafts": {
+      "customMedia": true
+    }
   },
   "scripts": {
     "build": "concurrently -c \"magenta,blue\" \"npm:theme.bundle.prod\" \"npm:theme.bundle.admin\"",
@@ -39,10 +41,5 @@
     "theme.watch": "NODE_ENV=development parcel watch ./assets/motif.js ./assets/motif-admin.js --dist-dir ./dist --public-url ./dist"
   },
   "author": "ThinkShout, Inc",
-  "license": "GPL-3.0",
-  "@parcel/transformer-css": {
-    "drafts": {
-      "customMedia": true
-    }
-  }
+  "license": "GPL-3.0"
 }
