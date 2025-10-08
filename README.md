@@ -35,6 +35,12 @@ Our Timber-based theme requires ACF (Advanced Custom Fields) Pro. ACF requires a
 - [ ] Enable ACF through the WordPress UI (you'll need to do this on whatever database is going to become the install source for developers)
 - [ ] Activate the ACF Pro license through the WP UI (again, this must be done on the source database so it can proliferate)
 
+## Common Setup Tasks
+The following is a list of common setup tasks. These are typically only needed when you’re not using an existing site database. They aren’t required steps, but they can be useful during development.
+
+- [ ] Adjust Permalink settings: Go to `/wp/wp-admin/options-permalink.php` and change the Permalink structure to Post name.
+- [ ] Create a style guide page: Add a new Page and set it's path to `/style-guide`. The style guide will automatically appear on that page.
+
 ## Theme Development
 
 For most development tasks, simply run `npm start` to start Parcel's watch, which will compile the projects CSS and
