@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A ThinkShout WordPress theme.",
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
     "concurrently": "^9.2.1",
     "cssnano": "^7.1.1",
     "dotenv": "^17.2.3",
