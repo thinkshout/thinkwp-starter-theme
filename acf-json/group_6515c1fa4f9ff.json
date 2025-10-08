@@ -30,7 +30,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cta--controller"
+                "value": "acf\/cta"
             }
         ]
     ],
@@ -43,5 +43,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741579360
+    "modified": 1759867347
 }
