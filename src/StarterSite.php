@@ -10,6 +10,7 @@ namespace App;
 use Timber\Site;
 use Timber\Timber;
 use Timber_Acf_Wp_Blocks;
+use WP_Block_Type_Registry;
 
 /**
  * Class StarterSite.
@@ -318,34 +319,14 @@ class StarterSite extends Site {
 			return $allowed_block_types;
 		}
 
-		// There are many more block options available. For a list, see:
-		// https://developer.wordpress.org/block-editor/reference-guides/core-blocks/
-		$allowed_blocks = array(
-			'core/block',
-			'core/button',
-			'core/buttons',
-			'core/code',
-			'core/columns',
-			'core/cover',
-			'core/embed',
-			'core/gallery',
-			'core/group',
-			'core/heading',
-			'core/html',
-			'core/image',
-			'core/list',
-			'core/list-item',
-			'core/paragraph',
-			'core/preformatted',
-			'core/pullquote',
-			'core/quote',
-			'core/separator',
-			'core/shortcode',
-			'core/spacer',
-			'core/table',
-			'core/text-columns',
-			'core/video',
-		);
+        $allowed_blocks = ( true === $allowed_block_types ) ? array_keys(
+            WP_Block_Type_Registry::get_instance()->get_all_registered()
+        ) : $allowed_block_types;
+
+        // Allow all core blocks
+        $allowed_blocks = array_filter( $allowed_blocks, function( $k ) {
+            return str_starts_with( $k, 'core/' );
+        } );
 
 		// Make sure we allow our ACF blocks.
 		$acf_block_types     = acf_get_store( 'block-types' );
