@@ -5,7 +5,7 @@
         {% include ['@thinktimber/partials/tease-' ~ post.type ~ '.twig', '@thinktimber/partials/tease.twig'] %}
     {% endfor %}
 
-    {% include '@thinktimber/molecules/pagination/display/pagination--display.twig' with {
+    {% include '@thinktimber/molecules/pagination/pagination.twig' with {
         pagination: posts.pagination({
             show_all: false,
             mid_size: 3,
