@@ -188,6 +188,9 @@ class StarterSite extends Site {
 							'title' => 'Title',
 							'description' => 'Description',
 						) );
+						if ( ! $file_headers['title'] ) {
+							$file_headers['title'] = $id;
+						}
 						$file_headers['dev_notes'] = "$template_path/$id";
 						$file_headers['path'] = "$template_path/$styleguide_file";
 						$context[$context_label][$id] = $file_headers;
