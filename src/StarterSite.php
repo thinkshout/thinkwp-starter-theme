@@ -169,7 +169,35 @@ class StarterSite extends Site {
 		$context['menus']['footer_legal'] = Timber::get_menu( 'legal' );
 		$this->flatten_menu( $context['menus']['footer_legal'] );
 		$context['site'] = $this;
+
 		$context['styleguide'] = is_page( 'style-guide' );
+		if ( $context['styleguide'] ) {
+			$styleguide_directory_scans = array(
+				'ts_blocks' => 'organisms/blocks',
+				'ts_molecules' => 'molecules',
+			);
+			foreach( $styleguide_directory_scans as $context_label => $template_path ) {
+				$context[$context_label] = [];
+				$directory = get_template_directory() . '/views/' . $template_path;
+				$element_directories = scandir($directory) ?: array();
+				foreach ($element_directories as $id) {
+					$file = "$id/$id.twig";
+					$styleguide_file = "$id/styleguide/$id--styleguide-layout.twig";
+					if ( file_exists( "$directory/$styleguide_file" ) ) {
+						$file_headers = get_file_data( "$directory/$file", array(
+							'title' => 'Title',
+							'description' => 'Description',
+						) );
+						if ( ! $file_headers['title'] ) {
+							$file_headers['title'] = $id;
+						}
+						$file_headers['dev_notes'] = "$template_path/$id";
+						$file_headers['path'] = "$template_path/$styleguide_file";
+						$context[$context_label][$id] = $file_headers;
+					}
+				}
+			}
+		}
 
 		return $context;
 	}
