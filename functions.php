@@ -10,6 +10,11 @@
 
 namespace App;
 
+/**
+ * Prefer the theme's composer dependencies to the project's.
+ */
+require_once( realpath( __DIR__ ) . '/vendor/autoload.php' );
+
 use Timber\Timber;
 
 require_once __DIR__ . '/src/StarterSite.php';
