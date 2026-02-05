@@ -116,7 +116,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cards-numbers--controller"
+                "value": "acf\/cards-numbers"
             }
         ]
     ],
@@ -129,5 +129,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741579295
+    "modified": 1759867368
 }

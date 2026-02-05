@@ -93,7 +93,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/accordion--controller"
+                "value": "acf\/accordion"
             }
         ]
     ],
@@ -106,5 +106,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741578685
+    "modified": 1759867162
 }

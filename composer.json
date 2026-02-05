@@ -49,10 +49,8 @@
     "scaffold": [
       "rm -rf base-assets assets tokens",
       "git clone -b ${BASE_ASSETS_BRANCH:-main} git@github.com:thinkshout/base-assets.git",
-      "cp -rf base-assets/scaffold/views/* ./views/",
-      "rm -rf base-assets/scaffold/views",
-      "cp -rf base-assets/scaffold/* ./",
-      "cp -rf tmp/js/* ./assets/js/ || true",
+      "rsync -r base-assets/scaffold/ ./",
+      "rsync -r tmp/js/ ./assets/js/",
       "rm -rf tmp",
       "rm -rf base-assets"
     ]

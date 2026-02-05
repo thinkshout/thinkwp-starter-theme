@@ -43,6 +43,7 @@ class StarterSite extends Site {
 		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_scripts' ) );
+		add_action( 'wp_dashboard_setup', array( $this, 'dashboard_setup' ) );
 
 		add_filter( 'timber/loader/loader', [ $this, 'timber_loader' ] );
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
@@ -169,7 +170,35 @@ class StarterSite extends Site {
 		$context['menus']['footer_legal'] = Timber::get_menu( 'legal' );
 		$this->flatten_menu( $context['menus']['footer_legal'] );
 		$context['site'] = $this;
+
 		$context['styleguide'] = is_page( 'style-guide' );
+		if ( $context['styleguide'] ) {
+			$styleguide_directory_scans = array(
+				'ts_blocks' => 'organisms/blocks',
+				'ts_molecules' => 'molecules',
+			);
+			foreach( $styleguide_directory_scans as $context_label => $template_path ) {
+				$context[$context_label] = [];
+				$directory = get_template_directory() . '/views/' . $template_path;
+				$element_directories = scandir($directory) ?: array();
+				foreach ($element_directories as $id) {
+					$file = "$id/$id.twig";
+					$styleguide_file = "$id/styleguide/$id--styleguide-layout.twig";
+					if ( file_exists( "$directory/$styleguide_file" ) ) {
+						$file_headers = get_file_data( "$directory/$file", array(
+							'title' => 'Title',
+							'description' => 'Description',
+						) );
+						if ( ! $file_headers['title'] ) {
+							$file_headers['title'] = $id;
+						}
+						$file_headers['dev_notes'] = "$template_path/$id";
+						$file_headers['path'] = "$template_path/$styleguide_file";
+						$context[$context_label][$id] = $file_headers;
+					}
+				}
+			}
+		}
 
 		return $context;
 	}
@@ -287,6 +316,21 @@ class StarterSite extends Site {
 	public function block_editor_scripts() {
 		// Scripts.
 		wp_enqueue_script( 'thinktimber-admin-scripts', get_template_directory_uri() . '/' . $this->scripts_dir . '/motif-admin.js', array( 'wp-edit-post' ), $this->scripts_version, true );
+	}
+
+	/**
+	 * WP Dashboard customization.
+	 */
+	public function dashboard_setup() {
+		$current_user = wp_get_current_user();
+		wp_add_dashboard_widget(
+			'thinktimber_dashboard_widget',
+			sprintf( 'Welcome, %s', $current_user->display_name ),
+			function () {
+				$context = Timber::context();
+				Timber::render( '@thinktimber/organisms/welcome/display/welcome--display.twig', $context );
+			}
+		);
 	}
 
 	/**
