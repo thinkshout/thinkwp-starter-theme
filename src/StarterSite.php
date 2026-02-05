@@ -351,9 +351,28 @@ class StarterSite extends Site {
             WP_Block_Type_Registry::get_instance()->get_all_registered()
         ) : $allowed_block_types;
 
-        // Allow all core blocks
+        // Allow most core blocks
         $allowed_blocks = array_filter( $allowed_blocks, function( $k ) {
-            return str_starts_with( $k, 'core/' );
+            return (
+                str_starts_with( $k, 'core/' )
+                && !in_array( $k, array(
+                    'core/archives',
+                    'core/audio',
+                    'core/avatar',
+                    'core/breadcrumbs',
+                    'core/pattern',
+                    'core/calendar',
+                    'core/categories',
+                    'core/comments',
+                    'core/details',
+                    'core/file',
+                    'core/form',
+                    'core/math',
+                    'core/playlist',
+                    'core/verse',
+                    )
+                )
+            );
         } );
 
 		// Make sure we allow our ACF blocks.
